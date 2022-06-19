@@ -1,0 +1,36 @@
+@import '~normalize-scss/sass/normalize/import-now';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  vertical-align: baseline;
+  border: 0;
+}
+
+img {
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

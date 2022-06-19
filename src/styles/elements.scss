@@ -1,0 +1,21 @@
+body {
+  color: $color--black;
+  font-family: $font;
+  font-size: 16px;
+  line-height: 1;
+}
+
+a {
+  color: $color--violet;
+  transition: all 0.5s;
+
+  &:hover,
+  &:visited {
+    color: $color--violet-lighter;
+  }
+
+  &.active {
+    text-decoration: none;
+    color: $color--black-lighter;
+  }
+}

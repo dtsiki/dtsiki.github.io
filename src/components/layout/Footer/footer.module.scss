@@ -1,0 +1,24 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+@import './../../../styles/vars';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 50px 0;
+  background: $color--white;
+  border-top: 1px solid $color--white-violet;
+  color: $color--grey-dark;
+
+  &__inner {
+    max-width: $width--lg-min;
+    margin: 0 25px;
+
+    @include lg {
+      max-width: $width--lg-min;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$grid-spacer;
+  margin-left: -$grid-spacer;
+}
+
+.col {
+  padding: 0 $grid-spacer;
+  box-sizing: border-box;
+  --col-size: 100%;
+  width: var(--col-size);
+  flex: 0 0 var(--col-size);
+
+  &--25 {--col-size: 25%;}
+  &--33 {--col-size: 33.33%;}
+  &--35 {--col-size: 35%;}
+  &--40 {--col-size: 40%;}
+  &--50 {--col-size: 50%;}
+  &--60 {--col-size: 60%;}
+  &--65 {--col-size: 65%;}
+  &--66 {--col-size: 66.66%;}
+  &--75 {--col-size: 75%;}
+  &--85 {--col-size: 85%;}
+}

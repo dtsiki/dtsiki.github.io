@@ -1,0 +1,14 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+@import './../../../styles/vars';
+
+.layout {
+  position: relative;
+  margin: 0 25px;
+  padding: 50px 0 0 0;
+
+  @include lg {
+    max-width: $width--lg-min;
+    margin: 0 auto;
+  }
+}
