@@ -1,11 +1,11 @@
 import React from 'react';
+import NameTagHero from 'src/components/layout/NameTagHero';
 
 const Home = (): JSX.Element => {
   return (
-    <section className='section'>
-      <h1>Home page</h1>
-      <p>Yay!</p>
-    </section>
+    <>
+      <NameTagHero />
+    </>
   );
 };
 

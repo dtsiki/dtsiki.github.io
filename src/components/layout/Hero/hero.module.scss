@@ -1,0 +1,23 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+
+  &.primary {
+    background-color: $color--violet;
+  }
+
+  &.dark {
+    background-color: $color--black;
+  }
+
+  &.light {
+    background-color: $color--white;
+  }
+}

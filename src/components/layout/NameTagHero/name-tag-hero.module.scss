@@ -1,0 +1,13 @@
+@import './../../../styles/colors';
+
+.nameTagHero {
+  &__button {
+    position: absolute;
+    bottom: 30px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: $color--white;
+    border-radius: 50%;
+  }
+}
