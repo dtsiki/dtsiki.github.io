@@ -53,5 +53,9 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "npm run format"
-  }
+  },
+  "builds": [
+    { "src": "package.json", "use": "@now/next" },
+    { "src": "static/css/style.css", "use": "@now/static" }
+  ]
 }
