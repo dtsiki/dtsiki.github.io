@@ -155,6 +155,17 @@ ul,
           color: $color--black;
         }
       }
+
+      &--with-link {
+        &:hover {
+          border-color: $color--violet;
+
+          .tag__link,
+          svg {
+            color: $color--violet;
+          }
+        }
+      }
     }
   }
 }
