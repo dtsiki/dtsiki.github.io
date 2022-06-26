@@ -15,9 +15,10 @@ export enum ScrollDownButtonVariant {
 interface ScrollDownButtonProps {
   variant?: ScrollDownButtonVariant;
   targetRef:  MutableRefObject<HTMLElement | null>;
+  isHidden?: boolean;
 }
 
-const ScrollDownButton = ({ targetRef, variant = ScrollDownButtonVariant.PRIMARY }: ScrollDownButtonProps): ReactElement => {
+const ScrollDownButton = ({ targetRef, variant = ScrollDownButtonVariant.PRIMARY, isHidden }: ScrollDownButtonProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   const onScrollDown = (): void => {
@@ -25,7 +26,7 @@ const ScrollDownButton = ({ targetRef, variant = ScrollDownButtonVariant.PRIMARY
   };
 
   return (
-    <div className={bind([styles.scrollDownButton, variant])}>
+    <div className={bind([styles.scrollDownButton, variant, { [styles.scrollDownButton_hidden]: isHidden } ])}>
       <button
         onClick={onScrollDown}
         className={`button button--circle button--${variant}`}>

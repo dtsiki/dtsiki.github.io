@@ -30,7 +30,9 @@ const YayHero = ({ targetRef, showButton }: Props): ReactElement => {
           </h3>
         </div>
       </div>
-      {showButton && <ScrollDownButton targetRef={targetRef} />}
+      <ScrollDownButton
+        isHidden={!showButton}
+        targetRef={targetRef} />
     </Hero>
 
   );

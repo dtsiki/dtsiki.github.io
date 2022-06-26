@@ -18,11 +18,10 @@ const AboutHero = ({ targetRef, showButton }: Props): ReactElement => {
       <h1 className={styles.aboutHero__title}>
         Let me introduce myself
       </h1>
-      {showButton && (
-        <ScrollDownButton
-          variant={ScrollDownButtonVariant.LIGHT}
-          targetRef={targetRef} />
-      )}
+      <ScrollDownButton
+        isHidden={!showButton}
+        variant={ScrollDownButtonVariant.LIGHT}
+        targetRef={targetRef} />
     </Hero>
   );
 };
