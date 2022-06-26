@@ -1,12 +1,8 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { MutableRefObject, ReactElement, ReactNode } from 'react';
+
 import classNames from 'classnames/bind';
 
 import styles from './hero.module.scss';
-
-interface LayoutProps {
-  children: ReactNode;
-  variant?: HeroVariant;
-}
 
 export enum HeroVariant {
   PRIMARY = 'primary',
@@ -14,11 +10,32 @@ export enum HeroVariant {
   DARK = 'dark'
 }
 
-const Hero = ({ children, variant = HeroVariant.LIGHT }: LayoutProps): ReactElement => {
+export enum HeroAlign {
+  left = 'left',
+  center = 'center',
+  grid = 'grid'
+}
+
+interface LayoutProps {
+  children: ReactNode;
+  variant?: HeroVariant;
+  align?: HeroAlign;
+  heroRef?:  MutableRefObject<HTMLElement | null>;
+  className?: string;
+}
+
+const Hero = ({
+  children,
+  variant = HeroVariant.LIGHT,
+  align = HeroAlign.center,
+  heroRef,
+  className }: LayoutProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
-    <section className={bind([styles.hero, variant])}>
+    <section
+      ref={heroRef}
+      className={bind([styles.hero, variant, align, className])}>
       {children}
     </section>
   );

@@ -1,24 +1,40 @@
 @import './../../../styles/colors';
 @import './../../../styles/breakpoints';
-@import './../../../styles/vars';
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 50px 0;
-  background: $color--white;
-  border-top: 1px solid $color--white-violet;
+  padding: 30px 0;
   color: $color--grey-dark;
 
-  &__inner {
-    max-width: $width--lg-min;
-    margin: 0 25px;
+  @include sm {
+    padding: 60px 0;
+  }
 
-    @include lg {
-      max-width: $width--lg-min;
-      margin: 0 auto;
+  &__inner {
+    @include sm {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
     }
+  }
+
+  &__section {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include sm {
+      margin-bottom: 0;
+    }
+  }
+
+  svg {
+    color: $color--violet;
+  }
+
+  &__link {
+    margin: 0 5px;
   }
 }

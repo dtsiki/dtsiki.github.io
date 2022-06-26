@@ -1,16 +1,33 @@
 @import './../../../styles/colors';
 @import './../../../styles/vars';
+@import './../../../styles/breakpoints';
 
 .hero {
   position: relative;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+  justify-content: center;
+  min-height: 500px;
+
+  @include sm {
+    min-height: 100vh;
+  }
+
+  &.center {
+    align-items: center;
+  }
+
+  &.left {
+    align-items: flex-start;
+  }
+
+  &.grid {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 
   &.primary {
-    background-color: $color--violet;
+    background: linear-gradient(141deg, $color--violet 0%, $color--violet-dark, $color--violet-lighter);
   }
 
   &.dark {

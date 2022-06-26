@@ -1,1 +1,37 @@
-.home {}
+@import './../styles/colors';
+
+.home {
+  position: relative;
+
+  &__header {
+    margin-top: -60px;
+  }
+
+  &__heading {
+    font-size: 8rem;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: 6rem;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  &__scrollDown {
+    position: absolute;
+    bottom: 60px;
+  }
+
+  &__readMore {
+    margin: 5px 0 0 10px;
+  }
+
+  span {
+    font-weight: 700;
+  }
+}

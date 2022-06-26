@@ -1,7 +1,25 @@
 @import './../../../styles/colors';
 
 .header {
-  margin-bottom: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color--violet-darker;
+  transition: 0.5s ease;
+  max-height: 0;
+  height: 0;
+  overflow: hidden;
+
+  &_opened {
+    max-height: 100%;
+    height: 60px;
+    overflow: visible;
+    opacity: 0.9;
+  }
 
   &__nav {
     ul {
@@ -14,6 +32,31 @@
           margin-right: 0;
         }
       }
+    }
+  }
+
+  &__link {
+    color: $color--white;
+    text-decoration: none;
+  }
+
+  &__button {
+    position: fixed;
+    top: 20px;
+    z-index: 1001;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+
+    &_toggle {
+      right: 20px;
+    }
+
+    svg {
+      width: 25px;
+      height: 25px;
     }
   }
 }

@@ -1,0 +1,30 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.scrollDownButton {
+  display: none;
+
+  @include sm {
+    position: absolute;
+    bottom: 60px;
+    display: block;
+  }
+
+  &.primary {
+    svg {
+      color: $color--white;
+    }
+  }
+
+  &.dark {
+    svg {
+      color: $color--white;
+    }
+  }
+
+  &.light {
+    svg {
+      color: $color--violet;
+    }
+  }
+}
