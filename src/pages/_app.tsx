@@ -4,6 +4,7 @@ import { AppProps } from 'next/app';
 
 import '../styles/index.scss';
 import Layout from 'src/components/layout/Layout';
+import { YMInitializer } from 'react-yandex-metrika';
 
 const App = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
@@ -11,6 +12,7 @@ const App = ({ Component, pageProps }: AppProps): ReactElement => {
       <Head>
         <title>Yay!</title>
       </Head>
+      <YMInitializer accounts={[89335351]} />
       <Component {...pageProps} />
     </Layout>
   );

@@ -26,6 +26,7 @@
     "normalize-scss": "^7.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-yandex-metrika": "^2.6.0",
     "replace-in-file": "^6.3.5",
     "sass": "^1.52.3"
   },
