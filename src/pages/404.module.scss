@@ -1,0 +1,45 @@
+@import './../styles/colors';
+
+.custom404 {
+  &__title {
+    font-size: 2rem;
+    color: $color--white;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    font-size: 10rem;
+    color: $color--white;
+    font-weight: 700;
+    opacity: 0.9;
+    cursor: default;
+  }
+
+  &__button {
+    padding: 10px 15px;
+    margin-top: 60px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: lowercase;
+    border: 2px solid $color--white;
+    color: $color--white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: 0.5s ease;
+
+    &:hover,
+    &:focus {
+      border-color: $color--black;
+      color: $color--black;
+    }
+  }
+
+  svg {
+    width: 130px;
+    height: 130px;
+    margin: 0 10px;
+  }
+}
