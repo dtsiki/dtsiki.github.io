@@ -1,6 +1,7 @@
-import { faGoodreads, faInstagram, faStrava } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDeviantart, faGoodreads, faInstagram, faStrava } from '@fortawesome/free-brands-svg-icons';
 
 const AboutHobbies = (): ReactElement => {
   return (
@@ -21,6 +22,18 @@ const AboutHobbies = (): ReactElement => {
       <li className='tag'>Puzzles</li>
       <li className='tag tag--with-link'>
         <a
+          href='https://www.deviantart.com/tvm-resources'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='tag__link'>
+          Photoshopping
+          <FontAwesomeIcon
+            icon={faDeviantart}
+            color='#8a2be2' />
+        </a>
+      </li>
+      <li className='tag tag--with-link'>
+        <a
           href='https://www.goodreads.com/thevioletmaniac '
           target='_blank'
           rel='noopener noreferrer'
@@ -32,6 +45,7 @@ const AboutHobbies = (): ReactElement => {
         </a>
       </li>
       <li className='tag'>Learning english</li>
+      <li className='tag'>Traveling</li>
       <li className='tag tag--with-link'>
         <a
           href='https://www.instagram.com/keshathecorgi'
@@ -44,7 +58,6 @@ const AboutHobbies = (): ReactElement => {
             color='#8a2be2' />
         </a>
       </li>
-      <li className='tag'>Traveling</li>
     </ul>
   );
 };
