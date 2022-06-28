@@ -2,7 +2,7 @@ import { faGoodreads, faInstagram, faStrava } from '@fortawesome/free-brands-svg
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 
-const AboutHobby = (): ReactElement => {
+const AboutHobbies = (): ReactElement => {
   return (
     <ul className='tags tags--outline-dark'>
       <li className='tag tag--with-link'>
@@ -11,7 +11,7 @@ const AboutHobby = (): ReactElement => {
           target='_blank'
           rel='noopener noreferrer'
           className='tag__link'>
-          Run
+          Running
           <FontAwesomeIcon
             icon={faStrava}
             color='#8a2be2' />
@@ -25,28 +25,28 @@ const AboutHobby = (): ReactElement => {
           target='_blank'
           rel='noopener noreferrer'
           className='tag__link'>
-          Read
+          Reading
           <FontAwesomeIcon
             icon={faGoodreads}
             color='#8a2be2' />
         </a>
       </li>
-      <li className='tag'>Learn english</li>
+      <li className='tag'>Learning english</li>
       <li className='tag tag--with-link'>
         <a
           href='https://www.instagram.com/keshathecorgi'
           target='_blank'
           rel='noopener noreferrer'
           className='tag__link'>
-          Spend time with my dog
+          Spending time with my dog
           <FontAwesomeIcon
             icon={faInstagram}
             color='#8a2be2' />
         </a>
       </li>
-      <li className='tag'>Travel</li>
+      <li className='tag'>Traveling</li>
     </ul>
   );
 };
 
-export default AboutHobby;
+export default AboutHobbies;

@@ -8,7 +8,7 @@ import Block from 'src/components/common/Block';
 import AboutWorkExperience from './_work-experience';
 import AboutSkills from './_skills';
 import AboutEducation from './_education';
-import AboutHobby from './_hobby';
+import AboutHobbies from './_hobbies';
 import { nanoid } from 'nanoid';
 
 import styles from './about.module.scss';
@@ -37,9 +37,9 @@ const About = (): ReactElement => {
       content: <AboutEducation />
     },
     {
-      title: 'Hobby',
+      title: 'Hobbies',
       icon: faSmile,
-      content: <AboutHobby />,
+      content: <AboutHobbies />,
       isReversed: true
     },
     {

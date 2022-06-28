@@ -38,7 +38,7 @@ const AboutNav = (): ReactElement => {
             icon={faSmile}
             size='2x' />
           <span className='visually-hidden'>
-            Hobby
+            Hobbies
           </span>
         </li>
         <li>
