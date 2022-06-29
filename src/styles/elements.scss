@@ -128,14 +128,26 @@ ul,
 
       &--with-link {
         background-color: transparent;
-        border: 2px solid $color--white;
 
         &:hover {
-          border-color: $color--black;
+          border-color: transparent;
+        }
 
-          .tag__link,
+        .tag__link {
+          border-color: $color--white;
+          color: $color--white;
+
           svg {
+            color: $color--white;
+          }
+
+          &:hover {
+            border-color: $color--black;
             color: $color--black;
+
+            svg {
+              color: $color--black;
+            }
           }
         }
       }
@@ -148,21 +160,29 @@ ul,
       color: $color--black;
       border-color: $color--black;
 
-      &__link {
-        color: $color--black;
-
-        svg {
-          color: $color--black;
-        }
-      }
-
       &--with-link {
-        &:hover {
-          border-color: $color--violet;
+        background-color: transparent;
+        border: 0;
 
-          .tag__link,
+        &:hover {
+          border-color: transparent;
+        }
+
+        .tag__link {
+          border-color: $color--black;
+          color: $color--black;
+
           svg {
+            color: $color--black;
+          }
+
+          &:hover {
+            border-color: $color--violet;
             color: $color--violet;
+
+            svg {
+              color: $color--violet;
+            }
           }
         }
       }
@@ -185,10 +205,11 @@ ul,
   }
 
   &--with-link {
+    padding: 0;
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid $color--white;
-    transition: 0.5s ease;
+    border-color: transparent;
+    border-radius: 0;
 
     &:hover {
       border-color: $color--black;
@@ -203,10 +224,13 @@ ul,
   &__link {
     display: flex;
     align-items: center;
+    padding: 10px 15px;
     color: $color--white;
     text-decoration: none;
     font-weight: 500;
     transition: 0.5s ease;
+    border: 2px solid $color--white;
+    border-radius: 20px;
 
     svg {
       margin: 0 0 -2px 10px;
