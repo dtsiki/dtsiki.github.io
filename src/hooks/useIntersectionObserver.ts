@@ -16,6 +16,7 @@ const useIntersectionObserver = (
   const handleObserverElement = (entries: Array<IntersectionObserverEntry>): void => {
     if (ref.current) {
       const [entry] = entries;
+
       setIsVisible(entry.isIntersecting);
     }
   };

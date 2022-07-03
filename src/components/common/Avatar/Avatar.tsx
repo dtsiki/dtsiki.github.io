@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { MutableRefObject, ReactElement } from 'react';
 import Image, { StaticImageData } from 'next/image';
 
 import classNames from 'classnames';
@@ -9,13 +9,16 @@ interface Props {
   image: StaticImageData;
   label?:  string;
   className?: string;
+  avatarRef?: MutableRefObject<HTMLElement | null>;
 }
 
-const Avatar = ({ image, label, className }: Props): ReactElement => {
+const Avatar = ({ image, label, className, avatarRef }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
-    <figure className={bind([styles.avatar, className])}>
+    <figure
+      ref={avatarRef}
+      className={bind([styles.avatar, className])}>
       <Image
         className={styles.avatar__image}
         src={image}

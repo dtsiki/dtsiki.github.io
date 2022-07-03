@@ -4,11 +4,13 @@
 
 .block {
   display: flex;
-  justify-content: flex-start;
-  padding-bottom: 60px;
+  justify-content: center;
+  padding: 20px 0 20px;
 
   @include sm {
+    padding: 20px 0 60px;
     text-align: right;
+    justify-content: flex-start;
   }
 
   &__wrapper {
@@ -25,7 +27,7 @@
     @include sm {
       position: absolute;
       right: -20px;
-      top: 5px;
+      top: 10px;
     }
 
     svg {
@@ -38,7 +40,7 @@
     font-size: 3rem;
     font-weight: 700;
     text-transform: lowercase;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     text-align: center;
 
     @include sm {
@@ -53,10 +55,10 @@
       &::after {
         position: absolute;
         content: '';
-        top: 0;
-        right: -40px;
+        top: -20px;
+        right: -42px;
         width: 1px;
-        height: calc(100% + 50px);
+        height: calc(100% + 95px);
         background-color: transparent;
         border-left: 2px dotted $color--black;
       }
@@ -96,10 +98,10 @@
         &::after {
           position: absolute;
           content: '';
-          top: 0;
+          top: -20px;
           left: -30px;
           width: 1px;
-          height: calc(100% + 50px);
+          height: calc(100% + 95px);
         }
       }
     }
@@ -124,5 +126,9 @@
       position: static;
       margin-bottom: 15px;
     }
+  }
+
+  .list {
+    line-height: 1.5rem;
   }
 }

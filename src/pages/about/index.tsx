@@ -1,83 +1,107 @@
 import React, { ReactElement, useMemo, useRef } from 'react';
 
-import AboutHero from 'src/components/custom/AboutHero';
-import avatar from '/public/assets/avatar.jpeg';
-import Avatar from 'src/components/common/Avatar';
+import { nanoid } from 'nanoid';
 import { faBriefcase, faCode, faGraduationCap, faHeart, faSmile } from '@fortawesome/free-solid-svg-icons';
+
+import Avatar from 'src/components/common/Avatar';
 import Block from 'src/components/common/Block';
+import AboutHero from './_hero';
+import AboutNav from './_nav';
 import AboutWorkExperience from './_work-experience';
 import AboutSkills from './_skills';
 import AboutEducation from './_education';
 import AboutHobbies from './_hobbies';
-import { nanoid } from 'nanoid';
-
-import styles from './about.module.scss';
 import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
 
+import styles from './about.module.scss';
+import avatar from '/public/assets/avatar.jpeg';
+
 const About = (): ReactElement => {
-  const ref = useRef<HTMLDivElement>(null);
+  const resumeRef = useRef<HTMLDivElement>(null);
+  const workExperienceRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
+  const hobbiesRef = useRef<HTMLDivElement>(null);
+  const isResumeVisible = useIntersectionObserver(resumeRef);
 
-  const isVisible = useIntersectionObserver(ref);
-
-  const blocks = [
+  const items = [
     {
+      id: nanoid(),
       title: 'Work experience',
       icon: faBriefcase,
-      content: <AboutWorkExperience />
+      content: <AboutWorkExperience />,
+      ref: workExperienceRef,
+      showInNav: true
     },
     {
+      id: nanoid(),
       title: 'Skills',
       icon: faCode,
       content: <AboutSkills />,
-      isReversed: true
+      isReversed: true,
+      ref: skillsRef,
+      showInNav: true
     },
     {
+      id: nanoid(),
       title: 'Education',
       icon: faGraduationCap,
-      content: <AboutEducation />
+      content: <AboutEducation />,
+      ref: educationRef,
+      showInNav: true
     },
     {
+      id: nanoid(),
       title: 'Hobbies',
       icon: faSmile,
       content: <AboutHobbies />,
-      isReversed: true
+      isReversed: true,
+      ref: hobbiesRef,
+      showInNav: true
     },
     {
+      id: nanoid(),
       title: 'Thanks for watching!',
       icon: faHeart,
       isCentered: true
     }
   ];
 
-  const renderBlocks = useMemo(() => {
-    return blocks.map((block) => {
-      const { title, icon, content, isReversed, isCentered } = block;
+  const renderItems = useMemo(() => {
+    return items.map((item) => {
+      const { id, title, icon, content, isReversed, isCentered, ref } = item;
 
       return (
-        <Block
-          key={nanoid()}
-          icon={icon}
-          title={title}
-          content={content}
-          isReversed={isReversed}
-          isCentered={isCentered} />
+        <div
+          key={id}
+          ref={ref}>
+          <Block
+            icon={icon}
+            title={title}
+            content={content}
+            isReversed={isReversed}
+            isCentered={isCentered} />
+        </div>
       );
     });
-  }, [blocks])
+  }, [items])
 
   return (
     <div className={styles.about}>
       <AboutHero
-        targetRef={ref}
-        showButton={!isVisible} />
+        targetRef={resumeRef}
+        showButton={!isResumeVisible} />
       <div
-        ref={ref}
+        ref={resumeRef}
         className={styles.about__resume}>
+        <AboutNav
+          items={items}
+          isVisible={isResumeVisible} />
         <Avatar
           image={avatar}
           className={styles.about__avatar} />
         <div className='container'>
-          {renderBlocks}
+          {renderItems}
         </div>
       </div>
     </div>

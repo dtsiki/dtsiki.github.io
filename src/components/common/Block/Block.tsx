@@ -26,7 +26,8 @@ const Block = ({ title, icon, content, isReversed = false, isCentered = false }:
   );
 
   return (
-    <div className={blockClassName}>
+    <div
+      className={blockClassName}>
       <div className={styles.block__wrapper}>
         <div className={styles.block__icon}>
           <FontAwesomeIcon
