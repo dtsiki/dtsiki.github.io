@@ -44,6 +44,11 @@ const Header = (): ReactElement => {
               <a className={styles.header__link}>Projects</a>
             </Link>
           </li>
+          <li>
+            <Link href='/blog'>
+              <a className={styles.header__link}>Blog</a>
+            </Link>
+          </li>
         </ul>
       </nav>
       <button
