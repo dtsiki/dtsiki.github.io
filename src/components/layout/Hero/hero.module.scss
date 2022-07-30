@@ -9,8 +9,22 @@
   justify-content: center;
   min-height: 500px;
 
-  @include sm {
-    min-height: 100vh;
+  &.full {
+    @include sm {
+      min-height: 100vh;
+    }
+  }
+
+  &.half {
+    @include sm {
+      min-height: 50vh;
+    }
+  }
+
+  &.small {
+    @include sm {
+      min-height: 25vh;
+    }
   }
 
   &.center {
@@ -27,7 +41,11 @@
   }
 
   &.primary {
-    background: linear-gradient(141deg, $color--violet 0%, $color--violet-dark, $color--violet-lighter);
+    background-color: $color--violet;
+  }
+
+  &.secondary {
+    background-color: $color--white-violet;
   }
 
   &.dark {

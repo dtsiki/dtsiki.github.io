@@ -1,0 +1,45 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.details {
+  position: relative;
+
+  &__title {
+    font-size: 2.5rem;
+    color: $color--violet;
+    font-weight: 700;
+    text-align: left;
+
+    @include lg {
+      font-size: 4rem;
+      text-align: right;
+    }
+  }
+
+  &__tags {
+    justify-content: flex-start;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @include lg {
+      justify-content: flex-end;
+      margin-top: 30px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__description {
+    line-height: 2rem;
+    text-align: left;
+    margin-bottom: 15px;
+    color: $color--black;
+  }
+
+  &__list {
+    margin-top: 25px;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}

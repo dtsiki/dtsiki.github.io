@@ -6,14 +6,21 @@ import styles from './hero.module.scss';
 
 export enum HeroVariant {
   PRIMARY = 'primary',
+  SECONDARY = 'secondary',
   LIGHT = 'light',
   DARK = 'dark'
 }
 
 export enum HeroAlign {
-  left = 'left',
-  center = 'center',
-  grid = 'grid'
+  LEFT = 'left',
+  CENTER = 'center',
+  GRID = 'grid'
+}
+
+export enum HeroSize {
+  FULL = 'full',
+  HALF = 'half',
+  SMALL = 'small'
 }
 
 interface LayoutProps {
@@ -22,20 +29,22 @@ interface LayoutProps {
   align?: HeroAlign;
   heroRef?:  MutableRefObject<HTMLElement | null>;
   className?: string;
+  size?: HeroSize;
 }
 
 const Hero = ({
   children,
   variant = HeroVariant.LIGHT,
-  align = HeroAlign.center,
+  align = HeroAlign.CENTER,
   heroRef,
-  className }: LayoutProps): ReactElement => {
+  className,
+  size = HeroSize.FULL }: LayoutProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
     <section
       ref={heroRef}
-      className={bind([styles.hero, variant, align, className])}>
+      className={bind([styles.hero, variant, align, size, className])}>
       {children}
     </section>
   );
