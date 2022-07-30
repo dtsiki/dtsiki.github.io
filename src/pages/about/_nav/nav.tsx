@@ -18,7 +18,7 @@ const AboutNav = ({ items, isVisible }: Props): ReactElement => {
   }
 
   const renderItems = useMemo(() => {
-    return items.map((item) => {
+    return items?.map((item) => {
       const { id, title, icon, showInNav, ref } = item;
 
       if (showInNav) {

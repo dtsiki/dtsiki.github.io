@@ -19,7 +19,7 @@ const Details = ({ title, tags, description, demoLink, sourceLink }: Props): Rea
   const bind = classNames.bind(styles);
 
   const tagsList = useMemo(() => {
-    return tags.map((tag) => {
+    return tags?.map((tag) => {
       return (
         <li
           key={tag}
