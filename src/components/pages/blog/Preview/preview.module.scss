@@ -1,0 +1,42 @@
+@import './../../../../styles/colors';
+
+.preview {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__heading {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 2rem;
+  }
+
+  &__category {
+    font-size: 1rem;
+    color: $color--grey;
+  }
+
+  &__highlight {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: 500;
+    border-bottom: 2px solid $color--violet;
+    text-decoration: none;
+    color: $color--violet;
+
+    svg {
+      margin-left: 10px;
+    }
+  }
+}

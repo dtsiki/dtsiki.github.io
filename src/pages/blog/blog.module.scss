@@ -1,0 +1,23 @@
+@import './../../styles/colors';
+@import './../../styles/breakpoints';
+
+.blog {
+  position: relative;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    max-width: 700px;
+    text-align: center;
+    color: $color--white;
+
+    @include sm {
+      font-size: 5rem;
+    }
+  }
+
+  &__posts {
+    margin-top: 120px;
+    margin-bottom: 60px;
+  }
+}
