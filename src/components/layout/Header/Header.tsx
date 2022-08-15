@@ -1,16 +1,19 @@
 import React, { ReactElement, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
-
-import styles from './header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+
 import useEventListener, { Event } from 'src/hooks/useEventListener';
+
+import styles from './header.module.scss';
 
 const Header = (): ReactElement => {
   const [isPageScrolled, setPageScrolled] = useState(false);
   const [isMenuOpened, setMenuOpened] = useState<boolean>(true);
   const bind = classNames.bind(styles);
+  const router = useRouter();
 
   const menuItems = [
     {
@@ -76,7 +79,9 @@ const Header = (): ReactElement => {
               tabIndex={0}
               onClick={onLinkClicked}
               onKeyDown={onLinkClicked}
-              className={styles.header__link}>{label}</a>
+              className={bind([styles.header__link, { [styles.active]: router.asPath === `/${path}` }])}>
+              {label}
+            </a>
           </Link>
         </li>
       );

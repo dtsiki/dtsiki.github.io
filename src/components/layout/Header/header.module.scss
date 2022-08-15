@@ -96,6 +96,10 @@
       color: $color--violet;
       transition: 0.5s ease;
     }
+
+    &.active {
+      color: $color--black;
+    }
   }
 
   &__toggle {
