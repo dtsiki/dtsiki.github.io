@@ -1,60 +1,109 @@
 import React, { ReactElement, useMemo, useState } from 'react';
 import Link from 'next/link';
-
 import classNames from 'classnames';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './header.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import useEventListener, { Event } from 'src/hooks/useEventListener';
 
 const Header = (): ReactElement => {
-  const [isMenuOpened, setMenuOpened] = useState<boolean>(false);
+  const [isPageScrolled, setPageScrolled] = useState(false);
+  const [isMenuOpened, setMenuOpened] = useState<boolean>(true);
   const bind = classNames.bind(styles);
 
-  const headerClassname = bind(styles.header, { [styles.header_opened]: isMenuOpened });
+  const menuItems = [
+    {
+      path: '',
+      label: 'Home'
+    },
+    {
+      path: 'about',
+      label: 'About'
+    },
+    {
+      path: 'projects',
+      label: 'Projects'
+    },
+    {
+      path: 'blog',
+      label: 'Blog'
+    }
+  ];
 
-  const icon = useMemo(() => {
-    return (
-      <FontAwesomeIcon
-        icon={isMenuOpened ? faXmark : faBars}
-        color='#000000' />
-    );
-  }, [isMenuOpened])
+  const handleScroll = (): void => {
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    setPageScrolled(window.pageYOffset === height)
+  }
+
+  useEventListener(Event.SCROLL, handleScroll);
 
   const toggleMenu = (): void => {
     setMenuOpened(!isMenuOpened);
   }
 
+  const scrollToTop = (): void => {
+    window.scrollTo({
+      top: 100,
+      behavior: 'smooth'
+    });
+  }
+
+  const onLinkClicked = (): void => {
+    toggleMenu();
+  }
+
+  const renderIcon = useMemo(() => {
+    return (
+      <span className={bind([styles.header__icon, { [styles.opened]: isMenuOpened }])}>
+        <span className={styles.header__bar} />
+        <span className={styles.header__bar} />
+        <span className={styles.header__bar} />
+      </span>
+    );
+  }, [isMenuOpened]);
+
+  const renderMenuList = useMemo(() => {
+    return menuItems.map((item) => {
+      const { path, label } = item;
+
+      return (
+        <li key={label}>
+          <Link href={`/${path}`}>
+            <a
+              role='button'
+              tabIndex={0}
+              onClick={onLinkClicked}
+              onKeyDown={onLinkClicked}
+              className={styles.header__link}>{label}</a>
+          </Link>
+        </li>
+      );
+    })
+  }, [menuItems]);
+
   return (
-    <header className={headerClassname}>
-      <nav className={styles.header__nav}>
-        <ul>
-          <li>
-            <Link href='/'>
-              <a className={styles.header__link}>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/about'>
-              <a className={styles.header__link}>About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/projects'>
-              <a className={styles.header__link}>Projects</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/blog'>
-              <a className={styles.header__link}>Blog</a>
-            </Link>
-          </li>
+    <header className={styles.header}>
+      <nav className={bind([styles.header__nav, { [styles.opened]: isMenuOpened }])}>
+        <ul className={styles.header__list}>
+          {renderMenuList}
         </ul>
       </nav>
+      <aside className={styles.header__sidebar}>
+        <button
+          onClick={scrollToTop}
+          className={bind([styles.header__up, { [styles.visible]: isPageScrolled }])}>
+          <FontAwesomeIcon
+            icon={faAngleUp}
+            color='#ffffff'
+            size='2x' />
+        </button>
+      </aside>
       <button
-        className={bind([styles.header__button, styles.header__button_toggle])}
+        className={styles.header__toggle}
         onClick={toggleMenu}>
-        {icon}
+        {renderIcon}
         <span className='visually-hidden'>{isMenuOpened ? 'Close' : 'Open'} menu</span>
       </button>
     </header>

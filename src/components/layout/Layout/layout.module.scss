@@ -4,4 +4,10 @@
 
 .layout {
   position: relative;
+
+  &__content {
+    @include sm {
+      padding-left: 100px;
+    }
+  }
 }

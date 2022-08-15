@@ -4,6 +4,7 @@ import { AppProps } from 'next/app';
 
 import '../styles/index.scss';
 import Layout from 'src/components/layout/Layout';
+
 import { YMInitializer } from 'react-yandex-metrika';
 
 const App = ({ Component, pageProps }: AppProps): ReactElement => {

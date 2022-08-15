@@ -1,62 +1,201 @@
 @import './../../../styles/colors';
+@import './../../../styles/breakpoints';
 
 .header {
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $color--violet-darker;
-  transition: 0.5s ease;
-  max-height: 0;
-  height: 0;
-  overflow: hidden;
+  height: 100vh;
+  width: 100%;
 
-  &_opened {
-    max-height: 100%;
-    height: 60px;
-    overflow: visible;
-    opacity: 0.9;
+  @include sm {
+    height: var(--height-desktop);
   }
 
   &__nav {
-    ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba($color--white-darker, 0.8);
+    transition: 1s ease-in all;
+    padding-top: 80px;
+
+    @include sm {
+      align-items: center;
+      padding: 0;
+    }
+
+    &.opened {
+      width: 100%;
+      backdrop-filter: blur(10px);
+      padding: 80px;
+
+      @include sm {
+        padding: 0 0 0 150px;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    @include sm {
+      flex-direction: row;
+    }
+
+    li {
+      margin-right: 25px;
+      margin-bottom: 25px;
+
+      @include sm {
+        margin-bottom: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__sidebar {
+    display: none;
+
+    @include sm {
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: var(--height-desktop);
+      width: var(--height-desktop);
+      height: calc(100vh - var(--height-desktop));
+      transition: 1s ease-in all;
+      overflow: hidden;
       display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      background: $color--violet-darker;
+    }
+  }
 
-      li {
-        margin-right: 25px;
+  &__link {
+    color: $color--grey-dark;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
 
-        &:last-child {
-          margin-right: 0;
+    @include sm {
+      font-size: 0.8rem;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color--violet;
+      transition: 0.5s ease;
+    }
+  }
+
+  &__toggle {
+    position: fixed;
+    right: 20px;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    background: $color--violet-dark;
+    width: var(--height-mobile);
+    height: var(--height-mobile);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    transition: 0.5s ease;
+
+    @include sm {
+      width: var(--height-desktop);
+      height: var(--height-desktop);
+    }
+  }
+
+  &__up {
+    display: none;
+
+    @include sm {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: transparent;
+      padding: 0;
+      margin: 0 0 30px 0;
+      border: 0;
+      cursor: pointer;
+      transform: scale(0);
+      transition: 0.5s;
+    }
+
+    &.visible {
+      transform: scale(1);
+    }
+  }
+
+  &__bar {
+    position: absolute;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background: $color--white;
+    border-radius: 9px;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0px;
+    }
+
+    &:nth-child(2) {
+      top: 18px;
+    }
+
+    &:nth-child(3) {
+      top: 36px;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 45px;
+    transform: rotate(0deg) scale(0.5);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    &.opened {
+      .header__bar {
+        &:nth-child(1) {
+          top: 50%;
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          width: 0%;
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          top: 50%;
+          transform: rotate(-45deg);
         }
       }
     }
   }
 
-  &__link {
-    color: $color--white;
-    text-decoration: none;
-  }
-
-  &__button {
-    position: fixed;
-    top: 20px;
-    z-index: 1001;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    cursor: pointer;
-
-    &_toggle {
-      right: 20px;
-    }
-
-    svg {
-      width: 25px;
-      height: 25px;
-    }
-  }
+  --height-mobile: 60px;
+  --height-desktop: 100px;
 }
