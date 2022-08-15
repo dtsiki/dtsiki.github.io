@@ -16,14 +16,11 @@ const Layout = ({ children }: LayoutProps): ReactElement => {
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = (url: string): void => {
-      console.log('handle start', url)
+    const handleStart = (): void => {
       setLoading(true);
     }
 
-    const handleComplete = (url: string): void => {
-      console.log('handle complete', url)
-
+    const handleComplete = (): void => {
       setLoading(false);
     }
 
@@ -37,10 +34,6 @@ const Layout = ({ children }: LayoutProps): ReactElement => {
       router.events.off('routeChangeError', handleComplete)
     }
   }, [])
-
-  useEffect(() => {
-    console.log('isLoading changed=', isLoading)
-  }, [isLoading])
 
   return (
     <div className={styles.layout}>
