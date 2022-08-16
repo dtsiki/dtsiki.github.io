@@ -38,7 +38,8 @@ const Hero = ({
   align = HeroAlign.CENTER,
   heroRef,
   className,
-  size = HeroSize.FULL }: LayoutProps): ReactElement => {
+  size = HeroSize.FULL
+}: LayoutProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (

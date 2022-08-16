@@ -12,7 +12,7 @@ interface Props {
   sourceRef:  MutableRefObject<HTMLElement | null>;
 }
 
-const IntroHero = ({ sourceRef }: Props): ReactElement => {
+const HomeIntroHero = ({ sourceRef }: Props): ReactElement => {
   const tags = [
     'frontend',
     'html',
@@ -74,4 +74,4 @@ const IntroHero = ({ sourceRef }: Props): ReactElement => {
   );
 };
 
-export default IntroHero;
+export default HomeIntroHero;

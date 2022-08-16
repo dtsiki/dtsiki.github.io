@@ -1,5 +1,5 @@
-@import './../../../styles/colors';
-@import './../../../styles/breakpoints';
+@import './../../styles/colors';
+@import './../../styles/breakpoints';
 
 .yayHero {
   position: relative;
@@ -42,19 +42,30 @@
   &__icon {
     display: inline-flex;
     align-items: center;
-    margin-right: 20px;
 
-    svg {
+    &.smile {
       width: 50px;
       height: 50px;
-      color: $color--violet;
-      transform: rotate(180deg);
+      margin-right: 40px;
 
       @include sm {
         width: 100px;
         height: 100px;
       }
+
+      svg {
+        color: $color--violet;
+        transform: rotate(180deg);
+      }
+    }
+
+    &.cat {
+      color: $color--violet-lighter;
+    }
+
+    &.wand {
+      margin-left: 30px;
+      color: $color--black;
     }
   }
 }
-

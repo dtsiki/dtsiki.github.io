@@ -5,8 +5,16 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  height: 100vh;
+  height: 100px;
   width: 100%;
+
+  &.opened {
+    height: 100vh;
+
+    @include sm {
+      height: 100px;
+    }
+  }
 
   @include sm {
     height: var(--height-desktop);
@@ -22,6 +30,7 @@
     background-color: rgba($color--white-darker, 0.8);
     transition: 1s ease-in all;
     padding-top: 80px;
+    pointer-events: none;
 
     @include sm {
       align-items: center;
@@ -32,6 +41,7 @@
       width: 100%;
       backdrop-filter: blur(10px);
       padding: 80px;
+      pointer-events: unset;
 
       @include sm {
         padding: 0 0 0 150px;

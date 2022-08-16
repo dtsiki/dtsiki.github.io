@@ -89,7 +89,7 @@ const Header = (): ReactElement => {
   }, [menuItems]);
 
   return (
-    <header className={styles.header}>
+    <header className={bind([styles.header, { [styles.opened]: isMenuOpened }])}>
       <nav className={bind([styles.header__nav, { [styles.opened]: isMenuOpened }])}>
         <ul className={styles.header__list}>
           {renderMenuList}
