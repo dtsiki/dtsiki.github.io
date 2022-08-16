@@ -1,0 +1,11 @@
+@import './../../../styles/colors';
+
+.htmlTag {
+  &.primary {
+    color: $color--violet;
+  }
+
+  &.secondary {
+    color: $color--grey;
+  }
+}

@@ -8,6 +8,8 @@ import { HeroSize, HeroVariant } from 'src/components/layout/Hero/Hero';
 import Preview from 'src/components/pages/blog/Preview';
 
 import styles from './blog.module.scss';
+import HtmlTag from 'src/components/common/HtmlTag.tsx';
+import { HtmlTagElement } from 'src/components/common/HtmlTag.tsx/HtmlTag';
 
 const Blog = (): ReactElement => {
   const bind = classNames.bind(styles);
@@ -37,14 +39,10 @@ const Blog = (): ReactElement => {
 
   return (
     <div className={styles.blog}>
-      <Hero
-        size={HeroSize.HALF}
-        variant={HeroVariant.PRIMARY}>
-        <h1 className={styles.blog__title}>
-          Let&#39;s make frontend great again
-        </h1>
-      </Hero>
       <div className='container'>
+        <h1 className={styles.blog__title}>
+          <HtmlTag element={HtmlTagElement.PRIMARY_HEADING}>Blog</HtmlTag>
+        </h1>
         <ul className={bind(['row', styles.blog__posts])}>
           {renderPosts}
         </ul>
