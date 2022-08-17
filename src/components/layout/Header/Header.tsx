@@ -11,7 +11,7 @@ import styles from './header.module.scss';
 
 const Header = (): ReactElement => {
   const [isPageScrolled, setPageScrolled] = useState(false);
-  const [isMenuOpened, setMenuOpened] = useState<boolean>(true);
+  const [isMenuOpened, setMenuOpened] = useState<boolean>(false);
   const bind = classNames.bind(styles);
   const router = useRouter();
 
@@ -106,7 +106,7 @@ const Header = (): ReactElement => {
         </button>
       </aside>
       <button
-        className={styles.header__toggle}
+        className={bind([styles.header__toggle, { [styles.opened]: isMenuOpened }])}
         onClick={toggleMenu}>
         {renderIcon}
         <span className='visually-hidden'>{isMenuOpened ? 'Close' : 'Open'} menu</span>
