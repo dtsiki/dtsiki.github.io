@@ -1,10 +1,20 @@
 @import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
 
 .post {
+  @include md {
+    border-top: 100px solid $color--violet;
+  }
+
   &__title {
-    font-size: 5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: $color--white;
+    text-align: center;
+
+    @include md {
+      font-size: 5rem;
+    }
   }
 
   &__details {

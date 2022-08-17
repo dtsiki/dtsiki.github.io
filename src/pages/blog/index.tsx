@@ -3,8 +3,6 @@ import React, { ReactElement, useMemo } from 'react';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 
-import Hero from 'src/components/layout/Hero';
-import { HeroSize, HeroVariant } from 'src/components/layout/Hero/Hero';
 import Preview from 'src/components/pages/blog/Preview';
 
 import styles from './blog.module.scss';

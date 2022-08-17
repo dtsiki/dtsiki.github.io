@@ -3,18 +3,21 @@
 
 .blog {
   position: relative;
-  border-top: 100px solid rgba($color--white-darker, 0.8);
+  border-top: 60px solid transparent;
   padding-top: 50px;
   min-height: calc(100vh - 150px);
 
+  @include md {
+    border-top: 100px solid rgba($color--white-darker, 0.8);
+  }
+
   &__title {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     color: $color--violet;
     margin-bottom: 30px;
 
     @include sm {
-      font-size: 3rem;
       margin-bottom: 60px;
     }
   }

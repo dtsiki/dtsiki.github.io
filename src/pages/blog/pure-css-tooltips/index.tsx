@@ -119,7 +119,7 @@ const Post = (): ReactElement => {
           </p>
           <div className={styles.post__highlighter}>
             <div className='row'>
-              <div className='col col--50'>
+              <div className='col col--50 col--tablet-100'>
                 <div className={styles.post__code}>
                   <SyntaxHighlighter
                     language='html'
@@ -129,7 +129,7 @@ const Post = (): ReactElement => {
                 </div>
                 <span className={styles.post__fileName}>index.html</span>
               </div>
-              <div className='col col--50'>
+              <div className='col col--50 col--tablet-100'>
                 <div className={styles.post__code}>
                   <SyntaxHighlighter
                     language='html'
@@ -150,7 +150,7 @@ const Post = (): ReactElement => {
           </p>
           <div className={styles.post__highlighter}>
             <div className='row'>
-              <div className='col col--50'>
+              <div className='col col--50 col--tablet-100'>
                 <div className={styles.post__code}>
                   <SyntaxHighlighter
                     language='html'
@@ -160,7 +160,7 @@ const Post = (): ReactElement => {
                 </div>
                 <span className={styles.post__fileName}>index.html</span>
               </div>
-              <div className='col col--50'>
+              <div className='col col--50 col--tablet-100'>
                 <div className={styles.post__code}>
                   <SyntaxHighlighter
                     language='html'
@@ -224,7 +224,7 @@ const Post = (): ReactElement => {
           </div>
           <div className={styles.post__highlighter}>
             <div className='row'>
-              <div className='col col--50'>
+              <div className='col col--50 col--tablet-100'>
                 <div className={styles.post__code}>
                   <SyntaxHighlighter
                     language='html'
@@ -234,7 +234,7 @@ const Post = (): ReactElement => {
                 </div>
                 <span className={styles.post__fileName}>index.html</span>
               </div>
-              <div className='col col--50'>
+              <div className='col col--50 col--tablet-100'>
                 <div className={styles.post__code}>
                   <SyntaxHighlighter
                     language='html'
@@ -251,7 +251,7 @@ const Post = (): ReactElement => {
           </p>
           <div className={styles.post__highlighter}>
             <div className='row'>
-              <div className='col col--50'>
+              <div className='col col--50 col--tablet-100'>
                 <div className={styles.post__code}>
                   <SyntaxHighlighter
                     language='html'
@@ -261,7 +261,7 @@ const Post = (): ReactElement => {
                 </div>
                 <span className={styles.post__fileName}>index.html</span>
               </div>
-              <div className='col col--50'>
+              <div className='col col--50 col--tablet-100'>
                 <div className={styles.post__code}>
                   <SyntaxHighlighter
                     language='html'

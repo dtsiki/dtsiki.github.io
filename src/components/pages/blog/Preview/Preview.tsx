@@ -16,7 +16,7 @@ interface Props {
 
 const Preview = ({ title, highlight, link, category }: Props): ReactElement => {
   return (
-    <li className='col col--50'>
+    <li className='col col--50 col--tablet-100'>
       <div className={styles.preview}>
         <div className={styles.preview__heading}>
           <h2 className={styles.preview__title}>
