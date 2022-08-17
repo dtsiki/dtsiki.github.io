@@ -1,11 +1,11 @@
 import React, { ReactElement, ReactNode, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import Header from './../Header';
 import Footer from './../Footer';
 import Loader from './../Loader';
 
 import styles from './layout.module.scss';
-import { useRouter } from 'next/router';
 
 interface LayoutProps {
   children: ReactNode;
@@ -33,7 +33,7 @@ const Layout = ({ children }: LayoutProps): ReactElement => {
       router.events.off('routeChangeComplete', handleComplete)
       router.events.off('routeChangeError', handleComplete)
     }
-  }, [])
+  }, []);
 
   return (
     <div className={styles.layout}>
