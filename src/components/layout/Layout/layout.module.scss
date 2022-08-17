@@ -6,7 +6,7 @@
   position: relative;
 
   &__content {
-    @include sm {
+    @include md {
       padding-left: 100px;
     }
   }
