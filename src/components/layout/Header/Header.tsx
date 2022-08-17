@@ -89,7 +89,15 @@ const Header = (): ReactElement => {
   }, [menuItems]);
 
   return (
-    <header className={bind([styles.header, { [styles.opened]: isMenuOpened }])}>
+    <header className={styles.header}>
+      <button
+        className={bind([styles.header__toggle, { [styles.opened]: isMenuOpened }])}
+        onClick={toggleMenu}>
+        {renderIcon}
+        <span className='visually-hidden'>
+          {isMenuOpened ? 'Close' : 'Open'} menu
+        </span>
+      </button>
       <nav className={bind([styles.header__nav, { [styles.opened]: isMenuOpened }])}>
         <ul className={styles.header__list}>
           {renderMenuList}
@@ -105,12 +113,6 @@ const Header = (): ReactElement => {
             size='2x' />
         </button>
       </aside>
-      <button
-        className={bind([styles.header__toggle, { [styles.opened]: isMenuOpened }])}
-        onClick={toggleMenu}>
-        {renderIcon}
-        <span className='visually-hidden'>{isMenuOpened ? 'Close' : 'Open'} menu</span>
-      </button>
     </header>
   );
 };
