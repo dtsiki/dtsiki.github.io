@@ -72,7 +72,7 @@ const Projects = (): ReactElement => {
               </div>
               <div className='col col--tablet-100 col--50'>
                 <h2 className={styles.projects__subtitle}>
-                    Pet projects
+                  Pet projects
                 </h2>
               </div>
             </div>
