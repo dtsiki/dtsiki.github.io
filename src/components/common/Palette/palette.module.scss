@@ -1,0 +1,35 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.palette {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+
+  &__item {
+    display: inline-block;
+    text-align: center;
+    margin-left: -30px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__color {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    font-size: 0;
+  }
+
+  &__label {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $color--grey-dark;
+  }
+}
