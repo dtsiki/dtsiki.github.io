@@ -19,10 +19,17 @@ const AboutWorkExperience = (): ReactElement => {
       </li>
       <li className='list__item'>
         <h3 className='list__title'>
-          Signal Processing Engineer
+          Signal processing engineer
         </h3>
-        <p>Central Design Bureau of Automation </p>
+        <p>Central Design Bureau of Automation</p>
         <p className='list__footer'>2014 - 2020</p>
+      </li>
+      <li className='list__item'>
+        <h3 className='list__title'>
+          Web developer, designer
+        </h3>
+        <p>freelance</p>
+        <p className='list__footer'>2009 - 2014</p>
       </li>
     </ul>
   );
