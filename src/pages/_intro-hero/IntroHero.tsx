@@ -49,7 +49,7 @@ const HomeIntroHero = ({ sourceRef }: Props): ReactElement => {
         <div className='row row--centered'>
           <div className='col col--50 col--mobile-100'>
             <h1 className={styles.introHero__title}>
-              Let me introduce myself
+              Let me introduce <span className='highlighted white small'>myself</span>
             </h1>
           </div>
           <div className='col col--50 col--mobile-100'>

@@ -1,9 +1,14 @@
 import React, { ReactElement } from 'react';
 
-const AboutSkills = (): ReactElement => {
+interface Props {
+  isExtended?: boolean;
+}
+
+const AboutSkills = ({ isExtended = false }: Props): ReactElement => {
   return (
-    <ul className='tags tags--outline-dark'>
+    <ul className='tags tags align-right tags--outline-dark'>
       <li className='tag'>HTML</li>
+      <li className='tag'>BEM</li>
       <li className='tag'>CSS</li>
       <li className='tag'>SASS</li>
       <li className='tag'>JavaScript</li>
@@ -11,7 +16,11 @@ const AboutSkills = (): ReactElement => {
       <li className='tag'>React</li>
       <li className='tag'>Next.js</li>
       <li className='tag'>Angular</li>
+      <li className='tag'>API</li>
       <li className='tag'>Git flow</li>
+      {isExtended && <li className='tag'>ESLinter</li>}
+      {isExtended && <li className='tag'>Prettier</li>}
+      {isExtended && <li className='tag'>Webpack</li>}
       <li className='tag'>English B1</li>
     </ul>
   );

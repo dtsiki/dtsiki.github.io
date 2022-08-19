@@ -1,0 +1,47 @@
+@keyframes appearFromLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-100px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes appearFromBottom {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes appearFromTop {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes appearFromRight {
+  0% {
+    opacity: 0;
+    transform: translate(100px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

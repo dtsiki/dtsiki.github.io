@@ -24,6 +24,7 @@
   width: var(--col-size);
   flex: 0 0 var(--col-size);
 
+  &--20 {--col-size: 20%;}
   &--25 {--col-size: 25%;}
   &--33 {--col-size: 33.33%;}
   &--35 {--col-size: 35%;}
@@ -34,6 +35,11 @@
   &--66 {--col-size: 66.66%;}
   &--75 {--col-size: 75%;}
   &--85 {--col-size: 85%;}
+
+  &--reversed {
+    text-align: right;
+    justify-content: flex-end;
+  }
 
   @media (max-width: $width--sm-min) {
     &--mobile-100 {--col-size: 100%;}

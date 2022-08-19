@@ -1,5 +1,6 @@
 @import './../../styles/colors';
 @import './../../styles/breakpoints';
+@import './../../styles/keyframes';
 
 .about {
   position: relative;
@@ -17,9 +18,34 @@
   }
 
   &__subtitle {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
+
+    @include lg {
+      font-size: 4rem;
+    }
+  }
+
+  &__headline {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @include lg {
+      font-size: 2rem;
+    }
+
+    + .about__headline {
+      margin-top: 20px;
+    }
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    line-height: 2rem;
+
+    + .about__text {
+      margin-top: 20px;
+    }
   }
 
   &__avatar {
@@ -41,7 +67,47 @@
     }
   }
 
-  &__resume {
-    padding: 60px 0;
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 60px;
+  }
+
+  &__tab {
+    animation: appearFromLeft 1s;
+  }
+
+  &__stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px auto;
+
+    li {
+      transition: 0.5s all;
+      margin-bottom: 30px;
+      flex-basis: calc(100%/6);
+
+      + li {
+        margin-left: 15px;
+      }
+
+      svg {
+        width: 60px;
+        height: 60px;
+        color: $color--grey;
+        transition: 0.5s all;
+      }
+
+      &:hover {
+        svg {
+          color: $color--violet;
+        }
+      }
+    }
+  }
+
+  &__pallete {
+    text-align: center;
   }
 }

@@ -21,7 +21,7 @@ const HomeYayHero = ({ targetRef, showButton }: Props): ReactElement => {
       <div className='container'>
         <div className={styles.yayHero__wrapper}>
           <h1 className={styles.yayHero__heading}>
-            <span className='highlighted highlighted--lavander'>
+            <span className='highlighted secondary small'>
               <span className={bind([styles.yayHero__icon, styles.smile])}>
                 <FontAwesomeIcon icon={faSmile} />
               </span>
@@ -29,12 +29,12 @@ const HomeYayHero = ({ targetRef, showButton }: Props): ReactElement => {
             </span>
           </h1>
           <h2 className={styles.yayHero__title}>
-            My name is <span className='highlighted highlighted--primary'>
+            My name is <span className='highlighted primary small'>
               Daria
             </span>
           </h2>
           <h3 className={styles.yayHero__subtitle}>
-            I&apos;m a <span className='accented accented--primary highlighted highlighted--grey'>
+            I&apos;m a <span className='accented accented--primary highlighted dark small'>
               frontend
             </span> developer
           </h3>
