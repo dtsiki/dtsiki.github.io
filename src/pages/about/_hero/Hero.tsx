@@ -15,7 +15,7 @@ const AboutHero = ({ targetRef, showButton }: Props): ReactElement => {
   return (
     <Hero variant={HeroVariant.PRIMARY}>
       <h1 className={styles.hero__title}>
-        Let me introduce myself
+        <em>Let</em> me <span className='underlined light dotted'>introduce</span> <span className='accented accented--dark highlighted light'>myself</span>
       </h1>
       <ScrollDownButton
         isHidden={!showButton}

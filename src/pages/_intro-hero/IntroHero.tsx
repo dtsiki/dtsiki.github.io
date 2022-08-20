@@ -7,6 +7,8 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import { nanoid } from 'nanoid';
 import Link from 'next/link';
+import Tag from 'src/components/common/Tag';
+import { TagVariant } from 'src/components/common/Tag/Tag';
 
 interface Props {
   sourceRef:  MutableRefObject<HTMLElement | null>;
@@ -19,8 +21,6 @@ const HomeIntroHero = ({ sourceRef }: Props): ReactElement => {
     'css',
     'javascript',
     'violet maniac',
-    'ex DSP engineer',
-    'master of computer science',
     'run',
     'bookworm',
     'crossfit',
@@ -33,8 +33,8 @@ const HomeIntroHero = ({ sourceRef }: Props): ReactElement => {
       return (
         <li
           key={nanoid()}
-          className='tag'>
-          {tag}
+          className='list__item'>
+          <Tag variant={TagVariant.LIGHT}>{tag}</Tag>
         </li>
       );
     });
@@ -49,19 +49,21 @@ const HomeIntroHero = ({ sourceRef }: Props): ReactElement => {
         <div className='row row--centered'>
           <div className='col col--50 col--mobile-100'>
             <h1 className={styles.introHero__title}>
-              Let me introduce <span className='highlighted white small'>myself</span>
+              Let me introduce myself
             </h1>
           </div>
           <div className='col col--50 col--mobile-100'>
-            <ul className='tags tags--primary'>
+            <ul className='list inline'>
               {tagList}
-              <li className='tag tag--with-link'>
+              <li className='list__item'>
                 <Link href='/about'>
-                  <a className='tag__link'>
-                    Read more
-                    <FontAwesomeIcon
-                      icon={faAngleRight}
-                      color='#8a2be2' />
+                  <a className='link-with-tag'>
+                    <Tag
+                      variant={TagVariant.LIGHT}
+                      isOutlined>
+                      Read more
+                      <FontAwesomeIcon icon={faAngleRight} />
+                    </Tag>
                   </a>
                 </Link>
               </li>

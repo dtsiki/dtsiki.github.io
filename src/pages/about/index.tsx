@@ -5,7 +5,6 @@ import { faBriefcase, faCode, faGraduationCap, faHeart, faList, faSmile } from '
 import Avatar from 'src/components/common/Avatar';
 import Block from 'src/components/common/Block';
 import AboutHero from './_hero';
-import AboutNav from './_nav';
 import AboutWorkExperience from './_work-experience';
 import AboutSkills from './_skills';
 import AboutEducation from './_education';
@@ -149,9 +148,6 @@ const About = (): ReactElement => {
           <div
             ref={resumeRef}
             className={styles.about__section}>
-            <AboutNav
-              items={items}
-              isVisible={isResumeVisible} />
             <Avatar
               image={avatar}
               className={styles.about__avatar} />

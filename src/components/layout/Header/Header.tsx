@@ -79,7 +79,7 @@ const Header = (): ReactElement => {
               tabIndex={0}
               onClick={onLinkClicked}
               onKeyDown={onLinkClicked}
-              className={bind([styles.header__link, { [styles.active]: router.asPath === `/${path}` }])}>
+              className={bind(['link', styles.header__link, { [styles.active]: router.asPath === `/${path}` }])}>
               {label}
             </a>
           </Link>

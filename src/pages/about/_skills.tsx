@@ -1,27 +1,57 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useMemo } from 'react';
+import Tag from 'src/components/common/Tag';
+import { TagVariant } from 'src/components/common/Tag/Tag';
 
 interface Props {
   isExtended?: boolean;
 }
 
 const AboutSkills = ({ isExtended = false }: Props): ReactElement => {
+  const primarySkills = [
+    'HTML',
+    'BEM',
+    'CSS',
+    'SASS',
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'Angular',
+    'Next.js',
+    'Git',
+    'intermediate english'
+  ];
+
+  const extendedSkills = [
+    'Webpack',
+    'Linter',
+    'Prettier',
+    'Web API',
+    'State management',
+    'NPM',
+    'a11y'
+  ];
+
+  const renderSkills = useMemo(() => {
+    const skills = isExtended ? [...primarySkills, ...extendedSkills] : [...primarySkills];
+
+    return skills.map((skill) => {
+      return (
+        <li
+          key={skill}
+          className='list__item'>
+          <Tag
+            variant={TagVariant.DARK}
+            isOutlined>
+            {skill}
+          </Tag>
+        </li>
+      );
+    });
+  }, [primarySkills, extendedSkills, isExtended]);
+
   return (
-    <ul className='tags tags align-right tags--outline-dark'>
-      <li className='tag'>HTML</li>
-      <li className='tag'>BEM</li>
-      <li className='tag'>CSS</li>
-      <li className='tag'>SASS</li>
-      <li className='tag'>JavaScript</li>
-      <li className='tag'>TypeScript</li>
-      <li className='tag'>React</li>
-      <li className='tag'>Next.js</li>
-      <li className='tag'>Angular</li>
-      <li className='tag'>API</li>
-      <li className='tag'>Git flow</li>
-      {isExtended && <li className='tag'>ESLinter</li>}
-      {isExtended && <li className='tag'>Prettier</li>}
-      {isExtended && <li className='tag'>Webpack</li>}
-      <li className='tag'>English B1</li>
+    <ul className={`list inline ${isExtended ? ' align-right' : ''}`}>
+      {renderSkills}
     </ul>
   );
 };

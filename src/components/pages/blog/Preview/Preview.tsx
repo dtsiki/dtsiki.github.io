@@ -2,10 +2,12 @@ import React, { ReactElement } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightLong } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
+
+import HtmlTag from 'src/components/common/HtmlTag';
+import { HtmlTagElement, HtmlTagVariant } from 'src/components/common/HtmlTag/HtmlTag';
 
 import styles from './preview.module.scss';
-import HtmlTag from 'src/components/common/HtmlTag.tsx';
-import { HtmlTagElement, HtmlTagVariant } from 'src/components/common/HtmlTag.tsx/HtmlTag';
 
 interface Props {
   title: string;
@@ -15,6 +17,8 @@ interface Props {
 }
 
 const Preview = ({ title, highlight, link, category }: Props): ReactElement => {
+  const bind = classNames.bind(styles);
+
   return (
     <li className='col col--50 col--tablet-100'>
       <div className={styles.preview}>
@@ -34,7 +38,7 @@ const Preview = ({ title, highlight, link, category }: Props): ReactElement => {
           {highlight}
         </p>
         <Link href={link}>
-          <a className={styles.preview__link}>
+          <a className={bind(['link', styles.preview__link])}>
             Read more
             <FontAwesomeIcon icon={faRightLong} />
           </a>

@@ -46,6 +46,14 @@ body {
   }
 }
 
+.link-with-tag {
+  transition: 0.5s all;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   overflow: hidden;
@@ -142,6 +150,10 @@ body {
   &--primary {
     color: $color--violet;
   }
+
+  &--dark {
+    color: $color--black;
+  }
 }
 
 ol,
@@ -152,6 +164,20 @@ ul,
 }
 
 .list {
+  &.inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+
+    .list__item {
+      margin: 10px;
+    }
+
+    &.align-right {
+      justify-content: flex-end;
+    }
+  }
+
   &__title {
     font-size: 1.2rem;
     font-weight: 500;
@@ -176,134 +202,6 @@ ul,
       &::marker {
         font-weight: 600;
       }
-    }
-  }
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -2px;
-
-  @include sm {
-    margin: 0 -5px;
-  }
-
-  &--primary {
-    .tag {
-      background-color: $color--white;
-      color: $color--violet;
-
-      &--with-link {
-        background-color: transparent;
-
-        &:hover {
-          border-color: transparent;
-        }
-
-        .tag__link {
-          border-color: $color--white;
-          color: $color--white;
-
-          svg {
-            color: $color--white;
-          }
-
-          &:hover {
-            border-color: $color--black;
-            color: $color--black;
-
-            svg {
-              color: $color--black;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &--outline-dark {
-    .tag {
-      background-color: transparent;
-      color: $color--black;
-      border-color: $color--black;
-
-      &--with-link {
-        background-color: transparent;
-        border: 0;
-
-        &:hover {
-          border-color: transparent;
-        }
-
-        .tag__link {
-          border-color: $color--black;
-          color: $color--black;
-
-          svg {
-            color: $color--black;
-          }
-
-          &:hover {
-            border-color: $color--violet;
-            color: $color--violet;
-
-            svg {
-              color: $color--violet;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.tag {
-  padding: 10px 15px;
-  margin: 4px;
-  font-size: 1rem;
-  font-weight: 500;
-  text-transform: lowercase;
-  border: 2px solid transparent;
-
-  @include sm {
-    margin: 10px;
-    font-size: 1.5rem;
-  }
-
-  &--with-link {
-    padding: 0;
-    cursor: pointer;
-    background-color: transparent;
-    border-color: transparent;
-    border-radius: 0;
-
-    &:hover {
-      border-color: $color--black;
-
-      .tag__link,
-      svg {
-        color: $color--black;
-      }
-    }
-  }
-
-  &__link {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    color: $color--white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.5s ease;
-    border: 2px solid $color--white;
-    background: transparent;
-    cursor: pointer;
-
-    svg {
-      margin: 0 0 -2px 10px;
-      color: $color--white;
-      transition: 0.5s ease;
     }
   }
 }
@@ -775,9 +673,4 @@ ul,
       transform: translate(-50%, 0);
     }
   }
-}
-
-.align-right {
-  text-align: right;
-  justify-content: flex-end;
 }

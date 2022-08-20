@@ -75,7 +75,7 @@ const Home = (): JSX.Element => {
       <Hero variant={HeroVariant.LIGHT}>
         <div className='container'>
           <p className={styles.home__subtitle}>
-            <span className='highlighted highlighted--primary'>
+            <span className='highlighted primary small'>
               I&#39;m working to make a better web and I love what I do
             </span>
           </p>

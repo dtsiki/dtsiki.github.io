@@ -2,6 +2,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
 
 import Hero from 'src/components/layout/Hero';
 import { HeroSize, HeroVariant } from 'src/components/layout/Hero/Hero';
@@ -17,6 +18,8 @@ interface Props {
 }
 
 const PostLayout = ({ title, highlight, category, date, children }: Props): ReactElement => {
+  const bind = classNames.bind(styles);
+
   return (
     <div className={styles.post}>
       <Hero
@@ -45,7 +48,7 @@ const PostLayout = ({ title, highlight, category, date, children }: Props): Reac
         </div>
         <div className={styles.post__footer}>
           <Link href='/blog'>
-            <a className={styles.post__link}>
+            <a className={bind(['link', styles.post__link])}>
               <FontAwesomeIcon icon={faLeftLong} />
               Back
             </a>

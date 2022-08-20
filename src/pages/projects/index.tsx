@@ -1,18 +1,19 @@
+import React, { MutableRefObject, ReactElement, useMemo, useRef } from 'react';
 import classNames from 'classnames';
-import React, { MutableRefObject, ReactElement, useRef } from 'react';
-import ProgressScroll from 'src/components/common/ProgressScroll';
-import Hero from 'src/components/layout/Hero';
-import { HeroVariant } from 'src/components/layout/Hero/Hero';
 
 import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
-
-import styles from './projects.module.scss';
 import CommercialProjects from './_commercial-projects';
 import Dictionary from './_dictionary';
 import ProjectsHero from './_hero';
 import QuoteGenerator from './_quote-generator';
 import TicTacToe from './_tic-tac-toe';
 import Todo from './_todo';
+import ProgressScroll from 'src/components/common/ProgressScroll';
+import Tag, { TagElement, TagVariant } from 'src/components/common/Tag/Tag';
+import Hero from 'src/components/layout/Hero';
+import { HeroVariant } from 'src/components/layout/Hero/Hero';
+
+import styles from './projects.module.scss';
 
 const Projects = (): ReactElement => {
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -24,9 +25,46 @@ const Projects = (): ReactElement => {
 
   const bind = classNames.bind(styles);
 
+  const petProjects = [
+    {
+      name: 'Quote generator',
+      ref: quoteGeneratorRef
+    },
+    {
+      name: 'Todo',
+      ref: todoRef
+    },
+    {
+      name: 'Tic Tac Toe',
+      ref: ticTacToeRef
+    },
+    {
+      name: 'Dictionary',
+      ref: dictionaryRef
+    }
+  ];
+
   const onScrollDown = (ref: MutableRefObject<HTMLElement | null>): void => {
     ref.current?.scrollIntoView({ behavior: 'smooth' })
   };
+
+  const renderPetProjects = useMemo(() => {
+    return petProjects.map((project) => {
+      return (
+        <li
+          key={project.name}
+          className='list__item'>
+          <Tag
+            element={TagElement.BUTTON}
+            onClick={() => onScrollDown(project.ref)}
+            variant={TagVariant.LIGHT}
+            isOutlined>
+            {project.name}
+          </Tag>
+        </li>
+      )
+    })
+  }, [petProjects]);
 
   return (
     <div className={styles.projects}>
@@ -39,35 +77,8 @@ const Projects = (): ReactElement => {
           <div className='container'>
             <div className={bind(['row row--centered', styles.projects__pet])}>
               <div className='col col--tablet-100 col--50'>
-                <ul className={bind(['tags tags--primary', styles.projects__list])}>
-                  <li className='tag tag--with-link'>
-                    <button
-                      className='tag__link'
-                      onClick={() => onScrollDown(quoteGeneratorRef)}>
-                        quote generator
-                    </button>
-                  </li>
-                  <li className='tag tag--with-link'>
-                    <button
-                      className='tag__link'
-                      onClick={() => onScrollDown(todoRef)}>
-                        todo
-                    </button>
-                  </li>
-                  <li className='tag tag--with-link'>
-                    <button
-                      className='tag__link'
-                      onClick={() => onScrollDown(ticTacToeRef)}>
-                        tic tac toe
-                    </button>
-                  </li>
-                  <li className='tag tag--with-link'>
-                    <button
-                      className='tag__link'
-                      onClick={() => onScrollDown(dictionaryRef)}>
-                        dictionary
-                    </button>
-                  </li>
+                <ul className={bind(['list inline', styles.projects__list])}>
+                  {renderPetProjects}
                 </ul>
               </div>
               <div className='col col--tablet-100 col--50'>

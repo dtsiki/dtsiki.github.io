@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 
 import Preview from 'src/components/pages/blog/Preview';
+import HtmlTag from 'src/components/common/HtmlTag';
+import { HtmlTagElement } from 'src/components/common/HtmlTag/HtmlTag';
 
 import styles from './blog.module.scss';
-import HtmlTag from 'src/components/common/HtmlTag.tsx';
-import { HtmlTagElement } from 'src/components/common/HtmlTag.tsx/HtmlTag';
 
 const Blog = (): ReactElement => {
   const bind = classNames.bind(styles);

@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import ExternalLink from 'src/components/common/ExternalLink';
+import Tag from 'src/components/common/Tag';
+import { TagVariant } from 'src/components/common/Tag/Tag';
 
 import styles from './details.module.scss';
 
@@ -23,7 +25,12 @@ const Details = ({ title, tags, description, demoLink, sourceLink }: Props): Rea
       return (
         <li
           key={tag}
-          className='tag'>{tag}
+          className='list__item'>
+          <Tag
+            variant={TagVariant.DARK}
+            isOutlined>
+            {tag}
+          </Tag>
         </li>
       );
     })
@@ -35,7 +42,7 @@ const Details = ({ title, tags, description, demoLink, sourceLink }: Props): Rea
         <div className='row'>
           <div className='col col--50 col--tablet-100'>
             <h3 className={styles.details__title}>{title}</h3>
-            <ul className={bind(['tags tags--outline-dark', styles.details__tags])}>
+            <ul className={bind(['list inline', styles.details__tags])}>
               {tagsList}
             </ul>
           </div>

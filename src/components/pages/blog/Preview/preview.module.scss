@@ -33,19 +33,12 @@
     font-size: 1rem;
     line-height: 2rem;
     font-weight: 500;
-    border-bottom: 2px solid $color--violet;
     text-decoration: none;
     color: $color--violet;
     transition: 0.5s;
 
     svg {
       margin-left: 10px;
-    }
-
-    &:hover,
-    &:focus {
-      color: $color--black;
-      border-bottom-color: $color--black;
     }
   }
 }
