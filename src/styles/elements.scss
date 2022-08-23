@@ -11,6 +11,10 @@ body {
   line-height: 1.2;
 }
 
+a {
+  text-decoration: none;
+}
+
 .link {
   position: relative;
   color: $color--violet;
