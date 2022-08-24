@@ -10,12 +10,12 @@
   }
 
   &__title {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     font-size: 3rem;
     font-weight: 700;
     color: $color--black;
 
-    @include sm {
+    @include md {
       margin-bottom: 0;
       font-size: 6rem;
     }

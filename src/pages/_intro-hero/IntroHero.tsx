@@ -1,14 +1,14 @@
 import React, { MutableRefObject, ReactElement, useMemo } from 'react';
-
-import styles from './intro-hero.module.scss';
-import Hero from 'src/components/layout/Hero';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import { nanoid } from 'nanoid';
-import Link from 'next/link';
+import Link from 'next/link';import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
+import Hero from 'src/components/layout/Hero';
+import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import Tag from 'src/components/common/Tag';
 import { TagVariant } from 'src/components/common/Tag/Tag';
+
+import styles from './intro-hero.module.scss';
 
 interface Props {
   sourceRef:  MutableRefObject<HTMLElement | null>;
@@ -16,15 +16,13 @@ interface Props {
 
 const HomeIntroHero = ({ sourceRef }: Props): ReactElement => {
   const tags = [
-    'frontend',
-    'html',
-    'css',
-    'javascript',
+    'frontend developer',
     'violet maniac',
-    'run',
+    'runner',
     'bookworm',
-    'crossfit',
-    'corgi lover'
+    'crossfitter',
+    'corgi lover',
+    'diyer'
   ];
 
   const tagList = useMemo(() => {
@@ -47,12 +45,12 @@ const HomeIntroHero = ({ sourceRef }: Props): ReactElement => {
       className={styles.introHero}>
       <div className='container'>
         <div className='row row--centered'>
-          <div className='col col--50 col--mobile-100'>
+          <div className='col col--50 col--tablet-100'>
             <h1 className={styles.introHero__title}>
               Let me introduce myself
             </h1>
           </div>
-          <div className='col col--50 col--mobile-100'>
+          <div className='col col--50 col--tablet-100'>
             <ul className='list inline'>
               {tagList}
               <li className='list__item'>
