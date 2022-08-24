@@ -1,28 +1,53 @@
 @import './../../../styles/colors';
 @import './../../../styles/vars';
+@import './../../../styles/breakpoints';
 
 .palette {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 60px;
+  flex-wrap: wrap;
+
+  @include md {
+    display: block;
+  }
 
   &__item {
     display: inline-block;
+    flex: 25% 1;
     text-align: center;
     margin-left: -30px;
+    margin-bottom: 30px;
+
+    @include md {
+      margin-bottom: 0;
+    }
 
     &:first-child {
       margin-left: 0;
+    }
+
+    &:nth-child(5) {
+      margin-left: 0;
+
+      @include md {
+        margin-left: -30px;
+      }
     }
   }
 
   &__color {
     display: block;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     font-size: 0;
+
+    @include md {
+      width: 120px;
+      height: 120px;
+    }
   }
 
   &__label {
