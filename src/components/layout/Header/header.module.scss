@@ -48,12 +48,13 @@
     max-width: 300px;
     height: 100%;
     opacity: 0;
-    transition: 1s all;
+    transition: 2s all;
     pointer-events: none;
     transform: translate(0, -100px);
     padding: 80px 60px;
     background: rgba($color--white-darker, 0.8);
     backdrop-filter: blur(10px);
+    margin-top: -300px;
 
     @include md {
       display: flex;
@@ -64,12 +65,15 @@
       padding: 0;
       background: transparent;
       backdrop-filter: none;
+      margin-top: 0;
+      transition: 1s all;
     }
 
     &.opened {
       opacity: 1;
       transform: none;
       pointer-events: unset;
+      margin-top: 0;
     }
   }
 
