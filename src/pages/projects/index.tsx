@@ -12,6 +12,7 @@ import ProgressScroll from 'src/components/common/ProgressScroll';
 import Tag, { TagElement, TagVariant } from 'src/components/common/Tag/Tag';
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
+import TaskManager from './_task-manager';
 
 import styles from './projects.module.scss';
 
@@ -21,6 +22,7 @@ const Projects = (): ReactElement => {
   const todoRef = useRef<HTMLDivElement>(null);
   const ticTacToeRef = useRef<HTMLDivElement>(null);
   const dictionaryRef =useRef<HTMLDivElement>(null);
+  const taskManagerRef = useRef<HTMLDivElement>(null);
   const isProjectsVisible = useIntersectionObserver(projectsRef);
 
   const bind = classNames.bind(styles);
@@ -41,6 +43,10 @@ const Projects = (): ReactElement => {
     {
       name: 'Dictionary',
       ref: dictionaryRef
+    },
+    {
+      name: 'Task manager',
+      ref: taskManagerRef
     }
   ];
 
@@ -101,6 +107,9 @@ const Projects = (): ReactElement => {
       </div>
       <div ref={dictionaryRef}>
         <Dictionary />
+      </div>
+      <div ref={taskManagerRef}>
+        <TaskManager />
       </div>
       <CommercialProjects />
     </div>
