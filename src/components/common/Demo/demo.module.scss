@@ -1,0 +1,71 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.demo {
+  margin: 0 auto;
+  background: $color--white-darker;
+  box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2px solid $color--violet;
+    border-bottom: 0;
+  }
+
+  &__name {
+    padding: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color--violet;
+
+    svg {
+      transform: scale(1.2);
+      margin-right: 10px;
+      opacity: 0.8;
+    }
+  }
+
+  &__body {
+    padding: 60px;
+    border: 2px solid $color--violet;
+  }
+
+  &__control {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-color: rgba($color--grey, 0.2);
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 48px;
+    width: 48px;
+    transition: 0.5s all;
+
+    &:first-child {
+      border-left: 2px solid $color--violet;
+    }
+
+    + .demo__control {
+      border-left: 2px solid $color--violet;
+    }
+
+    svg {
+      color: $color--violet;
+      transition: 0.5s all;
+    }
+
+    &:hover {
+      svg {
+        color: $color--black;
+      }
+    }
+  }
+}
