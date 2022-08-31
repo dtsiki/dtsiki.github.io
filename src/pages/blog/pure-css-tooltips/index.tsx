@@ -126,9 +126,7 @@ const Post = (): ReactElement => {
         title={title}
         highlight={highlight}
         category='tutorial'
-        date='30 jul 2022'
-        nextLink='drag-and-drop'
-        nextLinkLabel='Drag and drop' >
+        date='30 jul 2022'>
         <section>
           <h2>What is a tooltip?</h2>
           <p>

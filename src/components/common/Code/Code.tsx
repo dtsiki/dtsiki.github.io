@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faFile } from '@fortawesome/free-solid-svg-icons';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
-import { ascetic } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import styles from './code.module.scss';
 
@@ -41,7 +40,6 @@ const Code = ({ name, code, language }: Props): ReactElement => {
       </div>
       <div className={styles.code__body}>
         <SyntaxHighlighter
-          style={ascetic}
           language='html'
           showLineNumbers>
           {code}
