@@ -4,8 +4,6 @@ import classNames from 'classnames';
 import { nanoid } from 'nanoid';
 
 import Preview from 'src/components/pages/blog/Preview';
-import HtmlTag from 'src/components/common/HtmlTag';
-import { HtmlTagElement } from 'src/components/common/HtmlTag/HtmlTag';
 
 import styles from './blog.module.scss';
 
@@ -16,14 +14,15 @@ const Blog = (): ReactElement => {
     {
       id: nanoid(),
       title: 'Pure CSS tooltips',
-      highlight: 'This tutorial shows you how to create a tooltip using only CSS without any additional JavaScript code.',
+      highlight: 'A step-by-step tutorial that will show you how to create a tooltip using only CSS without any additional JavaScript code.',
       link: '/blog/pure-css-tooltips',
-      category: 'tutorial'
+      category: 'tutorial',
+      date: '30 jul 2022'
     }
   ];
 
   const renderPosts = useMemo(() => posts.map((post) => {
-    const { id, title, highlight, link, category } = post;
+    const { id, title, highlight, link, category, date } = post;
 
     return (
       <Preview
@@ -31,7 +30,8 @@ const Blog = (): ReactElement => {
         title={title}
         highlight={highlight}
         link={link}
-        category={category} />
+        category={category}
+        date={date} />
     )
   }), [posts])
 
@@ -39,7 +39,7 @@ const Blog = (): ReactElement => {
     <div className={styles.blog}>
       <div className='container'>
         <h1 className={styles.blog__title}>
-          <HtmlTag element={HtmlTagElement.PRIMARY_HEADING}>Blog</HtmlTag>
+          Blog
         </h1>
         <ul className={bind(['row', styles.blog__posts])}>
           {renderPosts}

@@ -1,11 +1,8 @@
 import React, { ReactElement, ReactNode } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
+import { faLeftLong, faRightLong } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
-
-import Hero from 'src/components/layout/Hero';
-import { HeroSize, HeroVariant } from 'src/components/layout/Hero/Hero';
 
 import styles from './post.module.scss';
 
@@ -15,24 +12,24 @@ interface Props {
   category: string;
   date: string;
   children: ReactNode;
+  nextLink?: string;
+  nextLinkLabel?: string;
 }
 
-const PostLayout = ({ title, highlight, category, date, children }: Props): ReactElement => {
+const PostLayout = ({ title, highlight, category, date, children, nextLink, nextLinkLabel }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
     <div className={styles.post}>
-      <Hero
-        size={HeroSize.SMALL}
-        variant={HeroVariant.PRIMARY}>
-        <h1 className={styles.post__title}>
-          {title}
-        </h1>
-      </Hero>
       <div className='container'>
+        <div className={styles.post__header}>
+          <h1 className={styles.post__title}>
+            {title}
+          </h1>
+        </div>
         <div className={styles.post__info}>
           <div className={styles.post__details}>
-            <div className={styles.post__tag}>
+            <div className={styles.post__category}>
               {category}
             </div>
             <div className={styles.post__date}>
@@ -48,11 +45,20 @@ const PostLayout = ({ title, highlight, category, date, children }: Props): Reac
         </div>
         <div className={styles.post__footer}>
           <Link href='/blog'>
-            <a className={bind(['link', styles.post__link])}>
+            <a className={bind(['link', styles.post__link, styles.back])}>
               <FontAwesomeIcon icon={faLeftLong} />
-              Back
+              Back to blog
             </a>
           </Link>
+          {nextLink && (
+            <Link href={nextLink}>
+              <a className={bind(['link', styles.post__link, styles.next])}>
+                Next
+                <FontAwesomeIcon icon={faRightLong} />
+                <span className={styles.post__next}>{nextLinkLabel}</span>
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </div>

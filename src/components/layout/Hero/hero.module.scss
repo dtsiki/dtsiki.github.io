@@ -8,6 +8,11 @@
   flex-direction: column;
   justify-content: center;
   min-height: 500px;
+  padding: 60px 0;
+
+  @include md {
+    padding: 0;
+  }
 
   &.full {
     @include sm {

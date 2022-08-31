@@ -5,14 +5,15 @@
   margin-bottom: 60px;
 
   &__heading {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 
   &__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
 
     @include sm {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 
@@ -22,20 +23,24 @@
     color: $color--grey;
   }
 
+  &__date {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $color--grey-dark;
+    margin-bottom: 10px;
+  }
+
   &__highlight {
     font-size: 1.2rem;
-    line-height: 1.5rem;
+    line-height: 2rem;
     margin-bottom: 15px;
   }
 
   &__link {
     display: inline-block;
-    font-size: 1rem;
-    line-height: 2rem;
-    font-weight: 500;
     text-decoration: none;
-    color: $color--violet;
     transition: 0.5s;
+    font-weight: 600;
 
     svg {
       margin-left: 10px;

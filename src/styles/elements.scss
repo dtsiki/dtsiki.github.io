@@ -7,7 +7,7 @@ html {
 body {
   color: $color--black;
   font-family: $font--base;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.2;
 }
 
@@ -220,6 +220,7 @@ ul,
   position: relative;
   cursor: pointer;
   display: inline-block;
+  color: $color--violet;
 
   &:hover {
     .tooltip__message {
@@ -232,92 +233,6 @@ ul,
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
-    min-width: 130px;
-  }
-
-  &--primary {
-    .tooltip__message {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 5px;
-      border-radius: 5px;
-      background: $color--violet;
-      color: $color--white;
-      text-align: center;
-    }
-  }
-
-  &--right {
-    .tooltip__message {
-      top: calc(50% - 14px);
-      right: -145px;
-
-      &::before {
-        position: absolute;
-        content: '';
-        left: -7px;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 7px 7px 7px 0;
-        border-color: transparent $color--violet transparent transparent;
-      }
-    }
-  }
-
-  &--left {
-    .tooltip__message {
-      top: calc(50% - 14px);
-      left: -145px;
-
-      &::before {
-        position: absolute;
-        content: '';
-        right: -7px;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 7px 0 7px 7px;
-        border-color: transparent transparent transparent $color--violet;
-      }
-    }
-  }
-
-  &--bottom {
-    .tooltip__message {
-      top: 100%;
-      left: calc(50% - 65px);
-
-      &::before {
-        position: absolute;
-        content: '';
-        top: -7px;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 7px 7px 7px;
-        border-color: transparent transparent $color--violet transparent;
-      }
-    }
-  }
-
-  &--top {
-    .tooltip__message {
-      bottom: 100%;
-      left: calc(50% - 65px);
-
-      &::before {
-        position: absolute;
-        content: '';
-        bottom: -7px;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 7px 7px 0 7px;
-        border-color: $color--violet transparent transparent transparent;
-      }
-    }
   }
 }
 
@@ -587,6 +502,9 @@ ul,
 }
 
 .underlined {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
   border-bottom-width: 4px;
 
   &.light {
@@ -675,6 +593,80 @@ ul,
   &.short {
     &::before {
       transform: translate(-50%, 0);
+    }
+  }
+}
+
+.spacer {
+  &.large {
+    &.top {
+      margin-top: 60px;
+    }
+
+    &.bottom {
+      margin-bottom: 60px;
+    }
+
+    &.left {
+      margin-left: 60px;
+    }
+
+    &.right {
+      margin-right: 60px;
+    }
+  }
+
+  &.medium {
+    &.top {
+      margin-top: 30px;
+    }
+
+    &.bottom {
+      margin-bottom: 30px;
+    }
+
+    &.left {
+      margin-left: 30px;
+    }
+
+    &.right {
+      margin-right: 30px;
+    }
+  }
+
+  &.small {
+    &.top {
+      margin-top: 15px;
+    }
+
+    &.bottom {
+      margin-bottom: 15px;
+    }
+
+    &.left {
+      margin-left: 15px;
+    }
+
+    &.right {
+      margin-right: 15px;
+    }
+  }
+
+  &.extra-small {
+    &.top {
+      margin-top: 5px;
+    }
+
+    &.bottom {
+      margin-bottom: 5px;
+    }
+
+    &.left {
+      margin-left: 5px;
+    }
+
+    &.right {
+      margin-right: 5px;
     }
   }
 }

@@ -3,25 +3,46 @@
 
 .post {
   @include md {
-    border-top: 100px solid $color--violet;
+    border-top: 100px solid $color--white;
+  }
+
+  &__header {
+    padding: 80px 0 30px;
+
+    @include md {
+      padding: 60px 0 30px;
+    }
   }
 
   &__title {
     font-size: 2rem;
     font-weight: 700;
-    color: $color--white;
-    text-align: center;
+    color: $color--violet;
+    text-align: left;
 
     @include md {
-      font-size: 5rem;
+      font-size: 3rem;
     }
   }
 
   &__details {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     opacity: 0.5;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+
+    @include md {
+      margin-bottom: 60;
+    }
+  }
+
+  &__category {
+    display: none;
+  }
+
+  &__date {
+    font-size: 0.8rem;
+    text-transform: uppercase;
   }
 
   &__highlight {
@@ -34,6 +55,9 @@
   }
 
   &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 60px;
   }
 
@@ -45,9 +69,23 @@
     text-decoration: none;
     color: $color--violet;
 
-    svg {
-      margin-right: 10px;
+    &.back {
+      svg {
+        margin-right: 10px;
+      }
     }
+
+    &.next {
+      text-align: right;
+
+      svg {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__next {
+    display: block;
   }
 
   h2 {
@@ -57,7 +95,7 @@
 
   p {
     line-height: 1.5rem;
-    margin-bottom: 15px;
+    margin: 15px 0;
 
     &:last-child {
       margin-bottom: 0;
@@ -67,8 +105,16 @@
   section {
     margin-bottom: 60px;
 
+    @include md {
+      margin-bottom: 120px;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  ul, ol {
+    margin-bottom: 30px;
   }
 }

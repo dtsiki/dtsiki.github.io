@@ -42,10 +42,24 @@
   }
 
   @media (max-width: $width--sm-min) {
-    &--mobile-100 {--col-size: 100%;}
+    &--mobile-100 {
+      --col-size: 100%;
+      padding: 0;
+
+      + .col--mobile-100 {
+        margin-bottom: 30px;
+      }
+    }
   }
 
   @media (max-width: $width--lg-min) {
-    &--tablet-100 {--col-size: 100%;}
+    &--tablet-100 {
+      --col-size: 100%;
+      padding: 0;
+
+      + .col--tablet-100 {
+        margin-top: 30px;
+      }
+    }
   }
 }

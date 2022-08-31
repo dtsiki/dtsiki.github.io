@@ -1,35 +1,43 @@
 import React, { ReactElement } from 'react';
-import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo, faSmile } from '@fortawesome/free-solid-svg-icons';
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import { faCircleInfo, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 import PostLayout from 'src/components/pages/blog/PostLayout';
 import ProgressScroll from 'src/components/common/ProgressScroll';
 import ExternalLink from 'src/components/common/ExternalLink';
+import Code from 'src/components/common/Code';
+import { CodeLanguage } from 'src/components/common/Code/Code';
+import DefaultTooltipDemo from './_default-tooltip-demo';
+import CustomizedTooltipsDemo from './customized-tooltips-demo';
+import HeroTooltipDemo from './hero-tooltip-demo';
+import DirectionsTooltipDemo from './directions-tooltips-demo';
 
 import styles from './post.module.scss';
-import PostTitle from './_title';
 
 const Post = (): ReactElement => {
-  const bind = classNames.bind(styles);
+  const title = 'Pure CSS tooltips';
+  const highlight = 'In this tutorial you will learn how to create tooltips using only CSS without any additional JavaScript code.'
 
-  const step1HTML = `<div class="tooltip">
+  const step1HTML =
+`<div class="tooltip">
   {{ tooltip trigger }}
 </div>`;
 
-  const step1CSS = `.tooltip {
+  const step1CSS =
+`.tooltip {
   position: relative;
 }`;
 
-  const step2HTML = `<div class="tooltip">
+  const step2HTML =
+`<div class="tooltip">
   {{ tooltip trigger }}
   <div class="tooltip__message">
     {{ tooltip message }}
   </div>
 </div>`;
 
-  const step2CSS = `.tooltip {
+  const step2CSS =
+`.tooltip {
   position: relative;
 }
 
@@ -37,7 +45,8 @@ const Post = (): ReactElement => {
   position: absolute;
 }`;
 
-  const step3CSS = `.tooltip {
+  const step3CSS =
+`.tooltip {
   position: relative;
 
   &:hover {
@@ -54,26 +63,43 @@ const Post = (): ReactElement => {
   pointer-events: none;
 }`;
 
-  const step4HTML = `<div class="tooltip tooltip--primary">
+  const step4HTML =
+`<div class="tooltip tooltip--primary">
+  {{ tooltip trigger }}
+  <div class="tooltip__message">
+    {{ tooltip message }}
+  </div>
+</div>
+<div class="tooltip tooltip--secondary">
   {{ tooltip trigger }}
   <div class="tooltip__message">
     {{ tooltip message }}
   </div>
 </div>`;
 
-  const step4CSS = `.tooltip {
+  const step4CSS =
+`.tooltip {
   position: relative;
 
   &--primary {
-    {{ custom trigger style }}
+    {{ primary trigger style }}
 
     .tooltip__message {
-      {{ custom message style }}
+      {{ primary message style }}
+    }
+  }
+
+  &--secondary {
+    {{ secondary trigger style }}
+
+    .tooltip__message {
+      {{ secondary message style }}
     }
   }
 }`;
 
-  const step4HTML2 = `<div class="tooltip tooltip--right">
+  const step4HTML2 =
+`<div class="tooltip tooltip--right">
   {{ tooltip trigger }}
   <div class="tooltip__message">
     {{ tooltip message }}
@@ -81,7 +107,8 @@ const Post = (): ReactElement => {
 </div>`;
 
 
-  const step4CSS2 = `.tooltip {
+  const step4CSS2 =
+`.tooltip {
   position: relative;
 
     &--right {
@@ -96,223 +123,196 @@ const Post = (): ReactElement => {
     <>
       <ProgressScroll />
       <PostLayout
-        title={<PostTitle />}
-        highlight='This tutorial shows you how to create a tooltip using only CSS without any additional JavaScript code.'
+        title={title}
+        highlight={highlight}
         category='tutorial'
-        date='july 30, 2022'>
+        date='30 jul 2022'
+        nextLink='drag-and-drop'
+        nextLinkLabel='Drag and drop' >
         <section>
           <h2>What is a tooltip?</h2>
           <p>
-            Tooltips are used to give some information on how the website or the app works. It&#39;s a short message that appears when a user interacts with a specific element on a website or in an app.
+            Tooltip is a short message that appears when a user interacts with a specific element.
+            Tooltips are used to give some information on how the website or the app works.
+            In short, tooltips are text boxes that display a brief explanation of the elements.
           </p>
           <p>
-            Traditionally, tooltips appeared when the user hovered cursor over an triggering element. Let&#39;s make this type of it.
+            Traditionally, tooltips appeared when the user hovered cursor over some elements.
+            In this step-by-step tutorial you&#39;ll learn how to create this type of tooltips.
+          </p>
+          <p>
+            Try out a live demo below:
+          </p>
+          <HeroTooltipDemo />
+          <p className='spacer top medium'>
+            Let&#39;s get into it step by step <FontAwesomeIcon
+              icon={faRocket}
+              color='#8a2be2' />
           </p>
         </section>
         <section>
           <h2>Step 1: Create a triggering element</h2>
           <p>
-            It will be the very important element to which we want to add a tooltip message. When the user mouse over this element will be shown the tooltip.
+            There is no required markup for the tooltip in general. First of all create a triggering element.
+            When the user mouse over this element&#39;ll be shown a tooltip message.
           </p>
-          <p>
-            You can customize this element whatever you want. It can be a text, an icon, etc, but don&#39;t forget to use <code>position: relative;</code> property. It needs for positioning the tooltip itself.
-          </p>
-          <div className={styles.post__highlighter}>
+          <div className={styles.post__snippet}>
             <div className='row'>
               <div className='col col--50 col--tablet-100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='html'
-                    showLineNumbers>
-                    {step1HTML}
-                  </SyntaxHighlighter>
-                </div>
-                <span className={styles.post__fileName}>index.html</span>
+                <Code
+                  language={CodeLanguage.HTML}
+                  name='index'
+                  code={step1HTML} />
               </div>
               <div className='col col--50 col--tablet-100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='html'
-                    showLineNumbers>
-                    {step1CSS}
-                  </SyntaxHighlighter>
-                </div>
-                <span className={styles.post__fileName}>style.css</span>
+                <Code
+                  language={CodeLanguage.CSS}
+                  name='style'
+                  code={step1CSS} />
               </div>
             </div>
           </div>
+          <p>
+            You can make as the triggering element anything you want.
+            It can be a text, an icon, an card, etc. But don&#39;t forget to use <code className='highlighted secondary'>position: relative;</code> property.
+            It needs for positioning the tooltip itself.
+          </p>
+          <p>
+            In the example below an information icon <FontAwesomeIcon
+              icon={faCircleInfo}
+              color='#8a2be2' /> will be the triggering element.
+          </p>
         </section>
-
         <section>
           <h2>Step 2: Create a tooltip message</h2>
           <p>
-            It&#39;s time to create our tooltip inside the triggering element. You have to add absolute positioning to it. The triggering element class use <code>position:relative;</code> which is needed to position the tooltip.
+            Create a tooltip message inside the triggering element.
+            You have to add absolute positioning to it because the triggering element class uses <code className='highlighted secondary'>position:relative;</code> which is needed to position the tooltip message relative to the tooltip element.
           </p>
-          <div className={styles.post__highlighter}>
+          <div className={styles.post__snippet}>
             <div className='row'>
               <div className='col col--50 col--tablet-100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='html'
-                    showLineNumbers>
-                    {step2HTML}
-                  </SyntaxHighlighter>
-                </div>
-                <span className={styles.post__fileName}>index.html</span>
+                <Code
+                  language={CodeLanguage.HTML}
+                  name='index'
+                  code={step2HTML} />
               </div>
               <div className='col col--50 col--tablet-100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='html'
-                    showLineNumbers>
-                    {step2CSS}
-                  </SyntaxHighlighter>
-                </div>
-                <span className={styles.post__fileName}>style.css</span>
+                <Code
+                  language={CodeLanguage.CSS}
+                  name='style'
+                  code={step2CSS} />
               </div>
             </div>
           </div>
+          <p>
+            You also can customize the tooltip message element whatever you want.
+            Usually tooltips have a contrasting color relative to other design and have a little arrow pointing to the triggering element that the tooltip message is referring to.
+            We&#39;ll cover it next in the fourth step.
+          </p>
           <p>Here&#39;s the result so far:</p>
-          <div className={styles.post__example}>
-            <FontAwesomeIcon
-              icon={faCircleInfo}
-              size='2x' />
-            <div>I&#39;m a tooltip!</div>
-          </div>
+          <DefaultTooltipDemo disableTriggering={true} />
         </section>
-
         <section>
-          <h2>Step 3: Add triggering</h2>
-          <p>
-            Initially the tooltip is hidden with <code>opacity: 0;</code>. To showing the tooltip on triggering element hover set opacity property to 1.
-          </p>
-          <div className={styles.post__highlighter}>
-            <div className='row'>
-              <div className='col col--100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='css'
-                    showLineNumbers>
-                    {step3CSS}
-                  </SyntaxHighlighter>
+          <div className='spacer large bottom'>
+            <div className={styles.post__snippet}>
+              <div className='row'>
+                <div className='col col--50 col--tablet-100 col--mobile-100'>
+                  <h2>Step 3: Add triggering</h2>
+                  <p>
+                    By default, tooltip message is always hidden and then it&#39;ll appear on hover the triggering element.
+                    There are many ways to hide it: using a display property, using a opacity property, etc.
+                  </p>
+                  <p>
+                    Here I&#39;ve used the opacity property.
+                    Values for this property range from 0 to 1.
+                    Set the property to 0 to make the tooltip message completely transparent.
+                    Then the opacity of the tooltip message&#39;ll be changed on hover to opaque.
+                  </p>
+                  <p className='spacer bottom medium'>
+                    Move mouse over icons below, to see how the tooltip&#39;ll fade in.
+                    The transition property along with the opacity property is used to do this fade in effect.
+                  </p>
                 </div>
-                <span className={styles.post__fileName}>style.css</span>
+                <div className='col col--50 col--tablet-100 col--mobile-100'>
+                  <Code
+                    language={CodeLanguage.CSS}
+                    name='style'
+                    code={step3CSS} />
+                </div>
               </div>
             </div>
           </div>
-          <p>
-            When you move the mouse over the icons below, the tooltip will fade in and take a moment to go from completely invisible to visible. The transition property along with opacity property is used to do this fade effect. Tooltip is almost done!
+          <DefaultTooltipDemo />
+          <p className='spacer top medium'>
+            Let&#39;s make tooltips fancy!
           </p>
-          <div className={bind(['tooltip', styles.post__example])}>
-            <FontAwesomeIcon
-              icon={faCircleInfo}
-              size='2x' />
-            <div className='tooltip__message'>I&#39;m a tooltip!</div>
-          </div>
         </section>
-
         <section>
           <h2>Step 4: Customize</h2>
           <p>
-            In the above step we don&#39;t style the tooltip at all. We can customize it however we want by using additional classes to define other custom style.
+            You may use additional classes to customize tooltips.
           </p>
-          <div className={bind(['tooltip tooltip--primary', styles.post__example])}>
-            <FontAwesomeIcon
-              icon={faCircleInfo}
-              size='2x' />
-            <div className='tooltip__message'>I&#39;m a tooltip!</div>
-          </div>
-          <div className={styles.post__highlighter}>
-            <div className='row'>
-              <div className='col col--50 col--tablet-100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='html'
-                    showLineNumbers>
-                    {step4HTML}
-                  </SyntaxHighlighter>
+          <div className='spacer bottom large'>
+            <div className={styles.post__snippet}>
+              <div className='row'>
+                <div className='col col--50 col--tablet-100 col--mobile-100'>
+                  <Code
+                    language={CodeLanguage.HTML}
+                    name='index'
+                    code={step4HTML} />
                 </div>
-                <span className={styles.post__fileName}>index.html</span>
-              </div>
-              <div className='col col--50 col--tablet-100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='html'
-                    showLineNumbers>
-                    {step4CSS}
-                  </SyntaxHighlighter>
+                <div className='col col--50 col--tablet-100 col--mobile-100'>
+                  <Code
+                    language={CodeLanguage.CSS}
+                    name='style'
+                    code={step4CSS} />
                 </div>
-                <span className={styles.post__fileName}>style.css</span>
               </div>
             </div>
           </div>
           <p>
-            We can change the position of the tooltip. Let&#39;s show the tooltip message on the right:
+            In the example below you can see two variants of tooltip implemented by adding additional classes as described above.
+            These additional classes are written in accordance with the BEM naming methodology, feel free to use your own style guide.
           </p>
-          <div className={styles.post__highlighter}>
-            <div className='row'>
-              <div className='col col--50 col--tablet-100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='html'
-                    showLineNumbers>
-                    {step4HTML2}
-                  </SyntaxHighlighter>
+          <CustomizedTooltipsDemo />
+        </section>
+        <section>
+          <p>
+            You can combine the techniques above in any fashion to change the position of the tooltip.
+            Let&#39;s show the tooltip message on the right:
+          </p>
+          <div className='spacer bottom large'>
+            <div className={styles.post__snippet}>
+              <div className='row'>
+                <div className='col col--50 col--tablet-100 col--mobile-100'>
+                  <Code
+                    language={CodeLanguage.HTML}
+                    name='index'
+                    code={step4HTML2} />
                 </div>
-                <span className={styles.post__fileName}>index.html</span>
-              </div>
-              <div className='col col--50 col--tablet-100'>
-                <div className={styles.post__code}>
-                  <SyntaxHighlighter
-                    language='html'
-                    showLineNumbers>
-                    {step4CSS2}
-                  </SyntaxHighlighter>
+                <div className='col col--50 col--tablet-100 col--mobile-100'>
+                  <Code
+                    language={CodeLanguage.CSS}
+                    name='style'
+                    code={step4CSS2} />
                 </div>
-                <span className={styles.post__fileName}>style.css</span>
               </div>
             </div>
           </div>
+        </section>
+        <section>
           <p>
-            In a similar way we can set another position by adding modifiers like <code>tooltip--right</code>. Hover over the icons below to see the four tooltips directions: top, right, bottom, and left.
+            In a similar way we can set another position by adding modifiers like <code className='highlighted secondary'>tooltip--right</code>.
+            Use top, bottom, left, and right properties to set the placement of tooltip messages.
+            Values in the example below are calculated based on my layout.
+            Hover over the icons below to see the tooltips four directions in action: top, right, bottom, and left.
           </p>
-          <div className={styles.post__directions}>
-            <div>
-              <div className={bind(['tooltip tooltip--right tooltip--primary', styles.post__example])}>
-                <FontAwesomeIcon
-                  icon={faSmile}
-                  size='2x' />
-                <div className='tooltip__message'>Left</div>
-              </div>
-            </div>
-            <div>
-              <div className={bind(['tooltip tooltip--bottom tooltip--primary', styles.post__example])}>
-                <FontAwesomeIcon
-                  icon={faSmile}
-                  size='2x' />
-                <div className='tooltip__message'>Bottom</div>
-              </div>
-            </div>
-            <div>
-              <div className={bind(['tooltip tooltip--top tooltip--primary', styles.post__example])}>
-                <FontAwesomeIcon
-                  icon={faSmile}
-                  size='2x' />
-                <div className='tooltip__message'>Top</div>
-              </div>
-            </div>
-            <div>
-              <div className={bind(['tooltip tooltip--left tooltip--primary', styles.post__example])}>
-                <FontAwesomeIcon
-                  icon={faSmile}
-                  size='2x' />
-                <div className='tooltip__message'>Right</div>
-              </div>
-            </div>
-          </div>
-          <p>
-            And that&#39;s all there is to it!
-          </p>
+          <DirectionsTooltipDemo />
+        </section>
+        <section>
+          <h2>Conclusion</h2>
+          <p>You can create tooltips in CSS without using JavaScript.</p>
         </section>
         <section>
           <h2>Read more</h2>
@@ -325,7 +325,7 @@ const Post = (): ReactElement => {
             <li className='list__item'>
               <ExternalLink
                 href='https://www.nngroup.com/articles/tooltip-guidelines/'
-                label='Tooltip Guidelines' />
+                label='Tooltip guidelines' />
             </li>
             <li>
               <ExternalLink
