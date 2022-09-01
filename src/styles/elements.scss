@@ -670,3 +670,12 @@ ul,
     }
   }
 }
+
+.note {
+  padding: 40px;
+  border: 2px dotted $color--violet;
+
+  &__title {
+    font-weight: 600;
+  }
+}

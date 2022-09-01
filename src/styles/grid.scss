@@ -1,7 +1,9 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -#{$grid-spacer};
+  flex: auto;
+  margin-left: -#{$grid-spacer};
+  margin-right: -#{$grid-spacer};
   width: 100%;
 
   &--centered {

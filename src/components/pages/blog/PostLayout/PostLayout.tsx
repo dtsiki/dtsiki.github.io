@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ReactNode, useMemo } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong, faRightLong } from '@fortawesome/free-solid-svg-icons';
@@ -14,15 +14,33 @@ interface Props {
   children: ReactNode;
   nextLink?: string;
   nextLinkLabel?: string;
+  tags?: Array<string>;
 }
 
-const PostLayout = ({ title, highlight, category, date, children, nextLink, nextLinkLabel }: Props): ReactElement => {
+const PostLayout = ({ title, highlight, category, date, children, nextLink, nextLinkLabel, tags }: Props): ReactElement => {
   const bind = classNames.bind(styles);
+
+  const renderTags = useMemo(() => {
+    return tags?.map((tag) => {
+      return (
+        <li
+          key={tag}
+          className={styles.post__tag}>
+          {tag}
+        </li>
+      )
+    })
+  }, [tags]);
 
   return (
     <div className={styles.post}>
       <div className='container'>
         <div className={styles.post__header}>
+          {tags?.length && (
+            <ul className={styles.post__tags}>
+              {renderTags}
+            </ul>
+          )}
           <h1 className={styles.post__title}>
             {title}
           </h1>
@@ -47,7 +65,7 @@ const PostLayout = ({ title, highlight, category, date, children, nextLink, next
           <Link href='/blog'>
             <a className={bind(['link', styles.post__link, styles.back])}>
               <FontAwesomeIcon icon={faLeftLong} />
-              Back to blog
+              Blog
             </a>
           </Link>
           {nextLink && (

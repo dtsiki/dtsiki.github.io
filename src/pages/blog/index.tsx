@@ -13,16 +13,26 @@ const Blog = (): ReactElement => {
   const posts = [
     {
       id: nanoid(),
+      title: 'Drag and drop',
+      highlight: 'A guide to implementing drag and drop in React app without using any third party libraries.',
+      link: '/blog/drag-and-drop',
+      category: 'tutorial',
+      date: '1 sep 2022',
+      tags: ['React']
+    },
+    {
+      id: nanoid(),
       title: 'Pure CSS tooltips',
       highlight: 'A step-by-step tutorial that will show you how to create a tooltip using only CSS without any additional JavaScript code.',
       link: '/blog/pure-css-tooltips',
       category: 'tutorial',
-      date: '30 jul 2022'
+      date: '30 jul 2022',
+      tags: ['HTML', 'CSS']
     }
   ];
 
   const renderPosts = useMemo(() => posts.map((post) => {
-    const { id, title, highlight, link, category, date } = post;
+    const { id, title, highlight, link, category, date, tags } = post;
 
     return (
       <Preview
@@ -31,16 +41,15 @@ const Blog = (): ReactElement => {
         highlight={highlight}
         link={link}
         category={category}
-        date={date} />
+        date={date}
+        tags={tags} />
     )
   }), [posts])
 
   return (
     <div className={styles.blog}>
       <div className='container'>
-        <h1 className={styles.blog__title}>
-          Blog
-        </h1>
+        <h1 className={styles.blog__title}>Blog</h1>
         <ul className={bind(['row', styles.blog__posts])}>
           {renderPosts}
         </ul>

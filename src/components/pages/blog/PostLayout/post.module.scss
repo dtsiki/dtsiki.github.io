@@ -117,4 +117,23 @@
   ul, ol {
     margin-bottom: 30px;
   }
+
+
+  &__tags {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__tag {
+    border: 2px solid $color--violet;
+    padding: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color--violet;
+
+    + .post__tag {
+      margin-left: 10px;
+    }
+  }
 }

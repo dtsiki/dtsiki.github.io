@@ -9,7 +9,15 @@ import styles from './code.module.scss';
 export enum CodeLanguage {
   HTML = 'html',
   CSS = 'css',
-  JAVASCRIPT = 'js'
+  JAVASCRIPT = 'javascript',
+  TYPESCRIPT = 'typescript'
+}
+
+export enum CodeExtension {
+  html = 'html',
+  css = 'css',
+  javascript = 'js',
+  typescript = 'ts'
 }
 
 interface Props {
@@ -28,7 +36,7 @@ const Code = ({ name, code, language }: Props): ReactElement => {
       <div className={styles.code__header}>
         <div className={styles.code__name}>
           <FontAwesomeIcon icon={faFile} />
-          {name}.{language}
+          {name}.{CodeExtension[language]}
         </div>
         <div className={styles.code__actions}>
           <button
@@ -41,7 +49,7 @@ const Code = ({ name, code, language }: Props): ReactElement => {
       </div>
       <div className={styles.code__body}>
         <SyntaxHighlighter
-          language='html'
+          language={language}
           showLineNumbers
           style={ascetic}>
           {code}

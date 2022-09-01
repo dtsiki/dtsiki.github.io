@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useMemo } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
@@ -10,10 +10,23 @@ interface Props {
   link: string;
   category: string;
   date: string;
+  tags?: Array<string>;
 }
 
-const Preview = ({ title, highlight, link, category, date }: Props): ReactElement => {
+const Preview = ({ title, highlight, link, category, date, tags }: Props): ReactElement => {
   const bind = classNames.bind(styles);
+
+  const renderTags = useMemo(() => {
+    return tags?.map((tag) => {
+      return (
+        <li
+          key={tag}
+          className={styles.preview__tag}>
+          {tag}
+        </li>
+      )
+    })
+  }, [tags]);
 
   return (
     <li className='col col--50 col--tablet-100'>
@@ -36,6 +49,13 @@ const Preview = ({ title, highlight, link, category, date }: Props): ReactElemen
         <p className={styles.preview__highlight}>
           {highlight}
         </p>
+        {tags?.length && (
+          <div className={styles.preview__footer}>
+            <ul className={styles.preview__tags}>
+              {renderTags}
+            </ul>
+          </div>
+        )}
       </div>
     </li>
   );
