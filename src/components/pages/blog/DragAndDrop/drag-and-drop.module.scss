@@ -26,26 +26,36 @@
   }
 
   &__row {
-    display: flex;
-    justify-content: center;
+    @include lg {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__column {
-    width: 280px;
+    width: 100%;
     margin-bottom: 15px;
     box-shadow: 4px 4px 0 0 $color--grey;
     background: rgba($color--white-pink, 0.2);
 
-    + .dragAndDrop__column {
-      margin-left: 15px;
+    @include lg {
+      min-width: 280px;
+
+      + .dragAndDrop__column {
+        margin-left: 15px;
+      }
     }
   }
 
   &__box {
-    min-height: 320px;
+    min-height: 340px;
     padding: 30px 30px 0 30px;
     border: 2px solid rgba($color--black, 0.8);
     border-top: 0;
+
+    @include md {
+      min-height: 320px;
+    }
   }
 
   &__footer {
@@ -53,18 +63,20 @@
   }
 
   &__stack {
-    display: flex;
-    justify-content: center;
+    @include md {
+      display: flex;
+      justify-content: center;
 
-    .dragAndDrop__card {
-      margin: 0 15px;
+      .dragAndDrop__card {
+        margin: 0 15px;
+      }
     }
   }
 
   &__card {
     position: relative;
     box-sizing: border-box;
-    width: 220px;
+    width: 100%;
     padding: 20px 30px;
     margin-bottom: 15px;
     font-size: 0.75rem;
@@ -77,6 +89,10 @@
     border-top: 20px solid $color--violet-darker;
     border-radius: 5px;
     box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+
+    @include lg {
+      width: 220px;
+    }
 
     &.grabbing {
       cursor: grabbing;

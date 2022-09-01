@@ -2,9 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   flex: auto;
-  margin-left: -#{$grid-spacer};
-  margin-right: -#{$grid-spacer};
   width: 100%;
+
+  @include lg {
+    margin-left: -#{$grid-spacer};
+    margin-right: -#{$grid-spacer};
+  }
 
   &--centered {
     align-items: center;
