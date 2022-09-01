@@ -5,12 +5,12 @@
   padding: 30px 0;
   color: $color--grey-dark;
 
-  @include sm {
+  @include md {
     padding: 60px 0 60px 100px;
   }
 
   &__inner {
-    @include sm {
+    @include md {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -25,7 +25,7 @@
       margin-bottom: 0;
     }
 
-    @include sm {
+    @include md {
       margin-bottom: 0;
     }
   }
