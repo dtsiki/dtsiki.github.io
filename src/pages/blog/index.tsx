@@ -1,35 +1,14 @@
 
 import React, { ReactElement, useMemo } from 'react';
 import classNames from 'classnames';
-import { nanoid } from 'nanoid';
 
 import Preview from 'src/components/pages/blog/Preview';
+import { posts } from './../../constants';
 
 import styles from './blog.module.scss';
 
 const Blog = (): ReactElement => {
   const bind = classNames.bind(styles);
-
-  const posts = [
-    {
-      id: nanoid(),
-      title: 'Drag and drop',
-      highlight: 'A guide to implementing drag and drop in React app without using any third party libraries.',
-      link: '/blog/drag-and-drop',
-      category: 'tutorial',
-      date: '1 sep 2022',
-      tags: ['React']
-    },
-    {
-      id: nanoid(),
-      title: 'Pure CSS tooltips',
-      highlight: 'A step-by-step tutorial that will show you how to create a tooltip using only CSS without any additional JavaScript code.',
-      link: '/blog/pure-css-tooltips',
-      category: 'tutorial',
-      date: '30 jul 2022',
-      tags: ['HTML', 'CSS']
-    }
-  ];
 
   const renderPosts = useMemo(() => posts.map((post) => {
     const { id, title, highlight, link, category, date, tags } = post;
