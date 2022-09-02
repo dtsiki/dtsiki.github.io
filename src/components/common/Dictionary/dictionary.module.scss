@@ -1,0 +1,130 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+
+.dictionary {
+  position: relative;
+  max-width: 550px;
+  margin: 0 auto;
+  box-shadow: 4px 4px 0 0 rgba($color--violet, 0.6);
+  box-sizing: border-box;
+  background: $color--white;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid $color--violet-dark;
+    border-bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px;
+  }
+
+  &__title {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color--violet-dark;
+
+    svg {
+      margin-right: 10px;
+      color: $color--violet;
+    }
+  }
+
+  &__body {
+    padding: 30px;
+    border: 2px solid $color--violet;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
+
+    @include md {
+      padding: 60px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    margin: 0 auto;
+    border: 2px solid $color--violet;
+    font-size: 1.5rem;
+    text-transform: lowercase;
+    color: $color--black;
+    box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+
+    svg {
+      width: 20px;
+      height: 20px;
+      margin: 0 10px;
+      color: $color--violet;
+    }
+  }
+
+  &__word {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 15px;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: $color--black;
+
+    @include md {
+      margin: 60px 0 15px;
+    }
+
+    svg {
+      margin-left: 10px;
+      width: 40px;
+      height: 40px;
+      color: $color--violet;
+    }
+  }
+
+  &__type {
+    font-style: italic;
+    color: rgba($color--black, 0.4);
+    margin: 0;
+  }
+
+  &__pronunciation {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color--violet;
+    margin-bottom: 15px;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  &__definition {
+    margin: 15px 0 0;
+  }
+
+  &__example {
+    padding-left: 10px;
+    border-left: 10px solid $color--violet;
+    color: rgba($color--black, 0.4);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    svg {
+      color: $color--violet-darker;
+      width: 15px;
+      height: 15px;
+      margin: 5px;
+    }
+  }
+}
