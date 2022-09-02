@@ -1,15 +1,23 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames/bind';
 
 import styles from './demo.module.scss';
 
+export enum DemoPatternVariant {
+  WAVY = 'wavy',
+  CROSS = 'cross'
+}
 interface Props {
   name?: string;
-  children: ReactNode
+  children: ReactNode;
+  pattern?: DemoPatternVariant;
 }
 
-const Demo = ({ name, children }: Props): ReactElement => {
+const Demo = ({ name, children, pattern }: Props): ReactElement => {
+  const bind = classNames.bind(styles);
+
   return (
     <div className={styles.demo}>
       <div className={styles.demo__header}>
@@ -31,7 +39,12 @@ const Demo = ({ name, children }: Props): ReactElement => {
         </div>
       </div>
       <div className={styles.demo__body}>
-        {children}
+        <div className={styles.demo__content}>
+          {children}
+        </div>
+        {pattern && (
+          <div className={bind([styles.demo__pattern, styles[pattern]])} />
+        )}
       </div>
     </div>
   );
