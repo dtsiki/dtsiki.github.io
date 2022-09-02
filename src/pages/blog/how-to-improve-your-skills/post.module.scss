@@ -1,0 +1,21 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.post {
+  position: relative;
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-left: 15px;
+
+    @include md {
+      font-size: 2rem;
+    }
+
+    &::marker {
+      color: $color--grey-darker;
+    }
+  }
+}
