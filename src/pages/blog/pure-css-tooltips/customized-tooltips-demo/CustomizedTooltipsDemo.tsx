@@ -16,7 +16,7 @@ const CustomizedTooltipsDemo = (): ReactElement => {
         <h3 className={styles.customizedTooltipsDemo__title}>
           There are two types of tooltips:
         </h3>
-        <ol className='list list--ordered'>
+        <ol className='list ordered'>
           <li className='list__item'>
             <div className={styles.customizedTooltipsDemo__item}>
               <DemoTooltip

@@ -136,7 +136,7 @@ const handleDragEnd = () => {
           <p>
             There are two types of elements:
           </p>
-          <ol className='list list--ordered'>
+          <ol className='list ordered'>
             <li className='list__item'>
               <span className='highlighted ghost'>Draggable:</span> elements <span className='accented accented--primary'>what</span> we want to drag somewhere
             </li>
@@ -189,7 +189,7 @@ const handleDragEnd = () => {
           <p>
             Let&#39;s look at the events of each part. Several event types are fired during dragging. These events fire in the following sequence:
           </p>
-          <ol className='list list--ordered'>
+          <ol className='list ordered'>
             <li className='list__item'>
               <span className='highlighted ghost'>onDragStart</span> fires only when a user selects a draggable element. It indicates the user starts dragging the element.
             </li>
@@ -203,7 +203,7 @@ const handleDragEnd = () => {
           <p className='spacer large top'>
             These events fire in the following sequence when user drags the element over a droppable element or a drop target:
           </p>
-          <ol className='list list--ordered'>
+          <ol className='list ordered'>
             <li className='list__item'>
               <span className='highlighted ghost'>onDragEnter</span> fires when the dragged element enters a valid drop target.
             </li>
@@ -282,7 +282,7 @@ const handleDragEnd = () => {
         <section>
           <h2>Summary</h2>
           <p>All you have to do for implementation of drag and drop on your application:</p>
-          <ol className='list list--ordered'>
+          <ol className='list ordered'>
             <li className='list__item'>Add  draggable attribute to an element you want to drag and drop.</li>
             <li className='list__item'>Attach onDragStart handler to selected draggable element.</li>
             <li className='list__item'>Attach handlers to all drop targets.</li>
@@ -301,7 +301,7 @@ const handleDragEnd = () => {
         </section>
         <section>
           <h2>Read more</h2>
-          <ol className='list list--ordered'>
+          <ol className='list ordered'>
             <li className='list__item'>
               <ExternalLink
                 href='https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API'

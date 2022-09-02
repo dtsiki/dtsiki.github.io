@@ -317,7 +317,7 @@ const Post = (): ReactElement => {
         </section>
         <section>
           <h2>Read more</h2>
-          <ol className='list list--ordered'>
+          <ol className='list ordered'>
             <li className='list__item'>
               <ExternalLink
                 href='https://sarahmhigley.com/writing/tooltips-in-wcag-21/'
