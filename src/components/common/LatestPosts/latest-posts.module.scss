@@ -1,0 +1,26 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+
+.latestPosts {
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+
+    @include lg {
+      font-size: 4rem;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color--black;
+
+    svg {
+      margin-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.project {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  @include sm {
+    height: 50vh;
+  }
+
+  &__overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color--white, 0.8);
+    opacity: 0;
+    transition: 0.5s;
+    padding: 30px;
+    backdrop-filter: blur(4px);
+
+    @include sm {
+      padding: 60px;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $color--violet;
+    margin-bottom: 15px;
+
+    @include sm {
+      font-size: 2rem;
+    }
+  }
+
+  &__description {
+    line-height: 2rem;
+    margin-bottom: 15px;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: 500;
+    border-bottom: 2px solid $color--violet;
+    text-decoration: none;
+    color: $color--violet;
+    transition: 0.5s;
+
+    svg {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      color: $color--black-lighter;
+      border-bottom-color: $color--black-lighter;
+    }
+  }
+
+  &:hover {
+    .project__overlay {
+      opacity: 1;
+    }
+  }
+
+  &.dictionary {
+    background-image: url(./../../../../public/assets/projects/previews/dictionary.png);
+    background-size: cover;
+  }
+
+  &.todo {
+    background-image: url(./../../../../public/assets/projects/previews/todo.png);
+    background-size: 106%;
+    background-position: right center;
+
+    @include sm {
+      background-size: 100%;
+      background-position: center center;
+    }
+  }
+
+  &.ticTacToe {
+    background-image: url(./../../../../public/assets/projects/previews/tic-tac-toe.png);
+    background-size: cover;
+  }
+
+  &.quoteGenerator {
+    background-image: url(./../../../../public/assets/projects/previews/quote-generator.png);
+    background-size: cover;
+  }
+
+  &.taskManager {
+    background-image: url(./../../../../public/assets/projects/previews/task-manager.png);
+    background-size: cover;
+  }
+}
