@@ -1,6 +1,7 @@
 import React, { ReactElement, useMemo, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { faBriefcase, faCode, faGraduationCap, faHeart, faList, faSmile } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
 
 import Avatar from 'src/components/common/Avatar';
 import Block from 'src/components/common/Block';
@@ -10,11 +11,13 @@ import AboutSkills from './_skills';
 import AboutEducation from './_education';
 import AboutHobbies from './_hobbies';
 import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
-import AboutProjects from './_projects';
 import Hero from 'src/components/layout/Hero';
 import ExternalLink from 'src/components/common/ExternalLink';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import Palette from 'src/components/common/Palette';
+import Projects from 'src/components/common/Projects';
+import AboutProjects from './_projects';
+import LatestPosts from 'src/components/common/LatestPosts';
 
 import styles from './about.module.scss';
 import avatar from '/public/assets/avatar.jpeg';
@@ -33,6 +36,8 @@ const About = (): ReactElement => {
   const hobbiesRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const isResumeVisible = useIntersectionObserver(resumeRef);
+
+  const bind = classNames.bind(styles);
 
   const handleView = (e: any): void => {
     const { id } = e.target;
@@ -108,14 +113,16 @@ const About = (): ReactElement => {
         </div>
       );
     });
-  }, [items])
+  }, [items]);
 
   return (
     <div className={styles.about}>
       <AboutHero
         targetRef={resumeRef}
         showButton={!isResumeVisible} />
-      <div className={styles.about__actions}>
+      <div
+        ref={resumeRef}
+        className={styles.about__actions}>
         <ul className={`switcher ${viewType}`}>
           <li className='switcher__item'>
             <input
@@ -145,9 +152,7 @@ const About = (): ReactElement => {
       </div>
       {viewType === ViewType.SHORT && (
         <div className={styles.about__tab}>
-          <div
-            ref={resumeRef}
-            className={styles.about__section}>
+          <div className={styles.about__section}>
             <Avatar
               image={avatar}
               className={styles.about__avatar} />
@@ -162,8 +167,8 @@ const About = (): ReactElement => {
           <div className={styles.about__section}>
             <Hero>
               <div className='container'>
-                <div className='row row--centered'>
-                  <div className='col col--50 col--reversed'>
+                <div className='row'>
+                  <div className={bind(['col col--50 col--tablet-100', styles.reversed])}>
                     <h2 className={styles.about__headline}>
                       My name is <span className='highlighted primary'>Daria</span>
                     </h2>
@@ -174,7 +179,7 @@ const About = (): ReactElement => {
                       And this is my <span className='highlighted ghost'>journey</span>
                     </h3>
                   </div>
-                  <div className='col col--50'>
+                  <div className='col col--50 col--tablet-100'>
                     <p className={styles.about__text}>
                       My interest in web development started back in <span className='underlined primary'>2009</span> when I decided to try creating my own little web art project. <ExternalLink
                         href='http://thevioletmaniac.narod.ru/'
@@ -195,8 +200,13 @@ const About = (): ReactElement => {
             </Hero>
             <Hero variant={HeroVariant.PRIMARY}>
               <div className='container'>
-                <div className='row  row--centered'>
-                  <div className='col col--50 col--reversed'>
+                <div className='row'>
+                  <div className={bind(['col col--50 col--tablet-100', styles.reversed])}>
+                    <h2 className={styles.about__headline}>
+                      Where I&#39;ve <span className='highlighted highlighted--primary'>worked</span>
+                    </h2>
+                  </div>
+                  <div className='col col--50 col--tablet-100'>
                     <p className={styles.about__text}>
                       Before now I used to be a digital signal processor <span className='highlighted highlighted--dark'>engineer</span>.
                       In addition I have a <span className='underlined ghost'>masters degree</span> in computer science.
@@ -208,37 +218,23 @@ const About = (): ReactElement => {
                       It&#39;s all in the past for me because...
                     </p>
                   </div>
-                  <div className='col col--50'>
-                    <h2 className={styles.about__headline}>
-                      Where I&#39;ve <span className='highlighted highlighted--primary'>worked</span>
-                    </h2>
-                  </div>
                 </div>
               </div>
             </Hero>
             <Hero variant={HeroVariant.LIGHT}>
               <div className='container'>
-                <p className={styles.about__subtitle}>
-                  <span className='highlighted highlighted--primary'>
-                    Now I&#39;m working to make a better web: awesome, easy to use, accessible at all, and I love what I do.
-                  </span>
-                </p>
-              </div>
-            </Hero>
-            <Hero variant={HeroVariant.PRIMARY}>
-              <div className='container'>
-                <div className='row row--centered'>
-                  <div className='col col--50 col--reversed'>
+                <div className='row'>
+                  <div className={bind(['col col--50 col--tablet-100', styles.reversed])}>
                     <h2 className={styles.about__headline}>
-                      What I do now
+                      Now I&#39;m working to make a better web: awesome, easy to use, accessible at all, and I love what I do.
                     </h2>
                   </div>
-                  <div className='col col--50'>
+                  <div className='col col--50 col--tablet-100'>
                     <p className={styles.about__text}>
-                      I have worked as a full-time <span className='underlined dotted primary'>frontend developer</span> since 2020 with a variety of different languages, platforms, frameworks, and content management systems.
+                      I have worked as a full-time <span className='underlined dotted primary'>frontend developer</span> since 2020 with a variety of different languages, platforms, frameworks and content management systems and I have solved various tasks and problems.
                     </p>
                     <p className={styles.about__text}>
-                      Also I like to pay great attention to <span className='highlighted highlighted--grey'>semantic</span> and <span className='underlined solid primary'>accessibility</span>.
+                      I like to pay great attention to <span className='highlighted highlighted--grey'>semantic</span> and <span className='underlined solid primary'>accessibility</span>.
                       I write code that is standards based, easy to maintain and cross-browser compatible.
                     </p>
                     <p className={styles.about__text}>
@@ -253,30 +249,18 @@ const About = (): ReactElement => {
             </Hero>
             <Hero variant={HeroVariant.SECONDARY}>
               <div className='container'>
-                <div className='row row--centered'>
-                  <div className='col col--50'>
-                    <AboutSkills isExtended />
-                  </div>
-                  <div className='col col--50'>
-                    <h2 className={styles.about__headline}>
-                      Tools or technologies I have worked with and my skills:
-                    </h2>
-                  </div>
-                </div>
+                <h2 className={bind([styles.about__headline, 'spacer large bottom'])}>
+                  Tools or technologies I have worked with and my skills
+                </h2>
+                <AboutSkills isExtended />
               </div>
             </Hero>
             <Hero variant={HeroVariant.PRIMARY}>
               <div className='container'>
-                <div className='row row--centered'>
-                  <div className='col col--50 col--reversed'>
-                    <h2 className={styles.about__headline}>
-                      Outside of work I like
-                    </h2>
-                  </div>
-                  <div className='col col--50'>
-                    <AboutHobbies />
-                  </div>
-                </div>
+                <h2 className={bind([styles.about__headline, 'spacer large bottom'])}>
+                  Outside of work I like
+                </h2>
+                <AboutHobbies />
               </div>
             </Hero>
             <Hero>
@@ -291,6 +275,12 @@ const About = (): ReactElement => {
                   <Palette />
                 </div>
               </div>
+            </Hero>
+            <Hero>
+              <Projects />
+            </Hero>
+            <Hero>
+              <LatestPosts />
             </Hero>
             <Hero variant={HeroVariant.SECONDARY}>
               <div className='container'>

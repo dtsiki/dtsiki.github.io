@@ -1,12 +1,18 @@
+import classNames from 'classnames';
 import React, { ReactElement, useMemo } from 'react';
+
 import Tag from 'src/components/common/Tag';
 import { TagVariant } from 'src/components/common/Tag/Tag';
+
+import styles from './about.module.scss';
 
 interface Props {
   isExtended?: boolean;
 }
 
 const AboutSkills = ({ isExtended = false }: Props): ReactElement => {
+  const bind = classNames.bind(styles);
+
   const primarySkills = [
     'HTML',
     'BEM',
@@ -50,7 +56,7 @@ const AboutSkills = ({ isExtended = false }: Props): ReactElement => {
   }, [primarySkills, extendedSkills, isExtended]);
 
   return (
-    <ul className={`list inline ${isExtended ? ' align-right' : ''}`}>
+    <ul className={bind(['list inline', { [styles.about__skills]: isExtended }])}>
       {renderSkills}
     </ul>
   );

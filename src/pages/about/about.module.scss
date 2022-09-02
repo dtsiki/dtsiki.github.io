@@ -52,7 +52,7 @@
     position: relative;
     margin-bottom: 50px;
 
-    @include sm {
+    @include md {
       margin-bottom: 100px;
 
       &::after {
@@ -70,7 +70,7 @@
   &__actions {
     display: flex;
     justify-content: center;
-    margin: 60px 0 60px;
+    padding: 60px 0 60px;
   }
 
   &__tab {
@@ -109,5 +109,28 @@
 
   &__pallete {
     text-align: center;
+  }
+
+  .reversed {
+    @include md {
+      text-align: right;
+      justify-content: flex-end;
+    }
+  }
+
+  &__hobbies {
+    justify-content: center;
+
+    @include md {
+      justify-content: flex-start;
+    }
+  }
+
+  &__skills {
+    justify-content: center;
+
+    @include md {
+      justify-content: flex-start;
+    }
   }
 }
