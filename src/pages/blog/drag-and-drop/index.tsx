@@ -254,7 +254,7 @@ const handleDragEnd = () => {
                   onDragEnd fires when user stops dragging the element so this event resets it.
                 </p>
               </div>
-              <div className='col col--50 col--tablet-100'>
+              <div className='col col--50 col--tablet-100 spacer bottom medium'>
                 <Code
                   language={CodeLanguage.CSS}
                   name='style'
