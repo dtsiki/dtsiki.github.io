@@ -16,7 +16,7 @@ const Post = (): ReactElement => {
   const highlight = 'If you need inspiration to enhance your skills scroll down to see 10 motivational tips.'
 
   const tips = [
-    'Repeat',
+    'Practice',
     'Practice again',
     'Practice again and again',
     'Practice more',
