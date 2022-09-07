@@ -13,15 +13,16 @@ const App = ({ Component, pageProps }: AppProps): ReactElement => {
   const [title, setTitle] = useState('');
 
   useEffect(() => {
+    const name = '@dtsiki';
     const pathNames = router.pathname.split('/');
 
-    setTitle(router.pathname === '/' ? 'home' : pathNames[1]);
+    setTitle(router.pathname === '/' ? `${name}/home` : `${name}/${pathNames[1]}`);
   }, [router.pathname]);
 
   return (
     <Layout>
       <Head>
-        <title>@dtsiki/{title}</title>
+        <title>{title}</title>
         <meta
           name='description'
           content='Yay! My name is Daria, I am a frontend developer' />
