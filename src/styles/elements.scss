@@ -455,11 +455,8 @@ ul,
     min-width: 150px;
     padding: 20px;
 
-    &:first-child {
+    &:nth-child(2) {
       border-right: 2px solid $color--violet;
-    }
-
-    &:last-child {
       border-left: 2px solid $color--violet;
     }
   }
@@ -484,10 +481,11 @@ ul,
     position: absolute;
     z-index: 0;
     content: '';
-    width: calc(100%/3);
+    width: calc(100% / 3);
     height: 100%;
     background: $color--violet;
     transition: 0.2s linear;
+    box-sizing: border-box;
   }
 
   &__input {
@@ -508,7 +506,7 @@ ul,
 
   &.longest {
     &::before {
-      left: calc(100% - 33%);
+      left: 66.66%;
     }
   }
 }
