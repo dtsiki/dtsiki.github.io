@@ -611,3 +611,19 @@ ul,
     font-weight: 600;
   }
 }
+
+.simplebar {
+  &-scrollbar {
+    &::before {
+      left: 4px !important;
+      width: 6px !important;
+      background: $color--violet !important;
+      opacity: 0.8 !important;
+    }
+  }
+
+  &-track {
+    width: 14px !important;
+    background: $color--white-violet;
+  }
+}
