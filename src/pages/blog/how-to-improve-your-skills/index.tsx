@@ -3,8 +3,7 @@ import classNames from 'classnames/bind';
 
 import PostLayout from 'src/components/pages/blog/PostLayout';
 import ProgressScroll from 'src/components/common/ProgressScroll';
-import Demo from 'src/components/common/Demo';
-import { DemoPatternVariant } from 'src/components/common/Demo/Demo';
+import Window, { WindowPatternVariant } from 'src/components/common/Window/Window';
 import Dictionary from 'src/components/common/Dictionary';
 
 import styles from './post.module.scss';
@@ -14,6 +13,8 @@ const Post = (): ReactElement => {
 
   const title = 'How to improve your skills';
   const highlight = 'If you need inspiration to enhance your skills scroll down to see 10 motivational tips.'
+  const metaDescription = 'How to improve your skills';
+  const metaTags = 'Skills, frontend, motivation, developer skills, tips';
 
   const tips = [
     'Practice',
@@ -48,6 +49,8 @@ const Post = (): ReactElement => {
         highlight={highlight}
         category='insights'
         date='2 sep, 2022'
+        metaDescription={metaDescription}
+        metaTags={metaTags}
         tags={['skills']}>
         <section>
           <p>
@@ -60,13 +63,13 @@ const Post = (): ReactElement => {
           <p className='spacer large bottom'>
             If you feel that you&#39;re stuck in a rut or just need some fresh inspiration how to enhance your skills there are ways you can do to help achieve this goal.
           </p>
-          <Demo pattern={DemoPatternVariant.CROSS}>
+          <Window pattern={WindowPatternVariant.CROSS}>
             <Dictionary
               word='skill'
               pronunciation='/skɪl/'
               definition='an ability to do an activity or job well'
               type='noun' />
-          </Demo>
+          </Window>
         </section>
         <section>
           <p className='spacer medium bottom'>

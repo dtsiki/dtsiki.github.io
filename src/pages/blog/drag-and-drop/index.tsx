@@ -17,7 +17,9 @@ const Post = (): ReactElement => {
   };
 
   const title = 'Drag and Drop';
-  const highlight = 'In this guide I will show you how to implement drag and drop in your application without using any third party libraries.'
+  const highlight = 'In this guide I will show you how to implement drag and drop in your application without using any third party libraries.';
+  const metaDescription = 'How to implement drag and drop in application without using any third party libraries';
+  const metaTags = 'React, JavaScript, drag and drop, tutorial, HTML, CSS, guide';
 
   const exampleHTML1 =
 `<div
@@ -103,7 +105,9 @@ const handleDragEnd = () => {
         highlight={highlight}
         category='tutorial'
         date='1 sep, 2022'
-        tags={['React']}>
+        tags={['React']}
+        metaTags={metaTags}
+        metaDescription={metaDescription}>
         <section>
           <h2>What is a drag and drop?</h2>
           <p>

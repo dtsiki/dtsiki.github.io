@@ -17,6 +17,8 @@ import styles from './post.module.scss';
 const Post = (): ReactElement => {
   const title = 'Pure CSS tooltips';
   const highlight = 'In this tutorial you will learn how to create tooltips using only CSS without any additional JavaScript code.'
+  const metaDescription = 'How to create pure CSS tooltips without using JavaScript';
+  const metaTags = 'HTML, CSS, pure CSS, tooltip, CSS tutorial';
 
   const step1HTML =
 `<div class="tooltip">
@@ -129,6 +131,8 @@ const Post = (): ReactElement => {
         date='30 jul 2022'
         nextLink='drag-and-drop'
         nextLinkLabel='Drag and drop'
+        metaDescription={metaDescription}
+        metaTags={metaTags}
         tags={['HTML', 'CSS']}>
         <section>
           <h2>What is a tooltip?</h2>
