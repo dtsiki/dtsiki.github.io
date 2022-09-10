@@ -1,0 +1,59 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.shortcut {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+
+  &.primary {
+    color: $color--violet;
+  }
+
+  &.secondary {
+    color: $color--white-violet;
+  }
+
+  &.dark {
+    color: $color--black;
+  }
+
+  &.light {
+    color: $color--white;
+  }
+
+  &.ghost {
+    color: $color--grey;
+  }
+
+  &__icon {
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &__label {
+    max-width: 100px;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+  }
+}

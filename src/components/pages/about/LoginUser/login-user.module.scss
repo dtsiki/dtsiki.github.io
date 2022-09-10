@@ -1,0 +1,63 @@
+@import './../../../../styles/colors';
+
+.loginUser {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: $color--violet-dark;
+
+    svg {
+      width: 40px;
+      height: 40px;
+      color: $color--grey;
+    }
+  }
+
+  &__username {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $color--grey;
+    text-align: center;
+  }
+
+  &__input {
+    border: 2px solid $color--violet;
+    padding: 10px 15px;
+    background: $color--violet-dark;
+    border-radius: 5px;
+    color: $color--white;
+
+    &:focus {
+      box-shadow: 0px 0px 5px rgba($color--white, 0.7);
+      border: 2px solid $color--grey;
+      outline: 0;
+    }
+
+    &::placeholder {
+      color: $color--white;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
+
+  &__footer {
+    margin-top: 10px;
+    color: rgba($color--grey, 0.5);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+  }
+}

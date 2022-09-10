@@ -118,7 +118,7 @@
     }
   }
 
-  &__hobbies {
+  &__skills {
     justify-content: center;
 
     @include md {
@@ -126,11 +126,7 @@
     }
   }
 
-  &__skills {
-    justify-content: center;
-
-    @include md {
-      justify-content: flex-start;
-    }
+  &__shortest {
+    text-align: center;
   }
 }

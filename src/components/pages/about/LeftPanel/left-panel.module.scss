@@ -1,0 +1,49 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+
+.leftPanel {
+  display: none;
+
+  @include md {
+    position: absolute;
+    display: block;
+    top: 145px;
+    left: 0;
+    z-index: 1;
+    width: 60px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background: rgba($color--violet-dark, 0.8);
+    color: $color--grey;
+
+    &__actions {
+      padding-top: 5px;
+    }
+
+    &__shortcut {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      background: $color--violet-darker;
+      transition: 0.5s all;
+      cursor: pointer;
+
+      &:hover {
+        background: $color--violet-lighter;
+      }
+
+       + .leftPanel__shortcut {
+         margin-top: 5px;
+       }
+    }
+
+    &__footer {
+      position: absolute;
+      bottom: 5px;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@import './../../../../styles/colors';
+
+.selectUser {
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    background: $color--violet-dark;
+    border-radius: 5px;
+    min-width: 300px;
+    padding: 10px;
+    transition: 0.5s all;
+
+    &:hover {
+      background: rgba($color--violet-dark, 0.9);
+    }
+  }
+
+  &__username {
+    margin: 15px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $color--grey;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: $color--violet;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      color: $color--grey;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__footer {
+    margin-top: 5px;
+    color: rgba($color--grey, 0.5);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
