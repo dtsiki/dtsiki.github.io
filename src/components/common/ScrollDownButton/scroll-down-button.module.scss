@@ -4,32 +4,46 @@
 .scrollDownButton {
   display: none;
 
+  &__button {
+    font-size: 4rem;
+
+    &.primary {
+      color: $color--violet;
+
+      &:hover {
+        color: $color--violet-darker;
+      }
+    }
+
+    &.dark {
+      color: $color--black;
+
+      &:hover {
+        color: $color--grey;
+      }
+    }
+
+    &.light {
+      color: $color--white-violet;
+
+      &:hover {
+        color: $color--white;
+      }
+    }
+
+    &:hover {
+      transition: 0.5s all;
+    }
+  }
+
   @include sm {
     position: absolute;
-    bottom: 60px;
+    bottom: 30px;
     display: block;
     transition: 0.6s ease;
   }
 
   &_hidden {
     transform: scale(0);
-  }
-
-  &.primary {
-    svg {
-      color: $color--white;
-    }
-  }
-
-  &.dark {
-    svg {
-      color: $color--white;
-    }
-  }
-
-  &.light {
-    svg {
-      color: $color--violet;
-    }
   }
 }

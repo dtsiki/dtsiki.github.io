@@ -26,10 +26,10 @@ const ScrollDownButton = ({ targetRef, variant = ScrollDownButtonVariant.PRIMARY
   };
 
   return (
-    <div className={bind([styles.scrollDownButton, variant, { [styles.scrollDownButton_hidden]: isHidden } ])}>
+    <div className={bind([styles.scrollDownButton, { [styles.scrollDownButton_hidden]: isHidden } ])}>
       <button
         onClick={onScrollDown}
-        className={`button button--circle button--${variant}`}>
+        className={bind(['button', styles.scrollDownButton__button, styles[variant]])}>
         <span className='visually-hidden'>Scroll down</span>
         <FontAwesomeIcon icon={faAngleDown} />
       </button>
