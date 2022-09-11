@@ -21,12 +21,13 @@ export enum CodeExtension {
 }
 
 interface Props {
-  name: string;
+  name?: string;
+  customName?: string;
   code: string;
-  language: CodeLanguage
+  language?: CodeLanguage
 }
 
-const Code = ({ name, code, language }: Props): ReactElement => {
+const Code = ({ name, customName, code, language }: Props): ReactElement => {
   const copyToClipboard= (): void => {
     navigator.clipboard.writeText(code);
   };
@@ -36,7 +37,7 @@ const Code = ({ name, code, language }: Props): ReactElement => {
       <div className={styles.code__header}>
         <div className={styles.code__name}>
           <FontAwesomeIcon icon={faFile} />
-          {name}.{CodeExtension[language]}
+          {customName || (language && name) && `${name}.${CodeExtension[language]}`}
         </div>
         <div className={styles.code__actions}>
           <button
