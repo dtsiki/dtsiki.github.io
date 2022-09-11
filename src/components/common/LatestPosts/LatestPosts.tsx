@@ -1,7 +1,7 @@
 import React, { ReactElement, useMemo } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightLong } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faRightLong } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import Preview from 'src/components/pages/blog/Preview';
@@ -42,9 +42,9 @@ const LatestPosts = (): ReactElement => {
         </ul>
       </div>
       <Link href='/blog'>
-        <a className={bind(['link', styles.latestPosts__link])}>
-          Read blog
-          <FontAwesomeIcon icon={faRightLong} />
+        <a className={styles.latestPosts__link}>
+          <span className='visually-hidden'>Read blog</span>
+          <FontAwesomeIcon icon={faArrowRight} />
         </a>
       </Link>
     </div>
