@@ -1,0 +1,78 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+
+.browser {
+  margin: 0 auto;
+  background: $color--white-darker;
+  box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2px solid $color--violet;
+    border-bottom: 0;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: $color--violet;
+    margin-left: 15px;
+  }
+
+  &__name {
+    padding: 0 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__body {
+    position: relative;
+    border: 2px solid $color--violet;
+    box-sizing: border-box;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__control {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: rgba($color--violet, 0.8);
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 35px;
+    width: 35px;
+    transition: 0.5s all;
+    box-sizing: border-box;
+
+    &:first-child {
+      border-left: 2px solid $color--violet;
+    }
+
+    + .browser__control {
+      border-left: 2px solid $color--violet;
+    }
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+}
