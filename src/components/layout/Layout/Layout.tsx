@@ -12,7 +12,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps): ReactElement => {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
