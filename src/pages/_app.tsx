@@ -2,11 +2,11 @@ import React, { ReactElement, useEffect, useState } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { YMInitializer } from 'react-yandex-metrika';
 
-import '../styles/index.scss';
 import Layout from 'src/components/layout/Layout';
 
-import { YMInitializer } from 'react-yandex-metrika';
+import '../styles/index.scss';
 
 const App = ({ Component, pageProps }: AppProps): ReactElement => {
   const router = useRouter();
