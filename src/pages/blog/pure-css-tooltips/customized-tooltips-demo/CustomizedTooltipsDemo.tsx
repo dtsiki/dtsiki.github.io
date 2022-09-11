@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import classNames from 'classnames/bind';
 
-import Demo from 'src/components/common/Demo';
+import Window from 'src/components/common/Window';
 import DemoTooltip from 'src/components/pages/blog/DemoTooltip';
 import { DemoTooltipDirection, DemoTooltipVariant } from 'src/components/pages/blog/DemoTooltip/DemoTooltip';
 
@@ -11,7 +11,7 @@ const CustomizedTooltipsDemo = (): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
-    <Demo>
+    <Window>
       <div className={styles.customizedTooltipsDemo}>
         <h3 className={styles.customizedTooltipsDemo__title}>
           There are two types of tooltips:
@@ -47,7 +47,7 @@ const CustomizedTooltipsDemo = (): ReactElement => {
           </li>
         </ol>
       </div>
-    </Demo>
+    </Window>
   );
 };
 

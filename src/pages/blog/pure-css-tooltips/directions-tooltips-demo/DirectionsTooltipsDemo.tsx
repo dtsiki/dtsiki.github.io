@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { ReactElement, useMemo } from 'react';
 
-import Demo from 'src/components/common/Demo';
+import Window from 'src/components/common/Window';
 import DemoTooltip from 'src/components/pages/blog/DemoTooltip';
 import { DemoTooltipDirection, DemoTooltipVariant } from 'src/components/pages/blog/DemoTooltip/DemoTooltip';
 
@@ -41,7 +41,7 @@ const DirectionsTooltipDemo = (): ReactElement => {
   }, [directions]);
 
   return (
-    <Demo>
+    <Window>
       <div className={styles.directionsTooltipsDemo}>
         <h3 className={styles.directionsTooltipsDemo__title}>
           There are four directions of tooltips:
@@ -50,7 +50,7 @@ const DirectionsTooltipDemo = (): ReactElement => {
           {renderDirections}
         </ul>
       </div>
-    </Demo>
+    </Window>
   );
 };
 

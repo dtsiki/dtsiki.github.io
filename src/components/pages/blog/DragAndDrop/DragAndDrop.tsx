@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolder } from '@fortawesome/free-solid-svg-icons';
 
-import Demo from 'src/components/common/Demo';
+import Window from 'src/components/common/Window';
 import DragAndDropCard, { DragAndDropCardVariant } from './_card';
 import DragAndDropBox from './_box';
 
@@ -10,7 +10,7 @@ import styles from './drag-and-drop.module.scss';
 
 const DragAndDrop = (): ReactElement => {
   return (
-    <Demo>
+    <Window>
       <div className={styles.dragAndDrop}>
         <div className={styles.dragAndDrop__row}>
           <div className={styles.dragAndDrop__column}>
@@ -53,7 +53,7 @@ const DragAndDrop = (): ReactElement => {
           </div>
         </div>
       </div>
-    </Demo>
+    </Window>
   );
 };
 

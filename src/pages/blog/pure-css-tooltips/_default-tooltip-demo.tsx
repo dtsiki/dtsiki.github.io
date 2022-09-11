@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
-import Demo from 'src/components/common/Demo';
+import Window from 'src/components/common/Window';
 import DemoTooltip from 'src/components/pages/blog/DemoTooltip';
 import { DemoTooltipVariant } from 'src/components/pages/blog/DemoTooltip/DemoTooltip';
 
@@ -14,7 +14,7 @@ interface Props {
 
 const DefaultTooltipDemo = ({ disableTriggering = false }: Props): ReactElement => {
   return (
-    <Demo name=''>
+    <Window>
       <div className={styles.post__example}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud yay <DemoTooltip
@@ -26,7 +26,7 @@ const DefaultTooltipDemo = ({ disableTriggering = false }: Props): ReactElement 
         />
         ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </div>
-    </Demo>
+    </Window>
   );
 };
 
