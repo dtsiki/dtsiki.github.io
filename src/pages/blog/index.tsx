@@ -1,8 +1,8 @@
 
-import React, { ReactElement, useMemo, useState } from 'react';
+import React, { ReactElement, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faMagicWandSparkles, faSearch, faTh, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faFaceFrown, faList, faMagicWandSparkles, faSearch, faTh, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import { WindowType } from 'src/components/common/Window/Window';
 import ShortcutPreview from 'src/components/pages/blog/ShortcutPreview';
@@ -25,7 +25,29 @@ const Blog = (): ReactElement => {
   const [viewType, setViewType] = useState<ShortcutPreviewViewType>(ShortcutPreviewViewType.GRID);
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [query, setQuery] = useState<string>('');
+  const [blogPosts, setBlogPosts] = useState<Array<any>>(posts);
   const bind = classNames.bind(styles);
+
+  useEffect(() => {
+    if (!query.length) return;
+
+    const filteredPosts = viewStyle === BlogViewStyle.BORING ?
+      posts.filter((post) => {
+        return post.title.toLowerCase()
+          .includes(query.toLowerCase()) ||
+          post.highlight.toLowerCase()
+            .includes(query.toLowerCase()) ||
+          post.category.toLowerCase()
+            .includes(query.toLowerCase()) ||
+          post.tags.toString()
+            .toLowerCase()
+            .includes(query.toLowerCase())
+      }) :
+      posts.filter((post) => post.title.toLowerCase()
+        .includes(query.toLowerCase()));
+
+    setBlogPosts(filteredPosts);
+  }, [query]);
 
   const toggleViewType = (): void => {
     setViewType(viewType === ShortcutPreviewViewType.GRID ? ShortcutPreviewViewType.LIST : ShortcutPreviewViewType.GRID);
@@ -45,58 +67,41 @@ const Blog = (): ReactElement => {
     setShowSearch(false);
   }
 
-  const renderPreviews = useMemo(() => {
-    const items = query.length ? posts.filter((post) => {
-      return post.title.toLowerCase()
-        .includes(query.toLowerCase()) ||
-        post.highlight.toLowerCase()
-          .includes(query.toLowerCase()) ||
-        post.category.toLowerCase()
-          .includes(query.toLowerCase()) ||
-        post.tags.toString()
-          .toLowerCase()
-          .includes(query.toLowerCase())
-    }) : posts;
-
-    return items.map((post) => {
+  const renderPosts = useMemo(() => {
+    return blogPosts.map((post) => {
       const { id, title, highlight, link, category, date, tags } = post;
 
-      return (
-        <Preview
-          key={id}
-          title={title}
-          highlight={highlight}
-          link={link}
-          category={category}
-          date={date}
-          tags={tags} />
-      )
-    })
-  }, [posts, query]);
-
-  const renderShortcuts = useMemo(() => {
-    const items = query.length ? posts.filter((post) => post.title.toLowerCase()
-      .includes(query.toLowerCase())) : posts;
-
-    return items.map((post) => {
-      const { id, title, highlight, link, category, date, tags } = post;
-
-      return (
-        <li
-          key={id}
-          className={bind([styles.blog__shortcut, styles[viewType]])}>
-          <ShortcutPreview
+      if (viewStyle === BlogViewStyle.BORING) {
+        return (
+          <Preview
+            key={id}
             title={title}
             highlight={highlight}
             link={link}
             category={category}
             date={date}
-            viewType={viewType}
             tags={tags} />
-        </li>
-      )
+        )
+      }
+
+      if (viewStyle === BlogViewStyle.FANCY) {
+        return (
+          <li
+            key={id}
+            className={bind([styles.blog__shortcut, styles[viewType]])}>
+            <ShortcutPreview
+              title={title}
+              highlight={highlight}
+              link={link}
+              category={category}
+              date={date}
+              viewType={viewType}
+              tags={tags} />
+          </li>
+        )
+      }
     })
-  }, [posts, viewType, query]);
+  }, [blogPosts, viewStyle, viewType]);
 
   return (
     <div className={bind([styles.blog, styles[viewStyle]])}>
@@ -132,9 +137,15 @@ const Blog = (): ReactElement => {
                 )}
               </div>
             </div>
-            <ul className={bind(['row', styles.blog__posts])}>
-              {renderPreviews}
-            </ul>
+            {blogPosts.length ? (
+              <ul className={bind(['row', styles.blog__posts])}>
+                {renderPosts}
+              </ul>
+            ) : (
+              <div className={styles.blog__notification}>
+                Oh, no posts found <FontAwesomeIcon icon={faFaceFrown} />
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -182,7 +193,7 @@ const Blog = (): ReactElement => {
                 </div>
                 <CustomScrollbar maxHeight={300}>
                   <ul className={bind([styles.blog__shortcuts, styles[viewType]])}>
-                    {renderShortcuts}
+                    {renderPosts}
                   </ul>
                 </CustomScrollbar>
               </Window>
