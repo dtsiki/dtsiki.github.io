@@ -151,6 +151,9 @@ a {
 }
 
 .accented {
+  font-weight: inherit;
+  font-size: inherit;
+
   &--primary {
     color: $color--violet;
   }
