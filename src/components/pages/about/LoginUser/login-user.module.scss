@@ -1,9 +1,6 @@
 @import './../../../../styles/colors';
-@import './../../../../styles/keyframes';
 
 .loginUser {
-  animation: appearFromNowhere 1s;
-
   &__wrapper {
     display: flex;
     justify-content: center;

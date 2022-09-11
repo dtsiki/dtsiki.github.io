@@ -1,6 +1,5 @@
 @import './../../../../styles/colors';
 @import './../../../../styles/breakpoints';
-@import './../../../../styles/keyframes';
 
 .leftPanel {
   display: none;
@@ -17,7 +16,6 @@
     justify-content: center;
     background: rgba($color--violet-dark, 0.8);
     color: $color--grey;
-    animation: appearFromLeft 1s;
 
     &__actions {
       padding-top: 5px;

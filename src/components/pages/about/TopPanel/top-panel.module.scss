@@ -1,6 +1,5 @@
 @import './../../../../styles/colors';
 @import './../../../../styles/breakpoints';
-@import './../../../../styles/keyframes';
 
 .topPanel {
   display: none;
@@ -18,7 +17,6 @@
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
-    animation: appearFromNowhere 1s;
 
     &__actions {
       position: absolute;
