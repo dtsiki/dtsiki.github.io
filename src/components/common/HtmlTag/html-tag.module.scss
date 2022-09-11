@@ -8,4 +8,9 @@
   &.secondary {
     color: $color--grey;
   }
+
+  &.single {
+    font-weight: 700;
+    color: $color--black;
+  }
 }

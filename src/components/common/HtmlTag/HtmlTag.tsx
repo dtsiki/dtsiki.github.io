@@ -10,28 +10,40 @@ export enum HtmlTagVariant {
 
 export enum HtmlTagElement {
   DIV = 'div',
-  PRIMARY_HEADING = 'h1',
-  SECONDARY_HEADING = 'h2'
+  FIRST_HEADING = 'h1',
+  SECOND_HEADING = 'h2'
 }
 
 interface Props {
-  children: ReactNode;
-  element:  HtmlTagElement;
+  children?: ReactNode;
+  element?:  HtmlTagElement;
   variant?: HtmlTagVariant;
+  isUnpaired?: boolean;
+  isSingle?: boolean;
 }
 
-const HtmlTag = ({ element, children, variant = HtmlTagVariant.PRIMARY }: Props): ReactElement => {
+const HtmlTag = ({ element, children, variant = HtmlTagVariant.PRIMARY, isUnpaired = false, isSingle = false }: Props): ReactElement => {
   const bind = classNames.bind(styles);
+
+  if (isSingle) {
+    return (
+      <span className={bind([styles.htmlTag, styles.single])}>
+        &lt;{children}&gt;
+      </span>
+    );
+  }
 
   return (
     <>
       <span className={bind([styles.htmlTag, styles[variant]])}>
         &lt;{element}&gt;
       </span>
-      {children}
-      <span className={bind([styles.htmlTag, styles[variant]])}>
-        &lt;/{element}&gt;
-      </span>
+      {children && children}
+      {!isUnpaired && (
+        <span className={bind([styles.htmlTag, styles[variant]])}>
+          &lt;/{element}&gt;
+        </span>
+      )}
     </>
   );
 };
