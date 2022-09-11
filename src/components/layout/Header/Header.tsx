@@ -1,19 +1,25 @@
-import React, { ReactElement, useMemo, useState } from 'react';
+import React, { ReactElement, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 import useEventListener, { Event } from 'src/hooks/useEventListener';
 
 import styles from './header.module.scss';
 
 const Header = (): ReactElement => {
-  const [isPageScrolled, setPageScrolled] = useState(false);
+  const [isPageScrolled, setPageScrolled] = useState<boolean>(false);
+  const [showBackButton, setShowBackButton] = useState<boolean>(false);
   const [isMenuOpened, setMenuOpened] = useState<boolean>(false);
-  const bind = classNames.bind(styles);
   const router = useRouter();
+
+  const bind = classNames.bind(styles);
+
+  useEffect(() => {
+    setShowBackButton(router.pathname.includes('/blog/'));
+  }, [router]);
 
   const menuItems = [
     {
@@ -55,6 +61,10 @@ const Header = (): ReactElement => {
 
   const onLinkClicked = (): void => {
     toggleMenu();
+  }
+
+  const goBack = (): void => {
+    router.back();
   }
 
   const renderIcon = useMemo(() => {
@@ -104,14 +114,32 @@ const Header = (): ReactElement => {
         </ul>
       </nav>
       <aside className={styles.header__sidebar}>
-        <button
-          onClick={scrollToTop}
-          className={bind([styles.header__up, { [styles.visible]: isPageScrolled }])}>
-          <FontAwesomeIcon
-            icon={faAngleUp}
-            color='#ffffff'
-            size='2x' />
-        </button>
+        <ul className={styles.header__actions}>
+          <li>
+            <button
+              onClick={scrollToTop}
+              className={bind([styles.header__upButton, { [styles.visible]: isPageScrolled }])}>
+              <span className='visually-hidden'>Scroll to top</span>
+              <FontAwesomeIcon
+                icon={faAngleUp}
+                color='#ffffff'
+                size='2x' />
+            </button>
+          </li>
+          {showBackButton && (
+            <li>
+              <button
+                onClick={goBack}
+                className={bind([styles.header__backButton, { [styles.visible]: isPageScrolled }])}>
+                <span className='visually-hidden'>Go back to previous page</span>
+                <FontAwesomeIcon
+                  icon={faAngleLeft}
+                  color='#ffffff'
+                  size='2x' />
+              </button>
+            </li>
+          )}
+        </ul>
       </aside>
     </header>
   );
