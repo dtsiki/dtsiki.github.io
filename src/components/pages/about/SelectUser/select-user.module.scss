@@ -1,6 +1,9 @@
 @import './../../../../styles/colors';
+@import './../../../../styles/keyframes';
 
 .selectUser {
+  animation: appearFromNowhere 1s;
+
   &__wrapper {
     position: relative;
     display: flex;

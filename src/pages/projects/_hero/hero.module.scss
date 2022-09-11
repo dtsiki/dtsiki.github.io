@@ -1,19 +1,15 @@
 @import './../../../styles/colors';
 @import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
 
 .hero {
   position: relative;
+  animation: appearFromTop 1s;
 
   &__title {
     font-size: 3rem;
     font-weight: 700;
-    max-width: 400px;
     text-align: center;
     color: $color--violet;
-
-    @include md {
-      max-width: 750px;
-      font-size: 6rem;
-    }
   }
 }
