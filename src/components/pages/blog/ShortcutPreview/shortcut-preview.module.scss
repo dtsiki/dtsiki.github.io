@@ -1,0 +1,117 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/vars';
+
+.shortcutPreview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &.list {
+    width: auto;
+    margin-bottom: 15px;
+    padding: 5px;
+  }
+
+  &.grid {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  &:hover {
+    border: 1px dashed $color--grey;
+  }
+
+  &__icon {
+    svg {
+      color: $color--violet;
+    }
+
+    &.list {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &.grid {
+      svg {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    color: $color--black;
+    word-break: break-all;
+
+    &.grid {
+      max-width: 150px;
+      margin: 20px 0 0;
+    }
+
+    &.list {
+      margin-left: 10px;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__tooltip {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: $color--white;
+    border: 1px solid $color--grey;
+    box-shadow: $color--grey;
+    z-index: 10;
+    display: none;
+
+    &.list {
+      width: 500px;
+      top: 10px;
+      left: 10%;
+    }
+
+    &.grid {
+      top: 50%;
+      left: 50%;
+      width: 230px;
+    }
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    color: $color--grey-dark;
+
+    + .shortcutPreview__label {
+      margin-top: 5px;
+    }
+  }
+
+  &__aside {
+    position: absolute;
+    right: 5px;
+    color: $color--grey-dark;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+}

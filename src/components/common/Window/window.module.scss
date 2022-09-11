@@ -2,10 +2,10 @@
 @import './../../../styles/vars';
 @import './../../../styles/breakpoints';
 
-.demo {
+.window {
   margin: 0 auto;
   background: $color--white-darker;
-  box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+  box-shadow: 4px 4px 0 0 rgba($color--violet, 0.6);
 
   &__header {
     display: flex;
@@ -14,34 +14,71 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border: 2px solid $color--violet;
-    border-bottom: 0;
   }
 
-  &__icon {
+  &__heading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    color: $color--violet;
+
     svg {
-      display: inline-block;
-      transform: scale(2);
-      margin: 0 15px 0 20px;
-      opacity: 0.8;
-      color: $color--violet
+      margin-right: 10px;
+      color: $color--violet;
     }
   }
 
-  &__name {
-    padding: 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
+  &__title {
     text-transform: uppercase;
-    color: $color--violet;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  &__fileTitle {
+    margin-left: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    &::before {
+      content: '- [';
+    }
+
+    &::after {
+      content: ']';
+    }
+  }
+
+  &__actions {
+    display: flex;
+    box-sizing: border-box;
   }
 
   &__body {
     position: relative;
-    padding: 30px;
     border: 2px solid $color--violet;
+    border-top: 0;
+    padding: 30px;
 
     @include md {
       padding: 60px;
+    }
+
+    &.slideshow {
+      padding: 10px 10px 0;
+
+      @include md {
+        padding: 25px 25px 0;
+      }
+    }
+
+    &.folder {
+      padding: 10px;
+
+      @include md {
+        padding: 30px 30px 40px;
+      }
     }
   }
 
@@ -55,15 +92,15 @@
     cursor: pointer;
     margin: 0;
     padding: 0;
-    height: 48px;
-    width: 48px;
+    height: 40px;
+    width: 40px;
     transition: 0.5s all;
 
     &:first-child {
       border-left: 2px solid $color--violet;
     }
 
-    + .demo__control {
+    + .window__control {
       border-left: 2px solid $color--violet;
     }
 
@@ -95,10 +132,63 @@
     &.cross {
       background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/><path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='1' stroke='hsla(271, 76%, 53%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
     }
+
+    &.smiley {
+      background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(3) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5'  stroke-width='1' stroke='none' fill='hsla(271, 76%, 53%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>")    }
   }
 
   &__content {
     position: relative;
     z-index: 100;
+  }
+
+  &__menu {
+    display: flex;
+    margin: 0;
+    padding: 10px 25px;
+    list-style: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba($color--black, 0.4);
+    background: rgba($color--white-violet, 0.5);
+    border-left: 2px solid $color--violet;
+    border-right: 2px solid $color--violet;
+
+    li {
+      transition: 0.5s all;
+      cursor: pointer;
+
+      &::first-letter {
+        text-decoration: underline;
+      }
+
+      &:hover {
+        color: rgba($color--black, 0.6);
+      }
+
+      + li {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    bottom: 0;
+    background: $color--grey-lighter;
+  }
+
+  &__count {
+    color: $color--grey-dark;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 }
