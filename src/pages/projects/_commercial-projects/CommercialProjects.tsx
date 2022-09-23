@@ -36,6 +36,11 @@ const CommercialProjects = (): ReactElement => {
       id: nanoid(),
       name: 'Сorporate portal',
       stack: 'Next.js'
+    },
+    {
+      id: nanoid(),
+      name: 'Employee scheduling system',
+      stack: 'Angular'
     }
   ];
 
