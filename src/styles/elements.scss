@@ -190,6 +190,12 @@ ul,
     font-weight: 500;
   }
 
+  &__subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
   &__item {
     margin-bottom: 30px;
 
@@ -209,6 +215,23 @@ ul,
       &::marker {
         font-weight: 600;
       }
+    }
+  }
+
+  &.markered {
+    list-style-type: disc;
+    margin-left: 15px;
+
+    li {
+      &::marker {
+        color: $color--violet;
+      }
+    }
+  }
+
+  &.nested {
+    ul {
+      margin-left: 30px;
     }
   }
 }
@@ -517,91 +540,91 @@ ul,
 .spacer {
   &.extra-large {
     &.top {
-      margin-top: 120px;
+      margin-top: calc($spacer * 8);
     }
 
     &.bottom {
-      margin-bottom: 120px;
+      margin-bottom: calc($spacer * 8);
     }
 
     &.left {
-      margin-left: 120px;
+      margin-left: calc($spacer * 8);
     }
 
     &.right {
-      margin-right: 120px;
+      margin-right: calc($spacer * 8);
     }
   }
 
   &.large {
     &.top {
-      margin-top: 60px;
+      margin-top: calc($spacer * 4);
     }
 
     &.bottom {
-      margin-bottom: 60px;
+      margin-bottom: calc($spacer * 4);
     }
 
     &.left {
-      margin-left: 60px;
+      margin-left: calc($spacer * 4);
     }
 
     &.right {
-      margin-right: 60px;
+      margin-right: calc($spacer * 4);
     }
   }
 
   &.medium {
     &.top {
-      margin-top: 30px;
+      margin-top: calc($spacer * 2);
     }
 
     &.bottom {
-      margin-bottom: 30px;
+      margin-bottom: calc($spacer * 2);
     }
 
     &.left {
-      margin-left: 30px;
+      margin-left: calc($spacer * 2);
     }
 
     &.right {
-      margin-right: 30px;
+      margin-right: calc($spacer * 2);
     }
   }
 
   &.small {
     &.top {
-      margin-top: 15px;
+      margin-top: $spacer;
     }
 
     &.bottom {
-      margin-bottom: 15px;
+      margin-bottom: $spacer;
     }
 
     &.left {
-      margin-left: 15px;
+      margin-left: $spacer;
     }
 
     &.right {
-      margin-right: 15px;
+      margin-right: $spacer;
     }
   }
 
   &.extra-small {
     &.top {
-      margin-top: 5px;
+      margin-top: calc($spacer / 3);
     }
 
     &.bottom {
-      margin-bottom: 5px;
+      margin-bottom: calc($spacer / 3);
     }
 
     &.left {
-      margin-left: 5px;
+      margin-left: calc($spacer / 3);
     }
 
     &.right {
-      margin-right: 5px;
+      margin-right: calc($spacer / 3);
     }
   }
 }
@@ -633,4 +656,58 @@ ul,
 
 .image-box {position: relative; padding-top: 56.25%;
   &__wrapper {position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;}
+}
+
+.accordion {
+  &__header {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent;
+
+    border: 0;
+    cursor: pointer;
+    padding-right: 0;
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: calc(100% + 40px);
+    background: transparent;
+    border: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  &__icon {
+    position: absolute;
+    right: -40px;
+    color: $color--violet;
+    z-index: 2;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+    max-height: 0;
+    margin-top: calc($spacer * 2);
+
+    &.visible {
+      overflow: visible;
+      max-height: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0 !important;
+  }
 }

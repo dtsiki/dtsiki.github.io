@@ -1,0 +1,142 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.post {
+  position: relative;
+
+  &__details {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__snippet {
+    display: flex;
+    justify-content: center;
+
+    @include md {
+      margin: 30px 0;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    padding: 0 5px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: $color--black;
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $color--black;
+    margin-bottom: 30px;
+  }
+
+  &__address {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+  }
+
+  &__pin {
+    position: absolute;
+    top: -25px;
+    z-index: 1;
+
+    svg {
+      width: 50px !important;
+      height: 50px;
+      color: $color--black;
+    }
+  }
+
+  &__envelope {
+    width: 350px;
+    margin: 0 auto;
+    padding: 50px 0;
+    border: 10px solid transparent;
+    border-image: 10 repeating-linear-gradient(-45deg,
+      $color--violet 0,
+      $color--violet 1em,
+      transparent 0,
+      transparent 2em,
+      $color--black 0,
+      $color--black 3em,
+      transparent 0,
+      transparent 4em);
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transform: rotate(2deg);
+    z-index: 0;
+  }
+
+  &__sticker {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    margin: 60px auto 0;
+    padding: 30px 0 15px;
+    background: rgba($color--white-violet, 0.6);
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    transform: rotate(-3deg);
+  }
+
+  &__text {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  &__menu {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  &__anchor {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: $color--violet;
+  }
+
+  &__buttonWrapper {
+    text-align: center;
+  }
+
+  &__button {
+    display: inline-block;
+    background: $color--violet;
+    border: 0;
+    padding: $spacer;
+    min-width: 200px;
+    text-align: center;
+    color: $color--white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s all;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+
+    &:hover {
+      box-shadow: 4px 4px 0 0 rgba($color--violet, 0.8);
+    }
+  }
+}

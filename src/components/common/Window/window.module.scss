@@ -80,6 +80,10 @@
         padding: 30px 30px 40px;
       }
     }
+
+    &.image {
+      padding: 0;
+    }
   }
 
   &__control {
@@ -140,6 +144,10 @@
   &__content {
     position: relative;
     z-index: 100;
+
+    &.image {
+      display: block;
+    }
   }
 
   &__menu {

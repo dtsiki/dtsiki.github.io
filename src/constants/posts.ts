@@ -3,6 +3,15 @@ import { nanoid } from 'nanoid';
 export const posts = [
   {
     id: nanoid(),
+    title: 'Semantic markup for the little ones',
+    highlight: 'What is semantic markup and why should you write it?',
+    link: '/blog/semantic-markup-for-the-little-ones',
+    category: 'guide',
+    date: '23 sep 2022',
+    tags: ['html']
+  },
+  {
+    id: nanoid(),
     title: 'How to improve your skills',
     highlight: 'If you feel that you\'re stuck in a rut or just need some fresh inspiration how to enhance your skills there are ways you can do to help achieve this goal.',
     link: '/blog/how-to-improve-your-skills',
