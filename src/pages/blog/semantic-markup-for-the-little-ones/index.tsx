@@ -167,7 +167,7 @@ const Post = (): ReactElement => {
           <PostHeadings />
         </section>
         <section ref={formattingRef}>
-          <PostFormatting />
+          <PostFormatting handleScroll={() => onScrollTo(listsRef)} />
         </section>
         <section ref={clickableUnclickableRef}>
           <PostClickableUnclickable handleScroll={() => onScrollTo(readMoreRef)} />

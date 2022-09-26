@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapPin } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faMapPin } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
 import Code from 'src/components/common/Code';
@@ -10,7 +10,11 @@ import Window from 'src/components/common/Window';
 
 import styles from './post.module.scss';
 
-const PostFormatting = (): ReactElement => {
+interface Props {
+  handleScroll?: () => void;
+}
+
+const PostFormatting = ({ handleScroll }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   const exampleHTMLNonParagraphs =
@@ -48,6 +52,44 @@ const PostFormatting = (): ReactElement => {
   Sugar is sweet<br/>
   And so are you
 </blockquote>`;
+
+  const exampleHTMLListWithLineBreaks =
+`<h3>Ingredients</h3>
+<div>
+  Milk<br/>
+  Sugar<br/>
+  Quick rise yeast<br/>
+  Butter<br/>
+  Egg + egg yolk<br/>
+  Bread flour<br/>
+  Cinnamon<br/>
+</div>`;
+
+  const exampleHTMLList =
+`<h3>Ingredients</h3>
+<ul>
+  <li>Milk</li>
+  <li>Sugar</li>
+  <li>Quick rise yeast</li>
+  <li>Butter</li>
+  <li>Egg + egg yolk</li>
+  <li>Bread flour</li>
+  <li>Cinnamon</li>
+</ul>`;
+
+  const exampleHTMLListWithLineBreaksBetween =
+`<h3>Ingredients</h3>
+<ul>
+  <li>Milk</li>
+  <li>Sugar</li>
+  <li>Quick rise yeast</li>
+  <br/>
+  <br/>
+  <li>Butter</li>
+  <li>Egg + egg yolk</li>
+  <li>Bread flour</li>
+  <li>Cinnamon</li>
+</ul>`;
 
   return (
     <>
@@ -184,8 +226,67 @@ const PostFormatting = (): ReactElement => {
           </div>
         </div>
       </div>
-      <p className='spacer top large'>
-        Do not rush to give up on <HtmlTag isSingle>br</HtmlTag> element.
+      <p>
+        Furthermore, do not use a line break to define a list. If you put <HtmlTag isSingle>br</HtmlTag> tag after every listed item it&#39;ll be an incorrect use of the tag.
+        Check out examples below of incorrect usage line breaks and its corrections with explanations.
+      </p>
+      <div className={styles.post__snippet}>
+        <div className='row'>
+          <div className='col col--50 col--tablet-50'>
+            <p className='spacer bottom medium'>
+              There&#39;s nothing wrong with using <HtmlTag isSingle>br</HtmlTag> inside listed items, but never do the following if you need to create lists:
+            </p>
+            <Code
+              language={CodeLanguage.HTML}
+              name='index'
+              code={exampleHTMLListWithLineBreaks} />
+          </div>
+          <div className='col col--50 col--tablet-50'>
+            <p className='spacer bottom medium'>
+              If you use special HTML lists tags, you don&#39;t need to break lines after listed items as it is automatically inserted:
+            </p>
+            <Code
+              language={CodeLanguage.HTML}
+              name='index'
+              code={exampleHTMLList} />
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.post__snippet}>
+        <div className='row'>
+          <div className='col col--50 col--tablet-50'>
+            <p className='spacer bottom medium'>
+              There is another way to use line breaks wrong.
+              You&#39;ll get validation error <i>element <HtmlTag isSingle>br</HtmlTag> not allowed as child of element <HtmlTag isSingle>br</HtmlTag> in this context</i>.
+            </p>
+            <Code
+              language={CodeLanguage.HTML}
+              name='index'
+              code={exampleHTMLListWithLineBreaksBetween} />
+          </div>
+          <div className='col col--50 col--tablet-50'>
+            <p className='spacer bottom medium'>
+              If you need extra gaps between listed items you should use for example CSS properties such as <code className='highlighted ghost'>padding</code> or <code className='highlighted ghost'>margin</code> instead of using line breaks between items.
+              Also you can use CSS pseudo-classes such as <code className='highlighted ghost'>:nth-child()</code>, <code className='highlighted ghost'>:first-child</code>, <code className='highlighted ghost'>:last-child</code>, etc, to add additional gap some elements.
+            </p>
+            <Code
+              language={CodeLanguage.HTML}
+              name='index'
+              code={exampleHTMLList} />
+          </div>
+        </div>
+      </div>
+      <p className='spacer top medium'>
+        You&#39;ll learn more about how to create lists in HTML below <button
+          className={styles.post__anchor}
+          onClick={handleScroll}>
+          <FontAwesomeIcon icon={faArrowDown} />
+          <span className='visually-hidden'>Scroll down</span>
+        </button>
+      </p>
+      <p>
+        But do not rush to give up on <HtmlTag isSingle>br</HtmlTag> element.
         No one forbids you to use line breaks.
         Line breaks can be useful for properly formating addresses and poetry. Check out examples below.
       </p>
