@@ -2,6 +2,7 @@ import React, { ReactElement, useMemo, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { faBriefcase, faCode, faGraduationCap, faHeart, faList, faSmile } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
+import Link from 'next/link';
 
 import Avatar from 'src/components/common/Avatar';
 import Block from 'src/components/common/Block';
@@ -169,8 +170,16 @@ const About = (): ReactElement => {
             <div className='container'>
               <div className={styles.about__shortest}>
                 <Avatar image={avatar} />
-                <p className={bind(['spacer top medium', styles.about__headline])}>Daria</p>
-                <p className={bind(['spacer bottom large', styles.about__headline])}>Frontend developer</p>
+                <p className='spacer top medium'>
+                  My name is Daria, I&#39;m a frontend developer 👋
+                </p>
+                <p className='spacer bottom large'>
+                  Check out <Link href='/about/cv'>
+                    <a className='link'>
+                      my CV
+                    </a>
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
