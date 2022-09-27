@@ -2,7 +2,7 @@
 @import './../../../../styles/breakpoints';
 
 .chat {
-  max-width: 500px;
+  max-width: 450px;
   margin: 0 auto;
 
   &__header {
@@ -26,14 +26,14 @@
   }
 
   &__wrapper {
-    padding: $spacer * 2;
+    padding: 0 $spacer * 2;
   }
 
   &__row {
     display: flex;
 
     + .chat__row {
-      margin-top: $spacer * 2;
+      margin-top: $spacer;
     }
 
     &.left {
@@ -59,13 +59,43 @@
     font-weight: 500;
 
     &.left {
-      background-color: $color--grey;
+      background-color: rgba($color--grey, 0.6);
       color: $color--black;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-right-color: rgba($color--grey, 0.6);
+        border-left: 0;
+        border-top: 0;
+        margin-top: -5px;
+        margin-left: -10px;
+      }
     }
 
     &.right {
       background-color: $color--violet;
       color: $color--white;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-left-color: $color--violet;
+        border-right: 0;
+        border-top: 0;
+        margin-top: -5px;
+        margin-right: -10px;
+      }
     }
 
     &.emoji {
@@ -84,5 +114,35 @@
     margin-top: $spacer;
     color: $color--grey-darker;
     font-style: italic;
+  }
+
+  &__input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid $color--grey-darker;
+    border-radius: 5px;
+    margin: $spacer;
+    padding: $spacer;
+
+    svg {
+      color: $color--grey;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__placeholder {
+    color: $color--grey-dark;
+    font-size: 0.9rem;
+  }
+
+  &__date {
+    color: $color--grey;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    margin: $spacer 0;
   }
 }

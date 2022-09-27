@@ -3,6 +3,15 @@ import { nanoid } from 'nanoid';
 export const posts = [
   {
     id: nanoid(),
+    title: 'Gerund VS Infinitive',
+    highlight: 'Check out this small lesson to know what are gerunds and infinitives and how do you use them',
+    link: '/blog/gerund-vs-infinitive',
+    category: 'english',
+    date: '27 sep 2022',
+    tags: ['english']
+  },
+  {
+    id: nanoid(),
     title: 'Semantic markup for the little ones',
     highlight: 'What is semantic markup and why should you write it?',
     link: '/blog/semantic-markup-for-the-little-ones',

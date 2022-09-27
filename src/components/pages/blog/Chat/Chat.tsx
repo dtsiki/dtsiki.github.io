@@ -6,10 +6,14 @@ import Window from 'src/components/common/Window';
 import styles from './chat.module.scss';
 import { WindowType } from 'src/components/common/Window/Window';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faPhone, faSmile } from '@fortawesome/free-solid-svg-icons';
+import moment from 'moment';
 
 const Chat = (): ReactElement => {
   const bind = classNames.bind(styles);
+
+  const currentDate = moment()
+    .format('MMM D YYYY');
 
   return (
     <div className={styles.chat}>
@@ -24,6 +28,9 @@ const Chat = (): ReactElement => {
           <FontAwesomeIcon icon={faPhone} />
         </div>
         <div className={styles.chat__wrapper}>
+          <div className={styles.chat__date}>
+            {currentDate}
+          </div>
           <div className={bind([styles.chat__row, styles.left])}>
             <div className={bind([styles.chat__message, styles.left])}>
               What do you like doing?
@@ -46,12 +53,16 @@ const Chat = (): ReactElement => {
           </div>
           <div className={bind([styles.chat__row, styles.left])}>
             <div className={bind([styles.chat__message, styles.emoji])}>
-              🤨 🤨 🤨
+              🍰 🍰 🍰
             </div>
           </div>
           <div className={styles.chat__footer}>
             Typing...
           </div>
+        </div>
+        <div className={styles.chat__input}>
+          <span className={styles.chat__placeholder}>Write a message...</span>
+          <FontAwesomeIcon icon={faSmile} />
         </div>
       </Window>
     </div>

@@ -19,7 +19,9 @@ export enum WindowType {
 export enum WindowPatternVariant {
   WAVY = 'wavy',
   CROSS = 'cross',
-  SMILEY = 'smiley'
+  SMILEY = 'smiley',
+  SCALES = 'scales',
+  SPRINKLES = 'sprinkles'
 }
 
 interface Props {
@@ -62,7 +64,7 @@ const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern,
   }, [menuItems]);
 
   const renderHeaderIcon = useMemo(() => {
-    if (type && type !== WindowType.WINDOW) {
+    if (type && type !== WindowType.WINDOW && type !== WindowType.CHAT) {
       return <FontAwesomeIcon icon={icons[type]} />
     }
   }, [type])
