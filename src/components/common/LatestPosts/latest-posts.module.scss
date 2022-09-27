@@ -19,10 +19,6 @@
     color: $color--black;
     transition: 0.5s;
 
-    svg {
-      margin-left: 10px;
-    }
-
     &:hover {
       color: $color--violet;
     }

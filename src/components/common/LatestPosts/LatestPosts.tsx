@@ -34,7 +34,7 @@ const LatestPosts = (): ReactElement => {
   return (
     <div className='container'>
       <h2 className={styles.latestPosts__title}>
-        <span className='highlighted primary'>Latest posts</span>
+        Latest posts
       </h2>
       <div className='spacer large top'>
         <ul className='row'>
