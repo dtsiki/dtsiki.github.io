@@ -81,7 +81,7 @@
       }
     }
 
-    &.image {
+    &.image, &.validator, &.chat {
       padding: 0;
     }
   }

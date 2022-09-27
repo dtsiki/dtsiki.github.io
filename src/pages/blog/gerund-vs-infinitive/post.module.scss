@@ -1,0 +1,72 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.post {
+  position: relative;
+
+  &__snippet {
+    display: flex;
+    justify-content: center;
+
+    @include md {
+      margin: 30px 0;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__words {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 -10px;
+
+    li {
+      font-size: 2.25rem;
+      font-style: oblique 5deg;
+      margin: 10px;
+    }
+  }
+
+  &__anchor {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: $color--violet;
+  }
+
+  &__sentence {
+    font-size: 1.5rem;
+
+    strong {
+      color: $color--violet;
+    }
+  }
+
+  &__article {
+    border: 1px solid $color--white-violet;
+    padding: $spacer * 2;
+    border-radius: 5px;
+
+    + .post__article {
+      margin-top: $spacer;
+    }
+  }
+
+  &__importance {
+    font-weight: 600;
+    color: $color--violet !important;
+  }
+
+  &__examples {
+    text-align: center;
+  }
+}

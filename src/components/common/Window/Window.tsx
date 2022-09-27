@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComputer, faFolder, faHouse, faImage, faLayerGroup, faWindowMaximize, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faComments, faComputer, faFolder, faHouse, faImage, faLayerGroup, faWindowMaximize, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faFirefox } from '@fortawesome/free-brands-svg-icons';
 import classNames from 'classnames/bind';
 
@@ -11,7 +11,9 @@ export enum WindowType {
   BROWSER = 'browser',
   SLIDESHOW = 'slideshow',
   FOLDER = 'folder',
-  IMAGE = 'image'
+  IMAGE = 'image',
+  VALIDATOR = 'validator',
+  CHAT = 'chat'
 }
 
 export enum WindowPatternVariant {
@@ -42,7 +44,9 @@ const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern,
     browser: faFirefox,
     slideshow: faLayerGroup,
     folder: faFolder,
-    image: faImage
+    image: faImage,
+    validator: faCode,
+    chat: faComments
   };
 
   const renderMenuItems = useMemo(() => {

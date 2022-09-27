@@ -1,0 +1,88 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+
+.chat {
+  max-width: 500px;
+  margin: 0 auto;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacer;
+    background: rgba($color--white-violet, 0.6);
+
+    svg {
+      width: 30px;
+      height: 30px;
+      color: $color--violet;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color--violet;
+  }
+
+  &__wrapper {
+    padding: $spacer * 2;
+  }
+
+  &__row {
+    display: flex;
+
+    + .chat__row {
+      margin-top: $spacer * 2;
+    }
+
+    &.left {
+      justify-content: flex-start;
+    }
+
+    &.right {
+      justify-content: flex-end;
+    }
+
+    &.note {
+      margin-top: 0;
+    }
+  }
+
+  &__message {
+    position: relative;
+    display: inline-block;
+    min-width: 50px;
+    padding: $spacer;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    &.left {
+      background-color: $color--grey;
+      color: $color--black;
+    }
+
+    &.right {
+      background-color: $color--violet;
+      color: $color--white;
+    }
+
+    &.emoji {
+      font-size: 3rem;
+      padding: 0;
+    }
+  }
+
+  &__note {
+    margin-top: 5px;
+    color: $color--grey;
+    font-size: 0.9rem;
+  }
+
+  &__footer {
+    margin-top: $spacer;
+    color: $color--grey-darker;
+    font-style: italic;
+  }
+}
