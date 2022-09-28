@@ -20,9 +20,7 @@ const Home = (): JSX.Element => {
         targetRef={ref}
         showButton={!isVisible} />
       <HomeIntroHero sourceRef={ref} />
-      <Hero>
-        <LatestPosts />
-      </Hero>
+      <LatestPosts showThumbnails />
       <Hero>
         <Projects />
       </Hero>

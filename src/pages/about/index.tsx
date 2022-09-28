@@ -319,7 +319,7 @@ const About = (): ReactElement => {
               <Projects />
             </Hero>
             <Hero>
-              <LatestPosts />
+              <LatestPosts showThumbnails />
             </Hero>
             <Hero variant={HeroVariant.SECONDARY}>
               <div className='container'>

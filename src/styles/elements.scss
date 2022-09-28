@@ -20,17 +20,11 @@ a {
   color: $color--violet;
   transition: all 0.5s;
   text-decoration: none;
-
-  &::before {
-    position: absolute;
-    content: '';
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background-color: $color--violet;
-    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  }
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.5s;
 
   &.active {
     text-decoration: none;
@@ -41,11 +35,7 @@ a {
 @media (hover: hover) and (pointer: fine) {
   .link {
     &:hover {
-      &::before {
-        left: 0;
-        right: auto;
-        width: 100%;
-      }
+      background-size: 100% 2px;
     }
   }
 }
@@ -709,5 +699,19 @@ ul,
 
   &__title {
     margin-bottom: 0 !important;
+  }
+}
+
+.image-box {
+  position: relative;
+  padding-top: 56.25%;
+
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

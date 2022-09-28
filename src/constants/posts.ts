@@ -5,7 +5,7 @@ export const posts = [
     id: nanoid(),
     title: 'Gerund VS Infinitive',
     highlight: 'Check out this small lesson to know what are gerunds and infinitives and how do you use them',
-    link: '/blog/gerund-vs-infinitive',
+    link: 'gerund-vs-infinitive',
     category: 'english',
     date: '27 sep 2022',
     tags: ['english']
@@ -14,7 +14,7 @@ export const posts = [
     id: nanoid(),
     title: 'Semantic markup for the little ones',
     highlight: 'What is semantic markup and why should you write it?',
-    link: '/blog/semantic-markup-for-the-little-ones',
+    link: 'semantic-markup-for-the-little-ones',
     category: 'guide',
     date: '23 sep 2022',
     tags: ['html']
@@ -23,7 +23,7 @@ export const posts = [
     id: nanoid(),
     title: 'How to improve your skills',
     highlight: 'If you feel that you\'re stuck in a rut or just need some fresh inspiration how to enhance your skills there are ways you can do to help achieve this goal.',
-    link: '/blog/how-to-improve-your-skills',
+    link: 'how-to-improve-your-skills',
     category: 'insight',
     date: '2 sep 2022',
     tags: ['skills']
@@ -32,7 +32,7 @@ export const posts = [
     id: nanoid(),
     title: 'Drag and drop',
     highlight: 'A guide to implementing drag and drop in React app without using any third party libraries.',
-    link: '/blog/drag-and-drop',
+    link: 'drag-and-drop',
     category: 'tutorial',
     date: '1 sep 2022',
     tags: ['React']
@@ -41,7 +41,7 @@ export const posts = [
     id: nanoid(),
     title: 'Pure CSS tooltips',
     highlight: 'A step-by-step tutorial that will show you how to create a tooltip using only CSS without any additional JavaScript code.',
-    link: '/blog/pure-css-tooltips',
+    link: 'pure-css-tooltips',
     category: 'tutorial',
     date: '30 jul 2022',
     tags: ['HTML', 'CSS']
