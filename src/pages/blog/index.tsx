@@ -2,7 +2,7 @@
 import React, { ReactElement, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceFrown, faList, faMagicWandSparkles, faSearch, faTh, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faFaceFrown, faList, faMagicWandSparkles, faSearch, faTh, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import { WindowType } from 'src/components/common/Window/Window';
 import ShortcutPreview from 'src/components/pages/blog/ShortcutPreview';
@@ -127,14 +127,12 @@ const Blog = (): ReactElement => {
                   className={bind([styles.blog__control, styles[viewStyle], { [styles.active]: showSearch }])}>
                   <FontAwesomeIcon icon={showSearch ? faXmark: faSearch} />
                 </button>
-                {false && (
-                  <button
-                    className={styles.blog__control}
-                    onClick={makeItFancy}>
-                    <span className='visually-hidden'>Make it fancy</span>
-                    <FontAwesomeIcon icon={faMagicWandSparkles} />
-                  </button>
-                )}
+                <button
+                  className={styles.blog__control}
+                  onClick={makeItFancy}>
+                  <span className='visually-hidden'>Make it fancy</span>
+                  <FontAwesomeIcon icon={faMagicWandSparkles} />
+                </button>
               </div>
             </div>
             {blogPosts.length ? (
@@ -163,9 +161,7 @@ const Blog = (): ReactElement => {
                       onClick={makeItBoring}
                       className={styles.blog__control}>
                       <span className='visually-hidden'>Make it boring</span>
-                      <span className={styles.blog__undo}>
-                        <FontAwesomeIcon icon={faMagicWandSparkles} />
-                      </span>
+                      <FontAwesomeIcon icon={faArrowLeft} />
                     </button>
                     <button
                       onClick={() => setShowSearch(!showSearch)}
