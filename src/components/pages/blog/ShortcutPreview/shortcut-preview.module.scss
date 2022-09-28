@@ -1,5 +1,6 @@
 @import './../../../../styles/colors';
 @import './../../../../styles/vars';
+@import './../../../../styles/breakpoints';
 
 .shortcutPreview {
   position: relative;
@@ -18,6 +19,7 @@
   &.grid {
     flex-direction: column;
     padding: 15px;
+    height: 100%;
   }
 
   &:hover {
@@ -108,10 +110,14 @@
   }
 
   &__aside {
-    position: absolute;
-    right: 5px;
-    color: $color--grey-dark;
-    text-transform: uppercase;
-    font-size: 0.8rem;
+    display: none;
+
+    @include md {
+      position: absolute;
+      right: 5px;
+      color: $color--grey-dark;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
   }
 }

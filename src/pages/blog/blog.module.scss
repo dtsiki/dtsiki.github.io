@@ -62,7 +62,11 @@
 
   &__shortcut {
     &.grid {
-      width: calc(100%/4);
+      width: calc(100%/2);
+
+      @include md {
+        width: calc(100%/4);
+      }
     }
   }
 
