@@ -61,11 +61,17 @@
 
   &__image {
     margin: $spacer 0 ($spacer * 2);
+    overflow: hidden;
   }
 
   &__thumbnail {
     background-position: center;
     background-size: cover;
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__header {
