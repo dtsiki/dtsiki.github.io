@@ -14,7 +14,7 @@ interface Props {
 
 const LatestPosts = ({ showThumbnails = false }: Props): ReactElement => {
   const renderLatestPosts = useMemo(() => {
-    const latestPosts = posts.slice(0, 2);
+    const latestPosts = posts.slice(0, 4);
 
     return latestPosts?.map((post) => {
       const { id, title, highlight, link, category, date, tags } = post;
