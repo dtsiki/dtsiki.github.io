@@ -3,13 +3,13 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 import AboutWorkExperience from '../_work-experience';
 import AboutEducation from '../_education';
 
 import styles from './cv.module.scss';
 import avatar from 'public/assets/avatar.jpeg';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const CV = (): ReactElement => {
   const bind = classNames.bind(styles);

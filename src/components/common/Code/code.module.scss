@@ -3,9 +3,11 @@
 @import './../../../styles/breakpoints';
 
 .code {
-  margin: 0 auto;
-  background: $color--white-darker;
-  box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+  &__wrapper {
+    margin: 0 auto;
+    background: $color--white-darker;
+    box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+  }
 
   &__header {
     display: flex;
@@ -34,7 +36,15 @@
   &__body {
     padding: 0 10px;
     border: 2px solid $color--violet;
+    background: $color--white-darker;
   }
+
+  &__highlighter {
+    padding: 0 10px;
+    border-top: 2px solid $color--violet;
+    background: $color--white-darker;
+  }
+
 
   &__control {
     display: inline-flex;

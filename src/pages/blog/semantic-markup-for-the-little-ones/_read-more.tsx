@@ -1,7 +1,7 @@
-import React, { ReactElement, useMemo } from 'react';
+import React, { ReactElement } from 'react';
 import { nanoid } from 'nanoid';
 
-import ExternalLink from 'src/components/common/ExternalLink';
+import ReadMore from 'src/components/pages/blog/ReadMore';
 
 const PostReadMore = (): ReactElement => {
   const sources = [
@@ -62,27 +62,8 @@ const PostReadMore = (): ReactElement => {
     }
   ];
 
-  const renderSources = useMemo(() => {
-    return sources.map((source) => {
-      return (
-        <li
-          key={source.id}
-          className='list__item'>
-          <ExternalLink
-            href={source.link}
-            label={source.label} />
-        </li>
-      )
-    })
-  }, [sources]);
-
   return (
-    <>
-      <h2>Read more</h2>
-      <ol className='list ordered'>
-        {renderSources}
-      </ol>
-    </>
+    <ReadMore sources={sources} />
   );
 };
 

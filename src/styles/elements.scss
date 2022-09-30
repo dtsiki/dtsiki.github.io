@@ -715,3 +715,54 @@ ul,
     object-fit: cover;
   }
 }
+
+.toggle {
+	cursor: pointer;
+	display: inline-flex;
+  align-items: center;
+
+  &__switch {
+    display: inline-block;
+    background: $color--grey;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+
+    &:before,
+    &:after {
+      content: '';
+    }
+
+    &:before {
+      display: block;
+      background: $color--white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      transition: left 0.25s;
+    }
+
+    .toggle__checkbox:checked + & {
+      background: $color--violet-dark;
+
+      &:before {
+        left: 50%;
+      }
+    }
+  }
+
+  &__checkbox {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &__label {
+    margin-left: 10px;
+  }
+}

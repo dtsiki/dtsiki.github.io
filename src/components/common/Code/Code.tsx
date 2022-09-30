@@ -24,38 +24,55 @@ interface Props {
   name?: string;
   customName?: string;
   code: string;
-  language?: CodeLanguage
+  language?: CodeLanguage;
+  showOnlyCode?: boolean;
+  showLineNumbers?: boolean;
+  startingLineNumber?: number;
 }
 
-const Code = ({ name, customName, code, language }: Props): ReactElement => {
+const Code = ({ name, customName, code, language, showOnlyCode = false, showLineNumbers = true, startingLineNumber }: Props): ReactElement => {
   const copyToClipboard= (): void => {
     navigator.clipboard.writeText(code);
   };
 
   return (
     <div className={styles.code}>
-      <div className={styles.code__header}>
-        <div className={styles.code__name}>
-          <FontAwesomeIcon icon={faFile} />
-          {customName || (language && name) && `${name}.${CodeExtension[language]}`}
+      {showOnlyCode ? (
+        <div className={styles.code__highlighter}>
+          <SyntaxHighlighter
+            startingLineNumber={startingLineNumber}
+            language={language}
+            showLineNumbers
+            style={ascetic}>
+            {code}
+          </SyntaxHighlighter>
         </div>
-        <div className={styles.code__actions}>
-          <button
-            className={styles.code__control}
-            onClick={copyToClipboard}>
-            <FontAwesomeIcon icon={faCopy} />
-            <span className='visually-hidden'>Copy to clipboard</span>
-          </button>
+      ) : (
+        <div className={styles.code__wrapper}>
+          <div className={styles.code__header}>
+            <div className={styles.code__name}>
+              <FontAwesomeIcon icon={faFile} />
+              {customName || (language && name) && `${name}.${CodeExtension[language]}`}
+            </div>
+            <div className={styles.code__actions}>
+              <button
+                className={styles.code__control}
+                onClick={copyToClipboard}>
+                <FontAwesomeIcon icon={faCopy} />
+                <span className='visually-hidden'>Copy to clipboard</span>
+              </button>
+            </div>
+          </div>
+          <div className={styles.code__body}>
+            <SyntaxHighlighter
+              language={language}
+              showLineNumbers={showLineNumbers}
+              style={ascetic}>
+              {code}
+            </SyntaxHighlighter>
+          </div>
         </div>
-      </div>
-      <div className={styles.code__body}>
-        <SyntaxHighlighter
-          language={language}
-          showLineNumbers
-          style={ascetic}>
-          {code}
-        </SyntaxHighlighter>
-      </div>
+      )}
     </div>
   );
 };

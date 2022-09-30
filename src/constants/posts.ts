@@ -3,6 +3,15 @@ import { nanoid } from 'nanoid';
 export const posts = [
   {
     id: nanoid(),
+    title: 'Pure CSS toggle switch',
+    highlight: 'A step-by-step tutorial how to create a toggle switch using only HTML and CSS without using JavaScript',
+    link: 'pure-css-toggle-switch',
+    category: 'tutorial',
+    date: '1 oct 2022',
+    tags: ['html', 'css']
+  },
+  {
+    id: nanoid(),
     title: 'Gerund VS Infinitive',
     highlight: 'Check out this small lesson to know what are gerunds and infinitives and how do you use them',
     link: 'gerund-vs-infinitive',

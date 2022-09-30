@@ -1,0 +1,50 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+
+.smileToggle {
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: ($spacer * 8) 0;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__switch {
+    background: $color--white-violet;
+    border-radius: 60px;
+    width: 70px;
+    height: 40px;
+
+    &:before {
+      display: block;
+      background: $color--white;
+      border-radius: 50%;
+      box-shadow: none;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      transition: left 0.25s;
+    }
+
+    .toggle:hover &:before {
+      box-shadow: none;
+    }
+  }
+
+
+  &__label {
+    margin-left: 0;
+    margin-right: $spacer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color--violet;
+  }
+}

@@ -1,10 +1,18 @@
 import React, { ReactElement, ReactNode, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faComments, faComputer, faFolder, faHouse, faImage, faLayerGroup, faWindowMaximize, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faComments, faFolder, faImage, faLayerGroup, faWindowMaximize, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faFirefox } from '@fortawesome/free-brands-svg-icons';
 import classNames from 'classnames/bind';
 
 import styles from './window.module.scss';
+
+export enum WindowBodyBackground {
+  LIGHT = 'light',
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  DARK = 'dark',
+  GHOST = 'ghost'
+}
 
 export enum WindowType {
   WINDOW = 'window',
@@ -32,9 +40,12 @@ interface Props {
   pattern?: WindowPatternVariant;
   filesCount?: number;
   showMenu?: boolean;
+  isInverted?: boolean;
+  isPopUp?: boolean;
+  bodyBackground?: WindowBodyBackground;
 }
 
-const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern, filesCount, showMenu = false }: Props): ReactElement => {
+const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern, filesCount, showMenu = false, isInverted = false, isPopUp = false, bodyBackground = WindowBodyBackground.LIGHT }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   const menuItems = {
@@ -71,8 +82,8 @@ const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern,
 
   return (
     <div className={styles.window}>
-      <div className={bind([styles.window__header, styles[type]])}>
-        <div className={styles.window__heading}>
+      <div className={bind([styles.window__header, styles[type], { [styles.inverted]: isInverted }, { [styles.popUp]: isPopUp }])}>
+        <div className={bind([styles.window__heading, { [styles.inverted]: isInverted }])}>
           {renderHeaderIcon}
           <span className={styles.window__title}>
             {title}
@@ -84,13 +95,13 @@ const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern,
           )}
         </div>
         <div className={styles.window__actions}>
-          <span className={styles.window__control}>
+          <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
             <FontAwesomeIcon icon={faWindowMinimize} />
           </span>
-          <span className={styles.window__control}>
+          <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
             <FontAwesomeIcon icon={faWindowMaximize} />
           </span>
-          <span className={styles.window__control}>
+          <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
             <FontAwesomeIcon icon={faXmark} />
           </span>
         </div>
@@ -100,7 +111,7 @@ const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern,
           {renderMenuItems}
         </div>
       )}
-      <div className={bind([styles.window__body, styles[type]])}>
+      <div className={bind([styles.window__body, styles[type], styles[bodyBackground], { [styles.inverted]: isInverted }])}>
         <div className={bind([styles.window__content])}>
           {children}
         </div>
