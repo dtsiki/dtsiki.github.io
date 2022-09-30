@@ -56,4 +56,35 @@ $gap: 4px;
   &__demo {
     text-align: center;
   }
+
+  &__gallery {
+    position: relative;
+    height: 600px;
+    transform: scale(0.8);
+  }
+
+  &__image {
+    position: absolute;
+
+    &.keyboardSwitch {
+      top: 70px;
+      left: 0;
+      z-index: 8;
+      width: 400px;
+    }
+
+    &.electricalToggle {
+      left: calc(50% - 200px);
+      bottom: 0px;
+      z-index: 10;
+      width: 420px;
+    }
+
+    &.lightSwitch {
+      top: 0px;
+      right: 0;
+      z-index: 9;
+      width: 350px;
+    }
+  }
 }

@@ -12,12 +12,15 @@ import Code, { CodeLanguage } from 'src/components/common/Code/Code';
 import ReadMore from 'src/components/pages/blog/ReadMore';
 import Window from 'src/components/common/Window';
 import HtmlTag from 'src/components/common/HtmlTag';
-import SmileToggle from 'src/components/pages/blog/SmileToggle';
+import { WindowPatternVariant, WindowType } from 'src/components/common/Window/Window';
 
 import styles from './post.module.scss';
 import dimension1 from 'public/assets/blog/pure-css-toggle-switch/dimension1.svg';
 import dimension2 from 'public/assets/blog/pure-css-toggle-switch/dimension2.svg';
 import dimension3 from 'public/assets/blog/pure-css-toggle-switch/dimension3.svg';
+import electricalToggle from 'public/assets/blog/pure-css-toggle-switch/electrical-toggle.jpg';
+import lightSwitch from 'public/assets/blog/pure-css-toggle-switch/light-switch.jpg';
+import keyboardSwitch from 'public/assets/blog/pure-css-toggle-switch/keyboard-switch.png';
 
 const Post = (): ReactElement => {
   const [isToggled, setIsToggled] = useState<boolean>(false);
@@ -42,8 +45,8 @@ const Post = (): ReactElement => {
 
   const exampleCSSToggleInput =
 `.toggle__checkbox {
-	position: absolute;
-	visibility: hidden;
+  position: absolute;
+  visibility: hidden;
 }`
 
   const exampleCSSToggle =
@@ -84,12 +87,17 @@ const Post = (): ReactElement => {
 }`;
 
   const exampleCSSToggleChecked =
-`.toggle__switch {
-  .toggle__checkbox:checked + & {
-    background: #8a2be2;
+`.toggle__checkbox {
+  position: absolute;
+  visibility: hidden;
 
-    &:before {
-      left: 50%;
+  &:checked ~ {
+    .toggle__switch {
+      background: #8a2be2;
+
+      &:before {
+        left: 50%;
+      }
     }
   }
 }`;
@@ -103,6 +111,16 @@ const Post = (): ReactElement => {
   &__checkbox {
     position: absolute;
     visibility: hidden;
+
+    &:checked ~ {
+      .toggle__switch {
+        background: #8a2be2;
+
+        &:before {
+          left: 50%;
+        }
+      }
+    }
   }
 
   &__label {
@@ -127,14 +145,6 @@ const Post = (): ReactElement => {
       background: #ffffff;
       border-radius: 50%;
       transition: left 0.25s;
-    }
-
-    .toggle__checkbox:checked + & {
-      background: #8a2be2;
-
-      &:before {
-        left: 50%;
-      }
     }
   }
 }`;
@@ -188,44 +198,83 @@ $gap: 4px;`;
         metaTags={metaTags}
         metaDescription={metaDescription}>
         <section>
-          <SmileToggle />
+          {/*<SmileToggle />*/}
           <h2 className='spacer top large'>What is a toggle switch?</h2>
-          <p>
+          <p className='spacer bottom medium'>
             A toggle switch (known also as a «toggle» or just a «switch») is one of the common and classic an user interface control that has two mutually-exclusive states such as on and off.
-            It came from real life: toggles are the digital equivalent of an actual switches.
+            It came from real life: toggles are the digital equivalent of actual switches:
           </p>
-          <p>
+          <Window pattern={WindowPatternVariant.SMILEY}>
+            <div className={styles.post__gallery}>
+              <div className={bind([styles.post__image, styles.electricalToggle])}>
+                <Window
+                  type={WindowType.IMAGE}
+                  title='GALLERY'
+                  fileTitle='electrical-toggle.jpg'>
+                  <Image
+                    layout='responsive'
+                    src={electricalToggle}
+                    alt='A electrical toggle switch with two signs: off and on' />
+                </Window>
+              </div>
+              <div className={bind([styles.post__image, styles.lightSwitch])}>
+                <Window
+                  type={WindowType.IMAGE}
+                  title='GALLERY'
+                  fileTitle='light-switch.jpg'>
+                  <Image
+                    layout='responsive'
+                    src={lightSwitch}
+                    alt='A white light switch' />
+                </Window>
+              </div>
+              <div className={bind([styles.post__image, styles.keyboardSwitch])}>
+                <Window
+                  type={WindowType.IMAGE}
+                  title='GALLERY'
+                  fileTitle='keyboard-switch.jpg'>
+                  <Image
+                    layout='responsive'
+                    src={keyboardSwitch}
+                    alt='A purple keyboard switch' />
+                </Window>
+              </div>
+            </div>
+          </Window>
+          <p className='spacer top large'>
             It may seem that toggles and checkboxes are the same, but they aren&#39;t.
             At first it seems, checkboxes as well as toggles also have two states: unselected and selected.
             Actually, checkboxes have three states: unselected, selected, and <span className='accented accented--primary'>indeterminate</span> while toggles are either off or on.
           </p>
-          <div className='row'>
-            <div className='col col--50 col--tablet-100'>
-              <p>
-                The second difference between toggles and checkboxes is a type of response: instant or not.
-                Use a toggle switch when you need an instant response on an action that this toggle switch performs.
-                If you don&#39;t need an immediate effect you should use a checkbox.
-                The example of the toggle with the instant response you can check out on the demo above.
-              </p>
-              <p className='spacer bottom medium'>
-                On the right is an example of what we&#39;ll build in this tutorial.
-              </p>
-            </div>
-            <div className='col col--50 col--tablet-100'>
-              <Window>
-                <div className={styles.post__demo}>
-                  <label className='toggle'>
-                    <input
-                      onChange={toggleSwitch}
-                      className='toggle__checkbox'
-                      type='checkbox' />
-                    <span className='toggle__switch' />
-                    <span className='toggle__label'>
-                      {isToggled ? 'Off' : 'On'}
-                    </span>
-                  </label>
-                </div>
-              </Window>
+          <div className={styles.post__snippet}>
+            <div className='row'>
+              <div className='col col--50 col--tablet-100'>
+                <p>
+                  The second difference between toggles and checkboxes is a type of response: instant or not.
+                  Use a toggle switch when you need an instant response on an action that this toggle switch performs.
+                  If you don&#39;t need an immediate effect you should use a checkbox.
+                  The example of the toggle with the instant response you can check out on the demo above.
+                </p>
+                <p className='spacer bottom medium'>
+                  On the right is an example of what we&#39;ll build in this tutorial.
+                </p>
+              </div>
+              <div className='col col--50 col--tablet-100'>
+                <Window>
+                  <div className={styles.post__demo}>
+                    <label className='toggle'>
+                      <input
+                        onChange={toggleSwitch}
+                        className='toggle__checkbox'
+                        type='checkbox' />
+                      <span className='toggle__switch' />
+                      <span className='toggle__label'>
+                        {isToggled ? 'Off' : 'On'}
+                      </span>
+                    </label>
+                  </div>
+                </Window>
+              </div>
             </div>
           </div>
           <p>
@@ -311,7 +360,7 @@ $gap: 4px;`;
               <div className='col col--50 col--tablet-100'>
                 <Code
                   language={CodeLanguage.CSS}
-                  name='index'
+                  customName='index.scss'
                   code={exampleCSSToggleInput} />
               </div>
               <div className='col col--50 col--tablet-100'>
@@ -353,7 +402,7 @@ $gap: 4px;`;
               <div className='col col--50 col--tablet-100'>
                 <Code
                   language={CodeLanguage.CSS}
-                  name='index'
+                  customName='index.scss'
                   code={exampleCSSToggle} />
               </div>
             </div>
@@ -366,7 +415,7 @@ $gap: 4px;`;
               <div className='col col--50 col--tablet-100'>
                 <Code
                   language={CodeLanguage.CSS}
-                  name='index'
+                  customName='index.scss'
                   code={exampleCSSToggleLabel} />
               </div>
               <div className='col col--50 col--tablet-100'>
@@ -401,7 +450,7 @@ $gap: 4px;`;
               <div className='col col--50 col--tablet-100'>
                 <Code
                   language={CodeLanguage.CSS}
-                  name='index'
+                  customName='index.scss'
                   code={exampleCSSToggleSwitch} />
               </div>
               <div className='col col--50 col--tablet-100'>
@@ -439,7 +488,7 @@ $gap: 4px;`;
               <div className='col col--50 col--tablet-100'>
                 <Code
                   language={CodeLanguage.JAVASCRIPT}
-                  customName='index.css'
+                  customName='index.scss'
                   code={exampleCSSVariables} />
               </div>
             </div>
@@ -502,7 +551,7 @@ $gap: 4px;`;
               <div className='col col--50 col--tablet-100'>
                 <Code
                   language={CodeLanguage.CSS}
-                  name='index'
+                  customName='index.scss'
                   code={exampleCSSToggleSwitchBefore} />
               </div>
             </div>
@@ -514,7 +563,9 @@ $gap: 4px;`;
             With a few simple calculations, you can find out that the ball size directly depends on the size of the toggle: the ball width is two times less than the toggle width and the ball height is equal to the toggle height.
             Also we need to add some indentation between the edge of the toggle and the ball.
             Here we used already familiar variables <code className='highlighted ghost'>$width</code> and <code className='highlighted ghost'>$gap</code>.
-            And that&#39;s all!
+          </p>
+          <p>
+            And that&#39;s all here!
           </p>
         </section>
         <section>
@@ -529,7 +580,7 @@ $gap: 4px;`;
               <div className='col col--50 col--tablet-100'>
                 <Code
                   language={CodeLanguage.CSS}
-                  name='index'
+                  customName='index.scss'
                   code={exampleCSSToggleChecked} />
               </div>
               <div className='col col--50 col--tablet-100'>
@@ -551,12 +602,10 @@ $gap: 4px;`;
           <p>
             What&#39;s going on here?
             CSS pseudo-class selector <code className='highlighted ghost'>:checked</code> represents HTML checkbox element that is checked or toggled to an on state.
-            What does an <span className='accented accented--primary'>ampersand &</span> before a pseudo element mean?
-            In CSS nested selectors don&#39;t necessarily have to start with the ampersand. You can qualify a selector by putting the & on the right.
           </p>
           <p>
             As a result, then checkbox is checked, it will be changed CSS property <code className='highlighted ghost'>background</code> and changed the toggle switch ball position.
-            The percentage positioning with <code className='highlighted ghost'>left: 50%;</code> is used here instead of using another magic number.
+            The percentage positioning with <code className='highlighted ghost'>left: 50%;</code> is used here instead of using another magic number such as <code className='highlighted ghost'>left: 28px;</code>.
           </p>
           <div className={styles.post__snippet}>
             <div className='row'>
@@ -575,7 +624,7 @@ $gap: 4px;`;
               <div className='col col--50 col--tablet-100'>
                 <Code
                   language={CodeLanguage.CSS}
-                  name='index'
+                  customName='index.scss'
                   code={exampleCSS} />
               </div>
             </div>

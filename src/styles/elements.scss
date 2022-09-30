@@ -747,19 +747,21 @@ ul,
       left: 4px;
       transition: left 0.25s;
     }
-
-    .toggle__checkbox:checked + & {
-      background: $color--violet-dark;
-
-      &:before {
-        left: 50%;
-      }
-    }
   }
 
   &__checkbox {
     position: absolute;
     visibility: hidden;
+
+    &:checked ~ {
+      .toggle__switch {
+        background: $color--violet;
+
+        &:before {
+          left: 50%;
+        }
+      }
+    }
   }
 
   &__label {
