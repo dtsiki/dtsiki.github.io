@@ -249,6 +249,35 @@ ul,
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
+    z-index: 100;
+  }
+
+  &.large {
+    .tooltip__message {
+      width: 300px;
+    }
+  }
+
+  &.medium {
+    .tooltip__message {
+      width: 200px;
+    }
+  }
+
+  &.small {
+    .tooltip__message {
+      width: 100px;
+    }
+  }
+
+  &.primary {
+    .tooltip__message {
+      margin: 0 5px;
+      padding: $spacer;
+      border-radius: 5px;
+      background: $color--violet;
+      color: $color--white;
+    }
   }
 }
 
