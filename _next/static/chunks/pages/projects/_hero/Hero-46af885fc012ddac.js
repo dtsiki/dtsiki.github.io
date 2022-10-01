@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2463],{85534:function(n,_,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/projects/_hero/Hero",function(){return u(4884)}])}},function(n){n.O(0,[5675,9735,8748,9774,2888,179],(function(){return _=85534,n(n.s=_);var _}));var _=n.O();_N_E=_}]);
