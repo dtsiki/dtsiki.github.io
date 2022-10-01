@@ -61,7 +61,18 @@ const Post = (): ReactElement => {
   margin-left: 10px;
 }`;
 
-  const exampleCSSToggleSwitch =
+  const exampleCSSToggleSwitchMagicNumbers =
+`.toggle__switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 32px;
+  border-radius: 32px;
+  background: #dddddd;
+  transition: background 0.25s;
+}`;
+
+  const exampleCSSToggleSwitchVariables =
 `.toggle__switch {
   position: relative;
   display: inline-block;
@@ -451,7 +462,7 @@ $gap: 4px;`;
                 <Code
                   language={CodeLanguage.CSS}
                   customName='index.scss'
-                  code={exampleCSSToggleSwitch} />
+                  code={exampleCSSToggleSwitchMagicNumbers} />
               </div>
               <div className='col col--50 col--tablet-100'>
                 <Window>
@@ -470,15 +481,16 @@ $gap: 4px;`;
             </div>
           </div>
           <p>
-            As you can see, there are a few <span className='tooltip'>magic numbers <FontAwesomeIcon icon={faExclamationCircle} /><span className='tooltip__message'>Magic numbers are unique values, typically numerical, with unexplained meaning in a code that could be replaced by a named constant.</span></span>.
+            As you can see, there are a few <span className='tooltip primary large'>magic numbers <FontAwesomeIcon icon={faExclamationCircle} /><span className='tooltip__message'>Magic numbers are unique values, typically numerical, with unexplained meaning in a code that could be replaced by a named constant.</span></span>. The magic numbers are 56 and 32.
+            We needed to do something with them.
+            Let&#39;s define two variables.
           </p>
           <div className={styles.post__snippet}>
             <div className='row'>
               <div className='col col--50 col--tablet-100'>
                 <p>
-                  Let&#39;s define two variables.
-                  I&#39;ve used to declare it SASS variables as I&#39;ve used SASS.
-                  You can use CSS variables or completely refuse using variables and write all values directly in CSS properties.
+                  I&#39;ve used to declare two SASS variables as I&#39;ve used SASS here.
+                  You can use CSS variables or completely refuse using variables and write all values directly in CSS properties as written above.
                 </p>
                 <p>
                   The first variable is a size of the toggle switch ball that we&#39;ll implement in the next step.
@@ -494,6 +506,7 @@ $gap: 4px;`;
             </div>
           </div>
           <p className='spacer bottom large'>
+            Let me explain.
             The whole toggle consists of two equal parts and the toggle ball slips between them, therefore, the toggle switch is equal to <code className='highlighted ghost'>$width * 2 + ($gap * 2)</code>, height is equal to <code className='highlighted ghost'>$width + ($gap * 2)</code> and border radius is equal to <code className='highlighted ghost'>$width + ($gap * 2)</code>.
             Next we&#39;re going to create the toggle switch ball with radius is equal to <code className='highlighted ghost'>$width</code> and set indentation from egdes equal to <code className='highlighted ghost'>$gap</code>.
             To understand check out figures below.
@@ -518,7 +531,33 @@ $gap: 4px;`;
                 objectFit='cover' />
             </div>
           </div>
+          <div className={styles.post__snippet}>
+            <div className='row spacer top large'>
+              <div className='col col--50 col--tablet-100'>
+                <p>
+                  Check out the example in the right.
+                  With a bit of modification, we get the following code.
+                </p>
+                <p>
+                  It looks confusing and a bit incomprehensible now, but this changes make the toggle style more flexible.
+                  If you ever want to change the toggle size, you need only edit two variables.
+                  Also you don&#39;t have to calculate anything.
+                </p>
+                <p>
+                  Try to avoid magic numbers wherever possible.
+                  Everything is made much clearer when we replace magic numbers with descriptive names since it makes a code easier to read and makes it more maintainable since we can update the value of the magic number by changing its variable assignment.
+                </p>
+              </div>
+              <div className='col col--50 col--tablet-100'>
+                <Code
+                  language={CodeLanguage.JAVASCRIPT}
+                  customName='index.scss'
+                  code={exampleCSSToggleSwitchVariables} />
+              </div>
+            </div>
+          </div>
           <p className='spacer top large'>
+            Move on.
             The result are still far from satisfactory, but it won&#39;t be long now, I promise.
           </p>
         </section>
