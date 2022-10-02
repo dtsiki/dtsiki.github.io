@@ -16,13 +16,18 @@ interface ScrollDownButtonProps {
   variant?: ScrollDownButtonVariant;
   targetRef:  MutableRefObject<HTMLElement | null>;
   isHidden?: boolean;
+  handleScroll?: () => void;
 }
 
-const ScrollDownButton = ({ targetRef, variant = ScrollDownButtonVariant.PRIMARY, isHidden }: ScrollDownButtonProps): ReactElement => {
+const ScrollDownButton = ({ targetRef, variant = ScrollDownButtonVariant.PRIMARY, isHidden, handleScroll }: ScrollDownButtonProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   const onScrollDown = (): void => {
-    targetRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (handleScroll) {
+      handleScroll()
+    } else {
+      targetRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
