@@ -14,15 +14,8 @@
     }
   }
 
-  &__link {
-    display: inline-flex;
-    align-items: center;
-    font-size: 4rem;
-    color: $color--black;
-    transition: 0.5s;
-
-    &:hover {
-      color: $color--violet;
-    }
+  &__footer {
+    margin-top: $spacer * 2;
+    text-align: center;
   }
 }

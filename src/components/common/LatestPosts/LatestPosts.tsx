@@ -7,6 +7,7 @@ import Preview from 'src/components/pages/blog/Preview';
 import { posts } from 'src/constants';
 
 import styles from './latest-posts.module.scss';
+import Tag, { TagVariant } from '../Tag/Tag';
 
 interface Props {
   showThumbnails?: boolean;
@@ -44,12 +45,18 @@ const LatestPosts = ({ showThumbnails = false }: Props): ReactElement => {
             {renderLatestPosts}
           </ul>
         </div>
-        <Link href='/blog'>
-          <a className={styles.latestPosts__link}>
-            <span className='visually-hidden'>Read more</span>
-            <FontAwesomeIcon icon={faArrowRight} />
-          </a>
-        </Link>
+        <div className={styles.latestPosts__footer}>
+          <Link href='/blog'>
+            <a className='link-with-tag'>
+              <Tag
+                variant={TagVariant.PRIMARY}
+                isOutlined>
+                All posts
+                <FontAwesomeIcon icon={faArrowRight} />
+              </Tag>
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );
