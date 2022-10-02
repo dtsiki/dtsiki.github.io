@@ -2,7 +2,7 @@
 @import './../../../styles/vars';
 
 .avatar {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -15,8 +15,18 @@
   }
 
   &__label {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-top: 10px;
+    left: calc(100% + 10px);
+    width: 150px;
+
+    &::before {
+      position: absolute;
+      right: 100%;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 10px 8px 0;
+      border-color: transparent $color--violet transparent ;
+    }
   }
 }

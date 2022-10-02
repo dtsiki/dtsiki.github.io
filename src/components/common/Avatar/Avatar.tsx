@@ -18,12 +18,14 @@ const Avatar = ({ image, label, className, avatarRef }: Props): ReactElement => 
   return (
     <figure
       ref={avatarRef}
-      className={bind([styles.avatar, className])}>
+      className={bind([styles.avatar, className, 'tooltip primary'])}>
       <Image
         className={styles.avatar__image}
         src={image}
-        alt='Me' />
-      {label && <figcaption className={styles.avatar__label}>{label}</figcaption>}
+        alt={label} />
+      {label && <figcaption className={bind(['tooltip__message', styles.avatar__label])}>
+        {label}
+      </figcaption>}
     </figure>
   );
 };
