@@ -1,7 +1,7 @@
 import React, { MutableRefObject, ReactElement, useMemo } from 'react';
 import { nanoid } from 'nanoid';
 import Link from 'next/link';import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
@@ -60,7 +60,7 @@ const HomeIntroHero = ({ sourceRef }: Props): ReactElement => {
                       variant={TagVariant.LIGHT}
                       isOutlined>
                       Read more
-                      <FontAwesomeIcon icon={faAngleRight} />
+                      <FontAwesomeIcon icon={faArrowRight} />
                     </Tag>
                   </a>
                 </Link>
