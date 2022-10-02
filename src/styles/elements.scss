@@ -281,41 +281,6 @@ ul,
   }
 }
 
-.loader {
-  position: relative;
-  width: var(--size);
-  height: var(--size);
-
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: calc(var(--size) - 6px);
-    height: calc(var(--size) - 6px);
-    animation: spin 1s linear infinite;
-    content: '';
-    margin: auto;
-    border-radius: 50%;
-    pointer-events: none;
-    border: $color--violet 3px solid;
-    border-top-color: transparent !important;
-  }
-
-  --size: 60px;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .highlighted {
   position: relative;
   background-size: 100%;
