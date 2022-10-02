@@ -5,6 +5,10 @@
 .about {
   position: relative;
 
+  &__header {
+    text-align: center;
+  }
+
   &__title {
     font-size: 3rem;
     font-weight: 700;

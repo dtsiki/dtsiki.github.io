@@ -28,7 +28,14 @@ const AboutHero = ({ targetRef, showButton }: Props): ReactElement => {
   const [view, setView] = useState<ScreenView>(ScreenView.SELECT_USER);
 
   const scrollDown = (): void => {
-    targetRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const element = targetRef.current?.getBoundingClientRect();
+
+    if (element) {
+      const topOffset = 100;
+      const offset = element.top + window.pageYOffset - topOffset;
+
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
   }
 
   return (
@@ -66,7 +73,8 @@ const AboutHero = ({ targetRef, showButton }: Props): ReactElement => {
         <ScrollDownButton
           isHidden={!showButton}
           variant={ScrollDownButtonVariant.LIGHT}
-          targetRef={targetRef} />
+          targetRef={targetRef}
+          handleScroll={scrollDown} />
       </Hero>
     </div>
   );

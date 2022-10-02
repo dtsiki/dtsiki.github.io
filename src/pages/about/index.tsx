@@ -169,7 +169,11 @@ const About = (): ReactElement => {
           <div className={styles.about__section}>
             <div className='container'>
               <div className={styles.about__shortest}>
-                <Avatar image={avatar} />
+                <div className={styles.about__header}>
+                  <Avatar
+                    label='Yay, that&#39;s me!'
+                    image={avatar} />
+                </div>
                 <p className='spacer top medium'>
                   My name is Daria, I&#39;m a frontend developer 👋
                 </p>
@@ -188,9 +192,12 @@ const About = (): ReactElement => {
       {viewType === ViewType.SHORT && (
         <div className={styles.about__tab}>
           <div className={styles.about__section}>
-            <Avatar
-              image={avatar}
-              className={styles.about__avatar} />
+            <div className={styles.about__header}>
+              <Avatar
+                label='Yay, that&#39;s me!'
+                image={avatar}
+                className={styles.about__avatar} />
+            </div>
             <div className='container'>
               {renderItems}
             </div>
@@ -201,8 +208,10 @@ const About = (): ReactElement => {
         <div className={styles.about__tab}>
           <div className={styles.about__section}>
             <div className='container'>
-              <div className='spacer bottom large'>
-                <Avatar image={avatar} />
+              <div className={bind([styles.about__header, 'spacer bottom large'])}>
+                <Avatar
+                  label='Yay, that&#39;s me!'
+                  image={avatar} />
               </div>
               <div className='row'>
                 <div className={bind(['col col--50 col--tablet-100', styles.reversed])}>
