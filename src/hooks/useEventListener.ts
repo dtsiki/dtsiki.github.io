@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 
 export enum Event {
-  SCROLL = 'scroll'
+  SCROLL = 'scroll',
+  RESIZE = 'resize'
 }
 
 const useEventListener = (eventName: Event, handler: () => void): void => {
