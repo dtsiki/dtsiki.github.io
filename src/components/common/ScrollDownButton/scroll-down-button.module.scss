@@ -1,11 +1,17 @@
 @import './../../../styles/colors';
 @import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
 
 .scrollDownButton {
   display: none;
 
   &__button {
     font-size: 4rem;
+    transform-origin: 70% 70%;
+
+    &.jumping {
+      animation: up-and-down 0.5s infinite;
+    }
 
     &.primary {
       color: $color--violet;
