@@ -1,0 +1,20 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+
+.contacts {
+  color: $color--white;
+
+  &__contact {
+    font-size: 1.2rem;
+
+    svg {
+      color: $color--white;
+      margin-right: 10px;
+    }
+
+    + .contacts__contact {
+      margin-top: $spacer / 2;
+    }
+  }
+}
