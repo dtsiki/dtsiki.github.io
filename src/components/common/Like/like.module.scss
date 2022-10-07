@@ -1,0 +1,66 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
+
+.like {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+  padding: $spacer;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 0;
+
+  &.button {
+    cursor: pointer;
+  }
+
+  &:hover {
+    animation: up-and-down 0.5s;
+  }
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    width: 0;
+    content: '';
+    border-top: 10px solid $color--violet;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+
+  svg {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+  }
+
+  &.primary {
+    background: $color--violet;
+    color: $color--white;
+
+    svg {
+      color: $color--white;
+    }
+
+    &::before {
+      border-top: 10px solid $color--violet;
+    }
+  }
+
+  &.light {
+    background: $color--white;
+    color: $color--violet;
+
+    svg {
+      color: $color--violet;
+    }
+
+    &::before {
+      border-top: 10px solid $color--white;
+    }
+  }
+}
