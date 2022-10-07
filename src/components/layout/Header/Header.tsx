@@ -41,9 +41,7 @@ const Header = (): ReactElement => {
   ];
 
   const handleScroll = (): void => {
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-    setPageScrolled(window.pageYOffset === height)
+    setPageScrolled(window.pageYOffset >= document.documentElement.clientHeight)
   }
 
   useEventListener(Event.SCROLL, handleScroll);
