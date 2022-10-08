@@ -165,10 +165,14 @@
   }
 }
 
-
 @keyframes up-and-down {
   50% {
     transform: translateY(-10px);
   }
 }
 
+@keyframes beat {
+  50% {
+    transform: scale(1.5);
+  }
+}
