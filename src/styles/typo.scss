@@ -1,0 +1,43 @@
+@import './breakpoints';
+
+.heading {
+  &-l1 {
+    font-size: 3rem;
+    font-weight: 700;
+
+    @include sm {
+      font-size: 8rem;
+    }
+  }
+
+  &-l2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+
+    @include lg {
+      font-size: 4rem;
+    }
+  }
+
+  &-l3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    @include lg {
+      font-size: 2rem;
+    }
+
+    + .heading-l3 {
+      margin-top: $spacer / 2;
+    }
+  }
+
+  &-l4 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+
+    + .heading-l4 {
+      margin-top: $spacer / 2;
+    }
+  }
+}
