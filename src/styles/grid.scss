@@ -55,6 +55,15 @@
         margin-bottom: 30px;
       }
     }
+
+    &--mobile-50 {
+      --col-size: 50%;
+      padding: 0;
+
+      + .col--mobile-100 {
+        margin-bottom: 30px;
+      }
+    }
   }
 
   @media (max-width: $width--lg-min) {
