@@ -4,6 +4,7 @@
 
 .latestProjects {
   width: 100%;
+  padding: 120px 0;
 
   &__title {
     margin-bottom: 60px;
@@ -12,7 +13,7 @@
     color: $color--violet;
 
     @include md {
-      display: none;
+      font-size: 4rem;
     }
   }
 

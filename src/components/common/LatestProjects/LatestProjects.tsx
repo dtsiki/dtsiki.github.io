@@ -1,11 +1,10 @@
-import React, { ReactElement, useEffect, useMemo } from 'react';
+import React, { ReactElement, useMemo } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import Image from 'next/image';
 import { nanoid } from 'nanoid';
-
 
 import Tag, { TagVariant } from '../Tag/Tag';
 import Window from '../Window';
@@ -135,7 +134,7 @@ const LatestProjects = (): ReactElement => {
               <Tag
                 variant={TagVariant.PRIMARY}
                 isOutlined>
-                All projects
+                Check out
                 <FontAwesomeIcon icon={faArrowRight} />
               </Tag>
             </a>
