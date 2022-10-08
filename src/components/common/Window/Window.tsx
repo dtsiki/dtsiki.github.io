@@ -81,13 +81,15 @@ const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern,
   }, [type])
 
   return (
-    <div className={styles.window}>
+    <div className={bind([styles.window, { [styles.inverted]: isInverted }])}>
       <div className={bind([styles.window__header, styles[type], { [styles.inverted]: isInverted }, { [styles.popUp]: isPopUp }])}>
         <div className={bind([styles.window__heading, { [styles.inverted]: isInverted }])}>
           {renderHeaderIcon}
-          <span className={styles.window__title}>
-            {title}
-          </span>
+          {title && (
+            <span className={bind([styles.window__title, { [styles.hasFile]: !!fileTitle }])}>
+              {title}
+            </span>
+          )}
           {fileTitle && (
             <span className={styles.window__fileTitle}>
               {fileTitle}
