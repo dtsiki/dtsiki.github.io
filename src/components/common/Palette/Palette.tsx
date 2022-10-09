@@ -21,18 +21,6 @@ const Palette = (): ReactElement => {
       color: '#9400D3'
     },
     {
-      name: 'Ultra violet',
-      color: '#645394'
-    },
-    {
-      name: 'African violet',
-      color: '#B284BE'
-    },
-    {
-      name: 'Lavender',
-      color: '#B57EDC'
-    },
-    {
       name: 'Pixie powder',
       color: '#501098'
     }
