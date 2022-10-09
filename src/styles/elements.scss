@@ -1,4 +1,5 @@
 @import './breakpoints';
+@import './keyframes';
 
 html {
   scroll-behavior: smooth;
@@ -29,6 +30,14 @@ a {
   &.active {
     text-decoration: none;
     color: $color--black-lighter;
+  }
+
+  &.light {
+    color: $color--white;
+
+    &.active {
+      color: $color--white-violet;
+    }
   }
 }
 
@@ -150,6 +159,10 @@ a {
 
   &--dark {
     color: $color--black;
+  }
+
+  &--light {
+    color: $color--white;
   }
 }
 
@@ -274,7 +287,6 @@ ul,
     .tooltip__message {
       margin: 0 5px;
       padding: $spacer;
-      border-radius: 5px;
       background: $color--violet;
       color: $color--white;
     }
@@ -760,5 +772,89 @@ ul,
 
   &__label {
     margin-left: 10px;
+  }
+}
+
+.stroke {
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  color: var(--text-color);
+  text-shadow: -1px -1px 0 var(--stroke-color), 1px -1px 0 var(--stroke-color), -1px 1px 0 var(--stroke-color), 1px 1px 0 var(--stroke-color);
+
+  &.primary {
+    --stroke-color: #{$color--violet};
+    --text-color: #{$color--white};
+  }
+
+  &.dark {
+    --stroke-color: #{$color--black};
+    --text-color: #{$color--white};
+  }
+
+  &.light {
+    --stroke-color: #{$color--white};
+    --text-color: #{$color--violet};
+  }
+}
+
+.bubble {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  padding: $spacer / 2;
+  background: $color--violet;
+  border: 3px solid $color--white;
+  color: $color--white;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    width: 0;
+    content: '';
+    border-top: 10px solid $color--white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    width: 0;
+    content: '';
+    border-top: 6px solid $color--violet;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+  }
+}
+
+.width-limiter {
+  display: inline-block;
+  font-weight: inherit;
+  font-size: inherit;
+  font-style: inherit;
+
+  &.extra-small {
+    max-width: 200px;
+  }
+
+  &.small {
+    max-width: 200px;
+  }
+
+  &.medium {
+    max-width: 350px;
+  }
+
+  &.large {
+    max-width: 500px;
+  }
+
+  &.extra-large {
+    max-width: 700px;
   }
 }
