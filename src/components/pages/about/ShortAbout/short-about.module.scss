@@ -1,0 +1,14 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+
+.shortAbout {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+
+  p {
+    + p {
+      margin-top: $spacer;
+    }
+  }
+}
