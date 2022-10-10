@@ -1,14 +1,13 @@
 import React, { MutableRefObject, ReactElement, useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faFileLines, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faFileLines, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 import Avatar from 'src/components/common/Avatar';
 import ExternalLink from 'src/components/common/ExternalLink';
 import Hero from 'src/components/layout/Hero';
-import { HeroSize, HeroVariant } from 'src/components/layout/Hero/Hero';
+import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import AboutHobbies from 'src/pages/about/_hobbies';
 import AboutSkills from 'src/pages/about/_skills';
 import Palette from 'src/components/common/Palette';
@@ -18,11 +17,11 @@ import Window from 'src/components/common/Window';
 import { WindowType } from 'src/components/common/Window/Window';
 import Shortcut from 'src/components/common/Shortcut';
 import { ShortcutVariant } from 'src/components/common/Shortcut/Shortcut';
+import Gratitude from '../Gratitude';
+import Contacts from 'src/components/common/Contacts';
 
 import styles from './longest-about.module.scss';
 import avatar from '/public/assets/avatar.jpeg';
-import Gratitude from '../Gratitude';
-import Contacts from 'src/components/common/Contacts';
 
 const LongestAbout = (): ReactElement => {
   const forewordRef = useRef<HTMLDivElement>(null);
@@ -47,7 +46,7 @@ const LongestAbout = (): ReactElement => {
       ref: workExperienceRef
     },
     {
-      title: 'qualifications',
+      title: 'work-experience(2)',
       ref: qualificationsRef
     },
     {
