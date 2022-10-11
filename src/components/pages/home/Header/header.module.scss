@@ -1,7 +1,8 @@
-@import './../../styles/colors';
-@import './../../styles/breakpoints';
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+@import './../../.../../../../styles/keyframes';
 
-.yayHero {
+.header {
   position: relative;
 
   &__wrapper {
@@ -46,7 +47,13 @@
     &.smile {
       width: 50px;
       height: 50px;
-      margin-right: 40px;
+      margin-right: $spacer * 3;
+      transition: 0.5s all;
+      transform-origin: 70% 70%;
+
+      &:hover {
+        animation: shake 1s;
+      }
 
       @include sm {
         width: 100px;
