@@ -3,6 +3,7 @@ import React, { ReactElement, useMemo } from 'react';
 
 import Tag from 'src/components/common/Tag';
 import { TagVariant } from 'src/components/common/Tag/Tag';
+import Like from 'src/components/common/Like';
 
 import styles from './about.module.scss';
 
@@ -23,18 +24,16 @@ const AboutSkills = ({ isExtended = false }: Props): ReactElement => {
     'React',
     'Angular',
     'Next.js',
-    'Git',
-    'intermediate english'
+    'Git flow'
   ];
 
   const extendedSkills = [
     'Webpack',
     'Linter',
     'Prettier',
-    'Web API',
+    'Data APIs',
     'State management',
-    'NPM',
-    'a11y'
+    'Accessibility'
   ];
 
   const renderSkills = useMemo(() => {
@@ -45,18 +44,26 @@ const AboutSkills = ({ isExtended = false }: Props): ReactElement => {
         <li
           key={skill}
           className='list__item'>
-          <Tag
-            variant={TagVariant.DARK}
-            isOutlined>
-            {skill}
-          </Tag>
+          {isExtended ? (
+            <div className='spacer bottom small'>
+              <Like>
+                {skill}
+              </Like>
+            </div>
+          ) : (
+            <Tag
+              variant={TagVariant.DARK}
+              isOutlined>
+              {skill}
+            </Tag>
+          )}
         </li>
       );
     });
   }, [primarySkills, extendedSkills, isExtended]);
 
   return (
-    <ul className={bind(['list inline', { [styles.about__skills]: isExtended }])}>
+    <ul className={bind(['list inline', { [styles.about__likes]: isExtended }])}>
       {renderSkills}
     </ul>
   );
