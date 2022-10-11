@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import { faArrowLeft, faFaceFrown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
-import { faFaceFrown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Tag, { TagVariant } from 'src/components/common/Tag/Tag';
 
 import styles from './404.module.scss';
 
@@ -18,11 +19,18 @@ const Custom404 = (): JSX.Element => {
         <div className={styles.custom404__subtitle}>
           4<FontAwesomeIcon icon={faFaceFrown} />4
         </div>
-        <Link href='/'>
-          <a className={styles.custom404__button}>
-            Back to home page
-          </a>
-        </Link>
+        <div className={styles.custom404__footer}>
+          <Link href='/'>
+            <a className='link-with-tag'>
+              <Tag
+                variant={TagVariant.LIGHT}
+                isOutlined>
+                <FontAwesomeIcon icon={faArrowLeft} />
+                Back to home
+              </Tag>
+            </a>
+          </Link>
+        </div>
       </Hero>
     </div>
   );
