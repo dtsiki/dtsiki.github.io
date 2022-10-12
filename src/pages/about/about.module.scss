@@ -66,7 +66,7 @@
         width: 1px;
         height: 95px;
         background: transparent;
-        border-left: 2px dotted $color--black;
+        border-left: 6px dotted $color--black;
       }
     }
   }
@@ -74,7 +74,7 @@
   &__actions {
     display: flex;
     justify-content: center;
-    padding: 60px 0 60px;
+    padding: 60px 0 90px;
   }
 
   &__tab {
@@ -111,26 +111,23 @@
     }
   }
 
-  &__pallete {
-    text-align: center;
-  }
-
-  .reversed {
-    @include md {
-      text-align: right;
-      justify-content: flex-end;
-    }
-  }
-
-  &__skills {
+  &__likes {
     justify-content: center;
 
     @include md {
-      justify-content: flex-start;
+      justify-content: center;
     }
   }
 
-  &__shortest {
-    text-align: center;
+  &__likeLink {
+    font-weight: 700;
+    color: $color--violet;
+  }
+
+  &__contacts {
+    svg {
+      margin-right: 5px;
+      color: $color--violet;
+    }
   }
 }

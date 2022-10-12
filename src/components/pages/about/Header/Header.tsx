@@ -1,5 +1,5 @@
 import React, { MutableRefObject, ReactElement, useState } from 'react';
-import { faFilePdf, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faFolder, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
@@ -11,7 +11,7 @@ import LeftPanel from 'src/components/pages/about/LeftPanel';
 import Shortcut from 'src/components/common/Shortcut';
 import { ShortcutVariant } from 'src/components/common/Shortcut/Shortcut';
 
-import styles from './hero.module.scss';
+import styles from './header.module.scss';
 
 export enum ScreenView {
   SELECT_USER = 1,
@@ -24,7 +24,7 @@ interface Props {
   showButton: boolean;
 }
 
-const AboutHero = ({ targetRef, showButton }: Props): ReactElement => {
+const Header = ({ targetRef, showButton }: Props): ReactElement => {
   const [view, setView] = useState<ScreenView>(ScreenView.SELECT_USER);
 
   const scrollDown = (): void => {
@@ -39,7 +39,7 @@ const AboutHero = ({ targetRef, showButton }: Props): ReactElement => {
   }
 
   return (
-    <div className={styles.hero}>
+    <div className={styles.header}>
       <Hero variant={HeroVariant.PRIMARY}>
         <TopPanel />
         {view === ScreenView.DESKTOP && (
@@ -52,22 +52,25 @@ const AboutHero = ({ targetRef, showButton }: Props): ReactElement => {
           <LoginUser handleLogin={() => setView(ScreenView.DESKTOP)} />
         )}
         {view === ScreenView.DESKTOP && (
-          <div className={styles.hero__footer}>
+          <div className={styles.header__footer}>
             <Shortcut
               icon={faTrash}
-              variant={ShortcutVariant.GHOST} />
+              variant={ShortcutVariant.GHOST}
+              name='Trash' />
           </div>
         )}
         {view === ScreenView.DESKTOP && (
-          <div className={styles.hero__wallpaper} />
+          <div className={styles.header__wallpaper} />
         )}
         {view === ScreenView.DESKTOP && (
-          <div className={styles.hero__desktop}>
-            <Shortcut
-              handleAction={scrollDown}
-              variant={ShortcutVariant.GHOST}
-              icon={faFilePdf}
-              name='Let me introduce myself.pdf' />
+          <div className={styles.header__desktop}>
+            <div className={styles.header__folder}>
+              <Shortcut
+                handleAction={scrollDown}
+                variant={ShortcutVariant.GHOST}
+                icon={faFolder}
+                name='Let me introduce myself' />
+            </div>
           </div>
         )}
         <ScrollDownButton
@@ -80,4 +83,4 @@ const AboutHero = ({ targetRef, showButton }: Props): ReactElement => {
   );
 };
 
-export default AboutHero;
+export default Header;

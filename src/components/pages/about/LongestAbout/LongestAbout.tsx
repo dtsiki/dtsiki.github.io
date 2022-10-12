@@ -148,10 +148,13 @@ const LongestAbout = (): ReactElement => {
                   href='https://www.deviantart.com/tvm-resources'
                   label='Here' /> you can check out my old art works.
               </p>
-              <p className='heading-l4 spacer bottom extra-large'>
+              <p className='heading-l4'>
                 Broadly speaking, I&#39;m literally a frontend dinosaur.
                 I remember that time when JavaScript wasn&#39;t popular not even a bit, everyone was keen on jQuery and CSS flexbox didn&#39;t exist yet.
                 It was a great time!
+              </p>
+              <p className='heading-l4 spacer bottom extra-large'>
+                However, web development was just a hobby for me in those days.
               </p>
             </div>
           </div>
@@ -246,6 +249,9 @@ const LongestAbout = (): ReactElement => {
           </div>
         </div>
       </Hero>
+      <div ref={projectsRef}>
+        <LatestProjects />
+      </div>
       <Hero
         heroRef={hobbiesRef}
         variant={HeroVariant.PRIMARY}>
@@ -263,9 +269,6 @@ const LongestAbout = (): ReactElement => {
           </div>
         </div>
       </Hero>
-      <div ref={projectsRef}>
-        <LatestProjects />
-      </div>
       <div ref={blogRef}>
         <LatestPosts showThumbnails />
       </div>
