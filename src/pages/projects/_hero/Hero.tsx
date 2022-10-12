@@ -77,7 +77,8 @@ const ProjectsHero = ({ targetRef, showButton }: Props): ReactElement => {
         <ScrollDownButton
           isHidden={!showButton}
           variant={ScrollDownButtonVariant.PRIMARY}
-          targetRef={targetRef} />
+          targetRef={targetRef}
+          isJumping />
       </Hero>
     </div>
   );
