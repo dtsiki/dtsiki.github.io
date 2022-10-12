@@ -92,7 +92,7 @@ const Blog = (): ReactElement => {
             <ShortcutPreview
               title={title}
               highlight={highlight}
-              link={link}
+              link={`/blog/${link}`}
               category={category}
               date={date}
               viewType={viewType}
@@ -141,7 +141,13 @@ const Blog = (): ReactElement => {
               </ul>
             ) : (
               <div className={styles.blog__notification}>
-                Oh, no posts found <FontAwesomeIcon icon={faFaceFrown} />
+                <FontAwesomeIcon icon={faFaceFrown} />
+                <div className='heading-l2 spacer top small'>
+                  Oh, no!
+                </div>
+                <div className='heading-l3 spacer top extra-small'>
+                  Posts not found
+                </div>
               </div>
             )}
           </div>
