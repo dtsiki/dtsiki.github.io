@@ -13,6 +13,7 @@ import Tag, { TagElement, TagVariant } from 'src/components/common/Tag/Tag';
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import TaskManager from './_task-manager';
+import Planner18Minutes from './_planner-18-minutes';
 
 import styles from './projects.module.scss';
 
@@ -23,6 +24,7 @@ const Projects = (): ReactElement => {
   const ticTacToeRef = useRef<HTMLDivElement>(null);
   const dictionaryRef =useRef<HTMLDivElement>(null);
   const taskManagerRef = useRef<HTMLDivElement>(null);
+  const minutesRef = useRef<HTMLDivElement>(null);
   const isProjectsVisible = useIntersectionObserver(projectsRef);
 
   const bind = classNames.bind(styles);
@@ -31,6 +33,10 @@ const Projects = (): ReactElement => {
     {
       name: 'Quote generator',
       ref: quoteGeneratorRef
+    },
+    {
+      name: '18 minutes',
+      ref: minutesRef
     },
     {
       name: 'Todo',
@@ -101,6 +107,9 @@ const Projects = (): ReactElement => {
       </div>
       <div ref={quoteGeneratorRef}>
         <QuoteGenerator />
+      </div>
+      <div ref={minutesRef}>
+        <Planner18Minutes />
       </div>
       <div ref={ticTacToeRef}>
         <TicTacToe />
