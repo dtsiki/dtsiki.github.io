@@ -3,6 +3,15 @@ import { nanoid } from 'nanoid';
 export const posts = [
   {
     id: nanoid(),
+    title: 'Keep calm and test',
+    highlight: 'If you need a sign to start testing your React applications, this is it.',
+    link: 'keep-calm-and-test',
+    category: 'tutorial',
+    date: '16 dec 2022',
+    tags: ['react', 'typescript', 'jest', 'testing']
+  },
+  {
+    id: nanoid(),
     title: 'Pure CSS toggle switch',
     highlight: 'A step-by-step tutorial how to create a toggle switch using only HTML and CSS without using JavaScript',
     link: 'pure-css-toggle-switch',

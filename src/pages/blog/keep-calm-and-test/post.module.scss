@@ -1,0 +1,37 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
+
+$width: 24px;
+$gap: 4px;
+
+.post {
+  position: relative;
+
+  &__gallery {
+    position: relative;
+    width: 600px;
+    margin: 60px auto;
+  }
+
+  &__snippet {
+    display: flex;
+    justify-content: center;
+
+    @include md {
+      margin: 30px 0;
+    }
+  }
+
+  &__test {
+    margin: 200px auto;
+    max-width: 600px;
+  }
+
+  &__poster {
+    padding: 50px 0;
+    text-transform: uppercase;
+    text-align: center;
+    color: $color--violet;
+  }
+}
