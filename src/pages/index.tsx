@@ -1,28 +1,25 @@
-import React, { useRef } from 'react';
+import { useEffect } from 'react';
+import { useStoreon } from 'storeon/react';
 
-import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
-import LatestPosts from 'src/components/common/LatestPosts';
-import LatestProjects from 'src/components/common/LatestProjects';
-import Contacts from 'src/components/common/Contacts';
-import IntroHero from 'src/components/pages/home/IntroHero';
-import Header from 'src/components/pages/home/Header';
+import HomeHeader from 'src/components/pages/home/Header';
+import { ThemeColor, ThemerEvent } from 'src/store/themer';
 
 import styles from './home.module.scss';
 
 const Home = (): JSX.Element => {
-  const ref = useRef<HTMLDivElement>(null);
+  const { dispatch } = useStoreon();
 
-  const isVisible = useIntersectionObserver(ref);
+  useEffect(() => {
+    dispatch(ThemerEvent.SET_TOP_COLOR, ThemeColor.VIOLET);
+  }, []);
+
+  useEffect(() => {
+    dispatch(ThemerEvent.SET_BOTTOM_COLOR, ThemeColor.VIOLET);
+  }, []);
 
   return (
     <div className={styles.home}>
-      <Header
-        targetRef={ref}
-        showButton={!isVisible} />
-      <IntroHero sourceRef={ref} />
-      <LatestProjects />
-      <Contacts />
-      <LatestPosts showThumbnails />
+      <HomeHeader />
     </div>
   );
 };
