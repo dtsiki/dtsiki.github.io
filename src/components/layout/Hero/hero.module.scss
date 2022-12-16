@@ -60,4 +60,28 @@
   &.light {
     background-color: $color--white;
   }
+
+  &.violet {
+    background-color: $color--violet;
+  }
+
+  &.violet-dark {
+    background-color: $color--violet-dark;
+  }
+
+  &.violet-lighter {
+    background-color: $color--violet-lighter;
+  }
+
+  &.topography-dark {
+    background: url('./../../../../public/assets/patterns/topography-dark.svg');
+  }
+
+  &.topography-light {
+    background: url('./../../../../public/assets/patterns/topography-light.svg');
+  }
+
+  &.motion-lines {
+    background: url('./../../../../public/assets/patterns/motion-lines.svg');
+  }
 }

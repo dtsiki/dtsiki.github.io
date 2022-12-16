@@ -8,7 +8,10 @@ export enum HeroVariant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
   LIGHT = 'light',
-  DARK = 'dark'
+  DARK = 'dark',
+  VIOLET = 'violet',
+  VIOLET_DARK = 'violet-dark',
+  VIOLET_LIGHTER = 'violet-lighter'
 }
 
 export enum HeroAlign {
@@ -23,6 +26,12 @@ export enum HeroSize {
   SMALL = 'small'
 }
 
+export enum HeroPattern {
+  TOPOGRAPHY_LIGHT = 'topography-light',
+  TOPOGRAPHY_DARK = 'topography-dark',
+  MOTION_LINES = 'motion-lines'
+}
+
 interface LayoutProps {
   children: ReactNode;
   variant?: HeroVariant;
@@ -30,6 +39,7 @@ interface LayoutProps {
   heroRef?:  MutableRefObject<HTMLElement | null>;
   className?: string;
   size?: HeroSize;
+  pattern?: HeroPattern;
 }
 
 const Hero = ({
@@ -38,14 +48,15 @@ const Hero = ({
   align = HeroAlign.CENTER,
   heroRef,
   className,
-  size = HeroSize.FULL
+  size = HeroSize.FULL,
+  pattern
 }: LayoutProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
     <section
       ref={heroRef}
-      className={bind([styles.hero, variant, align, size, className])}>
+      className={bind([styles.hero, variant, align, size, className, pattern])}>
       {children}
     </section>
   );
