@@ -23,7 +23,7 @@ const Avatar = ({ image, label, className, avatarRef }: Props): ReactElement => 
         className={styles.avatar__image}
         src={image}
         alt={label} />
-      {label && <figcaption className={bind(['tooltip__message', styles.avatar__label])}>
+      {label && <figcaption className={bind(['tooltip__message', styles.avatar__tooltip])}>
         {label}
       </figcaption>}
     </figure>
