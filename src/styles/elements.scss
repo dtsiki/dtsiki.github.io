@@ -12,6 +12,10 @@ body {
   line-height: 1.2;
 }
 
+.unscrollable {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
 }
@@ -856,5 +860,17 @@ ul,
 
   &.extra-large {
     max-width: 700px;
+  }
+}
+
+.marquee {
+  color: $color--white;
+  font-size: 3rem;
+  font-weight: 600;
+  animation: neon 3s infinite;
+  text-align: center;
+
+  @include lg {
+    font-size: 5rem;
   }
 }

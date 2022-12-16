@@ -2,11 +2,11 @@
 @import './../../../styles/breakpoints';
 
 .footer {
-  padding: 30px 0;
+  padding: ($spacer * 2) 0;
   color: $color--grey-dark;
 
   @include md {
-    padding: 60px 0 60px 100px;
+    padding: ($spacer * 3) 0;
   }
 
   &__inner {
@@ -30,11 +30,20 @@
     }
   }
 
-  svg {
-    color: $color--violet;
+  &__link {
+    svg {
+      color: $color--violet;
+    }
   }
 
-  &__link {
-    margin: 0 5px;
+  &__copyright {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $color--grey;
+
+    svg {
+      color: $color--violet;
+    }
   }
 }

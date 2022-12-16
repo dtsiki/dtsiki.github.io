@@ -1,0 +1,39 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+
+.about {
+  position: relative;
+
+  &__shortcuts {
+    //position: relative;
+    //height: 500px;
+  }
+
+  &__shortcut {
+    position: absolute;
+    width: 100px;
+    padding: 5px;
+    margin: 0 auto;
+    border: 1px dashed transparent;
+    transition: 0.5s all;
+
+    &:hover {
+      border: 1px dashed $color--grey;
+    }
+
+    &.about {
+      top: 50%;
+      left: 50%;
+    }
+
+    &.projects {
+      top: 20%;
+      left: 10%;
+    }
+
+    &.posts {
+      top: 0;
+      left: 50%;
+    }
+  }
+}

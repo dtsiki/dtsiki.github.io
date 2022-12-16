@@ -1,7 +1,7 @@
-import React, { ReactElement, ReactNode, useEffect, useState } from 'react';
+import { ReactElement, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import Header from './../Header';
+import Menu from '../Menu';
 import Footer from './../Footer';
 import Loader from './../Loader';
 
@@ -18,11 +18,11 @@ const Layout = ({ children }: LayoutProps): ReactElement => {
   useEffect(() => {
     const handleStart = (): void => {
       setLoading(true);
-    }
+    };
 
     const handleComplete = (): void => {
       setLoading(false);
-    }
+    };
 
     router.events.on('routeChangeStart', handleStart)
     router.events.on('routeChangeComplete', handleComplete)
@@ -36,8 +36,9 @@ const Layout = ({ children }: LayoutProps): ReactElement => {
   }, []);
 
   return (
-    <div className={styles.layout}>
-      <Header />
+    <div
+      className={styles.layout}>
+      <Menu />
       <main className={styles.layout__content}>
         {isLoading ? <Loader /> : children}
       </main>

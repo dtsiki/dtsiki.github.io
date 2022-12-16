@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
@@ -18,13 +18,14 @@ interface Props {
   name?:  string;
   variant?: ShortcutVariant;
   handleAction?: () => void;
+  tooltip?: ReactNode;
 }
 
-const Shortcut = ({ icon, name, variant = ShortcutVariant.PRIMARY, handleAction }: Props): ReactElement => {
+const Shortcut = ({ icon, name, variant = ShortcutVariant.PRIMARY, handleAction, tooltip }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
-    <div className={bind([styles.shortcut, styles[variant]])}>
+    <div className={bind([styles.shortcut, styles[variant], tooltip ? ' tooltip' : ''])}>
       <span className={styles.shortcut__icon}>
         <FontAwesomeIcon icon={icon} />
       </span>
@@ -32,6 +33,11 @@ const Shortcut = ({ icon, name, variant = ShortcutVariant.PRIMARY, handleAction 
         <span className={styles.shortcut__label}>
           {name}
         </span>
+      )}
+      {tooltip && (
+        <div className={bind(['tooltip__message', styles.shortcut__tooltip])}>
+          {tooltip}
+        </div>
       )}
       {handleAction && (
         <button

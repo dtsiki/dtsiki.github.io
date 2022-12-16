@@ -4,10 +4,4 @@
 
 .layout {
   position: relative;
-
-  &__content {
-    @include md {
-      padding-left: 100px;
-    }
-  }
 }

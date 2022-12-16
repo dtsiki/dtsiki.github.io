@@ -1,13 +1,13 @@
-import React, { ReactElement, useMemo } from 'react';
+import { ReactElement, useMemo } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
+import Tag, { TagVariant } from '../Tag/Tag';
 import Preview from 'src/components/pages/blog/Preview';
 import { posts } from 'src/constants';
 
 import styles from './latest-posts.module.scss';
-import Tag, { TagVariant } from '../Tag/Tag';
 
 interface Props {
   showThumbnails?: boolean;
