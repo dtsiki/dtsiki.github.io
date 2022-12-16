@@ -482,7 +482,6 @@ ul,
     padding: 20px;
 
     &:nth-child(2) {
-      border-right: 2px solid $color--violet;
       border-left: 2px solid $color--violet;
     }
   }
@@ -507,7 +506,7 @@ ul,
     position: absolute;
     z-index: 0;
     content: '';
-    width: calc(100% / 3);
+    width: calc(100% / 2);
     height: 100%;
     background: $color--violet;
     transition: 0.2s linear;
@@ -526,13 +525,7 @@ ul,
 
   &.short {
     &::before {
-      left: calc(50% - (33%/2));
-    }
-  }
-
-  &.longest {
-    &::before {
-      left: 66.66%;
+      left: 50%
     }
   }
 }

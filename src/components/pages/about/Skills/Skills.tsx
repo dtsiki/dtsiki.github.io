@@ -1,11 +1,11 @@
+import { ReactElement, useMemo } from 'react';
 import classNames from 'classnames';
-import React, { ReactElement, useMemo } from 'react';
 
 import Tag from 'src/components/common/Tag';
 import { TagVariant } from 'src/components/common/Tag/Tag';
 import Like from 'src/components/common/Like';
 
-import styles from './about.module.scss';
+import styles from './skills.module.scss';
 
 interface Props {
   isExtended?: boolean;
@@ -16,7 +16,6 @@ const AboutSkills = ({ isExtended = false }: Props): ReactElement => {
 
   const primarySkills = [
     'HTML',
-    'BEM',
     'CSS',
     'SASS',
     'JavaScript',
@@ -63,7 +62,7 @@ const AboutSkills = ({ isExtended = false }: Props): ReactElement => {
   }, [primarySkills, extendedSkills, isExtended]);
 
   return (
-    <ul className={bind(['list inline', { [styles.about__likes]: isExtended }])}>
+    <ul className={bind(['list inline', styles.skills, { [styles.extended]: isExtended }])}>
       {renderSkills}
     </ul>
   );

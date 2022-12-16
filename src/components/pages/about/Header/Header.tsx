@@ -1,13 +1,11 @@
-import React, { MutableRefObject, ReactElement, useState } from 'react';
-import { faFolder, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { MutableRefObject, ReactElement, useState } from 'react';
+import { faFilePdf, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import ScrollDownButton, { ScrollDownButtonVariant } from 'src/components/common/ScrollDownButton/ScrollDownButton';
 import SelectUser from 'src/components/pages/about/SelectUser';
 import LoginUser from 'src/components/pages/about/LoginUser';
-import TopPanel from 'src/components/pages/about/TopPanel';
-import LeftPanel from 'src/components/pages/about/LeftPanel';
 import Shortcut from 'src/components/common/Shortcut';
 import { ShortcutVariant } from 'src/components/common/Shortcut/Shortcut';
 
@@ -24,7 +22,7 @@ interface Props {
   showButton: boolean;
 }
 
-const Header = ({ targetRef, showButton }: Props): ReactElement => {
+const AboutHeader = ({ targetRef, showButton }: Props): ReactElement => {
   const [view, setView] = useState<ScreenView>(ScreenView.SELECT_USER);
 
   const scrollDown = (): void => {
@@ -36,15 +34,11 @@ const Header = ({ targetRef, showButton }: Props): ReactElement => {
 
       window.scrollTo({ top: offset, behavior: 'smooth' });
     }
-  }
+  };
 
   return (
     <div className={styles.header}>
       <Hero variant={HeroVariant.PRIMARY}>
-        <TopPanel />
-        {view === ScreenView.DESKTOP && (
-          <LeftPanel />
-        )}
         {view === ScreenView.SELECT_USER && (
           <SelectUser handleSelect={() => setView(ScreenView.LOGIN_USER)} />
         )}
@@ -52,7 +46,7 @@ const Header = ({ targetRef, showButton }: Props): ReactElement => {
           <LoginUser handleLogin={() => setView(ScreenView.DESKTOP)} />
         )}
         {view === ScreenView.DESKTOP && (
-          <div className={styles.header__footer}>
+          <div className={styles.header__trash}>
             <Shortcut
               icon={faTrash}
               variant={ShortcutVariant.GHOST}
@@ -64,12 +58,12 @@ const Header = ({ targetRef, showButton }: Props): ReactElement => {
         )}
         {view === ScreenView.DESKTOP && (
           <div className={styles.header__desktop}>
-            <div className={styles.header__folder}>
+            <div className={styles.header__file}>
               <Shortcut
                 handleAction={scrollDown}
                 variant={ShortcutVariant.GHOST}
-                icon={faFolder}
-                name='Let me introduce myself' />
+                icon={faFilePdf}
+                name='about.pdf' />
             </div>
           </div>
         )}
@@ -83,4 +77,4 @@ const Header = ({ targetRef, showButton }: Props): ReactElement => {
   );
 };
 
-export default Header;
+export default AboutHeader;

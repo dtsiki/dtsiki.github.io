@@ -4,12 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
-import Avatar from 'src/components/common/Avatar';
+import MyAvatar from 'src/components/common/MyAvatar';
 import ExternalLink from 'src/components/common/ExternalLink';
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import AboutHobbies from 'src/pages/about/_hobbies';
-import AboutSkills from 'src/pages/about/_skills';
 import Palette from 'src/components/common/Palette';
 import LatestProjects from 'src/components/common/LatestProjects';
 import LatestPosts from 'src/components/common/LatestPosts';
@@ -17,13 +16,13 @@ import Window from 'src/components/common/Window';
 import { WindowType } from 'src/components/common/Window/Window';
 import Shortcut from 'src/components/common/Shortcut';
 import { ShortcutVariant } from 'src/components/common/Shortcut/Shortcut';
-import Gratitude from '../Gratitude';
 import Contacts from 'src/components/common/Contacts';
+import AboutGratitude from '../Gratitude';
 
 import styles from './longest-about.module.scss';
-import avatar from '/public/assets/avatar.jpeg';
+import AboutSkills from '../Skills';
 
-const LongestAbout = (): ReactElement => {
+const AboutLongestAbout = (): ReactElement => {
   const forewordRef = useRef<HTMLDivElement>(null);
   const workExperienceRef = useRef<HTMLDivElement>(null);
   const qualificationsRef = useRef<HTMLDivElement>(null);
@@ -110,14 +109,16 @@ const LongestAbout = (): ReactElement => {
     <div className={styles.lognestAbout}>
       <div className={styles.longestAbout__tableOfContent}>
         <div className='container'>
-          <Window
-            type={WindowType.FOLDER}
-            filesCount={content.length}
-            title='D:\dtsiki'>
-            <ul className={bind(['row', styles.longestAbout__folder])}>
-              {renderContent}
-            </ul>
-          </Window>
+          <div className='spacer top bottom large'>
+            <Window
+              type={WindowType.FOLDER}
+              filesCount={content.length}
+              title='D:\dtsiki'>
+              <ul className={bind(['row', styles.longestAbout__folder])}>
+                {renderContent}
+              </ul>
+            </Window>
+          </div>
         </div>
       </div>
       <Hero heroRef={forewordRef}>
@@ -125,9 +126,7 @@ const LongestAbout = (): ReactElement => {
           <div className='row'>
             <div className='col col--40 col--tablet-100 col--reversed'>
               <div className='spacer bottom medium'>
-                <Avatar
-                  label='Yay, that&#39;s me!'
-                  image={avatar} />
+                <MyAvatar />
               </div>
               <h2 className='heading-l3'>
                 My name is <span className='accented accented--primary'>Daria</span>
@@ -288,9 +287,9 @@ const LongestAbout = (): ReactElement => {
           </div>
         </div>
       </Hero>
-      <Gratitude />
+      <AboutGratitude />
     </div>
   );
 };
 
-export default LongestAbout;
+export default AboutLongestAbout;

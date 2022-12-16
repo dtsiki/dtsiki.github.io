@@ -10,6 +10,8 @@ import { ShortcutVariant } from 'src/components/common/Shortcut/Shortcut';
 
 import styles from './about.module.scss';
 import ShortcutTooltip from 'src/components/common/ShortcutTooltip';
+import LatestPosts from 'src/components/common/LatestPosts';
+import LatestProjects from 'src/components/common/LatestProjects';
 
 interface Props {
   sourceRef:  MutableRefObject<HTMLElement | null>;
@@ -88,6 +90,7 @@ const HomeAbout = ({ sourceRef }: Props): ReactElement => {
     });
   }, []);
 
+  /*
   return (
     <div className={styles.about}>
       <Hero
@@ -101,6 +104,17 @@ const HomeAbout = ({ sourceRef }: Props): ReactElement => {
       </Hero>
     </div>
   );
+  */
+
+  return (
+    <div className={styles.about}>
+      <Hero>
+        <div className={styles.about__latestProjects}>
+          <LatestProjects showOnlyProjects />
+        </div>
+      </Hero>
+    </div>
+  )
 };
 
 export default HomeAbout;

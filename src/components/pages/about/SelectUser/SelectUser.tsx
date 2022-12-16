@@ -24,9 +24,6 @@ const SelectUser = ({ handleSelect }: Props): ReactElement => {
           <span className='visually-hidden'>Select</span>
         </button>
       </div>
-      <div className={styles.selectUser__footer}>
-        Can I introduce myself?
-      </div>
     </div>
   );
 };

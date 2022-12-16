@@ -4,7 +4,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './gratitude.module.scss';
 
-const Gratitude = (): ReactElement => {
+const AboutGratitude = (): ReactElement => {
   return (
     <div className={styles.gratitude}>
       <div className='container'>
@@ -19,4 +19,4 @@ const Gratitude = (): ReactElement => {
   );
 };
 
-export default Gratitude;
+export default AboutGratitude;

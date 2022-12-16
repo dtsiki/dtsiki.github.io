@@ -1,174 +1,180 @@
-import React, { ReactElement, useMemo, useRef, useState } from 'react';
+import { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 import { faBriefcase, faCode, faComments, faGraduationCap, faList, faSmile } from '@fortawesome/free-solid-svg-icons';
-import classNames from 'classnames';
+import { useStoreon } from 'storeon/react';
 
-import Avatar from 'src/components/common/Avatar';
+import MyAvatar from 'src/components/common/MyAvatar';
 import Block from 'src/components/common/Block';
-import AboutWorkExperience from './_work-experience';
-import AboutSkills from './_skills';
+import AboutHeader from 'src/components/pages/about/Header';
+import AboutShortAbout from 'src/components/pages/about/ShortAbout';
+import AboutGratitude from 'src/components/pages/about/Gratitude';
+import AboutWorkExperience from 'src/components/pages/about/WorkExperience';
+import AboutSkills from 'src/components/pages/about/Skills';
+import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
+import { isElementVisible } from 'src/utils';
+import { ThemeColor, ThemerEvent } from 'src/store/themer';
+import useEventListener, { Event } from 'src/hooks/useEventListener';
 import AboutEducation from './_education';
 import AboutHobbies from './_hobbies';
-import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
 import AboutProjects from './_projects';
-import ShortAbout from 'src/components/pages/about/ShortAbout';
-import LongestAbout from 'src/components/pages/about/LongestAbout';
-import Gratitude from 'src/components/pages/about/Gratitude';
-import Header from 'src/components/pages/about/Header';
-import styles from './about.module.scss';
-import avatar from '/public/assets/avatar.jpeg';
 import AboutContacts from './_contacts';
+
+import styles from './about.module.scss';
 
 export enum ViewType {
   SHORTEST = 'shortest',
-  SHORT = 'short',
-  LONGEST = 'longest'
+  SHORT = 'short'
 }
 
 const About = (): ReactElement => {
   const [viewType, setViewType] = useState(ViewType.SHORTEST);
+  const [topColor, setTopColor] = useState<ThemeColor>(ThemeColor.WHITE);
+  const [bottomColor, setBottomColor] = useState<ThemeColor>(ThemeColor.WHITE);
+  const headerRef = useRef<HTMLDivElement>(null);
   const resumeRef = useRef<HTMLDivElement>(null);
-  const workExperienceRef = useRef<HTMLDivElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
-  const educationRef = useRef<HTMLDivElement>(null);
-  const hobbiesRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
-  const contactsRef = useRef<HTMLDivElement>(null);
-
   const isResumeVisible = useIntersectionObserver(resumeRef);
 
-  const bind = classNames.bind(styles);
+  const { dispatch } = useStoreon();
+
+  const handleScroll = (): void => {
+    const bottomOffset = {
+      top: document.documentElement.clientHeight - 50,
+      bottom: document.documentElement.clientHeight
+    };
+
+    if (isElementVisible(headerRef)) {
+      setTopColor(ThemeColor.WHITE);
+    }
+
+    if (isElementVisible(headerRef, bottomOffset)) {
+      setBottomColor(ThemeColor.WHITE);
+    }
+  };
+
+  useEventListener(Event.SCROLL, handleScroll);
+
+  useEffect(() => {
+    dispatch(ThemerEvent.SET_TOP_COLOR, topColor);
+    dispatch(ThemerEvent.SET_BOTTOM_COLOR, bottomColor);
+  }, []);
+
+  useEffect(() => {
+    if (topColor) {
+      dispatch(ThemerEvent.SET_TOP_COLOR, topColor);
+    }
+  }, [topColor]);
+
+  useEffect(() => {
+    if (bottomColor) {
+      dispatch(ThemerEvent.SET_BOTTOM_COLOR, bottomColor);
+    }
+  }, [bottomColor]);
 
   const handleView = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { id } = e.target;
 
     setViewType(id as ViewType);
-  }
+  };
 
-  const items = [
+  const shortAboutItems = [
     {
       id: nanoid(),
       title: 'Work experience',
       icon: faBriefcase,
-      content: <AboutWorkExperience />,
-      ref: workExperienceRef,
-      showInNav: true
+      content: <AboutWorkExperience />
     },
     {
       id: nanoid(),
       title: 'Skills',
       icon: faCode,
       content: <AboutSkills />,
-      isReversed: true,
-      ref: skillsRef,
-      showInNav: true
+      isReversed: true
     },
     {
       id: nanoid(),
       title: 'Education',
       icon: faGraduationCap,
-      content: <AboutEducation />,
-      ref: educationRef,
-      showInNav: true
+      content: <AboutEducation />
     },
     {
       id: nanoid(),
       title: 'Hobbies',
       icon: faSmile,
       content: <AboutHobbies />,
-      isReversed: true,
-      ref: hobbiesRef,
-      showInNav: true
+      isReversed: true
     },
     {
       id: nanoid(),
       title: 'Projects',
       icon: faList,
-      content: <AboutProjects />,
-      ref: projectsRef,
-      showInNav: true
+      content: <AboutProjects />
     },
     {
       id: nanoid(),
       title: 'Contacts',
       icon: faComments,
       content: <AboutContacts />,
-      ref: contactsRef,
-      showInNav: true,
       isReversed: true
     }
   ];
 
-  const renderItems = useMemo(() => {
-    return items.map((item) => {
-      const { id, title, icon, content, isReversed, ref } = item;
+  const renderSwitchers = useMemo(() => {
+    return Object.entries(ViewType)
+      .map(([key, value]) => {
+        return (
+          <li
+            key={key}
+            className='switcher__item'>
+            <input
+              onChange={handleView}
+              type='radio'
+              className='switcher__input'
+              id={value}
+              name='radioSwitch'
+              checked={viewType === value} />
+            <label
+              htmlFor={value}
+              className='switcher__label'>{value}</label>
+          </li>
+        );
+      });
+  }, [viewType]);
+
+  const renderShortAboutItems = useMemo(() => {
+    return shortAboutItems.map((item) => {
+      const { id, title, icon, content, isReversed } = item;
 
       return (
-        <div
-          key={id}
-          ref={ref}>
+        <li key={id}>
           <Block
             icon={icon}
             title={title}
             content={content}
             isReversed={isReversed} />
-        </div>
+        </li>
       );
     });
-  }, [items]);
+  }, [shortAboutItems]);
 
   return (
     <div className={styles.about}>
-      <Header
-        targetRef={resumeRef}
-        showButton={!isResumeVisible} />
+      <div ref={headerRef}>
+        <AboutHeader
+          targetRef={resumeRef}
+          showButton={!isResumeVisible} />
+      </div>
       <div
         ref={resumeRef}
         className={styles.about__actions}>
         <ul className={`switcher ${viewType}`}>
-          <li className='switcher__item'>
-            <input
-              onChange={handleView}
-              type='radio'
-              className='switcher__input'
-              id={ViewType.SHORTEST}
-              name='radioSwitch'
-              checked={viewType === ViewType.SHORTEST} />
-            <label
-              htmlFor={ViewType.SHORTEST}
-              className='switcher__label'>{ViewType.SHORTEST}</label>
-          </li>
-          <li className='switcher__item'>
-            <input
-              onChange={handleView}
-              type='radio'
-              className='switcher__input'
-              id={ViewType.SHORT}
-              name='radioSwitch'
-              checked={viewType === ViewType.SHORT} />
-            <label
-              htmlFor={ViewType.SHORT}
-              className='switcher__label'>{ViewType.SHORT}</label>
-          </li>
-          <li className='switcher__item'>
-            <input
-              onChange={handleView}
-              type='radio'
-              className='switcher__input'
-              id={ViewType.LONGEST}
-              name='radioSwitch'
-              checked={viewType === ViewType.LONGEST} />
-            <label
-              htmlFor={ViewType.LONGEST}
-              className='switcher__label'>{ViewType.LONGEST}</label>
-          </li>
+          {renderSwitchers}
         </ul>
       </div>
       {viewType === ViewType.SHORTEST && (
         <div className={styles.about__tab}>
           <div className={styles.shortAbout__section}>
             <div className='container'>
-              <ShortAbout />
+              <AboutShortAbout />
             </div>
           </div>
         </div>
@@ -177,22 +183,12 @@ const About = (): ReactElement => {
         <div className={styles.about__tab}>
           <div className={styles.about__section}>
             <div className={styles.about__header}>
-              <Avatar
-                label='Yay, that&#39;s me!'
-                image={avatar}
-                className={styles.about__avatar} />
+              <MyAvatar className={styles.about__avatar} />
             </div>
-            <div className='container'>
-              {renderItems}
-            </div>
-            <Gratitude />
-          </div>
-        </div>
-      )}
-      {viewType === ViewType.LONGEST && (
-        <div className={styles.about__tab}>
-          <div className={styles.about__section}>
-            <LongestAbout />
+            <ul className='container'>
+              {renderShortAboutItems}
+            </ul>
+            <AboutGratitude />
           </div>
         </div>
       )}

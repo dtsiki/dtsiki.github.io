@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,8 +20,6 @@ const LoginUser = ({ handleLogin }: Props): ReactElement => {
 
   const login = (e: React.KeyboardEvent<HTMLDivElement>): void => {
     if (e.key === 'Enter') {
-      console.log(password, correctPassword, password === correctPassword)
-
       setShowError(password !== correctPassword);
 
       if (password == correctPassword) {

@@ -31,7 +31,7 @@
     }
   }
 
-  &__footer {
+  &__trash {
     position: absolute;
     z-index: 2;
     bottom: 30px;
@@ -40,12 +40,17 @@
     color: $color--grey;
   }
 
-  &__shortcut {
+  &__file {
     font-size: 3rem;
     color: $color--grey;
-  }
+    width: 100px;
+    padding: 5px;
+    margin: 0 auto;
+    border: 1px dashed transparent;
+    transition: 0.5s all;
 
-  &__folder {
-    animation: up-and-down 0.5s infinite;
+    &:hover {
+      border: 1px dashed $color--grey;
+    }
   }
 }
