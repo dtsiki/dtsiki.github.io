@@ -1,0 +1,44 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+
+.example {
+  position: relative;
+  background: $color--white-darker;
+  padding: ($spacer / 4) $spacer;
+
+  &__actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__control {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    transition: 0.5s all;
+
+    svg {
+      color: $color--violet;
+      transition: 0.5s all;
+    }
+
+    &:hover {
+      svg {
+        color: $color--black;
+      }
+    }
+  }
+
+  pre {
+    background: transparent !important;
+  }
+}
