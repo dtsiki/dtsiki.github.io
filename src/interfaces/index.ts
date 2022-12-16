@@ -1,1 +1,3 @@
-export * from './ISource';
+export * from './Source';
+export * from './ItemOfContent';
+export * from './Shortcut';
