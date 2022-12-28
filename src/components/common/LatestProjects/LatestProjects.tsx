@@ -21,7 +21,11 @@ import quoteGenerator from 'public/assets/projects/previews/quote-generator.png'
 import ticTacToe from 'public/assets/projects/previews/tic-tac-toe.png';
 import dictionary from 'public/assets/projects/previews/dictionary.png';
 
-const LatestProjects = (): ReactElement => {
+interface Props {
+  showOnlyProjects?: boolean;
+}
+
+const LatestProjects = ({ showOnlyProjects = false }: Props): ReactElement => {
   const { isMobile } = useWindowSize();
 
   const bind = classNames.bind(styles);
@@ -109,9 +113,11 @@ const LatestProjects = (): ReactElement => {
     <Hero variant={HeroVariant.LIGHT}>
       <div className={styles.latestProjects}>
         <div className='container'>
-          <h2 className={styles.latestProjects__title}>
-            Latest projects
-          </h2>
+          {!showOnlyProjects && (
+            <h2 className={styles.latestProjects__title}>
+              Latest projects
+            </h2>
+          )}
         </div>
         {isMobile ? (
           <ul className='row row--no-margin'>
@@ -128,18 +134,20 @@ const LatestProjects = (): ReactElement => {
             </Window>
           </div>
         )}
-        <div className={styles.latestProjects__footer}>
-          <Link href='/projects'>
-            <a className='link-with-tag'>
-              <Tag
-                variant={TagVariant.PRIMARY}
-                isOutlined>
-                Check out
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Tag>
-            </a>
-          </Link>
-        </div>
+        {!showOnlyProjects && (
+          <div className={styles.latestProjects__footer}>
+            <Link href='/projects'>
+              <a className='link-with-tag'>
+                <Tag
+                  variant={TagVariant.PRIMARY}
+                  isOutlined>
+                  Check out
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </Tag>
+              </a>
+            </Link>
+          </div>
+        )}
       </div>
     </Hero>
   );
