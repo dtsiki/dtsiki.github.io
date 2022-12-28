@@ -23,23 +23,27 @@ export enum HeroAlign {
 export enum HeroSize {
   FULL = 'full',
   HALF = 'half',
-  SMALL = 'small'
+  SMALL = 'small',
+  CUSTOM = 'custom'
 }
 
 export enum HeroPattern {
   TOPOGRAPHY_LIGHT = 'topography-light',
   TOPOGRAPHY_DARK = 'topography-dark',
-  MOTION_LINES = 'motion-lines'
+  MOTION_LINES = 'motion-lines',
+  ARROWS = 'arrows'
 }
 
 interface LayoutProps {
-  children: ReactNode;
+  children?: ReactNode;
   variant?: HeroVariant;
   align?: HeroAlign;
   heroRef?:  MutableRefObject<HTMLElement | null>;
   className?: string;
   size?: HeroSize;
   pattern?: HeroPattern;
+  height?: number;
+  hasOverlay?: boolean;
 }
 
 const Hero = ({
@@ -49,14 +53,20 @@ const Hero = ({
   heroRef,
   className,
   size = HeroSize.FULL,
-  pattern
+  pattern,
+  height,
+  hasOverlay = false
 }: LayoutProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
     <section
       ref={heroRef}
-      className={bind([styles.hero, variant, align, size, className, pattern])}>
+      className={bind([styles.hero, variant, align, size, className, pattern])}
+      style={{ minHeight: `${height}px` }}>
+      {hasOverlay && (
+        <div className={styles.hero__overlay} />
+      )}
       {children}
     </section>
   );
