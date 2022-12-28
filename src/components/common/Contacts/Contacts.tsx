@@ -63,7 +63,7 @@ const Contacts = (): ReactElement => {
 
   return (
     <div className={styles.contacts}>
-      <Hero variant={HeroVariant.PRIMARY}>
+      <Hero variant={HeroVariant.VIOLET}>
         <div className='container'>
           <div className={styles.contacts__wrapper}>
             <h2 className='heading-l2'>
