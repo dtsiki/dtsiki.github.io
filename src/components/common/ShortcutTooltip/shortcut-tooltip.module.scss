@@ -1,0 +1,19 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.shortcutTooltip {
+  width: 250px;
+  padding: $spacer;
+  border: 1px dashed $color--grey;
+  background: $color--white;
+  color: $color--violet;
+  font-size: 0.8rem;
+  text-align: left;
+
+  &__item {
+    + .shortcutTooltip__item {
+        margin-top: $spacer / 3;
+    }
+
+  }
+}

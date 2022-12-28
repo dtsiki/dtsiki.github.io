@@ -1,0 +1,44 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+
+.validator {
+  //box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+
+  &__form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-transform: lowercase;
+    color: $color--black;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      margin: 0 10px;
+      color: $color--violet;
+    }
+  }
+
+  &__type {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+
+    &.error {
+      background-color: $color--white-violet;
+      color: $color--violet;
+      border: 1px solid $color--violet;
+    }
+
+    &.warning {
+      background-color: rgba($color--grey, 0.2);
+      color: rgba($color--black, 0.6);
+      border: 1px solid rgba($color--black, 0.6);
+    }
+  }
+}

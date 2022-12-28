@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-import AboutWorkExperience from '../_work-experience';
+import AboutWorkExperience from 'src/components/pages/about/WorkExperience/WorkExperience';
 import AboutEducation from '../_education';
 
 import styles from './cv.module.scss';
