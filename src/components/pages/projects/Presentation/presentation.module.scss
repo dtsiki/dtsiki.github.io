@@ -1,0 +1,15 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+@import './../../../../styles/keyframes';
+
+.presentation {
+  position: relative;
+  animation: appearFromTop 1s;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    color: $color--violet;
+  }
+}
