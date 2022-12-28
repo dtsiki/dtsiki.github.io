@@ -3,8 +3,17 @@ import { nanoid } from 'nanoid';
 export const posts = [
   {
     id: nanoid(),
+    title: 'How I improved my English',
+    highlight: 'Tips that helped me and that can help you to improve your English level',
+    link: 'how-i-improved-my-english',
+    category: 'insight',
+    date: '28 dec 2022',
+    tags: ['english']
+  },
+  {
+    id: nanoid(),
     title: 'Keep calm and test',
-    highlight: 'If you need a sign to start testing your React applications, this is it.',
+    highlight: 'If you need a sign to start testing your React applications, this is it',
     link: 'keep-calm-and-test',
     category: 'tutorial',
     date: '16 dec 2022',
@@ -40,7 +49,7 @@ export const posts = [
   {
     id: nanoid(),
     title: 'How to improve your skills',
-    highlight: 'If you feel that you\'re stuck in a rut or just need some fresh inspiration how to enhance your skills there are ways you can do to help achieve this goal.',
+    highlight: 'If you feel that you\'re stuck in a rut or just need some fresh inspiration how to enhance your skills there are ways you can do to help achieve this goal',
     link: 'how-to-improve-your-skills',
     category: 'insight',
     date: '2 sep 2022',
@@ -49,7 +58,7 @@ export const posts = [
   {
     id: nanoid(),
     title: 'Drag and drop',
-    highlight: 'A guide to implementing drag and drop in React app without using any third party libraries.',
+    highlight: 'A guide to implementing drag and drop in React app without using any third party libraries',
     link: 'drag-and-drop',
     category: 'tutorial',
     date: '1 sep 2022',
@@ -58,7 +67,7 @@ export const posts = [
   {
     id: nanoid(),
     title: 'Pure CSS tooltips',
-    highlight: 'A step-by-step tutorial that will show you how to create a tooltip using only CSS without any additional JavaScript code.',
+    highlight: 'A step-by-step tutorial that will show you how to create a tooltip using only CSS without any additional JavaScript code',
     link: 'pure-css-tooltips',
     category: 'tutorial',
     date: '30 jul 2022',
