@@ -1,7 +1,4 @@
-import React, { MutableRefObject, ReactElement, useMemo, useRef, useState } from 'react';
-import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { MutableRefObject, ReactElement, useRef } from 'react';
 
 import PostLayout from 'src/components/pages/blog/PostLayout';
 import ProgressScroll from 'src/components/common/ProgressScroll';
@@ -19,11 +16,12 @@ import PostClickableUnclickable from './_clickable-unclickable';
 import PostNesting from './_nesting';
 import PostPurpose from './_purpose';
 import PostForeword from './_foreword';
+import { IItemOfContent } from 'src/interfaces';
+import TableOfContents from 'src/components/pages/blog/TableOfContents';
 
 import styles from './post.module.scss';
 
 const Post = (): ReactElement => {
-  const [showTableOfContent, setShowTableOfContent] = useState<boolean>(false);
   const purposeRef = useRef<HTMLParagraphElement>(null);
   const readMoreRef = useRef<HTMLParagraphElement>(null);
   const listsRef = useRef<HTMLParagraphElement>(null);
@@ -36,8 +34,6 @@ const Post = (): ReactElement => {
   const deprecatedHtmlRef = useRef<HTMLParagraphElement>(null);
   const clickableUnclickableRef = useRef<HTMLParagraphElement>(null);
   const nestingRef = useRef<HTMLParagraphElement>(null);
-
-  const bind = classNames.bind(styles);
 
   const title = 'Semantic markup for the little ones';
   const highlight = '';
@@ -53,9 +49,9 @@ const Post = (): ReactElement => {
 
       window.scrollTo({ top: offset, behavior: 'smooth' });
     }
-  }
+  };
 
-  const tableOfContents = [
+  const tableOfContents: Array<IItemOfContent> = [
     {
       title: 'What is semantic markup and why should you write it?',
       ref: purposeRef
@@ -99,31 +95,11 @@ const Post = (): ReactElement => {
     {
       title: 'Summary',
       ref: refSummary
-    },
-    {
-      title: 'Read more',
-      ref: readMoreRef
     }
   ];
 
-  const renderTableOfContents = useMemo(() => {
-    return tableOfContents.map((item) => {
-      return (
-        <li
-          key={item.title}
-          className='list__item'>
-          <button
-            onClick={() => onScrollTo(item.ref)}
-            className='button link'>
-            {item.title}
-          </button>
-        </li>
-      )
-    })
-  }, [tableOfContents]);
-
   return (
-    <>
+    <div className={styles.post}>
       <ProgressScroll />
       <PostLayout
         title={title}
@@ -137,26 +113,7 @@ const Post = (): ReactElement => {
           <PostForeword />
           <SemanticPage />
         </section>
-        <section>
-          <div className='accordion'>
-            <div className='accordion__header'>
-              <h2 className='accordion__title'>Table of contents</h2>
-              <span className='accordion__icon'>
-                <FontAwesomeIcon icon={showTableOfContent ? faAngleUp : faAngleDown} />
-              </span>
-              <button
-                className='accordion__toggle'
-                onClick={() => setShowTableOfContent(!showTableOfContent)}>
-                <span className='visually-hidden'>{showTableOfContent ? 'Hide' : 'Show'}</span>
-              </button>
-            </div>
-            <div className={bind(['accordion__content',  { 'visible': showTableOfContent }])}>
-              <ol className='list ordered'>
-                {renderTableOfContents}
-              </ol>
-            </div>
-          </div>
-        </section>
+        <TableOfContents items={tableOfContents} />
         <section ref={purposeRef}>
           <PostPurpose />
         </section>
@@ -197,7 +154,7 @@ const Post = (): ReactElement => {
           <PostReadMore />
         </section>
       </PostLayout>
-    </>
+    </div>
   );
 };
 
