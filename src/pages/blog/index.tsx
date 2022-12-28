@@ -80,7 +80,8 @@ const Blog = (): ReactElement => {
             link={link}
             category={category}
             date={date}
-            tags={tags} />
+            tags={tags}
+            showThumbnail />
         )
       }
 

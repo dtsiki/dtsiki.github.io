@@ -2,9 +2,10 @@ import React, { ReactElement } from 'react';
 import { nanoid } from 'nanoid';
 
 import ReadMore from 'src/components/pages/blog/ReadMore';
+import { ISource } from 'src/interfaces';
 
 const PostReadMore = (): ReactElement => {
-  const sources = [
+  const sources: Array<ISource> = [
     {
       id: nanoid(),
       link: 'https://www.ambitiouskitchen.com/best-cinnamon-rolls/',
@@ -63,7 +64,7 @@ const PostReadMore = (): ReactElement => {
   ];
 
   return (
-    <ReadMore sources={sources} />
+    <ReadMore items={sources} />
   );
 };
 

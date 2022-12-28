@@ -1,11 +1,10 @@
-import React, { ReactElement, useState } from 'react';
+import { ReactElement } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { faFileLines, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './shortcut-preview.module.scss';
-import useEventListener, { Event } from 'src/hooks/useEventListener';
 
 export enum ShortcutPreviewViewType {
   LIST = 'list',
@@ -22,7 +21,7 @@ interface Props {
   viewType?: ShortcutPreviewViewType;
 }
 
-const ShortcutPreview = ({ title, highlight, link, category, date, tags, viewType = ShortcutPreviewViewType.GRID }: Props): ReactElement => {
+const ShortcutPreview = ({ title, highlight, link, date, viewType = ShortcutPreviewViewType.GRID }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   const formattedTitle = title.replace(/\s/g, '_') + '.txt';

@@ -9,10 +9,6 @@
     border-top: 60px solid transparent;
     padding-top: 50px;
     min-height: calc(100vh - 150px);
-
-    @include md {
-      border-top: 100px solid rgba($color--white-darker, 0.8);
-    }
   }
 
   &__wrapper {

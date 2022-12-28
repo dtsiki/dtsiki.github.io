@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +13,7 @@ import ReadMore from 'src/components/pages/blog/ReadMore';
 import Window from 'src/components/common/Window';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { WindowPatternVariant, WindowType } from 'src/components/common/Window/Window';
+import { ISource } from 'src/interfaces';
 
 import styles from './post.module.scss';
 import dimension1 from 'public/assets/blog/pure-css-toggle-switch/dimension1.svg';
@@ -34,7 +35,7 @@ const Post = (): ReactElement => {
 
   const toggleSwitch = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setIsToggled(e.target.checked);
-  }
+  };
 
   const exampleHTMLMarkup =
 `<label class="toggle">
@@ -164,7 +165,7 @@ const Post = (): ReactElement => {
 `$width: 24px;
 $gap: 4px;`;
 
-  const sources = [
+  const sources: Array<ISource> = [
     {
       id: nanoid(),
       link: 'https://dtsiki.github.io/blog/semantic-markup-for-the-little-ones',
@@ -209,7 +210,6 @@ $gap: 4px;`;
         metaTags={metaTags}
         metaDescription={metaDescription}>
         <section>
-          {/*<SmileToggle />*/}
           <h2 className='spacer top large'>What is a toggle switch?</h2>
           <p className='spacer bottom medium'>
             A toggle switch (known also as a «toggle» or just a «switch») is one of the common and classic an user interface control that has two mutually-exclusive states such as on and off.
@@ -669,9 +669,7 @@ $gap: 4px;`;
             </div>
           </div>
         </section>
-        <section>
-          <ReadMore sources={sources} />
-        </section>
+        <ReadMore items={sources} />
       </PostLayout>
     </>
   );
