@@ -1,26 +1,17 @@
-import React, { ReactElement } from 'react';
-import Image from 'next/image';
+import { ReactElement } from 'react';
 
-import Hero from 'src/components/layout/Hero';
-import Details from '../_details';
+import Project from 'src/components/pages/projects/Project';
 
-import taskManager from '/public/assets/projects/task-manager.png';
+import taskManagerPreview from '/public/assets/projects/task-manager.png';
 
 const TaskManager = (): ReactElement => {
   return (
-    <>
-      <Hero>
-        <Image
-          src={taskManager}
-          alt='task manager' />
-      </Hero>
-      <Details
-        title='Task manager'
-        description='React with TypeScript simplified kanban board inspired by Trello. HTML drag and drop API is used here.'
-        tags={['HTML', 'CSS', 'React', 'TypeScript']}
-        sourceLink='https://github.com/dtsiki/task-manager'
-      />
-    </>
+    <Project
+      name='Task manager'
+      description='React with TypeScript simplified kanban board inspired by Trello. HTML drag and drop API is used here.'
+      tags={['HTML', 'CSS', 'React', 'TypeScript']}
+      preview={taskManagerPreview}
+      repoLink='https://github.com/dtsiki/task-manager' />
   );
 };
 

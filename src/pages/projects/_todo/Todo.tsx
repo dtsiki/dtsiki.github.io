@@ -1,26 +1,20 @@
-import React, { ReactElement } from 'react';
-import Image from 'next/image';
+import { ReactElement } from 'react';
 
-import Hero from 'src/components/layout/Hero';
-import Details from '../_details';
+import Project from 'src/components/pages/projects/Project';
 
-import todo from '/public/assets/projects/todo.png';
+import todoPreview from 'public/assets/projects/previews/todo.png';
 
 const Todo = (): ReactElement => {
+  const name = 'Todo';
+  const description = 'This is the most classic pet project - a simple task management application or to do list. Built using React and Redux-like manager Storeon with its localStorage module are used here for direct implementation of state management.';
+
   return (
-    <>
-      <Hero>
-        <Image
-          src={todo}
-          alt='todo' />
-      </Hero>
-      <Details
-        title='Todo'
-        description='Simple task management application built with JavaScript library React. Redux-like manager Storeon and its localStorage module are used for state management.'
-        tags={['HTML', 'CSS', 'React']}
-        sourceLink='https://github.com/dtsiki/todo'
-      />
-    </>
+    <Project
+      name={name}
+      description={description}
+      tags={['HTML', 'CSS', 'React']}
+      preview={todoPreview}
+      repoLink='https://github.com/dtsiki/todo' />
   );
 };
 

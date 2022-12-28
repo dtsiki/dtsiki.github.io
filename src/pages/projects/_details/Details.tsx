@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo } from 'react';
+import React, { ReactElement, ReactNode, useMemo } from 'react';
 import classNames from 'classnames';
 
 import Hero from 'src/components/layout/Hero';
@@ -12,7 +12,7 @@ import styles from './details.module.scss';
 interface Props {
   title: string;
   tags: Array<string>;
-  description: string;
+  description: string | ReactNode;
   demoLink?: string;
   sourceLink?: string;
 }

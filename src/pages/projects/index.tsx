@@ -1,19 +1,19 @@
-import React, { MutableRefObject, ReactElement, useMemo, useRef } from 'react';
+import { MutableRefObject, ReactElement, useMemo, useRef } from 'react';
 import classNames from 'classnames';
+import { faFileText, faFolder } from '@fortawesome/free-solid-svg-icons';
 
-import useIntersectionObserver from 'src/hooks/useIntersectionObserver';
-import CommercialProjects from './_commercial-projects';
 import Dictionary from './_dictionary';
-import ProjectsHero from './_hero';
 import QuoteGenerator from './_quote-generator';
 import TicTacToe from './_tic-tac-toe';
 import Todo from './_todo';
 import ProgressScroll from 'src/components/common/ProgressScroll';
-import Tag, { TagElement, TagVariant } from 'src/components/common/Tag/Tag';
 import Hero from 'src/components/layout/Hero';
 import { HeroVariant } from 'src/components/layout/Hero/Hero';
 import TaskManager from './_task-manager';
 import Planner18Minutes from './_planner-18-minutes';
+import ProjectsCommercial from 'src/components/pages/projects/Commercial';
+import Shortcut from 'src/components/common/Shortcut';
+import { ShortcutVariant } from 'src/components/common/Shortcut/Shortcut';
 
 import styles from './projects.module.scss';
 
@@ -25,34 +25,52 @@ const Projects = (): ReactElement => {
   const dictionaryRef =useRef<HTMLDivElement>(null);
   const taskManagerRef = useRef<HTMLDivElement>(null);
   const minutesRef = useRef<HTMLDivElement>(null);
-  const isProjectsVisible = useIntersectionObserver(projectsRef);
+  const commercialRef = useRef<HTMLDivElement>(null);
 
   const bind = classNames.bind(styles);
 
-  const petProjects = [
+  const shortcuts = [
     {
-      name: 'Quote generator',
-      ref: quoteGeneratorRef
+      name: 'quote-generator',
+      title: 'quote generator',
+      ref: quoteGeneratorRef,
+      icon: faFolder
     },
     {
-      name: '18 minutes',
-      ref: minutesRef
+      name: 'planner-18-minutes',
+      title: '18 minutes',
+      ref: minutesRef,
+      icon: faFolder
     },
     {
-      name: 'Todo',
-      ref: todoRef
+      name: 'todo',
+      title: 'todo',
+      ref: todoRef,
+      icon: faFolder
     },
     {
-      name: 'Tic Tac Toe',
-      ref: ticTacToeRef
+      name: 'tic-tac-toe',
+      title: 'tic tac toe',
+      ref: ticTacToeRef,
+      icon: faFolder
     },
     {
-      name: 'Dictionary',
-      ref: dictionaryRef
+      name: 'dictionary',
+      title: 'dictionary',
+      ref: dictionaryRef,
+      icon: faFolder
     },
     {
-      name: 'Task manager',
-      ref: taskManagerRef
+      name: 'task-manager',
+      title: 'task manager',
+      ref: taskManagerRef,
+      icon: faFolder
+    },
+    {
+      name: 'commercial',
+      title: 'commercial.txt',
+      ref: commercialRef,
+      icon: faFileText
     }
   ];
 
@@ -60,46 +78,28 @@ const Projects = (): ReactElement => {
     ref.current?.scrollIntoView({ behavior: 'smooth' })
   };
 
-  const renderPetProjects = useMemo(() => {
-    return petProjects.map((project) => {
+  const renderShortcuts = useMemo(() => {
+    return shortcuts.map((shortcut) => {
       return (
-        <li
-          key={project.name}
-          className='list__item'>
-          <Tag
-            element={TagElement.BUTTON}
-            onClick={() => onScrollDown(project.ref)}
-            variant={TagVariant.LIGHT}
-            isOutlined>
-            {project.name}
-          </Tag>
-        </li>
-      )
-    })
-  }, [petProjects]);
+        <div
+          key={shortcut.name}
+          className={bind([styles.projects__shortcut, styles[shortcut.name]])}>
+          <Shortcut
+            name={shortcut.title}
+            icon={shortcut.icon}
+            variant={ShortcutVariant.LIGHT}
+            handleAction={() => onScrollDown(shortcut.ref)} />
+        </div>
+      );
+    });
+  }, [shortcuts]);
 
   return (
     <div className={styles.projects}>
       <ProgressScroll />
-      <ProjectsHero
-        targetRef={projectsRef}
-        showButton={!isProjectsVisible} />
       <div ref={projectsRef}>
         <Hero variant={HeroVariant.PRIMARY}>
-          <div className='container'>
-            <div className={bind(['row row--centered', styles.projects__pet])}>
-              <div className='col col--tablet-100 col--50'>
-                <ul className={bind(['list inline', styles.projects__list])}>
-                  {renderPetProjects}
-                </ul>
-              </div>
-              <div className='col col--tablet-100 col--50'>
-                <h2 className={styles.projects__subtitle}>
-                  Pet projects
-                </h2>
-              </div>
-            </div>
-          </div>
+          {renderShortcuts}
         </Hero>
       </div>
       <div ref={todoRef}>
@@ -120,7 +120,9 @@ const Projects = (): ReactElement => {
       <div ref={taskManagerRef}>
         <TaskManager />
       </div>
-      <CommercialProjects />
+      <div ref={commercialRef}>
+        <ProjectsCommercial />
+      </div>
     </div>
   );
 };

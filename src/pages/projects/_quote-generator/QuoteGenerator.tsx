@@ -1,27 +1,19 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 
-import Hero from 'src/components/layout/Hero';
-import { HeroVariant } from 'src/components/layout/Hero/Hero';
-import Details from '../_details';
+import Project from 'src/components/pages/projects/Project';
+
+import quoteGeneratorPreview from 'public/assets/projects/previews/quote-generator.png';
 
 const QuoteGenerator = (): ReactElement => {
   return (
-    <>
-      <Hero variant={HeroVariant.PRIMARY}>
-        <iframe
-          className='frame'
-          src='https://dtsiki.github.io/quote-generator'
-          title='Quote generator' />
-      </Hero>
-      <Details
-        title='Quote generator'
-        tags={['HTML', 'CSS', 'JavaScript']}
-        description='A simple pure JavaScript generator shows random quote and random background color for every quote.'
-        demoLink='https://dtsiki.github.io/quote-generator'
-        sourceLink='https://github.com/dtsiki/quote-generator'
-      />
-    </>
-  );
+    <Project
+      name='Quote generator'
+      description='A simple pure JavaScript generator shows random quote and random background color for every quote.'
+      tags={['HTML', 'CSS', 'JavaScript']}
+      preview={quoteGeneratorPreview}
+      demoLink='https://dtsiki.github.io/quote-generator'
+      repoLink='https://github.com/dtsiki/quote-generator' />
+  )
 };
 
 export default QuoteGenerator;
