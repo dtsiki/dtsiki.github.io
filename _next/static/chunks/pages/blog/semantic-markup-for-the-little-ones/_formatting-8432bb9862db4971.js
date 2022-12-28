@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[3713],{79344:function(n,_,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/blog/semantic-markup-for-the-little-ones/_formatting",function(){return t(92352)}])}},function(n){n.O(0,[319,9862,9774,2888,179],(function(){return _=79344,n(n.s=_);var _}));var _=n.O();_N_E=_}]);
