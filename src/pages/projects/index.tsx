@@ -18,6 +18,7 @@ import { ThemeColor, ThemerEvent } from 'src/store/themer';
 import { useStoreon } from 'storeon/react';
 import { isElementVisible } from 'src/utils';
 import useEventListener, { Event } from 'src/hooks/useEventListener';
+import AudioPlayer from './_audio-player/AudioPlayer';
 
 import styles from './projects.module.scss';
 
@@ -33,6 +34,7 @@ const Projects = (): ReactElement => {
   const dictionaryRef =useRef<HTMLDivElement>(null);
   const taskManagerRef = useRef<HTMLDivElement>(null);
   const minutesRef = useRef<HTMLDivElement>(null);
+  const audioPlayerRef = useRef<HTMLDivElement>(null);
   const commercialRef = useRef<HTMLDivElement>(null);
 
   const bind = classNames.bind(styles);
@@ -75,6 +77,12 @@ const Projects = (): ReactElement => {
     }
   }, [topColor]);
 
+  useEffect(() => {
+    if (bottomColor) {
+      dispatch(ThemerEvent.SET_BOTTOM_COLOR, bottomColor);
+    }
+  }, [bottomColor]);
+
   const shortcuts = [
     {
       name: 'quote-generator',
@@ -110,6 +118,12 @@ const Projects = (): ReactElement => {
       name: 'task-manager',
       title: 'task manager',
       ref: taskManagerRef,
+      icon: faFolder
+    },
+    {
+      name: 'audioplayer',
+      title: 'audio player',
+      ref: audioPlayerRef,
       icon: faFolder
     },
     {
@@ -166,6 +180,9 @@ const Projects = (): ReactElement => {
         </div>
         <div ref={taskManagerRef}>
           <TaskManager />
+        </div>
+        <div ref={audioPlayerRef}>
+          <AudioPlayer />
         </div>
         <div ref={commercialRef}>
           <ProjectsCommercial />
