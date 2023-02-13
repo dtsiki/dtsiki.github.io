@@ -1,0 +1,30 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.post {
+  position: relative;
+
+  &__gif {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  &__image {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__snippet {
+    display: flex;
+    justify-content: center;
+
+    @include md {
+      margin: 30px 0;
+    }
+  }
+
+  &__video {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}

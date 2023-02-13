@@ -138,8 +138,14 @@
       }
     }
 
-    &.image, &.validator, &.chat {
+    &.image, &.validator, &.chat, &.video {
       padding: 0;
+    }
+
+    &.video {
+      frame {
+        vertical-align: bottom;
+      }
     }
   }
 

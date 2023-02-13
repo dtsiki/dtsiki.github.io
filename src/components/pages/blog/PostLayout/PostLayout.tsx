@@ -1,7 +1,7 @@
 import React, { ReactElement, ReactNode, useMemo } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeftLong, faRightLong } from '@fortawesome/free-solid-svg-icons';
+import { faLeftLong, faPersonDigging, faPlay, faRightLong } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { NextSeo } from 'next-seo';
 
@@ -18,9 +18,21 @@ interface Props {
   tags?: Array<string>;
   metaDescription: string;
   metaTags: string;
+  isWorkInProgress?: boolean;
 }
 
-const PostLayout = ({ title, highlight, metaDescription, metaTags, category, date, children, nextLink, nextLinkLabel, tags }: Props): ReactElement => {
+const PostLayout = ({
+  title,
+  highlight,
+  metaDescription,
+  metaTags,
+  category,
+  date,
+  children,
+  nextLink,
+  nextLinkLabel,
+  tags,
+  isWorkInProgress }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   const renderTags = useMemo(() => {
@@ -52,6 +64,19 @@ const PostLayout = ({ title, highlight, metaDescription, metaTags, category, dat
             )}
             <h1 className={styles.post__title}>
               {title}
+              {isWorkInProgress && (
+                <span className={bind([styles.post__alert])}>
+                  <span className={bind([styles.post__icon, styles.wrapper])}>
+                    <FontAwesomeIcon icon={faPlay} />
+                  </span>
+                  <span className={bind([styles.post__icon, styles.icon])}>
+                    <FontAwesomeIcon icon={faPersonDigging} />
+                  </span>
+                  <span className='visually-hidden'>
+                    Work in progress
+                  </span>
+                </span>
+              )}
             </h1>
           </div>
           <div className={styles.post__info}>

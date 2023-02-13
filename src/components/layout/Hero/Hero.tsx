@@ -31,7 +31,8 @@ export enum HeroPattern {
   TOPOGRAPHY_LIGHT = 'topography-light',
   TOPOGRAPHY_DARK = 'topography-dark',
   MOTION_LINES = 'motion-lines',
-  ARROWS = 'arrows'
+  ARROWS = 'arrows',
+  CROSS = 'cross'
 }
 
 interface LayoutProps {

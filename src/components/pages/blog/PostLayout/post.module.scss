@@ -139,4 +139,31 @@
       margin-left: 10px;
     }
   }
+
+  &__alert {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: -3px;
+    margin-left: 10px;
+  }
+
+  &__icon {
+    position: absolute;
+
+    &.wrapper {
+      top: 0;
+      display: inline-block;
+      transform: rotate(-90deg);
+    }
+
+    &.icon {
+      top: 3px;
+      transform: scale(0.35);
+      color: $color--white;
+    }
+  }
 }
