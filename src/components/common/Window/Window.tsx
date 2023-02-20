@@ -44,9 +44,23 @@ interface Props {
   isInverted?: boolean;
   isPopUp?: boolean;
   bodyBackground?: WindowBodyBackground;
+  closeAction?: () => any;
+  isModal?: boolean;
 }
 
-const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern, filesCount, showMenu = false, isInverted = false, isPopUp = false, bodyBackground = WindowBodyBackground.LIGHT }: Props): ReactElement => {
+const Window = ({
+  type = WindowType.WINDOW,
+  title, fileTitle,
+  children,
+  pattern,
+  filesCount,
+  showMenu = false,
+  isInverted = false,
+  isPopUp = false,
+  bodyBackground = WindowBodyBackground.LIGHT,
+  closeAction,
+  isModal = false
+}: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   const menuItems = {
@@ -99,15 +113,28 @@ const Window = ({ type = WindowType.WINDOW, title, fileTitle, children, pattern,
           )}
         </div>
         <div className={styles.window__actions}>
-          <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
-            <FontAwesomeIcon icon={faWindowMinimize} />
-          </span>
-          <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
-            <FontAwesomeIcon icon={faWindowMaximize} />
-          </span>
-          <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
-            <FontAwesomeIcon icon={faXmark} />
-          </span>
+          {!isModal && (
+            <>
+              <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
+                <FontAwesomeIcon icon={faWindowMinimize} />
+              </span>
+              <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
+                <FontAwesomeIcon icon={faWindowMaximize} />
+              </span>
+            </>
+          )}
+          {isModal && closeAction ? (
+            <button
+              onClick={closeAction}
+              className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
+              <FontAwesomeIcon icon={faXmark} />
+              <span className='visually-hidden'>Close</span>
+            </button>
+          ) : (
+            <span className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
+              <FontAwesomeIcon icon={faXmark} />
+            </span>
+          )}
         </div>
       </div>
       {showMenu && (type === WindowType.SLIDESHOW || type === WindowType.FOLDER) && (

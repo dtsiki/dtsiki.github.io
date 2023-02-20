@@ -2,8 +2,14 @@
 @import './../../../../styles/breakpoints';
 @import './../../.../../../../styles/keyframes';
 
-.header {
+.hero {
   position: relative;
+
+  &__overlay {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+  }
 
   &__wrapper {
     @include sm {
@@ -45,6 +51,23 @@
     margin-right: $spacer;
   }
 
+  &__window {
+    position: absolute;
+
+    &.image {
+      width: 400px;
+      left: 100px;
+      top: 100px;
+    }
+
+    &.game {
+      width: 500px;
+      height: 500px;
+      top: 500px;
+      left: 500px;
+    }
+  }
+
   &__shortcut {
     display: none;
 
@@ -52,6 +75,7 @@
       position: absolute;
       display: block;
 
+      /*
       &.blog {
         top: 30%;
         right: 10%;
@@ -66,6 +90,17 @@
         bottom: 10%;
         left: 30%;
       }
+
+      &.image {
+        left: 5%;
+        top: 15%;
+      }
+
+      &.tic-tac-toe {
+        bottom: 16%;
+        right: 10%;
+      }
+      */
     }
   }
 }

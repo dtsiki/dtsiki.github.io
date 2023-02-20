@@ -11,7 +11,7 @@
   cursor: pointer;
 
   &.primary {
-    color: $color--violet;
+    color: $color--violet-lighter;
   }
 
   &.secondary {
@@ -35,6 +35,11 @@
       width: 60px;
       height: 60px;
     }
+  }
+
+  &__customIcon {
+    width: 60px;
+    height: 60px;
   }
 
   &__label {

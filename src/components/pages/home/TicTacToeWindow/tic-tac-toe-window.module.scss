@@ -1,0 +1,11 @@
+.ticTacToeWindow {
+  width: 600px;
+
+  &__body {
+    height: 700px;
+  }
+
+  iframe {
+    border: 0;
+  }
+}

@@ -4,6 +4,8 @@ import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { YMInitializer } from 'react-yandex-metrika';
 import { StoreContext } from 'storeon/react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import { store } from 'src/store';
 import Layout from 'src/components/layout/Layout';
@@ -28,7 +30,9 @@ const App = ({ Component, pageProps }: AppProps): ReactElement => {
           <title>{title}</title>
         </Head>
         <YMInitializer accounts={[89335351]} />
-        <Component {...pageProps} />
+        <DndProvider backend={HTML5Backend}>
+          <Component {...pageProps} />
+        </DndProvider>
       </Layout>
     </StoreContext.Provider>
   );

@@ -147,6 +147,10 @@
         vertical-align: bottom;
       }
     }
+
+    &.window {
+      padding: 0;
+    }
   }
 
   &__control {
