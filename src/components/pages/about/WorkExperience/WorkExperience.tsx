@@ -8,7 +8,7 @@ const AboutWorkExperience = (): ReactElement => {
           Frontend developer
         </h3>
         <p>Ronas IT</p>
-        <p className='list__footer'>2021 - currently employed</p>
+        <p className='list__footer'>2021 - 2023</p>
       </li>
       <li className='list__item'>
         <h3 className='list__title'>
