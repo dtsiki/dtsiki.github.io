@@ -35,7 +35,6 @@ const DropArea = ({ initialItems }: Props): ReactElement => {
   const [, dropRef] = useDrop(() => ({
     accept: Object.values(DragItemType),
     drop(item: any, monitor) {
-      console.log('move item', item)
       const { top, left } = convertPercentageToPixels(item.top, item.left);
 
       const delta = monitor.getDifferenceFromInitialOffset() as XYCoord;

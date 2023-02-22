@@ -14,7 +14,7 @@ const HomeTicTacToeWindow = ({ close }: Props): ReactElement => {
     <div className={styles.ticTacToeWindow}>
       <Window
         closeAction={close}
-        type={WindowType.WINDOW}
+        type={WindowType.CUSTOM}
         fileTitle='tic-tac-toe.exe'
         isModal>
         <div className={styles.ticTacToeWindow__body}>

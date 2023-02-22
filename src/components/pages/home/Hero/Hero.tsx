@@ -1,5 +1,4 @@
 import { ReactElement, useEffect, useState } from 'react';
-import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderOpen, faImage, faSmile } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
@@ -64,6 +63,7 @@ const HomeHero = (): ReactElement => {
       top: 20,
       left: 5
     },
+    /*
     {
       id: 'tic-tac-toe',
       label: 'tic-tac-toe.exe',
@@ -71,6 +71,7 @@ const HomeHero = (): ReactElement => {
       left: 90,
       top: 80
     }
+    */
   ];
 
   const [dragItems, setDragItems]  = useState<Array<any>>([
@@ -84,7 +85,7 @@ const HomeHero = (): ReactElement => {
           handleAction={() => onShortcutClicked(shortcut.id)}
           variant={ShortcutVariant.PRIMARY}
           icon={shortcut.icon}
-          customIcon={shortcut.customIcon}
+          //customIcon={shortcut.customIcon}
           name={shortcut.label} />
       }
     })
@@ -134,7 +135,9 @@ const HomeHero = (): ReactElement => {
       setImageIsOpened(false);
     }
 
-    const nextDragItems = dragItems.filter(
+    const prevDragItems = [...dragItems];
+
+    const nextDragItems = prevDragItems.filter(
       (item: any) => item.id !== id
     );
 
