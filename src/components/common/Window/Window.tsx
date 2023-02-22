@@ -22,7 +22,8 @@ export enum WindowType {
   IMAGE = 'image',
   VALIDATOR = 'validator',
   CHAT = 'chat',
-  VIDEO = 'video'
+  VIDEO = 'video',
+  CUSTOM = 'custom'
 }
 
 export enum WindowPatternVariant {
@@ -91,7 +92,7 @@ const Window = ({
   }, [menuItems]);
 
   const renderHeaderIcon = useMemo(() => {
-    if (type && type !== WindowType.WINDOW && type !== WindowType.CHAT) {
+    if (type && type !== WindowType.WINDOW && type !== WindowType.CHAT && type !== WindowType.CUSTOM) {
       return <FontAwesomeIcon icon={icons[type]} />
     }
   }, [type])
