@@ -1,0 +1,43 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
+
+.help {
+  display:  none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: $spacer * 4;
+  max-width: 500px;
+  background: $color--grey-lighter;
+  color: $color--violet;
+  font-size: 1.2em;
+  line-height: 2rem;
+  text-align: center;
+  box-shadow: 10px 10px 0 0 rgba($color--grey, 0.6);
+
+  @include sm {
+    display: block;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: $spacer;
+  }
+
+  &__footer {
+    margin-top: $spacer;
+    font-size: 1rem;
+  }
+
+  &__key {
+    display: inline;
+    padding: 5px;
+    background: $color--grey-lighter;
+    color: $color--violet;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
