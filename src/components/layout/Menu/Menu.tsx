@@ -1,24 +1,26 @@
-import React, { ReactElement, useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
+import { ReactElement, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleUp, faFolder } from '@fortawesome/free-solid-svg-icons';
-
-import useEventListener, { Event } from 'src/hooks/useEventListener';
+import { faAngleLeft, faAngleUp, faCaretRight, faDownLong, faUpLong } from '@fortawesome/free-solid-svg-icons';
 import { useStoreon } from 'storeon/react';
 
+import useEventListener, { Event } from 'src/hooks/useEventListener';
+import Help from '../Help';
+
 import styles from './menu.module.scss';
-import Shortcut, { ShortcutVariant } from 'src/components/common/Shortcut/Shortcut';
 
 const Menu = (): ReactElement => {
   const { topColor, bottomColor } = useStoreon('topColor', 'bottomColor');
   const [isPageScrolled, setPageScrolled] = useState<boolean>(false);
   const [isBackButtonShown, setIsBackButtonShown] = useState<boolean>(false);
   const [isMenuOpened, setMenuOpened] = useState<boolean>(false);
+  const [isHelpOpened, setIsHelpOpened] = useState<boolean>(false);
   const router = useRouter();
-
+  const [currentPage, setCurrentPage] = useState<string>('');
   const bind = classNames.bind(styles);
+
+  const pages = ['home', 'about', 'projects', 'blog'];
 
   useEffect(() => {
     const method = isMenuOpened ? 'add' : 'remove';
@@ -28,7 +30,51 @@ const Menu = (): ReactElement => {
 
   useEffect(() => {
     setIsBackButtonShown(router.pathname.includes('/blog/'));
+    const pathname = router.pathname.split('/')[1];
+
+    if (pathname === '') {
+      setCurrentPage(pages[0]);
+    }
+
+    pages.forEach((page) => {
+      if (pathname === page) {
+        setCurrentPage(page);
+      }
+    });
   }, [router]);
+
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent): void => {
+      if (event.key === 'Enter') {
+        router.push(`/${currentPage === pages[0] ? '' : currentPage}`);
+      }
+
+      if (event.key === 'Escape') {
+        if (isHelpOpened) {
+          setIsHelpOpened(false);
+        } else {
+          setMenuOpened(false);
+        }
+      }
+
+      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        const currentIndex = pages.indexOf(currentPage);
+        const newIndex = event.key === 'ArrowUp' ? currentIndex === 0 ? pages.length - 1 : currentIndex - 1 : currentIndex === pages.length - 1 ? 0 : currentIndex + 1;
+
+        setCurrentPage(pages[newIndex]);
+      }
+
+      if (event.key === 'h') {
+        setIsHelpOpened(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [currentPage, isHelpOpened]);
 
   const menuItems = [
     {
@@ -69,7 +115,7 @@ const Menu = (): ReactElement => {
   const onLinkClicked = (path: string): void => {
     toggleMenu();
 
-    router.push(`/${path}`)
+    router.push(`/${path}`);
   };
 
   const goBack = (): void => {
@@ -87,18 +133,21 @@ const Menu = (): ReactElement => {
   }, [isMenuOpened, topColor]);
 
   const renderMenuList = useMemo(() => {
-    return menuItems.map((item) => {
+    return menuItems.map((item, index) => {
       const { path, label } = item;
 
       return (
         <li
           key={label}
-          className={styles.menu__shortcut}>
-          <Shortcut
-            handleAction={() => onLinkClicked(path)}
-            variant={router.asPath === `/${path}` ? ShortcutVariant.GHOST : ShortcutVariant.LIGHT}
-            icon={faFolder}
-            name={label} />
+          className={styles.menu__item}>
+          <div className={bind([styles.menu__pointer, { [styles.visible]: currentPage === label }])}>
+            <FontAwesomeIcon icon={faCaretRight} />
+          </div>
+          <button
+            className={bind([styles.menu__button, { [styles.active]: currentPage === label }])}
+            onClick={() => onLinkClicked(path)}>
+            {index + 1} {label}
+          </button>
         </li>
       );
     })
@@ -118,6 +167,30 @@ const Menu = (): ReactElement => {
         <ul className={styles.menu__list}>
           {renderMenuList}
         </ul>
+        <ul className={styles.menu__footer}>
+          <li className={styles.menu__hotkey}>
+            <div className={styles.menu__key}>H</div>
+            to open help
+          </li>
+          <li className={styles.menu__hotkey}>
+            <div className={styles.menu__key}>
+              <FontAwesomeIcon icon={faDownLong} />
+              <FontAwesomeIcon icon={faUpLong} />
+            </div>
+            to select an item
+          </li>
+          <li className={styles.menu__hotkey}>
+            <div className={styles.menu__key}>Enter</div>
+            to open
+          </li>
+          <li className={styles.menu__hotkey}>
+            <div className={styles.menu__key}>Esc</div>
+            to exit
+          </li>
+        </ul>
+        {isHelpOpened && (
+          <Help />
+        )}
       </nav>
       {!isMenuOpened && (
         <aside className={styles.menu__sidebar}>
