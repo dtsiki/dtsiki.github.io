@@ -81,7 +81,7 @@ const Blog = (): ReactElement => {
             category={category}
             date={date}
             tags={tags}
-            showThumbnail />
+            thumbnail={`assets/blog/${link}/thumbnail.png`} />
         )
       }
 

@@ -1,45 +1,24 @@
-import { MutableRefObject, ReactElement, useEffect, useMemo, useRef, useState } from 'react';
+import { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { faFileText, faFolder } from '@fortawesome/free-solid-svg-icons';
 
-import Dictionary from './_dictionary';
-import QuoteGenerator from './_quote-generator';
-import TicTacToe from './_tic-tac-toe';
-import Todo from './_todo';
-import ProgressScroll from 'src/components/common/ProgressScroll';
-import Hero from 'src/components/layout/Hero';
-import { HeroVariant } from 'src/components/layout/Hero/Hero';
-import TaskManager from './_task-manager';
-import Planner18Minutes from './_planner-18-minutes';
-import ProjectsCommercial from 'src/components/pages/projects/Commercial';
-import Shortcut from 'src/components/common/Shortcut';
-import { ShortcutVariant } from 'src/components/common/Shortcut/Shortcut';
 import { ThemeColor, ThemerEvent } from 'src/store/themer';
 import { useStoreon } from 'storeon/react';
 import { isElementVisible } from 'src/utils';
 import useEventListener, { Event } from 'src/hooks/useEventListener';
-import AudioPlayer from './_audio-player/AudioPlayer';
+import Preview from 'src/components/pages/blog/Preview';
+import { projects } from 'src/constants';
+import ProjectsHero from 'src/components/pages/projects/Hero/Hero';
 
 import styles from './projects.module.scss';
 
 const Projects = (): ReactElement => {
   const [topColor, setTopColor] = useState<ThemeColor>(ThemeColor.WHITE);
   const [bottomColor, setBottomColor] = useState<ThemeColor>(ThemeColor.WHITE);
-
   const headerRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
-  const quoteGeneratorRef = useRef<HTMLDivElement>(null);
-  const todoRef = useRef<HTMLDivElement>(null);
-  const ticTacToeRef = useRef<HTMLDivElement>(null);
-  const dictionaryRef =useRef<HTMLDivElement>(null);
-  const taskManagerRef = useRef<HTMLDivElement>(null);
-  const minutesRef = useRef<HTMLDivElement>(null);
-  const audioPlayerRef = useRef<HTMLDivElement>(null);
-  const commercialRef = useRef<HTMLDivElement>(null);
+  const { dispatch } = useStoreon();
 
   const bind = classNames.bind(styles);
-
-  const { dispatch } = useStoreon();
 
   const handleScroll = (): void => {
     const bottomOffset = {
@@ -83,109 +62,37 @@ const Projects = (): ReactElement => {
     }
   }, [bottomColor]);
 
-  const shortcuts = [
-    {
-      name: 'quote-generator',
-      title: 'quote generator',
-      ref: quoteGeneratorRef,
-      icon: faFolder
-    },
-    {
-      name: 'planner-18-minutes',
-      title: '18 minutes',
-      ref: minutesRef,
-      icon: faFolder
-    },
-    {
-      name: 'todo',
-      title: 'todo',
-      ref: todoRef,
-      icon: faFolder
-    },
-    {
-      name: 'tic-tac-toe',
-      title: 'tic tac toe',
-      ref: ticTacToeRef,
-      icon: faFolder
-    },
-    {
-      name: 'dictionary',
-      title: 'dictionary',
-      ref: dictionaryRef,
-      icon: faFolder
-    },
-    {
-      name: 'task-manager',
-      title: 'task manager',
-      ref: taskManagerRef,
-      icon: faFolder
-    },
-    {
-      name: 'audioplayer',
-      title: 'audio player',
-      ref: audioPlayerRef,
-      icon: faFolder
-    },
-    {
-      name: 'commercial',
-      title: 'commercial.txt',
-      ref: commercialRef,
-      icon: faFileText
-    }
-  ];
-
-  const onScrollDown = (ref: MutableRefObject<HTMLElement | null>): void => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' })
+  const onScrollDown = (): void => {
+    projectsRef.current?.scrollIntoView({ behavior: 'smooth' })
   };
 
-  const renderShortcuts = useMemo(() => {
-    return shortcuts.map((shortcut) => {
+  const renderPreviews = useMemo(() => {
+    return projects.map((preview) => {
+      const { id, title, highlight, link, tags, thumbnail } = preview;
+
       return (
-        <div
-          key={shortcut.name}
-          className={bind([styles.projects__shortcut, styles[shortcut.name]])}>
-          <Shortcut
-            name={shortcut.title}
-            icon={shortcut.icon}
-            variant={ShortcutVariant.LIGHT}
-            handleAction={() => onScrollDown(shortcut.ref)} />
-        </div>
+        <Preview
+          key={id}
+          title={title}
+          highlight={highlight}
+          link={link}
+          hasExternalLink
+          tags={tags}
+          thumbnail={`assets/projects/previews/${thumbnail}.png`} />
       );
     });
-  }, [shortcuts]);
+  }, []);
 
   return (
     <div className={styles.projects}>
-      <ProgressScroll />
       <div ref={headerRef}>
-        <Hero variant={HeroVariant.PRIMARY}>
-          {renderShortcuts}
-        </Hero>
+        <ProjectsHero handleScroll={onScrollDown}/>
       </div>
       <div ref={projectsRef}>
-        <div ref={todoRef}>
-          <Todo />
-        </div>
-        <div ref={quoteGeneratorRef}>
-          <QuoteGenerator />
-        </div>
-        <div ref={minutesRef}>
-          <Planner18Minutes />
-        </div>
-        <div ref={ticTacToeRef}>
-          <TicTacToe />
-        </div>
-        <div ref={dictionaryRef}>
-          <Dictionary />
-        </div>
-        <div ref={taskManagerRef}>
-          <TaskManager />
-        </div>
-        <div ref={audioPlayerRef}>
-          <AudioPlayer />
-        </div>
-        <div ref={commercialRef}>
-          <ProjectsCommercial />
+        <div className='container'>
+          <ul className={bind(['row', styles.projects__list])}>
+            {renderPreviews}
+          </ul>
         </div>
       </div>
     </div>

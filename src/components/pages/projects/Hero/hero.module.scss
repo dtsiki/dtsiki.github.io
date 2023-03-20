@@ -1,0 +1,62 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+@import './../../.../../../../styles/keyframes';
+
+.hero {
+  position: relative;
+
+  &__overlay {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &__wrapper {
+    @include sm {
+      margin-top: -60px;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: 700;
+
+    @include sm {
+      font-size: 8rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+
+    @include sm {
+      font-size: 6rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    font-weight: 700;
+
+    @include sm {
+      font-size: 4rem;
+    }
+  }
+
+  &__icon {
+    color: $color--violet;
+    margin-right: $spacer;
+  }
+
+  &__shortcut {
+    display: none;
+
+    @include lg {
+      position: absolute;
+      display: block;
+    }
+  }
+}
