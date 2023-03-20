@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo } from 'react';
+import React, { ReactElement, ReactNode, useMemo } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
@@ -6,15 +6,16 @@ import styles from './preview.module.scss';
 
 interface Props {
   title: string;
-  highlight: string;
+  highlight: string | ReactNode;
   link: string;
   category?: string;
-  date: string;
+  date?: string;
   tags?: Array<string>;
-  showThumbnail?: boolean;
+  thumbnail?: string;
+  hasExternalLink?: boolean;
 }
 
-const Preview = ({ title, highlight, link, category, date, tags, showThumbnail = false }: Props): ReactElement => {
+const Preview = ({ title, highlight, link, category, date, tags, thumbnail, hasExternalLink = false }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   const renderTags = useMemo(() => {
@@ -37,27 +38,41 @@ const Preview = ({ title, highlight, link, category, date, tags, showThumbnail =
             <ul className={styles.preview__tags}>
               {renderTags}
             </ul>
-            <div className={styles.preview__date}>
-              {date}
-            </div>
-            <div className={styles.preview__category}>
-              {category}
-            </div>
+            {date && (
+              <div className={styles.preview__date}>
+                {date}
+              </div>
+            )}
+            {category && (
+              <div className={styles.preview__category}>
+                {category}
+              </div>
+            )}
           </div>
         )}
-        {showThumbnail && (
+        {thumbnail && (
           <div className={bind(['image-box', styles.preview__image])}>
             <div
               className={bind(['image-box__wrapper', styles.preview__thumbnail])}
-              style={{ backgroundImage: `url(assets/blog/${link}/thumbnail.png)` }}/>
+              style={{ backgroundImage: `url(${thumbnail})` }}/>
           </div>
         )}
         <h2 className={styles.preview__title}>
-          <Link href={`/blog/${link}`}>
-            <a className={bind(['link', styles.preview__link])}>
+          {hasExternalLink ? (
+            <a
+              href={link}
+              target='_blank'
+              rel='noopener noreferrer'
+              className={bind(['link', styles.preview__link])}>
               {title}
             </a>
-          </Link>
+          ) : (
+            <Link href={`/blog/${link}`}>
+              <a className={bind(['link', styles.preview__link])}>
+                {title}
+              </a>
+            </Link>
+          )}
         </h2>
         <p className={styles.preview__highlight}>
           {highlight}

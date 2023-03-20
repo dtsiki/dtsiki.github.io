@@ -28,54 +28,10 @@
   }
 
   &__list {
-    justify-content: flex-start;
+    padding-top: $spacer * 3;
 
-    @include lg {
-      justify-content: flex-end;
-    }
-  }
-
-  &__shortcut {
-    position: absolute;
-
-    &.quote-generator {
-      top: 10%;
-      left: 10%;
-    }
-
-    &.planner-18-minutes {
-      top: 30%;
-      right: 10%;
-    }
-
-    &.todo {
-      top: 80%;
-      right: 50%;
-    }
-
-    &.task-manager {
-      top: 80%;
-      left: 30%;
-    }
-
-    &.tic-tac-toe {
-      top: 50%;
-      right: 20%;
-    }
-
-    &.commercial {
-      top: 40%;
-      left: 20%;
-    }
-
-    &.dictionary {
-      top: 35%;
-      left: 50%;
-    }
-
-    &.audioplayer {
-      top: 10%;
-      left: 70%;
+    @include md {
+      padding-top: $spacer * 8;
     }
   }
 }
