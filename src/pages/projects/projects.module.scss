@@ -28,6 +28,10 @@
   }
 
   &__list {
-    padding-top: $spacer * 8;
+    padding-top: $spacer * 3;
+
+    @include md {
+      padding-top: $spacer * 8;
+    }
   }
 }

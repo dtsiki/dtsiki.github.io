@@ -33,15 +33,15 @@ const ProjectsHero = ({ handleScroll }: ProjectsHeroProps): ReactElement => {
       id: 'tic-tac-toe',
       label: 'tic tac toe',
       icon: faFolderOpen,
-      top: 30,
-      left: 80
+      top: 40,
+      left: 75
     },
     {
       id: '18-minutes',
       label: '18 minutes',
       icon: faFolderOpen,
       top: 50,
-      left: 20
+      left: 15
     },
     {
       id: 'dictionary',
@@ -61,8 +61,8 @@ const ProjectsHero = ({ handleScroll }: ProjectsHeroProps): ReactElement => {
       id: 'task-manager',
       label: 'task manager',
       icon: faFolderOpen,
-      top: 60,
-      left: 17
+      top: 63,
+      left: 12
     }
   ];
 
