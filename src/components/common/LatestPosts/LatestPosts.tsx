@@ -29,7 +29,7 @@ const LatestPosts = ({ showThumbnails = false }: Props): ReactElement => {
           category={category}
           date={date}
           tags={tags}
-          showThumbnail={showThumbnails} />
+          thumbnail={showThumbnails ? `assets/blog/${link}/thumbnail.png` : ''} />
       );
     })
   }, [posts]);
