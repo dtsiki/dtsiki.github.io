@@ -16,67 +16,12 @@ const Menu = (): ReactElement => {
   const [isBackButtonShown, setIsBackButtonShown] = useState<boolean>(false);
   const [isMenuOpened, setMenuOpened] = useState<boolean>(false);
   const [isHelpOpened, setIsHelpOpened] = useState<boolean>(false);
-  const router = useRouter();
-  const [currentPage, setCurrentPage] = useState<string>('');
+  const [selectedPage, setSelectedPage] = useState<string>('');
+  const [activePage, setActivePage] = useState<string>('');
   const bind = classNames.bind(styles);
+  const router = useRouter();
 
-  const pages = ['home', 'about', 'projects', 'blog'];
-
-  useEffect(() => {
-    const method = isMenuOpened ? 'add' : 'remove';
-
-    document.body.classList[method]('unscrollable');
-  }, [isMenuOpened]);
-
-  useEffect(() => {
-    setIsBackButtonShown(router.pathname.includes('/blog/'));
-    const pathname = router.pathname.split('/')[1];
-
-    if (pathname === '') {
-      setCurrentPage(pages[0]);
-    }
-
-    pages.forEach((page) => {
-      if (pathname === page) {
-        setCurrentPage(page);
-      }
-    });
-  }, [router]);
-
-  useEffect(() => {
-    const handleEsc = (event: KeyboardEvent): void => {
-      if (event.key === 'Enter') {
-        router.push(`/${currentPage === pages[0] ? '' : currentPage}`);
-      }
-
-      if (event.key === 'Escape') {
-        if (isHelpOpened) {
-          setIsHelpOpened(false);
-        } else {
-          setMenuOpened(false);
-        }
-      }
-
-      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-        const currentIndex = pages.indexOf(currentPage);
-        const newIndex = event.key === 'ArrowUp' ? currentIndex === 0 ? pages.length - 1 : currentIndex - 1 : currentIndex === pages.length - 1 ? 0 : currentIndex + 1;
-
-        setCurrentPage(pages[newIndex]);
-      }
-
-      if (event.key === 'h') {
-        setIsHelpOpened(true);
-      }
-    };
-
-    window.addEventListener('keydown', handleEsc);
-
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
-  }, [currentPage, isHelpOpened]);
-
-  const menuItems = [
+  const pages = [
     {
       path: '',
       label: 'home'
@@ -94,6 +39,67 @@ const Menu = (): ReactElement => {
       label: 'blog'
     }
   ];
+
+  useEffect(() => {
+    const method = isMenuOpened ? 'add' : 'remove';
+
+    document.body.classList[method]('unscrollable');
+  }, [isMenuOpened]);
+
+  useEffect(() => {
+    setIsBackButtonShown(router.pathname.includes('/blog/'));
+    const pathname = router.pathname.split('/')[1];
+
+    if (pathname === '') {
+      setActivePage(pages[0].label);
+      setSelectedPage(pages[0].label);
+    }
+
+    pages.forEach((page) => {
+      if (pathname === page.label) {
+        setActivePage(page.label);
+        setSelectedPage(page.label);
+      }
+    });
+  }, [router]);
+
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent): void => {
+      if (event.key === 'Enter') {
+        router.push(`/${selectedPage === pages[0].label ? '' : selectedPage}`);
+      }
+
+      if (event.key === 'Escape') {
+        if (isHelpOpened) {
+          setIsHelpOpened(false);
+        } else {
+          setMenuOpened(false);
+        }
+      }
+
+      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        if (isHelpOpened) {
+          return;
+        }
+
+        const currentIndex = pages.findIndex((page) => page.label === selectedPage);
+
+        const newIndex = event.key === 'ArrowUp' ? currentIndex === 0 ? pages.length - 1 : currentIndex - 1 : currentIndex === pages.length - 1 ? 0 : currentIndex + 1;
+
+        setSelectedPage(pages[newIndex].label);
+      }
+
+      if (event.key === 'h' || event.key === 'H') {
+        setIsHelpOpened(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [selectedPage, isHelpOpened]);
 
   const handleScroll = (): void => {
     setPageScrolled(window.pageYOffset >= document.documentElement.clientHeight / 2)
@@ -122,6 +128,10 @@ const Menu = (): ReactElement => {
     router.back();
   };
 
+  const onLinkMouseEnter = (path: string): void => {
+    setSelectedPage(path);
+  };
+
   const renderIcon = useMemo(() => {
     return (
       <span className={bind([styles.menu__toggleIcon, styles[topColor], { [styles.opened]: isMenuOpened }])}>
@@ -133,25 +143,26 @@ const Menu = (): ReactElement => {
   }, [isMenuOpened, topColor]);
 
   const renderMenuList = useMemo(() => {
-    return menuItems.map((item, index) => {
+    return pages.map((item, index) => {
       const { path, label } = item;
 
       return (
         <li
           key={label}
           className={styles.menu__item}>
-          <div className={bind([styles.menu__pointer, { [styles.visible]: currentPage === label }])}>
+          <div className={bind([styles.menu__pointer, { [styles.visible]: selectedPage === label }])}>
             <FontAwesomeIcon icon={faCaretRight} />
           </div>
           <button
-            className={bind([styles.menu__button, { [styles.active]: currentPage === label }])}
-            onClick={() => onLinkClicked(path)}>
+            className={bind([styles.menu__button, { [styles.active]: activePage === label }])}
+            onClick={() => onLinkClicked(path)}
+            onMouseEnter={() => onLinkMouseEnter(label)}>
             {index + 1} {label}
           </button>
         </li>
       );
     })
-  }, [menuItems]);
+  }, [pages]);
 
   return (
     <header className={bind([styles.menu, { [styles.opened]: isMenuOpened }])}>
@@ -163,7 +174,7 @@ const Menu = (): ReactElement => {
           {isMenuOpened ? 'Close' : 'Open'} menu
         </span>
       </button>
-      <nav className={bind([styles.menu__nav, { [styles.opened]: isMenuOpened }])}>
+      <nav className={bind([styles.menu__nav, { [styles.opened]: isMenuOpened, [styles.idle]: isHelpOpened }])}>
         <ul className={styles.menu__list}>
           {renderMenuList}
         </ul>
