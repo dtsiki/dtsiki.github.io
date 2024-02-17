@@ -77,7 +77,7 @@ const Menu = (): ReactElement => {
         }
       }
 
-      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      if (isMenuOpened && (event.key === 'ArrowUp' || event.key === 'ArrowDown')) {
         if (isHelpOpened) {
           return;
         }
