@@ -1,36 +1,51 @@
 import { ReactElement } from 'react';
 
 const AboutWorkExperience = (): ReactElement => {
+  const workExperiences = [
+    {
+      company: 'Infomaximum',
+      position: 'frontend developer',
+      start: 'apr 2023'
+    },
+    {
+      company: 'Ronas IT',
+      position: 'frontend developer',
+      start: 'aug 2021',
+      end: 'feb 2023'
+    },
+    {
+      company: 'ADCI Solutions',
+      position: 'frontend developer',
+      start: 'june 2020',
+      end: 'aug 2021'
+    },
+    {
+      company: 'Central Design Bureau of Automation',
+      position: 'DSP engineer',
+      start: 'sep 2014',
+      end: 'jan 2020'
+    },
+    {
+      company: 'freelance',
+      position: 'web developer and designer',
+      start: 'sep 2009',
+      end: 'sep 2014'
+    }
+  ];
+
   return (
     <ul className='list'>
-      <li className='list__item'>
-        <h3 className='list__title'>
-          Frontend developer
-        </h3>
-        <p>Ronas IT</p>
-        <p className='list__footer'>2021 - 2023</p>
-      </li>
-      <li className='list__item'>
-        <h3 className='list__title'>
-          Frontend developer
-        </h3>
-        <p>ADCI Solutions</p>
-        <p className='list__footer'>2020 - 2021</p>
-      </li>
-      <li className='list__item'>
-        <h3 className='list__title'>
-          Signal processing engineer
-        </h3>
-        <p>Central Design Bureau of Automation</p>
-        <p className='list__footer'>2014 - 2020</p>
-      </li>
-      <li className='list__item'>
-        <h3 className='list__title'>
-          Web developer, designer
-        </h3>
-        <p>freelance</p>
-        <p className='list__footer'>2009 - 2014</p>
-      </li>
+      {workExperiences.map((workExperience) => (
+        <li
+          className='list__item'
+          key={workExperience.company}>
+          <h3 className='list__title'>
+            {workExperience.position}
+          </h3>
+          <p>{workExperience.company}</p>
+          <p className='list__footer'>{workExperience.start} - {workExperience.end ? workExperience.end : 'currently employed'}</p>
+        </li>
+      ))}
     </ul>
   );
 };
