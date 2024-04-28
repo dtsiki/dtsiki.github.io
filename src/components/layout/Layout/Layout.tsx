@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Menu from '../Menu';
 import Footer from './../Footer';
 import Loader from './../Loader';
+import LangSwitcher from './../LangSwitcher';
 
 import styles from './layout.module.scss';
 
@@ -39,6 +40,7 @@ const Layout = ({ children }: LayoutProps): ReactElement => {
     <div
       className={styles.layout}>
       <Menu />
+      <LangSwitcher />
       <main className={styles.layout__content}>
         {isLoading ? <Loader /> : children}
       </main>

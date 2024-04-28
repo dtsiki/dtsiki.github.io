@@ -7,9 +7,14 @@ import Window, { WindowPatternVariant } from 'src/components/common/Window/Windo
 import Dictionary from 'src/components/common/Dictionary';
 
 import styles from './post.module.scss';
+import { useStoreon } from 'storeon/react';
+import { loc } from './loc';
+import { ELanguage } from 'src/store/localization';
 
 const Post = (): ReactElement => {
   const bind = classNames.bind(styles);
+
+  const { dispatch, language } = useStoreon('language');
 
   const title = 'How to improve your skills';
   const highlight = 'If you need inspiration to enhance your skills scroll down to see 10 motivational tips.'
@@ -28,6 +33,10 @@ const Post = (): ReactElement => {
     'Practice every week',
     'Practice, practice, practice'
   ];
+
+  const getLoc = (field: any): any => {
+    return loc['title'];
+  };
 
   const renderTips = useMemo(() => {
     return tips.map((tip) => {

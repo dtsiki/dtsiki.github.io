@@ -1,5 +1,6 @@
 import { createStoreon } from 'storeon';
 
-import { Events, themer, State } from './themer';
+import { themer } from './themer';
+import { localization } from './localization';
 
-export const store = createStoreon<State, Events>([themer]);
+export const store = createStoreon<any, any>([themer, localization]);

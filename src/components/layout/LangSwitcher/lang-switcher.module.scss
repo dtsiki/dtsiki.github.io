@@ -1,0 +1,83 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
+
+.langSwitcher {
+  position: fixed;
+  right: 30px;
+  top: 40px;
+  //width: 45px;
+  // height: 22px;
+  z-index: 1000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // cursor: pointer;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    text-align: center;
+    text-transform: lowercase;
+    color: $color--grey-darker;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  &__item {
+    font-size: 0.8rem;
+    text-align: center;
+    text-transform: lowercase;
+    color: $color--grey-darker;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    transition: 0.3s all;
+
+    &:hover {
+      color: $color--grey;
+      transition: 0.3s all;
+    }
+
+    svg {
+      margin-bottom: -1px;
+      transition: 0.3s all;
+
+      &:hover {
+        color: $color--violet;
+      }
+    }
+
+    + .langSwitcher__item {
+      margin-left: 8px;
+    }
+
+    &.selected {
+      color: $color--violet;
+
+      &:hover {
+        color: $color--violet-dark;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+}
