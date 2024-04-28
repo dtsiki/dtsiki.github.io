@@ -867,3 +867,29 @@ ul,
     font-size: 5rem;
   }
 }
+
+.tag-list {
+  display: flex;
+  justify-content: flex-start;
+
+  &__item {
+    padding: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    + .tag-list__item {
+      margin-left: 10px;
+    }
+
+    &.primary {
+      border: 2px solid $color--violet;
+      color: $color--violet;
+    }
+
+    &.secondary {
+      border: 2px solid $color--grey-dark;
+      color: $color--grey-dark;
+    }
+  }
+}

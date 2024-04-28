@@ -3,6 +3,15 @@ import { nanoid } from 'nanoid';
 export const posts = [
   {
     id: nanoid(),
+    title: 'My favorite websites to improve English',
+    highlight: 'English learning web tools I can not live without',
+    link: 'my-favorite-websites-to-improve-english',
+    category: 'insight',
+    date: '24 apr 2024',
+    tags: ['english']
+  },
+  {
+    id: nanoid(),
     title: 'How I improved my English',
     highlight: 'Tips that helped me and that can help you to improve your English level',
     link: 'how-i-improved-my-english',
