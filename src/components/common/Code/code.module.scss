@@ -23,13 +23,16 @@
     padding: 0 15px;
     font-size: 0.8rem;
     font-weight: 600;
-    text-transform: uppercase;
     color: $color--violet;
 
     svg {
       transform: scale(1.2);
       margin-right: 10px;
       opacity: 0.8;
+    }
+
+    &.uppercase {
+      text-transform: uppercase;
     }
   }
 

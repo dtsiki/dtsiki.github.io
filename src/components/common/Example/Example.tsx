@@ -9,9 +9,10 @@ import styles from './example.module.scss';
 
 interface Props {
   code: string;
+  isCopyable?: boolean;
 }
 
-const Example = ({ code }: Props): ReactElement => {
+const Example = ({ code, isCopyable = true }: Props): ReactElement => {
   const copyToClipboard= (): void => {
     navigator.clipboard.writeText(code);
   };
@@ -19,14 +20,16 @@ const Example = ({ code }: Props): ReactElement => {
   return (
     <div className={styles.example}>
       <div className={styles.code__wrapper}>
-        <div className={styles.example__actions}>
-          <button
-            className={styles.example__control}
-            onClick={copyToClipboard}>
-            <FontAwesomeIcon icon={faCopy} />
-            <span className='visually-hidden'>Copy to clipboard</span>
-          </button>
-        </div>
+        {isCopyable && (
+          <div className={styles.example__actions}>
+            <button
+              className={styles.example__control}
+              onClick={copyToClipboard}>
+              <FontAwesomeIcon icon={faCopy} />
+              <span className='visually-hidden'>Copy to clipboard</span>
+            </button>
+          </div>
+        )}
         <SyntaxHighlighter
           language='plaintext'
           showLineNumbers={false}

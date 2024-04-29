@@ -3,6 +3,15 @@ import { nanoid } from 'nanoid';
 export const posts = [
   {
     id: nanoid(),
+    title: 'How to create a page scroll progress bar',
+    highlight: 'In this quick tutorial you will learn how to create a simple scroll progress bar using React step by step',
+    link: 'how-to-create-a-page-scroll-progress-bar',
+    category: 'tutorial',
+    date: '29 apr 2024',
+    tags: ['react']
+  },
+  {
+    id: nanoid(),
     title: 'My favorite websites to improve English',
     highlight: 'English learning web tools I can not live without',
     link: 'my-favorite-websites-to-improve-english',

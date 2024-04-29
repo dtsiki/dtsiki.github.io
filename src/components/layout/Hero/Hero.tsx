@@ -33,7 +33,8 @@ export enum HeroPattern {
   MOTION_LINES = 'motion-lines',
   ARROWS = 'arrows',
   CROSS = 'cross',
-  PENCILS = 'pencils'
+  PENCILS = 'pencils',
+  SPRINKLES = 'sprinkles',
 }
 
 interface LayoutProps {

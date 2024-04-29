@@ -1,5 +1,6 @@
 import React, { ReactElement, useRef } from 'react';
 import classNames from 'classnames';
+import Image from 'next/image';
 
 import PostLayout from 'src/components/pages/blog/PostLayout';
 import ProgressScroll from 'src/components/common/ProgressScroll';
@@ -11,17 +12,15 @@ import Scope from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/S
 import Hoisting from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/Hoisting';
 import TemporalDeadZone from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/TemporalDeadZone';
 import StrictMode from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/StrictMode';
-import AboutGratitude from 'src/components/pages/about/Gratitude';
 import Closures from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/Closures';
 import Functions from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/Functions';
 import Arrays from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/Arrays';
 import ArraysMethods from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/ArraysMethods';
 import Window from 'src/components/common/Window';
 import { WindowType } from 'src/components/common/Window/Window';
-import Image from 'next/image';
-
-import styles from './post.module.scss';
-import book from 'public/assets/blog/frontend-in-a-nutshell/javascript/book.jpg';
+import Thanks from 'src/components/common/Thanks';
+import { HeroSize, HeroVariant, HeroPattern } from 'src/components/layout/Hero/Hero';
+import Hero from 'src/components/layout/Hero';
 import Timers from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/Timers';
 import EventLoop from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/EventLoop';
 import AsynchronousJavaScript from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/ AsynchronousJavaScript';
@@ -29,8 +28,9 @@ import AsyncAwait from 'src/components/pages/blog/frontend-in-a-nutshell/javascr
 import Callbacks from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/Callbacks';
 import Promises from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/Promises';
 import MutableAndImmutable from 'src/components/pages/blog/frontend-in-a-nutshell/javascript/MutableAndImmutable';
-import Hero from 'src/components/layout/Hero';
-import { HeroSize, HeroVariant, HeroPattern } from 'src/components/layout/Hero/Hero';
+
+import styles from './post.module.scss';
+import book from 'public/assets/blog/frontend-in-a-nutshell/javascript/book.jpg';
 
 const Post = (): ReactElement => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -101,7 +101,7 @@ const Post = (): ReactElement => {
             </div>
           </section>
           <section>
-            <AboutGratitude />
+            <Thanks />
           </section>
         </PostLayout>
       </article>

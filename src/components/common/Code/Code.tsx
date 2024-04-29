@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faFile, faTerminal } from '@fortawesome/free-solid-svg-icons';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ascetic } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import classNames from 'classnames';
 
 import styles from './code.module.scss';
 
@@ -10,14 +11,18 @@ export enum CodeLanguage {
   HTML = 'html',
   CSS = 'css',
   JAVASCRIPT = 'javascript',
-  TYPESCRIPT = 'typescript'
+  TYPESCRIPT = 'typescript',
+  REACT = 'react',
+  SCSS = 'scss'
 }
 
 export enum CodeExtension {
   html = 'html',
   css = 'css',
   javascript = 'js',
-  typescript = 'ts'
+  typescript = 'ts',
+  react = 'tsx',
+  scss = 'scss'
 }
 
 interface Props {
@@ -29,6 +34,7 @@ interface Props {
   showLineNumbers?: boolean;
   startingLineNumber?: number;
   isTerminal?: boolean;
+  isNameUppercase?: boolean;
 }
 
 const Code = ({
@@ -39,8 +45,11 @@ const Code = ({
   showOnlyCode = false,
   showLineNumbers = true,
   startingLineNumber,
-  isTerminal = false
+  isTerminal = false,
+  isNameUppercase = true
 }: Props): ReactElement => {
+  const bind = classNames.bind(styles);
+
   const copyToClipboard= (): void => {
     navigator.clipboard.writeText(code);
   };
@@ -68,7 +77,7 @@ const Code = ({
       ) : (
         <div className={styles.code__wrapper}>
           <div className={styles.code__header}>
-            <div className={styles.code__name}>
+            <div className={bind([styles.code__name, { [styles.uppercase]: isNameUppercase }])}>
               <FontAwesomeIcon icon={isTerminal ? faTerminal : faFile} />
               {customName || (language && name) && `${name}.${CodeExtension[language]}`}
             </div>
