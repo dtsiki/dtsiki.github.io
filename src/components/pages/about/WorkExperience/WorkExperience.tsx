@@ -4,7 +4,7 @@ const AboutWorkExperience = (): ReactElement => {
   const workExperiences = [
     {
       company: 'Infomaximum',
-      position: 'frontend developer',
+      position: 'frontend team lead',
       start: 'apr 2023',
       end: 'aug 2025',
     },
