@@ -1,21 +1,21 @@
-import React, { ReactElement, useCallback, useEffect, useRef, useState } from 'react';
+import React, { ReactElement } from 'react';
 import Image from 'next/image';
 
 import PostLayout from 'src/components/pages/blog/PostLayout';
 import ProgressScroll from 'src/components/common/ProgressScroll';
 import Window, { WindowPatternVariant, WindowType } from 'src/components/common/Window/Window';
-
-import styles from './post.module.scss';
-import figmaPreviewPng from '../../../../public/assets/blog/animated-star-tutorial/figma-preview.png';
 import Code from 'src/components/common/Code';
 import { CodeLanguage } from 'src/components/common/Code/Code';
 import ExternalLink from 'src/components/common/ExternalLink';
 import { AnimatedStarDemo } from 'src/components/pages/blog/AnimatedStarDemo/AnimatedStarDemo';
 
+import figmaPreviewPng from '../../../../public/assets/blog/animated-star-tutorial/figma-preview.png';
+import styles from './post.module.scss';
+
 const Post = (): ReactElement => {
-  const exampleHTML1 = `<div class="container">
-  <div class="eye"></div>
-  <div class="eye"></div>
+  const exampleHTML1 = `<div class='container'>
+  <div class='eye'></div>
+  <div class='eye'></div>
 </div>`;
 
   const exampleCSS1 = `.container {
@@ -110,7 +110,7 @@ const Post = (): ReactElement => {
     let radian = Math.atan2(event.pageX - x, event.pageY - y);
     let rotation = (radian * (180 / Math.PI) * -1) + 270;
 
-    eye.style.transform = "rotate("+rotation+"deg)"
+    eye.style.transform = \`rotate(\${rotation}deg)\`;
   });
 }`;
 
@@ -126,7 +126,7 @@ function moveEyesToCursor() {
     let radian = Math.atan2(event.pageX - x, event.pageY - y);
     let rotation = (radian * (180 / Math.PI) * -1) + 270;
 
-    eye.style.transform = "rotate("+rotation+"deg)"
+    eye.style.transform = \`rotate(\${rotation}deg)\`;
   });
 }`;
 
@@ -194,7 +194,7 @@ function moveEyesToCursor() {
     const radian = Math.atan2(event.pageX - x, event.pageY - y);
     const rotation = radian * (180 / Math.PI) * -1 + 270;
 
-    eye.style.transform = "rotate("+rotation+"deg)"
+    eye.style.transform = \`rotate(\${rotation}deg)\`;
   });
 };`;
 
@@ -270,7 +270,7 @@ export const AnimatedStar = () => {
       const radian = Math.atan2(event.pageX - x, event.pageY - y);
       const rotation = radian * (180 / Math.PI) * -1 + 270;
 
-      eye.style.transform = "rotate("+rotation+"deg)"
+    eye.style.transform = \`rotate(\${rotation}deg)\`;
     });
   };
 
@@ -370,7 +370,7 @@ export const AnimatedStar = () => {
             </ul>
           </p>
           <p>
-            Я остановила свой выбор на первом варианте: расположить "тело" звездочки без глаз фоном в
+            Я остановила свой выбор на первом варианте: расположить фигуру звездочки без глаз фоном в
             элементе-контейнере и затем добавить глаза и зрачки с помошью CSS.
           </p>
           <p className='spacer bottom medium'>
