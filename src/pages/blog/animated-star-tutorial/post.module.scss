@@ -1,0 +1,60 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.star_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 550px;
+}
+
+.star {
+  width: 350px;
+  height: 323px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url('./../../../../public/assets/blog/animated-star-tutorial/star.svg');
+}
+
+.demo_wrapper {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyes_container {
+  height: 323px;
+  width: 350px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 350px 323px;
+  background-image: url('./../../../../public/assets/blog/animated-star-tutorial/star.svg');
+}
+
+.eye {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: -50px 10px 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: black;
+    box-sizing: border-box;
+  }
+}

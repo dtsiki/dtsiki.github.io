@@ -1,6 +1,16 @@
 import React, { ReactElement, ReactNode, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faComments, faFolder, faImage, faLayerGroup, faVideo, faWindowMaximize, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCode,
+  faComments,
+  faFolder,
+  faImage,
+  faLayerGroup,
+  faVideo,
+  faWindowMaximize,
+  faWindowMinimize,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import { faFirefox } from '@fortawesome/free-brands-svg-icons';
 import classNames from 'classnames/bind';
 
@@ -11,7 +21,7 @@ export enum WindowBodyBackground {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
   DARK = 'dark',
-  GHOST = 'ghost'
+  GHOST = 'ghost',
 }
 
 export enum WindowType {
@@ -23,7 +33,7 @@ export enum WindowType {
   VALIDATOR = 'validator',
   CHAT = 'chat',
   VIDEO = 'video',
-  CUSTOM = 'custom'
+  CUSTOM = 'custom',
 }
 
 export enum WindowPatternVariant {
@@ -31,7 +41,9 @@ export enum WindowPatternVariant {
   CROSS = 'cross',
   SMILEY = 'smiley',
   SCALES = 'scales',
-  SPRINKLES = 'sprinkles'
+  SPRINKLES = 'sprinkles',
+  BUBBLES = 'bubbles',
+  FOUR_POINT_STAR = 'four-point-star',
 }
 
 interface Props {
@@ -51,7 +63,8 @@ interface Props {
 
 const Window = ({
   type = WindowType.WINDOW,
-  title, fileTitle,
+  title,
+  fileTitle,
   children,
   pattern,
   filesCount,
@@ -60,14 +73,14 @@ const Window = ({
   isPopUp = false,
   bodyBackground = WindowBodyBackground.LIGHT,
   closeAction,
-  isModal = false
+  isModal = false,
 }: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   const menuItems = {
     slideshow: ['File', 'Edit', 'View', 'Insert', 'Format', 'Help'],
-    folder: ['File', 'Edit', 'View', 'Favourites', 'Tools', 'Help']
-  }
+    folder: ['File', 'Edit', 'View', 'Favourites', 'Tools', 'Help'],
+  };
 
   const icons = {
     browser: faFirefox,
@@ -76,42 +89,36 @@ const Window = ({
     image: faImage,
     validator: faCode,
     chat: faComments,
-    video: faVideo
+    video: faVideo,
   };
 
   const renderMenuItems = useMemo(() => {
     const items = menuItems.slideshow;
 
     return items.map((menuItem) => {
-      return (
-        <li key={menuItem}>
-          {menuItem}
-        </li>
-      )
-    })
+      return <li key={menuItem}>{menuItem}</li>;
+    });
   }, [menuItems]);
 
   const renderHeaderIcon = useMemo(() => {
     if (type && type !== WindowType.WINDOW && type !== WindowType.CHAT && type !== WindowType.CUSTOM) {
-      return <FontAwesomeIcon icon={icons[type]} />
+      return <FontAwesomeIcon icon={icons[type]} />;
     }
-  }, [type])
+  }, [type]);
 
   return (
     <div className={bind([styles.window, { [styles.inverted]: isInverted }])}>
-      <div className={bind([styles.window__header, styles[type], { [styles.inverted]: isInverted }, { [styles.popUp]: isPopUp }])}>
+      <div
+        className={bind([
+          styles.window__header,
+          styles[type],
+          { [styles.inverted]: isInverted },
+          { [styles.popUp]: isPopUp },
+        ])}>
         <div className={bind([styles.window__heading, { [styles.inverted]: isInverted }])}>
           {renderHeaderIcon}
-          {title && (
-            <span className={bind([styles.window__title, { [styles.hasFile]: !!fileTitle }])}>
-              {title}
-            </span>
-          )}
-          {fileTitle && (
-            <span className={styles.window__fileTitle}>
-              {fileTitle}
-            </span>
-          )}
+          {title && <span className={bind([styles.window__title, { [styles.hasFile]: !!fileTitle }])}>{title}</span>}
+          {fileTitle && <span className={styles.window__fileTitle}>{fileTitle}</span>}
         </div>
         <div className={styles.window__actions}>
           {!isModal && (
@@ -125,9 +132,7 @@ const Window = ({
             </>
           )}
           {isModal && closeAction ? (
-            <button
-              onClick={closeAction}
-              className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
+            <button onClick={closeAction} className={bind([styles.window__control, { [styles.inverted]: isInverted }])}>
               <FontAwesomeIcon icon={faXmark} />
               <span className='visually-hidden'>Close</span>
             </button>
@@ -139,22 +144,20 @@ const Window = ({
         </div>
       </div>
       {showMenu && (type === WindowType.SLIDESHOW || type === WindowType.FOLDER) && (
-        <div className={styles.window__menu}>
-          {renderMenuItems}
-        </div>
+        <div className={styles.window__menu}>{renderMenuItems}</div>
       )}
-      <div className={bind([styles.window__body, styles[type], styles[bodyBackground], { [styles.inverted]: isInverted }])}>
-        <div className={bind([styles.window__content])}>
-          {children}
-        </div>
-        {pattern && (
-          <div className={bind([styles.window__pattern, styles[pattern]])} />
-        )}
+      <div
+        className={bind([
+          styles.window__body,
+          styles[type],
+          styles[bodyBackground],
+          { [styles.inverted]: isInverted },
+        ])}>
+        <div className={bind([styles.window__content])}>{children}</div>
+        {pattern && <div className={bind([styles.window__pattern, styles[pattern]])} />}
         {type === WindowType.FOLDER && (
           <div className={styles.window__footer}>
-            <span className={styles.window__count}>
-              {filesCount} object(s)
-            </span>
+            <span className={styles.window__count}>{filesCount} object(s)</span>
           </div>
         )}
       </div>

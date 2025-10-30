@@ -1,8 +1,15 @@
-
 import React, { ReactElement, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faFaceFrown, faList, faMagicWandSparkles, faSearch, faTh, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowLeft,
+  faFaceFrown,
+  faList,
+  faMagicWandSparkles,
+  faSearch,
+  faTh,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { WindowType } from 'src/components/common/Window/Window';
 import ShortcutPreview from 'src/components/pages/blog/ShortcutPreview';
@@ -14,10 +21,12 @@ import Hero from 'src/components/layout/Hero';
 import CustomScrollbar from 'src/components/common/CustomScrollbar';
 
 import styles from './blog.module.scss';
+import { EBlogPostLanguage, translate } from 'src/i18n/utils';
+import { BLOG } from 'src/i18n/common';
 
 export enum BlogViewStyle {
   FANCY = 'fancy',
-  BORING = 'boring'
+  BORING = 'boring',
 }
 
 const Blog = (): ReactElement => {
@@ -26,46 +35,51 @@ const Blog = (): ReactElement => {
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [query, setQuery] = useState<string>('');
   const [blogPosts, setBlogPosts] = useState<Array<any>>(posts);
+  const [language, setLanguage] = useState<EBlogPostLanguage>(EBlogPostLanguage.ENG);
+
   const bind = classNames.bind(styles);
 
   useEffect(() => {
-    if (!query.length) return;
+    const filteredByViewPosts =
+      viewStyle === BlogViewStyle.BORING
+        ? posts.filter((post) => {
+            return (
+              post.title.toLowerCase().includes(query.toLowerCase()) ||
+              post.highlight.toLowerCase().includes(query.toLowerCase()) ||
+              post.category.toLowerCase().includes(query.toLowerCase()) ||
+              post.tags.toString().toLowerCase().includes(query.toLowerCase())
+            );
+          })
+        : posts.filter((post) => post.title.toLowerCase().includes(query.toLowerCase()));
 
-    const filteredPosts = viewStyle === BlogViewStyle.BORING ?
-      posts.filter((post) => {
-        return post.title.toLowerCase()
-          .includes(query.toLowerCase()) ||
-          post.highlight.toLowerCase()
-            .includes(query.toLowerCase()) ||
-          post.category.toLowerCase()
-            .includes(query.toLowerCase()) ||
-          post.tags.toString()
-            .toLowerCase()
-            .includes(query.toLowerCase())
-      }) :
-      posts.filter((post) => post.title.toLowerCase()
-        .includes(query.toLowerCase()));
+    const filteredByLanguagePosts = filteredByViewPosts.filter((post) => post.language === language);
 
-    setBlogPosts(filteredPosts);
-  }, [query]);
+    setBlogPosts(filteredByLanguagePosts);
+  }, [query, language]);
 
   const toggleViewType = (): void => {
-    setViewType(viewType === ShortcutPreviewViewType.GRID ? ShortcutPreviewViewType.LIST : ShortcutPreviewViewType.GRID);
-  }
+    setViewType(
+      viewType === ShortcutPreviewViewType.GRID ? ShortcutPreviewViewType.LIST : ShortcutPreviewViewType.GRID
+    );
+  };
 
   const changeQuery = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setQuery(e.target.value);
-  }
+  };
 
   const makeItFancy = (): void => {
     setViewStyle(BlogViewStyle.FANCY);
     setShowSearch(false);
-  }
+  };
 
   const makeItBoring = (): void => {
     setViewStyle(BlogViewStyle.BORING);
     setShowSearch(false);
-  }
+  };
+
+  const toggleLanguage = (): void => {
+    setLanguage(language === EBlogPostLanguage.ENG ? EBlogPostLanguage.RU : EBlogPostLanguage.ENG);
+  };
 
   const renderPosts = useMemo(() => {
     return blogPosts.map((post) => {
@@ -81,15 +95,14 @@ const Blog = (): ReactElement => {
             category={category}
             date={date}
             tags={tags}
-            thumbnail={`assets/blog/${link}/thumbnail.png`} />
-        )
+            thumbnail={`assets/blog/${link}/thumbnail.png`}
+          />
+        );
       }
 
       if (viewStyle === BlogViewStyle.FANCY) {
         return (
-          <li
-            key={id}
-            className={bind([styles.blog__shortcut, styles[viewType]])}>
+          <li key={id} className={bind([styles.blog__shortcut, styles[viewType]])}>
             <ShortcutPreview
               title={title}
               highlight={highlight}
@@ -97,11 +110,12 @@ const Blog = (): ReactElement => {
               category={category}
               date={date}
               viewType={viewType}
-              tags={tags} />
+              tags={tags}
+            />
           </li>
-        )
+        );
       }
-    })
+    });
   }, [blogPosts, viewStyle, viewType]);
 
   return (
@@ -110,7 +124,7 @@ const Blog = (): ReactElement => {
         <div className='container'>
           <div className={styles.blog__wrapper}>
             <div className={styles.blog__heading}>
-              <h1 className={styles.blog__title}>Blog</h1>
+              <h1 className={styles.blog__title}>{translate(language, BLOG)}</h1>
               <div className={styles.blog__actions}>
                 <div className={bind([styles.blog__form, styles[viewStyle], { [styles.opened]: showSearch }])}>
                   <input
@@ -126,29 +140,24 @@ const Blog = (): ReactElement => {
                 <button
                   onClick={() => setShowSearch(!showSearch)}
                   className={bind([styles.blog__control, styles[viewStyle], { [styles.active]: showSearch }])}>
-                  <FontAwesomeIcon icon={showSearch ? faXmark: faSearch} />
+                  <FontAwesomeIcon icon={showSearch ? faXmark : faSearch} />
                 </button>
-                <button
-                  className={styles.blog__control}
-                  onClick={makeItFancy}>
+                <button className={styles.blog__control} onClick={makeItFancy}>
                   <span className='visually-hidden'>Make it fancy</span>
                   <FontAwesomeIcon icon={faMagicWandSparkles} />
+                </button>
+                <button className={styles.blog__language} onClick={toggleLanguage}>
+                  {language}
                 </button>
               </div>
             </div>
             {blogPosts.length ? (
-              <ul className={bind(['row', styles.blog__posts])}>
-                {renderPosts}
-              </ul>
+              <ul className={bind(['row', styles.blog__posts])}>{renderPosts}</ul>
             ) : (
               <div className={styles.blog__notification}>
                 <FontAwesomeIcon icon={faFaceFrown} />
-                <div className='heading-l2 spacer top small'>
-                  Oh, no!
-                </div>
-                <div className='heading-l3 spacer top extra-small'>
-                  Posts not found
-                </div>
+                <div className='heading-l2 spacer top small'>Oh, no!</div>
+                <div className='heading-l3 spacer top extra-small'>Posts not found</div>
               </div>
             )}
           </div>
@@ -158,22 +167,17 @@ const Blog = (): ReactElement => {
         <Hero>
           <div className='container'>
             <div className={styles.blog__wrapper}>
-              <Window
-                type={WindowType.FOLDER}
-                title='blog'
-                filesCount={posts.length}>
+              <Window type={WindowType.FOLDER} title={translate(language, BLOG)} filesCount={posts.length}>
                 <div className={styles.blog__menu}>
                   <div className={styles.blog__actions}>
-                    <button
-                      onClick={makeItBoring}
-                      className={styles.blog__control}>
+                    <button onClick={makeItBoring} className={styles.blog__control}>
                       <span className='visually-hidden'>Make it boring</span>
                       <FontAwesomeIcon icon={faArrowLeft} />
                     </button>
                     <button
                       onClick={() => setShowSearch(!showSearch)}
                       className={bind([styles.blog__control, styles[viewStyle], { [styles.active]: showSearch }])}>
-                      <FontAwesomeIcon icon={showSearch ? faXmark: faSearch} />
+                      <FontAwesomeIcon icon={showSearch ? faXmark : faSearch} />
                     </button>
                     <div className={bind([styles.blog__form, styles[viewStyle], { [styles.opened]: showSearch }])}>
                       <input
@@ -187,17 +191,18 @@ const Blog = (): ReactElement => {
                       />
                     </div>
                   </div>
-                  <button
-                    onClick={toggleViewType}
-                    className={styles.blog__control}>
-                    <span className='visually-hidden'>Toggle view type</span>
-                    <FontAwesomeIcon icon={viewType === ShortcutPreviewViewType.GRID ? faTh : faList} />
-                  </button>
+                  <div className={styles.blog__controls}>
+                    <button onClick={toggleViewType} className={styles.blog__control}>
+                      <span className='visually-hidden'>Toggle view type</span>
+                      <FontAwesomeIcon icon={viewType === ShortcutPreviewViewType.GRID ? faTh : faList} />
+                    </button>
+                    <button className={styles.blog__language} onClick={toggleLanguage}>
+                      {language}
+                    </button>
+                  </div>
                 </div>
                 <CustomScrollbar maxHeight={300}>
-                  <ul className={bind([styles.blog__shortcuts, styles[viewType]])}>
-                    {renderPosts}
-                  </ul>
+                  <ul className={bind([styles.blog__shortcuts, styles[viewType]])}>{renderPosts}</ul>
                 </CustomScrollbar>
               </Window>
             </div>

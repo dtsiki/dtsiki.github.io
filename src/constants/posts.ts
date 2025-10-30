@@ -1,14 +1,27 @@
 import { nanoid } from 'nanoid';
+import { EBlogPostLanguage } from 'src/i18n/utils';
 
 export const posts = [
   {
     id: nanoid(),
+    title: 'Время зажигать звёзды 💫',
+    highlight: 'Делаем анимированную звезду с помощью CSS и JavaScript',
+    link: 'animated-star-tutorial',
+    category: 'tutorial',
+    date: '10 oct 2025',
+    tags: ['react', 'css', 'javascript'],
+    language: EBlogPostLanguage.RU,
+  },
+  {
+    id: nanoid(),
     title: 'How to create a page scroll progress bar',
-    highlight: 'In this quick tutorial you will learn how to create a simple scroll progress bar using React step by step',
+    highlight:
+      'In this quick tutorial you will learn how to create a simple scroll progress bar using React step by step',
     link: 'how-to-create-a-page-scroll-progress-bar',
     category: 'tutorial',
     date: '29 apr 2024',
-    tags: ['react']
+    tags: ['react'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
@@ -17,7 +30,8 @@ export const posts = [
     link: 'my-favorite-websites-to-improve-english',
     category: 'insight',
     date: '24 apr 2024',
-    tags: ['english']
+    tags: ['english'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
@@ -26,7 +40,8 @@ export const posts = [
     link: 'how-i-improved-my-english',
     category: 'insight',
     date: '28 dec 2022',
-    tags: ['english']
+    tags: ['english'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
@@ -35,7 +50,8 @@ export const posts = [
     link: 'keep-calm-and-test',
     category: 'tutorial',
     date: '16 dec 2022',
-    tags: ['react', 'typescript', 'jest', 'testing']
+    tags: ['react', 'typescript', 'jest', 'testing'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
@@ -44,7 +60,8 @@ export const posts = [
     link: 'pure-css-toggle-switch',
     category: 'tutorial',
     date: '1 oct 2022',
-    tags: ['html', 'css']
+    tags: ['html', 'css'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
@@ -53,7 +70,8 @@ export const posts = [
     link: 'gerund-vs-infinitive',
     category: 'english',
     date: '27 sep 2022',
-    tags: ['english']
+    tags: ['english'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
@@ -62,16 +80,19 @@ export const posts = [
     link: 'semantic-markup-for-the-little-ones',
     category: 'guide',
     date: '23 sep 2022',
-    tags: ['html']
+    tags: ['html'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
     title: 'How to improve your skills',
-    highlight: 'If you feel that you\'re stuck in a rut or just need some fresh inspiration how to enhance your skills there are ways you can do to help achieve this goal',
+    highlight:
+      "If you feel that you're stuck in a rut or just need some fresh inspiration how to enhance your skills there are ways you can do to help achieve this goal",
     link: 'how-to-improve-your-skills',
     category: 'insight',
     date: '2 sep 2022',
-    tags: ['skills']
+    tags: ['skills'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
@@ -80,15 +101,18 @@ export const posts = [
     link: 'drag-and-drop',
     category: 'tutorial',
     date: '1 sep 2022',
-    tags: ['React']
+    tags: ['React'],
+    language: EBlogPostLanguage.ENG,
   },
   {
     id: nanoid(),
     title: 'Pure CSS tooltips',
-    highlight: 'A step-by-step tutorial that will show you how to create a tooltip using only CSS without any additional JavaScript code',
+    highlight:
+      'A step-by-step tutorial that will show you how to create a tooltip using only CSS without any additional JavaScript code',
     link: 'pure-css-tooltips',
     category: 'tutorial',
     date: '30 jul 2022',
-    tags: ['HTML', 'CSS']
-  }
+    tags: ['HTML', 'CSS'],
+    language: EBlogPostLanguage.ENG,
+  },
 ];
