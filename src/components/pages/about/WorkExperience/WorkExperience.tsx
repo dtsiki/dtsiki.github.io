@@ -21,13 +21,13 @@ const AboutWorkExperience = (): ReactElement => {
       end: 'aug 2021',
     },
     {
-      company: 'Central Design Bureau of Automation',
+      company: 'CDBA',
       position: 'DSP engineer',
       start: 'sep 2014',
       end: 'jan 2020',
     },
     {
-      company: 'freelance',
+      company: 'self-employed',
       position: 'web developer and designer',
       start: 'sep 2009',
       end: 'sep 2014',
