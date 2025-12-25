@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import Image from 'next/image';
+import { nanoid } from 'nanoid';
 
 import PostLayout from 'src/components/pages/blog/PostLayout';
 import ProgressScroll from 'src/components/common/ProgressScroll';
@@ -8,11 +9,8 @@ import Code from 'src/components/common/Code';
 import { CodeLanguage } from 'src/components/common/Code/Code';
 import ExternalLink from 'src/components/common/ExternalLink';
 import { Hint } from 'src/components/common/Hint/Hint';
-
 import ReadMore from 'src/components/pages/blog/ReadMore';
 import { ISource } from 'src/interfaces';
-import { nanoid } from 'nanoid';
-import classNames from 'classnames';
 import { EBlogPostLanguage } from 'src/i18n/utils';
 import { DragAndDropDemo } from 'src/components/pages/blog/javascript-drag-and-drop-quickly/DragAndDropDemo/DragAndDropDemo';
 
@@ -39,68 +37,68 @@ const Post = (): ReactElement => {
 };`;
 
   const exampleHandlerDragStartJavaScript2 = `function handleDragStart(event) {
-  event.dataTransfer.setData('text/plain', event.target.textContent);
-  event.target.style.opacity = '0.4';
+  event.dataTransfer.setData("text/plain", event.target.textContent);
+  event.target.style.opacity = "0.4";
 }`;
 
   const exampleHandlerDragEndJavaScript = `function handleDragEnd(event) {
-  event.target.style.opacity = '1';
+  event.target.style.opacity = "1";
 }`;
 
   const exampleHandlersDropDragOverJavaScript = `function handleDrop(event) {
   event.preventDefault();
-  const data = event.dataTransfer.getData('text');
+  const data = event.dataTransfer.getData("text");
 };
 
 function handleDragOver(event) {
   event.preventDefault();
 };`;
 
-  const exampleDraggedElementJavaScript = `const draggedElement = document.querySelector('.task[style*="opacity: 0.4"]');`;
+  const exampleDraggedElementJavaScript = `const draggedElement = document.querySelector(".task[style*="opacity: 0.4"]");`;
 
   const exampleHandlerDropJavaScript = `function handleDrop(event) {
   event.preventDefault();
-  const data = event.dataTransfer.getData('text/plain');
+  const data = event.dataTransfer.getData("text/plain");
 
-  const draggedElement = document.querySelector('.task[style*="opacity: 0.4"]');
+  const draggedElement = document.querySelector(".task[style*="opacity: 0.4"]");
 
   if (draggedElement) {
-    draggedElement.style.opacity = '1';
+    draggedElement.style.opacity = "1";
 
     // Проверяем, куда сбрасываем: в колонку или обратно в контейнер
-    if (event.target.classList.contains('column')) {
+    if (event.target.classList.contains("column")) {
       // Сбрасываем в колонку
       event.target.appendChild(draggedElement);
-    } else if (event.target === tasksContainer || event.target.classList.contains('tasks')) {
+    } else if (event.target === tasksContainer || event.target.classList.contains("tasks")) {
       // Сбрасываем обратно в контейнер с задачами
       tasksContainer.appendChild(draggedElement);
     }
   }
 }`;
 
-  const exampleEventListeners1JavaScript = `const tasks = document.querySelectorAll('.task');
-const columns = document.querySelectorAll('.column');
+  const exampleEventListeners1JavaScript = `const tasks = document.querySelectorAll(".task");
+const columns = document.querySelectorAll(".column");
 
 tasks.forEach(function (task) {
-  task.addEventListener('dragstart', handleDragStart);
-  task.addEventListener('dragend', handleDragEnd);
+  task.addEventListener("dragstart", handleDragStart);
+  task.addEventListener("dragend", handleDragEnd);
 });
 
 columns.forEach(function (column) {
-  column.addEventListener('drop', handleDrop);
-  column.addEventListener('dragover', handleDragOver);
+  column.addEventListener("drop", handleDrop);
+  column.addEventListener("dragover", handleDragOver);
 });`;
 
-  const exampleEventListeners2JavaScript = `const tasksContainer = document.querySelector('.wrapper.tasks');
+  const exampleEventListeners2JavaScript = `const tasksContainer = document.querySelector(".wrapper.tasks");
 
-tasksContainer.addEventListener('drop', handleDrop);
-tasksContainer.addEventListener('dragover', handleDragOver);
+tasksContainer.addEventListener("drop", handleDrop);
+tasksContainer.addEventListener("dragover", handleDragOver);
 
 function handleDragOver(event) {
   // Разрешаем сброс на колонки И на контейнер задач
-  if (event.target.classList.contains('column') ||
+  if (event.target.classList.contains("column") ||
       event.target === tasksContainer ||
-      event.target.classList.contains('tasks')) {
+      event.target.classList.contains("tasks")) {
     event.preventDefault();
   }
 }`;
@@ -209,33 +207,33 @@ function handleDragOver(event) {
   </div>
 </div> `;
 
-  const exampleJavaScript = `const tasks = document.querySelectorAll('.task');
-const columns = document.querySelectorAll('.column');
-const tasksContainer = document.querySelector('.wrapper.tasks');
+  const exampleJavaScript = `const tasks = document.querySelectorAll(".task");
+const columns = document.querySelectorAll(".column");
+const tasksContainer = document.querySelector(".wrapper.tasks");
 
 function handleDragStart(event) {
-  event.dataTransfer.setData('text/plain', event.target.textContent);
-  event.target.style.opacity = '0.4';
+  event.dataTransfer.setData("text/plain", event.target.textContent);
+  event.target.style.opacity = "0.4";
 }
 
 function handleDragEnd(event) {
-  event.target.style.opacity = '1';
+  event.target.style.opacity = "1";
 }
 
 function handleDrop(event) {
   event.preventDefault();
-  const data = event.dataTransfer.getData('text/plain');
+  const data = event.dataTransfer.getData("text/plain");
 
-  const draggedElement = document.querySelector('.task[style*="opacity: 0.4"]');
+  const draggedElement = document.querySelector(".task[style*="opacity: 0.4"]");
 
   if (draggedElement) {
-    draggedElement.style.opacity = '1';
+    draggedElement.style.opacity = "1";
 
     // Проверяем, куда сбрасываем: в колонку или обратно в контейнер
-    if (event.target.classList.contains('column')) {
+    if (event.target.classList.contains("column")) {
       // Сбрасываем в колонку
       event.target.appendChild(draggedElement);
-    } else if (event.target === tasksContainer || event.target.classList.contains('tasks')) {
+    } else if (event.target === tasksContainer || event.target.classList.contains("tasks")) {
       // Сбрасываем обратно в контейнер с задачами
       tasksContainer.appendChild(draggedElement);
     }
@@ -244,28 +242,28 @@ function handleDrop(event) {
 
 function handleDragOver(event) {
   // Разрешаем сброс на колонки И на контейнер задач
-  if (event.target.classList.contains('column') ||
+  if (event.target.classList.contains("column") ||
       event.target === tasksContainer ||
-      event.target.classList.contains('tasks')) {
+      event.target.classList.contains("tasks")) {
     event.preventDefault();
   }
 }
 
 // Вешаем обработчики на задачи
 tasks.forEach(function (task) {
-  task.addEventListener('dragstart', handleDragStart);
-  task.addEventListener('dragend', handleDragEnd);
+  task.addEventListener("dragstart", handleDragStart);
+  task.addEventListener("dragend", handleDragEnd);
 });
 
 // Вешаем обработчики на колонки
 columns.forEach(function (column) {
-  column.addEventListener('drop', handleDrop);
-  column.addEventListener('dragover', handleDragOver);
+  column.addEventListener("drop", handleDrop);
+  column.addEventListener("dragover", handleDragOver);
 });
 
 // Вешаем обработчики на контейнер задач
-tasksContainer.addEventListener('drop', handleDrop);
-tasksContainer.addEventListener('dragover', handleDragOver);`;
+tasksContainer.addEventListener("drop", handleDrop);
+tasksContainer.addEventListener("dragover", handleDragOver);`;
 
   const sources: Array<ISource> = [
     {
@@ -674,8 +672,8 @@ tasksContainer.addEventListener('dragover', handleDragOver);`;
             </li>
           </ol>
           <p>
-            Тут нам и пригодится трюк с прозрачностью. Выше мы уже добавили прозрачность{' '}
-            <code className='code'>opacity = '0.4'</code> задаче, которую начали перетаскивать. Теперь мы можем
+            Тут нам и пригодится трюк с прозрачностью. Выше мы уже добавили прозрачность
+            <code className='code'>opacity = `0.4`</code> задаче, которую начали перетаскивать. Теперь мы можем
             воспользоваться этим свойством и быстро найти перетаскивемую задачу следующим образом:
           </p>
           <div className='col col--100 col--tablet-100 col--mobile-100'>

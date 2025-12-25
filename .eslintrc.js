@@ -38,6 +38,15 @@ module.exports = {
     'arrow-parens': ['warn', 'always'],
     'comma-dangle': ['warn', 'never'],
     'no-var': 'error',
+    'no-irregular-whitespace': [
+      'warn',
+      {
+        skipStrings: true,
+        skipComments: true,
+        skipRegExps: true,
+        skipTemplates: true,
+      },
+    ],
     'no-dupe-class-members': 'off',
     'import/prefer-default-export': 'off',
     'implicit-arrow-linebreak': ['warn', 'beside'],
