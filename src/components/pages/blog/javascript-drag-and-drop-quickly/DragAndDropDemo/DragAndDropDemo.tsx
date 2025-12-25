@@ -19,7 +19,7 @@ export const DragAndDropDemo = (): React.ReactElement => {
     <Window pattern={WindowPatternVariant.SPRINKLES} title={windowTitle}>
       <div className={bind(styles.dnd_demo_wrapper, styles.dnd_demo_columns)}>
         {columnsConfig.map((column) => (
-          <DroppableElement className={styles.dnd_demo_column}>
+          <DroppableElement key={column} className={styles.dnd_demo_column}>
             <div className={styles.dnd_demo_column_title}>{column}</div>
           </DroppableElement>
         ))}
