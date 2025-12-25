@@ -1,0 +1,80 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+
+.post__snippet {
+  display: flex;
+  justify-content: center;
+}
+
+.post__image {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dnd_wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.dnd_column {
+  width: 33%;
+  height: 100px;
+  background: $color--white;
+  background: url('./../../../../public/assets/patterns/cross.svg');
+  background-position: 5px;
+  background-repeat: repeat;
+  border-radius: 10px;
+  padding: 16px;
+  border: 2px solid $color--violet;
+  min-height: 300px;
+}
+
+.dnd_column_title {
+  color: $color--violet-darker;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 2px solid $color--violet-darker;
+  width: fit-content;
+  background-color: $color--white;
+}
+
+.dnd_tasks {
+  justify-content: center;
+  margin: 20px 0;
+  background: rgba($color--white-darker, 0.9);
+  padding: 20px;
+  font-size: 20px;
+  border: 2px dashed $color--violet;
+  border-radius: 10px;
+  min-height: 80px;
+}
+
+.dnd_task {
+  padding: 10px 20px;
+  background-color: $color--violet-darker;
+  color: $color--white;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.draggable_example {
+  width: 300px;
+  margin: 0 auto 20px;
+  text-align: center;
+  color: $color--violet;
+  border: 2px solid $color--violet;
+  border-radius: 10px;
+  padding: 16px 0;
+  background-color: rgba($color--white, 0.9);
+}
+
+.droppable_example {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: $color--violet;
+  border-radius: 10px;
+  padding: 100px 0;
+  background: rgba($color--white-darker, 0.8);
+  border: 5px dotted $color--violet-lighter;
+}

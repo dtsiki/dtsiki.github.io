@@ -1,0 +1,58 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.hint {
+  position: relative;
+}
+
+.hint_wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hint_title {
+  border-bottom: 2px $color--violet dotted;
+  cursor: pointer;
+  transition: 0.5s all;
+
+  &:hover {
+    color: $color--violet-dark;
+  }
+}
+
+.hint_icon {
+  color: $color--violet;
+  margin: 0 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.hint_content {
+  position: absolute;
+  width: 300px;
+  // top: calc(-50% - 34px);
+  top: -14px;
+  left: 100%;
+  background-color: $color--violet-lighter;
+  color: $color--white;
+  border-radius: 5px;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-left: 10px;
+  line-height: 1.5;
+  box-shadow: 4px 4px 0 0 rgba($color--violet-darker, 0.4);
+
+  &::before {
+    position: absolute;
+    content: '';
+    left: -10px;
+    top: 20px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 7px 10px 7px 0;
+    border-color: transparent $color--violet-lighter transparent transparent;
+    transform: rotate(0deg);
+  }
+}

@@ -4,6 +4,16 @@ import { EBlogPostLanguage } from 'src/i18n/utils';
 export const posts = [
   {
     id: nanoid(),
+    title: 'Drag-and-drop на JavaScript быстро',
+    highlight: "Разбираемся в drag-and-drop'e на JavaScript - быстро, без лишней воды, всяких библиотек и прочего",
+    link: 'javascript-drag-and-drop-quickly',
+    category: 'tutorial',
+    date: '25 dec 2025',
+    tags: ['javascript'],
+    language: EBlogPostLanguage.RU,
+  },
+  {
+    id: nanoid(),
     title: 'Время зажигать звёзды 💫',
     highlight: 'Делаем анимированную звезду с помощью CSS и JavaScript',
     link: 'animated-star-tutorial',

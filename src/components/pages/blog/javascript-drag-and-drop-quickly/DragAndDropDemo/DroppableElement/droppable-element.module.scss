@@ -1,0 +1,24 @@
+@import './../../../../../../styles/colors.scss';
+@import './../../../../../../styles/breakpoints';
+
+.droppable_element {
+  width: 33%;
+  height: 100px;
+  background: $color--white;
+  background: url('./../../../../../../../public/assets/patterns/cross.svg');
+  background-position: 5px;
+  background-repeat: repeat;
+  border-radius: 10px;
+  padding: 16px;
+  border: 2px solid $color--violet;
+  min-height: 300px;
+}
+
+.droppable_element_title {
+  color: $color--violet-darker;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 2px solid $color--violet-darker;
+  width: fit-content;
+  background-color: $color--white;
+}
