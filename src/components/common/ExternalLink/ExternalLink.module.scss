@@ -1,0 +1,12 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.external_link {
+  display: inline-flex;
+  align-items: center;
+
+  &__icon {
+    margin-left: $SPACER / 4;
+    width: 24px;
+  }
+}

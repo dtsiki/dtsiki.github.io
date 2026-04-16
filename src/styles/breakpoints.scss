@@ -24,8 +24,20 @@
   }
 }
 
-@mixin custom($screen) {
-  @media (min-width: $screen + 'px') {
+@mixin mobile {
+  @media (max-width: #{$BREAKPOINT_MOBILE}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$BREAKPOINT_TABLET}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$BREAKPOINT_DESKTOP}) {
     @content;
   }
 }

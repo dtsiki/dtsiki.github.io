@@ -1,0 +1,10 @@
+@import './../../../styles/vars';
+
+.drop_area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: $DND_DROP_AREA_INDEX;
+}

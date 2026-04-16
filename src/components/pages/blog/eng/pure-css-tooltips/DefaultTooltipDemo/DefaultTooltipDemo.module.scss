@@ -1,0 +1,14 @@
+@import './../../../../../../styles/colors';
+@import './../../../../../../styles/vars';
+
+.default_tooltip_demo {
+  padding: $SPACER * 4;
+  margin-bottom: 30px;
+  color: $color--grey-dark;
+  line-height: 2rem;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

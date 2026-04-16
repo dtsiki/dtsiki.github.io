@@ -1,0 +1,23 @@
+@import './../../../../../../../styles/colors';
+@import './../../../../../../../styles/vars';
+
+.about_me {
+  &__title {
+    font-size: 20px;
+    margin-bottom: $SPACER / 2;
+    color: $color--violet;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    margin-bottom: $SPACER / 2;
+    font-size: 16px;
+    line-height: 1.5;
+    text-indent: $SPACER;
+    color: rgba($color--black, 0.8);
+  }
+}

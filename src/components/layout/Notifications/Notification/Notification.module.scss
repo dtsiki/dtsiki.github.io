@@ -1,0 +1,59 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+@import './../../../../styles/vars';
+@import './../../../../styles/theme';
+
+.notification {
+  position: relative;
+  min-width: 500px;
+  max-width: 800px;
+  padding: $SPACER;
+  background: $color--violet-darker;
+  color: $color--white;
+  @include step1(2px, $color--violet);
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: $SPACER / 4;
+    text-transform: uppercase;
+    font-family: Pixelify;
+  }
+
+  &__body {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-family: $font--base-blog;
+    padding-right: $SPACER * 2;
+  }
+
+  &__control {
+    position: absolute;
+    top: $SPACER;
+    right: $SPACER;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: $color--white;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 30px;
+    width: 20px;
+    height: 20px;
+    border-top: 20px solid $color--violet-darker;
+    border-left: 20px solid transparent;
+  }
+}

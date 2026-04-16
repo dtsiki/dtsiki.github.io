@@ -11,49 +11,42 @@ export enum ShortcutVariant {
   SECONDARY = 'secondary',
   DARK = 'dark',
   LIGHT = 'light',
-  GHOST = 'ghost'
+  GHOST = 'ghost',
 }
 
 interface Props {
   icon?: IconProp;
   customIcon?: StaticImageData;
-  name?:  string;
+  name?: string;
   variant?: ShortcutVariant;
   handleAction?: (any: any) => any;
   tooltip?: ReactNode;
+  iconSize?: number;
 }
 
-const Shortcut = ({ icon, name, variant = ShortcutVariant.PRIMARY, handleAction, tooltip, customIcon }: Props): ReactElement => {
+const Shortcut = ({
+  icon,
+  name,
+  variant = ShortcutVariant.PRIMARY,
+  handleAction,
+  tooltip,
+  customIcon,
+  iconSize = 60,
+}: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
     <div className={bind([styles.shortcut, styles[variant], tooltip ? ' tooltip' : ''])}>
       {icon && (
-        <span className={styles.shortcut__icon}>
+        <span className={styles.shortcut__icon} style={{ width: iconSize }}>
           <FontAwesomeIcon icon={icon} />
         </span>
       )}
-      {customIcon && (
-        <Image
-          src={customIcon}
-          alt=''
-          width={60}
-          height={60} />
-      )}
-      {name && (
-        <span className={styles.shortcut__label}>
-          {name}
-        </span>
-      )}
-      {tooltip && (
-        <div className={bind(['tooltip__message', styles.shortcut__tooltip])}>
-          {tooltip}
-        </div>
-      )}
+      {customIcon && <Image src={customIcon} alt='' width={60} height={60} />}
+      {name && <span className={styles.shortcut__label}>{name}</span>}
+      {tooltip && <div className={bind(['tooltip__message', styles.shortcut__tooltip])}>{tooltip}</div>}
       {handleAction && (
-        <button
-          onClick={handleAction}
-          className={styles.shortcut__button}>
+        <button onClick={handleAction} className={styles.shortcut__button}>
           <span>Click on shortcut</span>
         </button>
       )}

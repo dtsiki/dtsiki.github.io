@@ -1,0 +1,29 @@
+@import './../../../../../../styles/colors';
+@import './../../../../../../styles/vars';
+
+.skills {
+  &__title {
+    font-size: 20px;
+    margin-bottom: $SPACER / 2;
+    color: $color--violet;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: $SPACER / 2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: $SPACER;
+    font-size: 16px;
+    line-height: 1.5;
+    text-indent: $SPACER;
+    color: rgba($color--black, 0.8);
+  }
+}

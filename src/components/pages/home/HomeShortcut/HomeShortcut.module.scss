@@ -1,0 +1,78 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/vars';
+
+.home_shortcut {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+
+  &.primary {
+    color: $color--violet-lighter;
+  }
+
+  &.secondary {
+    color: $color--white-violet;
+  }
+
+  &.dark {
+    color: $color--black;
+  }
+
+  &.light {
+    color: $color--white;
+  }
+
+  &.ghost {
+    color: $color--grey;
+  }
+
+  &__icon {
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__customIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  &__label {
+    /*font-family: Musinka;
+    font-size: 40px;
+    */
+    // font-family: KurochkaLapkoi;
+    /*font-size: 32px;
+    font-family: Musinka;
+    */
+    font-family: Pixelify;
+    font-size: 24px;
+    //text-transform: uppercase;
+    text-align: center;
+    //font-size: 18px;
+    //font-weight: 600;
+    margin: $SPACER / 2 0;
+  }
+
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__tooltip {
+    top: 50%;
+    left: 50%;
+  }
+}

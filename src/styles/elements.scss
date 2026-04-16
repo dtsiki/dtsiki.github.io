@@ -1,5 +1,6 @@
 @import './breakpoints';
 @import './keyframes';
+@import './vars';
 
 html {
   scroll-behavior: smooth;
@@ -596,8 +597,10 @@ ul,
 }
 
 .note {
-  padding: 40px;
-  border: 2px dotted $color--violet;
+  padding: $SPACER * 2;
+  background: rgba($color--white-violet, 0.5);
+  border-radius: $BORDER_RADIUS;
+  border: 1px solid $color--white-violet;
 
   &__title {
     font-weight: 600;
@@ -889,4 +892,21 @@ ul,
   color: $color--grey-dark;
   font-size: 12px;
   text-align: center;
+}
+
+.flex {
+  display: flex;
+
+  &.h-centered {
+    justify-content: center;
+  }
+
+  &.v-centered {
+    align-items: center;
+  }
+
+  &.centered {
+    justify-content: center;
+    align-items: center;
+  }
 }

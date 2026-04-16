@@ -1,0 +1,17 @@
+@import './../../../../../../styles/colors';
+@import './../../../../../../styles/vars';
+
+.header {
+  margin-bottom: $SPACER;
+
+  &__name {
+    display: block;
+    font-size: 28px;
+  }
+
+  &__position {
+    display: block;
+    font-size: 32px;
+    color: $color--violet;
+  }
+}

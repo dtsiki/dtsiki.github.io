@@ -1,50 +1,41 @@
-import { ReactElement, ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { ControlPanel } from '../ControlPanel/ControlPanel';
+import { WindowRenderer } from 'src/components/common/Window/components/WindowRenderer/WindowRenderer';
+import { Loader } from '../Loader/Loader';
+import { ILayoutProps } from './Layout.types';
 
-import Menu from '../Menu';
-import Footer from './../Footer';
-import Loader from './../Loader';
+import styles from './Layout.module.scss';
 
-import styles from './layout.module.scss';
-
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps): ReactElement => {
-  const [isLoading, setLoading] = useState<boolean>(false);
+export const Layout = ({ children }: ILayoutProps) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
     const handleStart = (): void => {
-      setLoading(true);
+      setIsLoading(true);
     };
 
     const handleComplete = (): void => {
-      setLoading(false);
+      setIsLoading(false);
     };
 
-    router.events.on('routeChangeStart', handleStart)
-    router.events.on('routeChangeComplete', handleComplete)
-    router.events.on('routeChangeError', handleComplete)
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
 
     return () => {
-      router.events.off('routeChangeStart', handleStart)
-      router.events.off('routeChangeComplete', handleComplete)
-      router.events.off('routeChangeError', handleComplete)
-    }
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
   }, []);
 
   return (
-    <div
-      className={styles.layout}>
-      <Menu />
-      <main className={styles.layout__content}>
-        {isLoading ? <Loader /> : children}
-      </main>
-      <Footer />
+    <div className={styles.layout}>
+      <WindowRenderer />
+      <main className={styles.layout__content}>{isLoading ? <Loader /> : children}</main>
+      <ControlPanel />
     </div>
   );
 };
-
-export default Layout;

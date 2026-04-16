@@ -1,0 +1,151 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/vars';
+@import './../../../../styles/breakpoints';
+@import './../../../../styles/keyframes';
+@import './../../../../styles/theme';
+
+.trash_bin_window {
+  position: relative;
+  @include step1(2px, $color--grey);
+
+  &.focused {
+    @include step1(2px, $color--violet);
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    background: $color--white-darker;
+    overflow: hidden;
+    box-shadow: 5px 5px 0 0 $color--grey;
+
+    &.focused {
+      // border: 5px solid green;
+      box-shadow: 5px 5px 0 0 $color--violet;
+    }
+
+    &.minimized {
+      // border: 5px solid red;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color--white-darker, 0.75);
+    z-index: 1;
+    border-radius: $BORDER_RADIUS;
+    z-index: 999;
+
+    &.focused {
+      display: none;
+    }
+  }
+
+  &__body {
+    position: relative;
+    border-top: 0;
+    background: $color--white-darker;
+  }
+
+  &__empty_placeholder {
+    text-align: center;
+    margin: $SPACER * 6 auto;
+
+    svg {
+      width: 42px;
+      height: 42px;
+      color: $color--grey;
+      margin-bottom: $SPACER / 2;
+    }
+
+    &_title {
+      width: 100%;
+      color: $color--grey;
+      font-size: 24px;
+      font-family: Pixelify;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 100;
+  }
+
+  &__submenu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: Pixelify;
+
+    &_controls {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: $SPACER;
+    }
+
+    &_control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      border: 0;
+      cursor: pointer;
+      background: transparent;
+      border-radius: 5px;
+      transition: 0.5s all;
+      color: $color--violet-dark;
+      font-family: Pixelify;
+      text-transform: uppercase;
+      font-size: 14px;
+
+      &.active {
+        background: transparent;
+      }
+
+      &.disabled {
+        color: $color--grey;
+        cursor: not-allowed;
+
+        svg {
+          color: $color--grey;
+        }
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: $color--violet;
+        margin-right: $SPACER / 4;
+      }
+    }
+  }
+
+  &__shortcuts {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    padding: $SPACER;
+    min-height: 250px;
+  }
+
+  &__shortcut {
+    &.GRID {
+      width: calc(100% / 3);
+      padding-right: 10px;
+    }
+
+    &.LIST {
+      width: 100%;
+      padding-right: 10px;
+    }
+  }
+}

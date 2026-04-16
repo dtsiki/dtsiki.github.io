@@ -1,1 +1,1 @@
-export { default } from './ImageWindow';
+export * from './ImageWindow';

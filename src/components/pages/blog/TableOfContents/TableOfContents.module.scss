@@ -1,0 +1,36 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/vars';
+
+.table_of_contents {
+  &__title {
+    padding-bottom: $SPACER;
+  }
+
+  &__button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: $color--violet;
+    transition: all 0.5s;
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 0.5s;
+    font-size: 1.2rem;
+    line-height: 1.5;
+
+    &:hover {
+      background-size: 100% 2px;
+    }
+  }
+
+  li {
+    &::marker {
+      font-size: 1.2rem;
+    }
+  }
+}

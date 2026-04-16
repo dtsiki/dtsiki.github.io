@@ -1,0 +1,141 @@
+@import './../../../../../styles/colors';
+@import './../../../../../styles/vars';
+@import './../../../../../styles/breakpoints';
+
+.shortcut {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0;
+  border-radius: $BORDER_RADIUS;
+
+  &.LIST {
+    justify-content: space-between;
+    padding: $SPACER / 2;
+  }
+
+  &.GRID {
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: $SPACER * 2 $SPACER;
+    height: 100%;
+  }
+
+  &:hover {
+    border: 1px dashed $color--grey;
+  }
+
+  &__main {
+    &.LIST {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &__icon {
+    svg {
+      color: $color--grey;
+    }
+
+    &.LIST {
+      svg {
+        width: 24px;
+        height: 24px;
+        margin-bottom: -5px;
+      }
+    }
+
+    &.GRID {
+      svg {
+        display: block;
+        margin: 0 auto $SPACER / 2;
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    color: $color--black-lighter;
+    font-family: Pixelify;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    &.GRID {
+      max-width: 150px;
+      margin: $SPACER / 2 0 0 0;
+    }
+
+    &.LIST {
+      margin-left: $SPACER / 2;
+      text-align: left;
+    }
+
+    &.TXT_FILE,
+    &.PDF_FILE {
+      word-break: break-all;
+      //text-transform: lowercase;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__tooltip {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: $color--white;
+    border: 1px solid $color--grey;
+    box-shadow: $color--grey;
+    z-index: 10;
+    display: none;
+
+    &.LIST {
+      width: 500px;
+      top: 10px;
+      left: 10%;
+    }
+
+    &.GRID {
+      top: 50%;
+      left: 50%;
+      width: 230px;
+    }
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    color: $color--grey-dark;
+
+    + .shortcut__label {
+      margin-top: 5px;
+    }
+  }
+
+  &__date {
+    color: $color--grey-dark;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-family: Pixelify;
+  }
+}

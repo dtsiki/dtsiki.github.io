@@ -1,8 +1,8 @@
 import React, { ReactElement, ReactNode, useMemo } from 'react';
 import classNames from 'classnames';
 
-import Hero from 'src/components/layout/Hero';
-import { HeroVariant } from 'src/components/layout/Hero/Hero';
+import { Hero } from 'src/components/layout/Hero/Hero';
+import { HeroVariant } from 'src/components/layout/Lang/Lang';
 import ExternalLink from 'src/components/common/ExternalLink';
 import Tag from 'src/components/common/Tag';
 import { TagVariant } from 'src/components/common/Tag/Tag';
@@ -23,17 +23,13 @@ const Details = ({ title, tags, description, demoLink, sourceLink }: Props): Rea
   const tagsList = useMemo(() => {
     return tags?.map((tag) => {
       return (
-        <li
-          key={tag}
-          className='list__item'>
-          <Tag
-            variant={TagVariant.DARK}
-            isOutlined>
+        <li key={tag} className='list__item'>
+          <Tag variant={TagVariant.DARK} isOutlined>
             {tag}
           </Tag>
         </li>
       );
-    })
+    });
   }, [tags]);
 
   return (
@@ -42,30 +38,20 @@ const Details = ({ title, tags, description, demoLink, sourceLink }: Props): Rea
         <div className='row'>
           <div className='col col--50 col--tablet-100'>
             <h3 className={styles.details__title}>{title}</h3>
-            <ul className={bind(['list inline', styles.details__tags])}>
-              {tagsList}
-            </ul>
+            <ul className={bind(['list inline', styles.details__tags])}>{tagsList}</ul>
           </div>
           <div className='col col--50 col--tablet-100'>
-            <p className={styles.details__description}>
-              {description}
-            </p>
+            <p className={styles.details__description}>{description}</p>
             {(demoLink || sourceLink) && (
               <ul className={styles.details__list}>
                 {demoLink && (
                   <li>
-                    <ExternalLink
-                      label='Demo'
-                      href={demoLink}
-                    />
+                    <ExternalLink label='Demo' href={demoLink} />
                   </li>
                 )}
                 {sourceLink && (
                   <li>
-                    <ExternalLink
-                      label='Source code'
-                      href={sourceLink}
-                    />
+                    <ExternalLink label='Source code' href={sourceLink} />
                   </li>
                 )}
               </ul>
@@ -74,7 +60,6 @@ const Details = ({ title, tags, description, demoLink, sourceLink }: Props): Rea
         </div>
       </div>
     </Hero>
-
   );
 };
 

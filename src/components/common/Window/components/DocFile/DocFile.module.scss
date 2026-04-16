@@ -1,0 +1,8 @@
+@import './../../../../../styles/vars';
+
+.doc_file {
+  &__pages {
+    padding: $SPACER * 2 $SPACER * 2 0 $SPACER * 2;
+    margin-bottom: $SPACER * 2;
+  }
+}

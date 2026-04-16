@@ -1,25 +1,25 @@
-import { ReactElement } from 'react';
 import classNames from 'classnames';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { MADE_WITH_YAY } from 'src/i18n';
+import { useTranslate } from 'src/hooks/useTranslate';
 
-import styles from './footer.module.scss';
+import styles from './Footer.module.scss';
 
-const Footer = (): ReactElement => {
+export const Footer = () => {
   const bind = classNames.bind(styles);
+  const { translate } = useTranslate();
 
   const links = [
     {
       name: 'github',
       icon: faGithub,
-      link: 'https://github.com/dtsiki'
-    }
+      link: 'https://github.com/dtsiki',
+    },
   ];
 
   const getCurrentYear = (): number => {
-    return new Date()
-      .getFullYear();
+    return new Date().getFullYear();
   };
 
   return (
@@ -28,8 +28,7 @@ const Footer = (): ReactElement => {
         <div className={styles.footer__inner}>
           <div className={styles.footer__section}>
             <div className={styles.footer__copyright}>
-              © {getCurrentYear()} Made with yay{' '}
-              <FontAwesomeIcon icon={faHeart} />
+              © {getCurrentYear()} {translate(MADE_WITH_YAY)}
             </div>
           </div>
           <div className={styles.footer__section}>
@@ -53,5 +52,3 @@ const Footer = (): ReactElement => {
     </footer>
   );
 };
-
-export default Footer;

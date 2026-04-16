@@ -15,11 +15,12 @@ export interface TranslationObject {
   en: string;
 }
 
-export function translate(
+export const translate = (
   language: EBlogPostLanguage,
   translation: TranslationObject,
   fallback: string = 'Перевод не найден!'
-): string {
+): string => {
   const langKey: LanguageKey = LANGUAGE_MAP[language];
+
   return translation[langKey] || fallback;
-}
+};

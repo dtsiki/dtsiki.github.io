@@ -1,56 +1,31 @@
-import { ReactElement } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy, faFile, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ascetic } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import classNames from 'classnames';
+import { ECodeExt, ECodeLang, ICodeProps } from './Code.types';
+import { CopyIcon } from '../icons/ui';
+import { useTranslate } from 'src/hooks/useTranslate';
+import { COPY_TO_CLIPBOARD } from 'src/i18n';
+import { CodingIcon, TextFileIcon, ClipboardMiniIcon } from '../icons/ui';
 
-import styles from './code.module.scss';
+import styles from './Code.module.scss';
 
-export enum CodeLanguage {
-  HTML = 'html',
-  CSS = 'css',
-  JAVASCRIPT = 'javascript',
-  TYPESCRIPT = 'typescript',
-  REACT = 'react',
-  SCSS = 'scss'
-}
+export const Code = (props: ICodeProps) => {
+  const {
+    name,
+    customName,
+    code,
+    language,
+    showOnlyCode = false,
+    showLineNumbers = true,
+    startingLineNumber,
+    isTerminal = false,
+    isNameUppercase = false,
+  } = props;
 
-export enum CodeExtension {
-  html = 'html',
-  css = 'css',
-  javascript = 'js',
-  typescript = 'ts',
-  react = 'tsx',
-  scss = 'scss'
-}
-
-interface Props {
-  name?: string;
-  customName?: string;
-  code: string;
-  language?: CodeLanguage;
-  showOnlyCode?: boolean;
-  showLineNumbers?: boolean;
-  startingLineNumber?: number;
-  isTerminal?: boolean;
-  isNameUppercase?: boolean;
-}
-
-const Code = ({
-  name,
-  customName,
-  code,
-  language,
-  showOnlyCode = false,
-  showLineNumbers = true,
-  startingLineNumber,
-  isTerminal = false,
-  isNameUppercase = true
-}: Props): ReactElement => {
   const bind = classNames.bind(styles);
+  const { translate } = useTranslate();
 
-  const copyToClipboard= (): void => {
+  const copyToClipboard = (): void => {
     navigator.clipboard.writeText(code);
   };
 
@@ -61,9 +36,9 @@ const Code = ({
           <div className={styles.code__actions}>
             <button
               className={styles.code__control}
-              onClick={copyToClipboard}>
-              <FontAwesomeIcon icon={faCopy} />
-              <span className='visually-hidden'>Copy to clipboard</span>
+              onClick={copyToClipboard}
+              aria-label={translate(COPY_TO_CLIPBOARD)}>
+              <CopyIcon />
             </button>
           </div>
           <SyntaxHighlighter
@@ -78,15 +53,20 @@ const Code = ({
         <div className={styles.code__wrapper}>
           <div className={styles.code__header}>
             <div className={bind([styles.code__name, { [styles.uppercase]: isNameUppercase }])}>
-              <FontAwesomeIcon icon={isTerminal ? faTerminal : faFile} />
-              {customName || (language && name) && `${name}.${CodeExtension[language]}`}
+              {isTerminal ? (
+                <CodingIcon useMini={true} className={styles.code__icon} />
+              ) : (
+                <TextFileIcon useMini={true} className={styles.code__icon} />
+              )}
+              {(language !== ECodeLang.BASH && customName) ||
+                (language && name && `${name}.${ECodeExt[language].toLocaleLowerCase()}`)}
             </div>
             <div className={styles.code__actions}>
               <button
                 className={styles.code__control}
-                onClick={copyToClipboard}>
-                <FontAwesomeIcon icon={faCopy} />
-                <span className='visually-hidden'>Copy to clipboard</span>
+                onClick={copyToClipboard}
+                aria-label={translate(COPY_TO_CLIPBOARD)}>
+                <ClipboardMiniIcon />
               </button>
             </div>
           </div>
@@ -103,5 +83,3 @@ const Code = ({
     </div>
   );
 };
-
-export default Code;

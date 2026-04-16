@@ -1,0 +1,17 @@
+@import './../styles/colors';
+@import './../styles/breakpoints';
+
+.home {
+  position: relative;
+
+  &__hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background-repeat: repeat;
+    background-image: url('./../../public/assets/patterns/grid.svg');
+  }
+}

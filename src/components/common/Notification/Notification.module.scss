@@ -1,0 +1,16 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.notification {
+  min-width: 300px;
+  padding: $SPACER $SPACER * 2;
+  background: rgba($color--white-yellow, 0.6);
+  border-radius: $BORDER_RADIUS;
+  border: 1px solid $color--yellow;
+  color: $color--black;
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: $SPACER / 4;
+  }
+}

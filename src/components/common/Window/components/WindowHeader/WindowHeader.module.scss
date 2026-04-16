@@ -1,0 +1,159 @@
+@import './../../../../../styles/colors';
+@import './../../../../../styles/vars';
+
+$HEADER_HEIGHT: 32px;
+
+.window_header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //border-top-left-radius: $BORDER_RADIUS;
+  //border-top-right-radius: $BORDER_RADIUS;
+  //border: 2px solid $color--violet;
+  border-bottom: 2px solid $color--violet;
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      margin: 0 !important;
+    }
+  }
+
+  &__decoration {
+    position: absolute;
+    left: $SPACER / 2;
+    display: flex;
+    gap: 3px;
+
+    &_icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+
+      &:nth-child(1) {
+        color: $color--violet;
+      }
+
+      &:nth-child(2) {
+        color: rgba($color--violet, 0.6);
+      }
+
+      &:nth-child(3) {
+        color: rgba($color--violet, 0.2);
+      }
+    }
+  }
+
+  &__heading {
+    height: $HEADER_HEIGHT;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    color: $color--violet;
+    font-family: Pixelify;
+  }
+
+  &__title_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__title {
+    font-size: 22px;
+    line-height: 16px;
+
+    &.LOADER {
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    &.hasFile {
+      &::after {
+        content: ' - ';
+      }
+    }
+  }
+
+  &__fileTitle {
+    font-size: 18px;
+    line-height: 16px;
+
+    &::before {
+      content: '[';
+    }
+
+    &::after {
+      content: ']';
+    }
+  }
+
+  &__actions {
+    display: flex;
+    box-sizing: border-box;
+  }
+
+  &__control {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-color: rgba($color--grey, 0.2);
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: $HEADER_HEIGHT;
+    width: $HEADER_HEIGHT;
+    transition: 0.5s all;
+    font-family: Pixelify;
+
+    &_icon {
+      &.CLOSE {
+        //transform: rotate(45deg);
+        width: 14px;
+        height: 14px;
+      }
+
+      &.MAXIMIZE {
+        width: 14px;
+        height: 14px;
+      }
+
+      &.MINIMIZE {
+        //width: 16px;
+        //height: 16px;
+      }
+    }
+
+    &:first-child {
+      border-left: 2px solid $color--violet;
+    }
+
+    + .window_header__control {
+      border-left: 2px solid $color--violet;
+    }
+
+    svg {
+      color: $color--violet;
+      transition: 0.5s all;
+      width: 12px;
+      height: 12px;
+    }
+
+    &:hover {
+      svg {
+        color: $color--black;
+      }
+    }
+  }
+}

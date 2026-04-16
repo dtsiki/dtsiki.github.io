@@ -1,5 +1,6 @@
 @import './../../../../styles/colors';
 @import './../../../../styles/breakpoints';
+@import './../../../../styles/vars';
 
 .post {
   @include md {
@@ -29,10 +30,10 @@
     display: flex;
     justify-content: flex-start;
     opacity: 0.5;
-    margin-bottom: 30px;
+    margin-bottom: $SPACER * 2;
 
     @include md {
-      margin-bottom: 60;
+      margin-bottom: $SPACER * 4;
     }
   }
 
@@ -46,7 +47,7 @@
   }
 
   &__highlight {
-    margin-top: 30px;
+    margin-top: $SPACER;
     color: $color--black;
   }
 
@@ -58,7 +59,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 60px;
+    margin-bottom: $SPACER * 3;
     display: none;
   }
 
@@ -72,7 +73,7 @@
 
     &.back {
       svg {
-        margin-right: 10px;
+        margin-right: $SPACER / 2;
       }
     }
 
@@ -80,7 +81,7 @@
       text-align: right;
 
       svg {
-        margin-left: 10px;
+        margin-left: $SPACER / 2;
       }
     }
   }
@@ -92,13 +93,13 @@
   h2 {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: $SPACER / 2;
     font-weight: 500;
   }
 
   p {
     line-height: 1.5rem;
-    margin: 15px 0;
+    margin: $SPACER 0;
 
     &:last-child {
       margin-bottom: 0;
@@ -106,10 +107,10 @@
   }
 
   section {
-    margin-bottom: 60px;
+    margin-bottom: $SPACER * 3;
 
     @include md {
-      margin-bottom: 120px;
+      margin-bottom: $SPACER * 6;
     }
 
     &:last-child {
@@ -117,10 +118,10 @@
     }
   }
 
-  ul, ol {
-    margin-bottom: 30px;
+  ul,
+  ol {
+    margin-bottom: $SPACER * 2;
   }
-
 
   &__tags {
     display: flex;
@@ -136,7 +137,7 @@
     color: $color--violet;
 
     + .post__tag {
-      margin-left: 10px;
+      margin-left: $SPACER / 2;
     }
   }
 

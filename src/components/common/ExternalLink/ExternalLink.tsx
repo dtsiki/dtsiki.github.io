@@ -1,28 +1,17 @@
 import React, { ReactElement } from 'react';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { IExternalLinkProps } from './ExternalLink.types';
+import { ShareIcon } from '../icons/ui';
 
-import styles from './external-link.module.scss';
+import styles from './ExternalLink.module.scss';
 
-interface Props {
-  href: string;
-  label:  string;
-}
-
-const ExternalLink = ({ href, label }: Props): ReactElement => {
+const ExternalLink = ({ href, label }: IExternalLinkProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
-    <a
-      href={href}
-      target='_blank'
-      rel='noopener noreferrer'
-      className={bind(['link', styles.externalLink])}>
+    <a href={href} target='_blank' rel='noopener noreferrer' className={bind(['link', styles.external_link])}>
       {label}
-      <span className={styles.externalLink__icon}>
-        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-      </span>
+      <ShareIcon className={styles.external_link__icon} />
     </a>
   );
 };

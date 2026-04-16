@@ -1,0 +1,132 @@
+@import './../../../../../../styles/colors';
+@import './../../../../../../styles/breakpoints';
+
+$BORDER_WIDTH: 4px;
+
+.hero {
+  width: 100%;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $SPACER / 2;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $SPACER / 2 $SPACER * 2;
+    border-radius: 50px;
+    font-size: 32px;
+
+    &.LOWERCASE {
+      text-transform: lowercase;
+    }
+
+    &.UPPERCASE {
+      text-transform: uppercase;
+    }
+
+    &.ITALIC {
+      font-style: italic;
+    }
+
+    &.BOLD {
+      font-weight: 600;
+    }
+
+    &.VIOLET_FILLED {
+      background: $color--violet;
+      color: $color--white;
+    }
+
+    &.VIOLET_BORDERED {
+      background: transparent;
+      color: $color--violet;
+      border: $BORDER_WIDTH solid $color--violet;
+    }
+
+    &.BLACK_FILLED {
+      background: $color--black;
+      color: $color--white;
+    }
+
+    &.BLACK_BORDERED {
+      background: transparent;
+      color: $color--black;
+      border: $BORDER_WIDTH solid $color--black;
+    }
+
+    &.GREY_FILLED {
+      background: $color--grey;
+      color: $color--black;
+    }
+
+    &.GREY_BORDERED {
+      background: transparent;
+      color: $color--grey;
+      border: $BORDER_WIDTH solid $color--grey;
+    }
+
+    &.YELLOW_FILLED {
+      background: $color--yellow;
+      color: $color--white;
+    }
+
+    &.YELLOW_BORDERED {
+      background: transparent;
+      color: $color--yellow;
+      border: $BORDER_WIDTH solid $color--yellow;
+    }
+
+    &:first-child {
+      transform: rotate(-25deg);
+      width: 200px;
+      letter-spacing: 0.1em;
+    }
+
+    &:nth-child(2) {
+      transform: scale(0.8) rotate(2deg);
+    }
+
+    &:nth-child(3) {
+      transform: scale(1.2) rotate(15deg);
+      margin-bottom: -10px;
+    }
+
+    &:nth-child(5) {
+      transform: rotate(-10deg);
+      margin-top: -10px;
+    }
+
+    &:nth-child(6) {
+      transform: rotate(-10deg);
+      margin-top: -10px;
+    }
+
+    &:nth-child(7) {
+      transform: rotate(6deg) scale(0.9);
+      //margin-top: -10px;
+    }
+
+    &:nth-child(8) {
+      margin-bottom: -22px;
+      transform: rotate(-11deg) scale(1.1);
+    }
+
+    &:nth-child(9) {
+      transform: rotate(5deg);
+      margin-left: 20px;
+      margin-top: -15px;
+    }
+
+    &:nth-child(10) {
+      margin-top: -10px;
+      margin-left: -25px;
+      transform: rotate(10deg) scale(0.7);
+    }
+  }
+}

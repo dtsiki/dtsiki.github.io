@@ -1,0 +1,34 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
+@import './../../../styles/theme';
+
+.loader {
+  width: 400px;
+
+  &__wrapper {
+    padding: $SPACER * 4 $SPACER * 2 $SPACER * 1.5;
+  }
+
+  &__bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    //border: 1px solid $color--white-violet;
+    @include step1(2px, $color--violet);
+
+    //border-radius: $BORDER_RADIUS;
+    box-sizing: border-box;
+  }
+
+  &__progress {
+    position: absolute;
+    left: 3px;
+    height: 10px;
+    width: 25%;
+    background: $color--violet;
+    border-radius: 1px;
+    animation: slide 2s linear infinite;
+  }
+}

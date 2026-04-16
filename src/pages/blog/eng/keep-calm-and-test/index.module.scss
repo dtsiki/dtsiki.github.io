@@ -1,0 +1,15 @@
+@import './../../../../styles/colors';
+
+.post {
+  position: relative;
+
+  &__anchor {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: $color--violet;
+  }
+}

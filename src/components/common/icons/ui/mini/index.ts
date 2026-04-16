@@ -1,6 +1,5 @@
 export * from './Alert';
 export * from './Brush';
-export * from './Calendar';
 export * from './ChevronDown';
 export * from './Clipboard';
 export * from './Cut';

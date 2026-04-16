@@ -1,4 +1,5 @@
 @import './breakpoints';
+@import './vars';
 
 .heading {
   &-l1 {
@@ -39,5 +40,57 @@
     + .heading-l4 {
       margin-top: $spacer / 2;
     }
+  }
+}
+
+.heading {
+  font-family: $BASE_FONT;
+
+  &.h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+  }
+
+  &.h2 {
+    font-size: 4rem;
+    font-weight: 600;
+  }
+
+  &.h3 {
+    font-size: 3.5rem;
+    font-weight: 500;
+  }
+
+  &.h4 {
+    font-size: 3rem;
+  }
+
+  &.h5 {
+    font-size: 2.5rem;
+  }
+
+  &.h6 {
+    font-size: 2rem;
+  }
+}
+
+.text {
+  line-height: 1.5rem;
+  margin: $SPACER 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.section {
+  margin-bottom: $SPACER * 3;
+
+  @include md {
+    margin-bottom: $SPACER * 6;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }

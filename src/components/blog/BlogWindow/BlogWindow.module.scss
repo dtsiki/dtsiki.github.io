@@ -1,0 +1,231 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/breakpoints';
+@import './../../../styles/keyframes';
+@import './../../../styles/theme';
+
+.blog_window {
+  position: relative;
+  @include step1(2px, $color--grey);
+
+  &.focused {
+    @include step1(2px, $color--violet);
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    background: $color--white-darker;
+    overflow: hidden;
+    box-shadow: 5px 5px 0 0 $color--grey;
+
+    &.focused {
+      box-shadow: 5px 5px 0 0 $color--violet;
+    }
+
+    &.minimized {
+      // border: 5px solid red;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color--white-darker, 0.75);
+    z-index: 1;
+    border-radius: $BORDER_RADIUS;
+    z-index: 999;
+
+    &.focused {
+      display: none;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2px solid $color--violet;
+  }
+
+  &__header_decoration {
+    position: absolute;
+    left: $SPACER;
+    display: flex;
+
+    span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+
+      &:nth-child(1) {
+        background: $color--violet;
+      }
+
+      &:nth-child(2) {
+        background: rgba($color--violet, 0.6);
+      }
+
+      &:nth-child(3) {
+        background: $color--white-violet;
+      }
+
+      + span {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &__heading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    color: $color--violet;
+    height: 30px;
+
+    svg {
+      margin-right: 10px;
+      color: $color--violet;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: Pixelify;
+
+    &.hasFile {
+      &::after {
+        content: ' - ';
+      }
+    }
+  }
+
+  &__fileTitle {
+    margin-left: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    &::before {
+      content: '[';
+    }
+
+    &::after {
+      content: ']';
+    }
+  }
+
+  &__actions {
+    display: flex;
+    box-sizing: border-box;
+  }
+
+  &__body {
+    position: relative;
+    //border: 2px solid $color--violet;
+    border-top: 0;
+    padding: 0;
+    background: $color--white-darker;
+  }
+
+  &__control {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-color: rgba($color--grey, 0.2);
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    transition: 0.5s all;
+
+    &:first-child {
+      border-left: 2px solid $color--violet;
+    }
+
+    + .blog_window__control {
+      border-left: 2px solid $color--violet;
+    }
+
+    svg {
+      color: $color--violet;
+      transition: 0.5s all;
+      width: 12px;
+      height: 12px;
+    }
+
+    &:hover {
+      svg {
+        color: $color--black;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 100;
+  }
+
+  &__menu {
+    display: flex;
+    margin: 0;
+    padding: 10px 25px;
+    list-style: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba($color--black, 0.4);
+    background: rgba($color--white-violet, 0.5);
+    //border-left: 2px solid $color--violet;
+    //border-right: 2px solid $color--violet;
+    font-family: Pixelify;
+
+    li {
+      transition: 0.5s all;
+      cursor: pointer;
+      font-size: 12px;
+
+      &::first-letter {
+        text-decoration: underline;
+      }
+
+      &:hover {
+        color: rgba($color--black, 0.6);
+      }
+
+      + li {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    bottom: 0;
+    background: $color--grey-lighter;
+    font-family: Pixelify;
+
+    &_text {
+      color: $color--grey-dark;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+}

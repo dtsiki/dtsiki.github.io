@@ -1,0 +1,33 @@
+@import './../../../../../styles/colors';
+@import './../../../../../styles/vars';
+
+$HEADER_HEIGHT: 32px;
+
+.window_fake_menu {
+  &__wrapper {
+    display: flex;
+    margin: 0;
+    padding: $SPACER / 2;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba($color--black, 0.4);
+    background: rgba($color--white-violet, 0.5);
+    font-family: Pixelify;
+  }
+
+  &__item {
+    margin: 0 $SPACER / 6;
+    transition: 0.5s all;
+    font-size: 12px;
+
+    &::first-letter {
+      text-decoration: underline;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

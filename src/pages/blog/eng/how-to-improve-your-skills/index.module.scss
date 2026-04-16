@@ -1,0 +1,21 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/vars';
+
+.post {
+  position: relative;
+
+  &__label {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-left: 15px;
+
+    &::marker {
+      color: $color--grey-darker;
+    }
+  }
+
+  &__dictionary {
+    padding: $SPACER * 2 0;
+  }
+}

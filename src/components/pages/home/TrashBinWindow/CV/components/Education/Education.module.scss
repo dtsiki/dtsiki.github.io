@@ -1,0 +1,51 @@
+@import './../../../../../../../styles/colors';
+@import './../../../../../../../styles/vars';
+
+.education {
+  margin-top: $SPACER * 2;
+
+  &__title {
+    font-size: 20px;
+    margin-bottom: $SPACER / 2;
+    color: $color--violet;
+  }
+
+  &__list {
+    margin-left: $SPACER;
+  }
+
+  &__program {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba($color--black, 0.8);
+    font-weight: 500;
+    margin-bottom: $SPACER / 2;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__item {
+    margin-bottom: $SPACER / 2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba($color--black, 0.8);
+  }
+
+  &__footer {
+    color: $color--grey-darker;
+    text-transform: lowercase;
+  }
+
+  &__company_name {
+    color: $color--grey-dark;
+  }
+}

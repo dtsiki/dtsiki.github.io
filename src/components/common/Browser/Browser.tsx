@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMaximize, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faFirefox } from '@fortawesome/free-brands-svg-icons';
 
-import CustomScrollbar from '../CustomScrollbar';
+import { CustomScrollbar } from '../CustomScrollbar';
 
 import styles from './browser.module.scss';
 
@@ -21,11 +21,7 @@ const Browser = ({ name, children, hasScroll = true }: Props): ReactElement => {
           <span className={styles.browser__icon}>
             <FontAwesomeIcon icon={faFirefox} />
           </span>
-          {name && (
-            <div className={styles.browser__name}>
-              {name}
-            </div>
-          )}
+          {name && <div className={styles.browser__name}>{name}</div>}
         </div>
         <div className={styles.browser__actions}>
           <span className={styles.browser__control}>
@@ -42,14 +38,10 @@ const Browser = ({ name, children, hasScroll = true }: Props): ReactElement => {
       <div className={styles.browser__body}>
         {hasScroll ? (
           <CustomScrollbar>
-            <div className={styles.browser__content}>
-              {children}
-            </div>
+            <div className={styles.browser__content}>{children}</div>
           </CustomScrollbar>
         ) : (
-          <div className={styles.browser__content}>
-            {children}
-          </div>
+          <div className={styles.browser__content}>{children}</div>
         )}
       </div>
     </div>

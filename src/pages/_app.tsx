@@ -6,9 +6,11 @@ import { YMInitializer } from 'react-yandex-metrika';
 import { StoreContext } from 'storeon/react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-
+import { WindowManagerProvider } from 'src/context/WindowManager/WindowManagerProvider';
+import { LanguageProvider } from 'src/context/LanguageContext/LanguageProvider';
+import { NotificationsProvider } from 'src/context/NotificationsContext/NotificationsProvider';
+import { Layout } from 'src/components/layout/Layout/Layout';
 import { store } from 'src/store';
-import Layout from 'src/components/layout/Layout';
 
 import '../styles/index.scss';
 
@@ -25,15 +27,21 @@ const App = ({ Component, pageProps }: AppProps): ReactElement => {
 
   return (
     <StoreContext.Provider value={store}>
-      <Layout>
-        <Head>
-          <title>{title}</title>
-        </Head>
-        <YMInitializer accounts={[89335351]} />
-        <DndProvider backend={HTML5Backend}>
-          <Component {...pageProps} />
-        </DndProvider>
-      </Layout>
+      <WindowManagerProvider>
+        <LanguageProvider>
+          <NotificationsProvider>
+            <DndProvider backend={HTML5Backend}>
+              <Layout>
+                <Head>
+                  <title>{title}</title>
+                </Head>
+                <YMInitializer accounts={[89335351]} />
+                <Component {...pageProps} />
+              </Layout>
+            </DndProvider>
+          </NotificationsProvider>
+        </LanguageProvider>
+      </WindowManagerProvider>
     </StoreContext.Provider>
   );
 };

@@ -1,0 +1,63 @@
+@import './../../../../../../styles/colors';
+@import './../../../../../../styles/breakpoints';
+@import './../../../../../../styles/vars';
+
+.drag_and_drop_demo {
+  padding: $SPACER * 2;
+
+  &__title {
+    padding: 10px;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $color--grey-dark;
+    text-transform: uppercase;
+    border: 2px solid $color--grey;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $color--black;
+    text-align: center;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    gap: $SPACER;
+  }
+
+  &__column {
+    width: 100%;
+    margin-bottom: 15px;
+    box-shadow: 4px 4px 0 0 $color--grey;
+    background: rgba($color--white-pink, 0.2);
+
+    min-width: 280px;
+
+    + .drag_and_drop__column {
+      margin-left: 15px;
+    }
+  }
+
+  &__footer {
+    margin-top: 30px;
+  }
+
+  &__stack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background: $color--grey-lighter;
+    border-radius: $BORDER_RADIUS;
+  }
+}

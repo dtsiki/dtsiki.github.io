@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
-import Image,  { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -7,7 +7,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 import Window from 'src/components/common/Window';
 import { WindowType } from 'src/components/common/Window/Window';
-import Hero from 'src/components/layout/Hero';
+import { Hero } from 'src/components/layout/Hero/Hero';
 
 import styles from './project.module.scss';
 
@@ -24,8 +24,7 @@ const Project = ({ name, preview, description, tags, demoLink, repoLink }: Props
   const bind = classNames.bind(styles);
 
   const getFileTitle = (): string => {
-    return `${name.toLocaleLowerCase()
-      .replace(' ', '-')}.jpg`;
+    return `${name.toLocaleLowerCase().replace(' ', '-')}.jpg`;
   };
 
   return (
@@ -34,29 +33,18 @@ const Project = ({ name, preview, description, tags, demoLink, repoLink }: Props
         <div className='container'>
           <div className='row row--centered'>
             <div className='col col--40'>
-              <Window
-                type={WindowType.IMAGE}
-                fileTitle={getFileTitle()}>
-                <Image
-                  src={preview}
-                  layout='responsive'
-                  alt={`An interface of ${name} application`} />
+              <Window type={WindowType.IMAGE} fileTitle={getFileTitle()}>
+                <Image src={preview} layout='responsive' alt={`An interface of ${name} application`} />
               </Window>
             </div>
             <div className='col col--60'>
               <div className={styles.project__heading}>
                 <div className={styles.project__details}>
-                  <h3 className={styles.project__name}>
-                    {name}
-                  </h3>
+                  <h3 className={styles.project__name}>{name}</h3>
                   <ul className={bind(['list inline', styles.project__tags])}>
                     {tags?.map((tag) => (
-                      <li
-                        key={tag}
-                        className='list__item'>
-                        <div className={styles.project__tag}>
-                          {tag}
-                        </div>
+                      <li key={tag} className='list__item'>
+                        <div className={styles.project__tag}>{tag}</div>
                       </li>
                     ))}
                   </ul>
@@ -65,11 +53,7 @@ const Project = ({ name, preview, description, tags, demoLink, repoLink }: Props
                   <ul className={styles.project__actions}>
                     {demoLink && (
                       <li>
-                        <a
-                          href={demoLink}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className={styles.project__link}>
+                        <a href={demoLink} target='_blank' rel='noopener noreferrer' className={styles.project__link}>
                           <span className='visually-hidden'>Open demo</span>
                           <FontAwesomeIcon icon={faPlay} />
                         </a>
@@ -77,11 +61,7 @@ const Project = ({ name, preview, description, tags, demoLink, repoLink }: Props
                     )}
                     {repoLink && (
                       <li>
-                        <a
-                          href={repoLink}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className={styles.project__link}>
+                        <a href={repoLink} target='_blank' rel='noopener noreferrer' className={styles.project__link}>
                           <span className='visually-hidden'>Open source</span>
                           <FontAwesomeIcon icon={faGithub} />
                         </a>
@@ -90,9 +70,7 @@ const Project = ({ name, preview, description, tags, demoLink, repoLink }: Props
                   </ul>
                 )}
               </div>
-              <p className={styles.project__description}>
-                {description}
-              </p>
+              <p className={styles.project__description}>{description}</p>
             </div>
           </div>
         </div>

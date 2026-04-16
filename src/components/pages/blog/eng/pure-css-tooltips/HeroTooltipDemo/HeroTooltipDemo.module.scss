@@ -1,0 +1,16 @@
+@import './../../../../../../styles/colors';
+@import './../../../../../../styles/vars';
+@import './../../../../../../styles/breakpoints';
+
+.hero_tooltip_demo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $color--black;
+  text-align: center;
+  padding: $SPACER * 2 0;
+
+  @include sm {
+    padding: $SPACER * 4 0;
+    font-size: 4rem;
+  }
+}

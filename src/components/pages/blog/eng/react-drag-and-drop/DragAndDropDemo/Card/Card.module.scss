@@ -1,0 +1,36 @@
+@import '../../../../../../../styles/colors';
+@import '../../../../../../../styles/vars';
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  padding: $SPACER;
+  margin: $SPACER / 2;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  background: $color--violet;
+  color: $color--white;
+  cursor: grab;
+  border-top: 20px solid $color--violet-darker;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+  width: 220px;
+
+  &.grabbing {
+    cursor: grabbing;
+  }
+
+  &.PRIMARY {
+    background: rgba($color--violet, 1);
+  }
+
+  &.SECONDARY {
+    background: rgba($color--violet, 0.8);
+  }
+
+  &.TERTIARY {
+    background: rgba($color--violet, 0.6);
+  }
+}

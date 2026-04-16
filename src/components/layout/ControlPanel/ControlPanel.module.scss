@@ -1,0 +1,227 @@
+@import './../../../styles/colors';
+@import './../../../styles/breakpoints';
+@import './../../../styles/vars';
+@import './../../../styles/theme';
+
+$PANEL_HEIGHT: 60px;
+
+.control_panel {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba($color--violet, 0.9);
+  //border-top: 2px solid rgba($color--violet, 1);
+  backdrop-filter: blur(2px);
+  // font-family: $font--base;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $PANEL_HEIGHT;
+    // overflow: hidden;
+  }
+
+  &__section {
+    display: flex;
+    align-items: center;
+  }
+
+  &__control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    color: $color--violet;
+    height: $PANEL_HEIGHT;
+    padding: 0 $SPACER;
+
+    &.HOME {
+      // width: 200px;
+      width: 90px;
+      padding: 0;
+      text-align: center;
+      background: $color--violet-darker;
+      color: $color--white;
+
+      /*
+      font-family: Musinka;
+      font-size: 30px;
+      */
+      font-family: Pixelify;
+      font-size: 18px;
+      text-transform: lowercase;
+
+      //text-transform: uppercase;
+      // font-weight: 600;
+
+      font-weight: 400;
+      line-height: $PANEL_HEIGHT;
+      //border-right: 2px solid $color--violet;
+      transition: $COMMON_TRANSITION;
+
+      &:hover {
+        background-color: $color--violet-dark;
+      }
+
+      svg {
+        //display: none;
+        width: 32px;
+        height: 32px;
+        //margin-right: $SPACER / 2;
+      }
+    }
+
+    &.LANG {
+      width: 70px;
+      /*font-size: 30px;
+      font-family: Musinka;
+      */
+      font-family: Pixelify;
+      font-size: 20px;
+      //font-weight: 600;
+      color: $color--white;
+
+      line-height: $PANEL_HEIGHT;
+      transition: $COMMON_TRANSITION;
+
+      //border-right: 2px solid $color--violet;
+      //border-left: 2px solid $color--violet;
+
+      &:hover {
+        background-color: $color--violet-dark;
+      }
+    }
+
+    &.WI_FI {
+      display: inline-flex;
+      align-items: center;
+      width: 50px;
+      padding: 0;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: $color--white;
+      }
+      //border-right: 2px solid $color--violet;
+    }
+  }
+
+  &__control_icon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: $SPACER / 2;
+  }
+
+  &__windows {
+    display: flex;
+    align-items: center;
+    gap: $SPACER / 1.5;
+    margin: 0 $SPACER / 1.5;
+  }
+
+  &__window {
+    //min-width: 250px;
+
+    &_button {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      height: calc($PANEL_HEIGHT - $SPACER);
+      //border: 2px solid $color--violet;
+      border: 0;
+      @include step1(2px, $color--white);
+      color: $color--white;
+      background: rgba($color--violet-darker, 0.3);
+      opacity: 0.6;
+      //border-radius: 5px;
+      margin: 0;
+      padding: 0 $SPACER;
+      cursor: pointer;
+      text-align: left;
+      font-size: 20px;
+      line-height: 16px;
+      font-family: Pixelify;
+      transition: $COMMON_TRANSITION;
+      //font-weight: 500;
+      //font-weight: 500;
+      //text-transform: uppercase;
+
+      &:hover {
+        opacity: 0.8;
+        background: rgba($color--violet-darker, 0.6);
+      }
+
+      svg {
+        margin-right: $SPACER / 4;
+      }
+
+      &.focused {
+        //border: 2px solid $color--violet;
+        @include step1(2px, $color--white);
+
+        color: $color--white;
+        opacity: 1;
+        font-weight: 500;
+        background: rgba($color--violet-darker, 0.6);
+
+        &:hover {
+          opacity: 1;
+          background: rgba($color--violet-darker, 0.9);
+        }
+      }
+    }
+  }
+
+  &__system_controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color--violet-lighter;
+    // gap: $SPACER / 2;
+
+    /*
+    &::before {
+      content: '';
+      display: block;
+      width: 2px;
+      border-left: 2px solid $color--violet;
+      height: 40px;
+      margin: 0 $SPACER / 4;
+      border-radius: $BORDER_RADIUS;
+    }
+      */
+  }
+
+  &__time {
+  }
+
+  &__notifications {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $color--white;
+    height: $PANEL_HEIGHT;
+    padding: 0 $SPACER;
+    width: 70px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

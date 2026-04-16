@@ -2,30 +2,53 @@
 @import './../styles/breakpoints';
 
 .custom404 {
+  font-family: Pixelify;
+  text-transform: uppercase;
+
+  &__wrapper {
+    max-width: 400px;
+  }
+
   &__title {
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: $color--white;
     font-weight: 700;
+    margin-bottom: $SPACER / 2;
   }
 
-  &__subtitle {
-    display: flex;
-    align-items: center;
-    font-size: 10rem;
-    color: rgba($color--white, 0.9);
-    font-weight: 700;
+  &__error {
+    width: fit-content;
+    padding: $SPACER / 2;
+    margin-bottom: $SPACER;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: $color--white;
+    color: $color--violet;
     cursor: default;
-
-    svg {
-      margin: 0 10px;
-    }
   }
 
-  &__footer {
-    margin-top: $spacer * 2;
+  &__text {
+    margin-bottom: $SPACER / 2;
+    color: $color--white;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 
-    svg {
-      margin-right: $spacer;
+  &__link {
+    font-size: 1.2rem;
+    color: $color--white;
+    border-bottom: 2px solid $color--white;
+  }
+
+  &__divider {
+    color: $color--white;
+    font-size: 20px;
+    font-weight: 600;
+    margin: $SPACER / 2 0;
+
+    &::before {
+      display: inline;
+      content: '///////////////////////////////////';
     }
   }
 }

@@ -1,4 +1,5 @@
-$font--base: 'Montserrat', Arial, sans-serif;
+$font--base: 'Inter', Arial, sans-serif;
+$font--base-blog: 'Inter', Arial, sans-serif;
 
 $grid-spacer: 20px;
 
@@ -8,7 +9,25 @@ $width--lg-min: 1024px;
 
 $menu-index: 10000;
 $menu-toggle-index: 10001;
-$progress-scroll-index: 1002;
+
+$TOP_SCROLL_BAR_INDEX: 999;
+$DND_DROP_AREA_INDEX: 998;
+$INITIAL_WINDOW_INDEX: 1000;
+
 $sidebar-index: 1003;
 
 $spacer: 15px;
+
+$SPACER: 20px;
+
+$BORDER_RADIUS: 5px;
+
+$PAGE_WIDTH: 700px;
+$A4_RATIO: 1.414;
+
+$BREAKPOINT_MOBILE: 576px;
+$BREAKPOINT_TABLET: 768px;
+$BREAKPOINT_DESKTOP: 1024px;
+$BASE_FONT: 'Inter', Arial, sans-serif;
+
+$COMMON_TRANSITION: 0.5s ease-in-out all;

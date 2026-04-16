@@ -32,19 +32,18 @@ const PostLayout = ({
   nextLink,
   nextLinkLabel,
   tags,
-  isWorkInProgress }: Props): ReactElement => {
+  isWorkInProgress,
+}: Props): ReactElement => {
   const bind = classNames.bind(styles);
 
   const renderTags = useMemo(() => {
     return tags?.map((tag) => {
       return (
-        <li
-          key={tag}
-          className={styles.post__tag}>
+        <li key={tag} className={styles.post__tag}>
           {tag}
         </li>
-      )
-    })
+      );
+    });
   }, [tags]);
 
   return (
@@ -54,14 +53,10 @@ const PostLayout = ({
         description={metaDescription}
         additionalMetaTags={[{ name: 'keywords', content: metaTags }]}
       />
-      <div className={styles.post}>
+      <article className={styles.post}>
         <div className='container'>
           <div className={styles.post__header}>
-            {tags?.length && (
-              <ul className={styles.post__tags}>
-                {renderTags}
-              </ul>
-            )}
+            {tags?.length && <ul className={styles.post__tags}>{renderTags}</ul>}
             <h1 className={styles.post__title}>
               {title}
               {isWorkInProgress && (
@@ -72,29 +67,19 @@ const PostLayout = ({
                   <span className={bind([styles.post__icon, styles.icon])}>
                     <FontAwesomeIcon icon={faPersonDigging} />
                   </span>
-                  <span className='visually-hidden'>
-                    Work in progress
-                  </span>
+                  <span className='visually-hidden'>Work in progress</span>
                 </span>
               )}
             </h1>
           </div>
           <div className={styles.post__info}>
             <div className={styles.post__details}>
-              <div className={styles.post__category}>
-                {category}
-              </div>
-              <div className={styles.post__date}>
-                {date}
-              </div>
+              <div className={styles.post__category}>{category}</div>
+              <div className={styles.post__date}>{date}</div>
             </div>
-            <p className={styles.post__highlight}>
-              {highlight}
-            </p>
+            <p className={styles.post__highlight}>{highlight}</p>
           </div>
-          <div className={styles.post__content}>
-            {children}
-          </div>
+          <div className={styles.post__content}>{children}</div>
           <div className={styles.post__footer}>
             <Link href='/blog'>
               <a className={bind(['link', styles.post__link, styles.back])}>
@@ -113,7 +98,7 @@ const PostLayout = ({
             )}
           </div>
         </div>
-      </div>
+      </article>
     </>
   );
 };

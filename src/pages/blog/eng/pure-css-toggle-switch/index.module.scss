@@ -1,0 +1,84 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/breakpoints';
+@import './../../../../styles/vars';
+
+$TOGGLE_WIDTH: 24px;
+$TOGGLE_GAP: 4px;
+
+.post {
+  position: relative;
+
+  &__toggle_switch_without_ball {
+    display: inline-block;
+    background: $color--grey;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+  }
+
+  &__toggle_switch_with_before {
+    position: relative;
+    display: inline-block;
+    background: $color--grey;
+    width: $TOGGLE_WIDTH * 2 + ($TOGGLE_GAP * 2);
+    height: $TOGGLE_WIDTH + ($TOGGLE_GAP * 2);
+    border-radius: $TOGGLE_WIDTH + ($TOGGLE_GAP * 2);
+    transition: background 0.25s;
+
+    &:before {
+      position: absolute;
+      top: $TOGGLE_GAP;
+      left: $TOGGLE_GAP;
+      width: $TOGGLE_WIDTH;
+      height: $TOGGLE_WIDTH;
+      content: '';
+      background: $color--white;
+      border-radius: 50%;
+      transition: left 0.25s;
+    }
+  }
+
+  &__dimensions {
+    align-items: flex-end;
+    margin: $SPACER * 2 0;
+  }
+
+  &__demo {
+    padding: $SPACER * 2;
+    text-align: center;
+  }
+
+  &__gallery {
+    position: relative;
+    height: 600px;
+    transform: scale(0.8);
+  }
+
+  &__image {
+    position: absolute;
+
+    &.KEYBOARD_SWITCH {
+      top: 70px;
+      left: 0;
+      z-index: 8;
+      width: 400px;
+    }
+
+    &.ELECTRICAL_TOGGLE {
+      left: calc(50% - 200px);
+      bottom: 0px;
+      z-index: 10;
+      width: 420px;
+    }
+
+    &.LIGHT_SWITCH {
+      top: 0px;
+      right: 0;
+      z-index: 9;
+      width: 350px;
+    }
+  }
+}

@@ -1,22 +1,13 @@
-import React, { ReactElement } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { HandHeartIcon } from '../icons/ui';
 
-import styles from './thanks.module.scss';
+import styles from './Thanks.module.scss';
 
-const Thanks = (): ReactElement => {
+export const Thanks = () => {
   return (
-    <div className={styles.thanks}>
-      <div className='container'>
-        <span className={styles.thanks__heart}>
-          <FontAwesomeIcon icon={faHeart} />
-        </span>
-        <p className='heading-l3'>
-          Thanks for reading!
-        </p>
+    <div className='section'>
+      <div className={styles.thanks}>
+        <HandHeartIcon className={styles.thanks__icon} />
       </div>
     </div>
   );
 };
-
-export default Thanks;

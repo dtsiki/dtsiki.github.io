@@ -1,7 +1,7 @@
 import React, { ReactElement, useMemo } from 'react';
 import { nanoid } from 'nanoid';
 
-import Hero from 'src/components/layout/Hero';
+import { Hero } from 'src/components/layout/Hero/Hero';
 
 import styles from './commercial.module.scss';
 import Window from 'src/components/common/Window';
@@ -11,43 +11,43 @@ const ProjectsCommercial = (): ReactElement => {
     {
       id: nanoid(),
       name: 'Information portal of voluntary return and reintegration',
-      stack: 'Next.js/KeystoneJS'
+      stack: 'Next.js/KeystoneJS',
     },
     {
       id: nanoid(),
       name: 'Social media marketing reporting platform',
-      stack: 'React'
+      stack: 'React',
     },
     {
       id: nanoid(),
       name: 'Corporate portal for environmental protection company',
-      stack: 'Drupal/Javascript'
+      stack: 'Drupal/Javascript',
     },
     {
       id: nanoid(),
       name: 'China studies institute web-portal',
-      stack: 'Dripal/JavaScript'
+      stack: 'Dripal/JavaScript',
     },
     {
       id: nanoid(),
       name: 'Boat marketplace',
-      stack: 'Angular'
+      stack: 'Angular',
     },
     {
       id: nanoid(),
       name: 'Сorporate portal for IT company',
-      stack: 'Next.js'
+      stack: 'Next.js',
     },
     {
       id: nanoid(),
       name: 'Employee scheduling system for event venue',
-      stack: 'Angular'
+      stack: 'Angular',
     },
     {
       id: nanoid(),
       name: 'Landing page for stack pool operation company',
-      stack: 'Next.js'
-    }
+      stack: 'Next.js',
+    },
   ];
 
   const projectsList = useMemo(() => {
@@ -55,26 +55,18 @@ const ProjectsCommercial = (): ReactElement => {
       const { id, name, stack } = item;
 
       return (
-        <li
-          key={id}
-          className='list__item'>
-          <h3 className='list__title'>
-            {name}
-          </h3>
-          <p className='list__footer'>
-            {stack}
-          </p>
+        <li key={id} className='list__item'>
+          <h3 className='list__title'>{name}</h3>
+          <p className='list__footer'>{stack}</p>
         </li>
-      )
-    })
+      );
+    });
   }, [projects]);
 
   return (
     <Hero>
       <Window title='commercial-projects.txt'>
-        <ol className={styles.commercialProjects__list}>
-          {projectsList}
-        </ol>
+        <ol className={styles.commercialProjects__list}>{projectsList}</ol>
       </Window>
     </Hero>
   );

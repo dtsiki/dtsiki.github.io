@@ -1,0 +1,17 @@
+@import './../../../../../styles/colors';
+@import './../../../../../styles/vars';
+
+.window_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $SPACER / 2 $SPACER;
+  background: $color--grey-lighter;
+
+  &__content {
+    color: $color--grey-dark;
+    font-family: Pixelify;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+}

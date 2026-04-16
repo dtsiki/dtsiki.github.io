@@ -5,7 +5,7 @@ import { ThemeColor, ThemerEvent } from 'src/store/themer';
 import { useStoreon } from 'storeon/react';
 import { isElementVisible } from 'src/utils';
 import useEventListener, { Event } from 'src/hooks/useEventListener';
-import Preview from 'src/components/pages/blog/Preview';
+import Preview from 'src/components/pages/blog/PostPreview';
 import { projects } from 'src/constants';
 import ProjectsHero from 'src/components/pages/projects/Hero/Hero';
 
@@ -23,7 +23,7 @@ const Projects = (): ReactElement => {
   const handleScroll = (): void => {
     const bottomOffset = {
       top: document.documentElement.clientHeight - 50,
-      bottom: document.documentElement.clientHeight
+      bottom: document.documentElement.clientHeight,
     };
 
     if (isElementVisible(headerRef)) {
@@ -63,7 +63,7 @@ const Projects = (): ReactElement => {
   }, [bottomColor]);
 
   const onScrollDown = (): void => {
-    projectsRef.current?.scrollIntoView({ behavior: 'smooth' })
+    projectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const renderPreviews = useMemo(() => {
@@ -78,7 +78,8 @@ const Projects = (): ReactElement => {
           link={link}
           hasExternalLink
           tags={tags}
-          thumbnail={`assets/projects/previews/${thumbnail}.png`} />
+          thumbnail={`assets/projects/previews/${thumbnail}.png`}
+        />
       );
     });
   }, []);
@@ -86,13 +87,11 @@ const Projects = (): ReactElement => {
   return (
     <div className={styles.projects}>
       <div ref={headerRef}>
-        <ProjectsHero handleScroll={onScrollDown}/>
+        <ProjectsHero handleScroll={onScrollDown} />
       </div>
       <div ref={projectsRef}>
         <div className='container'>
-          <ul className={bind(['row', styles.projects__list])}>
-            {renderPreviews}
-          </ul>
+          <ul className={bind(['row', styles.projects__list])}>{renderPreviews}</ul>
         </div>
       </div>
     </div>

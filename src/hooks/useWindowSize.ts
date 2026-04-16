@@ -4,29 +4,34 @@ import useEventListener, { Event } from './useEventListener';
 export enum WindowBreakpoint {
   MOBILE = 576,
   TABLET = 768,
-  DESKTOP = 1024
+  DESKTOP = 1024,
 }
 
-interface WindowSize {
+export type TWindowSize = {
   width: number;
   height: number;
+};
+
+interface IWindowSizeResult {
+  isMobile: boolean;
+  windowSize: TWindowSize;
 }
 
-const useWindowSize = (): any => {
+export const useWindowSize = (): IWindowSizeResult => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [windowSize, setWindowSize] = useState<WindowSize>({
+  const [windowSize, setWindowSize] = useState<TWindowSize>({
     width: 0,
-    height: 0
+    height: 0,
   });
 
   const handleSize = (): void => {
     setWindowSize({
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
     });
 
     setIsMobile(window.innerWidth < WindowBreakpoint.MOBILE);
-  }
+  };
 
   useEventListener(Event.RESIZE, handleSize);
 
@@ -36,8 +41,6 @@ const useWindowSize = (): any => {
 
   return {
     isMobile,
-    windowSize
+    windowSize,
   };
-}
-
-export default useWindowSize;
+};

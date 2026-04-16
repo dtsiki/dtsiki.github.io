@@ -1,0 +1,13 @@
+@import '../../../../../../../styles/colors';
+@import '../../../../../../../styles/vars';
+
+.box {
+  min-height: 340px;
+  padding: $SPACER;
+  border: 2px solid $color--grey;
+  border-top: 0;
+  display: flex;
+  justify-content: center;
+  align-content: start;
+  flex-wrap: wrap;
+}

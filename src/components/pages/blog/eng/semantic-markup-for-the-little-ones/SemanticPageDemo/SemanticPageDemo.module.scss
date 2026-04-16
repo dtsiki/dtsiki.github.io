@@ -1,0 +1,100 @@
+@import './../../../../../../styles/colors';
+@import './../../../../../../styles/vars';
+
+.semantic_page_demo {
+  position: relative;
+  width: 100%;
+
+  &__wrapper {
+    padding: $SPACER * 3;
+  }
+
+  &__browser {
+    max-width: 550px;
+    margin: 0 auto;
+
+    &_wrapper {
+      padding: $SPACER * 2;
+    }
+  }
+
+  &__element {
+    border: 2px solid $color--grey;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: lowercase;
+
+    &::before {
+      content: '<';
+    }
+
+    &::after {
+      content: '>';
+    }
+  }
+
+  &__header {
+    padding: $SPACER;
+    text-align: center;
+    margin-bottom: $SPACER;
+    border-color: $color--violet-dark;
+    color: $color--violet-dark;
+  }
+
+  &__footer {
+    padding: $SPACER / 2;
+    text-align: center;
+    color: $color--grey;
+    border-color: $color--grey;
+    border-style: dashed;
+  }
+
+  &__nav {
+    padding: $SPACER / 2;
+    text-align: center;
+    margin-bottom: $SPACER;
+    color: rgba($color--violet, 0.6);
+    border-color: rgba($color--violet, 0.6);
+  }
+
+  &__layout {
+    display: flex;
+    margin-bottom: $SPACER;
+  }
+
+  &__main {
+    flex: 1;
+    padding: $SPACER;
+    margin-right: $SPACER;
+    text-align: center;
+    border-color: $color--black;
+    color: $color--black;
+  }
+
+  &__aside {
+    flex-basis: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba($color--violet, 0.4);
+    border-color: rgba($color--violet, 0.4);
+    border-style: dotted;
+  }
+
+  &__section {
+    padding: $SPACER / 2;
+    color: $color--grey-dark;
+    border-color: $color--grey-dark;
+    border-style: dotted;
+    margin: $SPACER !important;
+  }
+
+  &__browser_shortcut {
+    position: absolute;
+    top: $SPACER * 2;
+    left: $SPACER * 2;
+  }
+}

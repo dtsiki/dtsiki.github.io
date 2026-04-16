@@ -1,0 +1,44 @@
+@import './../../../../../../styles/colors.scss';
+@import './../../../../../../styles/breakpoints';
+
+.dnd_demo {
+  padding: $SPACER * 4;
+
+  &__wrapper {
+    display: flex;
+    gap: $SPACER;
+  }
+
+  &__column {
+    width: 33%;
+    height: 100px;
+    background: $color--white;
+    background: url('./../../../../../../../public/assets/patterns/cross.svg');
+    background-position: 5px;
+    background-repeat: repeat;
+    border-radius: 10px;
+    padding: 16px;
+    border: 2px solid $color--violet;
+    min-height: 300px;
+
+    &_title {
+      color: $color--violet-darker;
+      font-size: 18px;
+      font-weight: bold;
+      border-bottom: 2px solid $color--violet-darker;
+      width: fit-content;
+      background-color: $color--white;
+    }
+  }
+
+  &__tasks {
+    margin: 20px 0 0 0;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+    background: rgba($color--white-darker, 0.8);
+    border: 5px dotted $color--violet-lighter;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+}

@@ -1,15 +1,18 @@
-import React, { ReactElement } from 'react';
+import { Hero } from '../Hero/Hero';
+import { Window } from 'src/components/common/Window/Window';
+import { LOADING } from 'src/i18n';
+import { EWindowType } from 'src/components/common/Window/Window.types';
+import { useTranslate } from 'src/hooks/useTranslate';
 
-import Window from 'src/components/common/Window';
-import Hero from '../Hero';
+import styles from './Loader.module.scss';
 
-import styles from './loader.module.scss';
+export const Loader = () => {
+  const { translate } = useTranslate();
 
-const Loader = (): ReactElement => {
   return (
     <Hero>
       <div className={styles.loader}>
-        <Window title='Loading...'>
+        <Window title={translate(LOADING)} type={EWindowType.LOADER}>
           <div className={styles.loader__wrapper}>
             <div className={styles.loader__bar}>
               <div className={styles.loader__progress} />
@@ -20,5 +23,3 @@ const Loader = (): ReactElement => {
     </Hero>
   );
 };
-
-export default Loader;

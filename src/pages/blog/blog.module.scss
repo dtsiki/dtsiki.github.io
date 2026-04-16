@@ -5,24 +5,58 @@
 .blog {
   position: relative;
 
-  &.boring {
-    border-top: 60px solid transparent;
-    padding-top: 50px;
-    min-height: calc(100vh - 150px);
-  }
-
   &__wrapper {
     animation: appearFromTop 1s;
   }
 
+  &__blog_shortcut {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+
+  &__languages {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  &__language_switch {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 0 5px 0;
+    color: rgba($color--grey-dark, 0.5);
+    transition: all 0.5s;
+    text-decoration: none;
+    background-image: linear-gradient($color--violet, $color--violet);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 0.5s;
+
+    &.active {
+      color: $color--violet;
+    }
+
+    &:hover {
+      background-size: 100% 2px;
+    }
+  }
+
   &__heading {
-    margin-bottom: 60px;
+    margin: 50px 0 20px;
 
     @include md {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 30px;
+      justify-content: start;
+      margin: 100px 0 20px;
     }
   }
 
@@ -38,31 +72,42 @@
   }
 
   &__posts {
-    margin-top: 10px;
-    margin-bottom: 60px;
+    margin: 10px -20px 60px;
   }
 
   &__shortcuts {
-    &.list {
-      margin-bottom: 0;
-      margin-right: 40px;
-    }
-
-    &.grid {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
-      margin-right: 10px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    margin-right: 10px;
   }
 
   &__shortcut {
     &.grid {
-      width: calc(100% / 2);
+      width: calc(100% / 4);
+    }
 
-      @include md {
-        width: calc(100% / 4);
-      }
+    &.list {
+      width: calc(100% / 2);
+    }
+  }
+
+  &__empty_folder {
+    text-align: center;
+    margin: 50px auto;
+
+    svg {
+      width: 42px;
+      height: 42px;
+      color: $color--grey;
+      margin-bottom: 10px;
+    }
+
+    &_title {
+      width: 100%;
+      font-weight: bold;
+      color: $color--grey;
+      font-size: 20px;
     }
   }
 

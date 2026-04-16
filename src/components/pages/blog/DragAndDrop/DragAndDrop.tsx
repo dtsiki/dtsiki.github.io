@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolder } from '@fortawesome/free-solid-svg-icons';
-
-import Window from 'src/components/common/Window';
+import { Window } from 'src/components/common/Window/Window';
 import DragAndDropCard, { DragAndDropCardVariant } from './_card';
 import DragAndDropBox from './_box';
 
@@ -19,9 +18,7 @@ const DragAndDrop = (): ReactElement => {
               To do
             </div>
             <DragAndDropBox>
-              <DragAndDropCard
-                title='Learn drag and drop'
-                variant={DragAndDropCardVariant.PRIMARY} />
+              <DragAndDropCard title='Learn drag and drop' variant={DragAndDropCardVariant.PRIMARY} />
             </DragAndDropBox>
           </div>
           <div className={styles.dragAndDrop__column}>
@@ -40,16 +37,10 @@ const DragAndDrop = (): ReactElement => {
           </div>
         </div>
         <div className={styles.dragAndDrop__footer}>
-          <div className={styles.dragAndDrop__subtitle}>
-            Try out to drag and drop cards between boxes:
-          </div>
+          <div className={styles.dragAndDrop__subtitle}>Try out to drag and drop cards between boxes:</div>
           <div className={styles.dragAndDrop__stack}>
-            <DragAndDropCard
-              title='Drink coffee'
-              variant={DragAndDropCardVariant.SECONDARY} />
-            <DragAndDropCard
-              title='Commit changes'
-              variant={DragAndDropCardVariant.TERTIARY} />
+            <DragAndDropCard title='Drink coffee' variant={DragAndDropCardVariant.SECONDARY} />
+            <DragAndDropCard title='Commit changes' variant={DragAndDropCardVariant.TERTIARY} />
           </div>
         </div>
       </div>

@@ -1,0 +1,15 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.thanks {
+  margin: $SPACER auto;
+  text-align: center;
+
+  &__icon {
+    display: block;
+    margin: 0 auto;
+    width: 42px;
+    height: 42px;
+    color: $color--violet;
+  }
+}

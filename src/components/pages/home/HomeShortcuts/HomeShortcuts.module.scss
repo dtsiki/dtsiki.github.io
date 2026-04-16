@@ -1,0 +1,94 @@
+@import './../../../../styles/colors';
+@import './../../../../styles/vars';
+@import './../../../../styles/breakpoints';
+
+$GRID_CELL_MOBILE: 200px;
+$GRID_CELL_DESKTOP: 150px;
+
+.home_shortcuts {
+  width: calc($GRID_CELL_DESKTOP * 4);
+  height: calc($GRID_CELL_DESKTOP * 4);
+  margin: 0 auto;
+
+  @include mobile {
+    width: calc($GRID_CELL_MOBILE * 2);
+    height: calc($GRID_CELL_MOBILE * 2);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, $GRID_CELL_DESKTOP);
+    grid-template-rows: repeat(4, $GRID_CELL_DESKTOP);
+    gap: 0;
+
+    @include mobile {
+      display: grid;
+      grid-template-columns: repeat(2, $GRID_CELL_MOBILE);
+      grid-template-rows: repeat(2, $GRID_CELL_MOBILE);
+      gap: 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.SLIDES {
+      grid-column: 2;
+      grid-row: 4;
+
+      @include mobile {
+        margin-top: -20px;
+        margin-left: -20px;
+      }
+    }
+
+    &.CV {
+      grid-column: 1;
+      grid-row: 1;
+
+      @include mobile {
+        margin-top: -100px;
+        margin-left: 30px;
+      }
+    }
+
+    &.BLOG {
+      grid-column: 3;
+      grid-row: 2;
+
+      @include mobile {
+        margin-bottom: -40px;
+        margin-right: -20px;
+      }
+    }
+
+    &.README {
+      grid-column: 4;
+      grid-row: 3;
+
+      @include mobile {
+        margin-bottom: -150px;
+        margin-left: 40px;
+      }
+    }
+
+    &.TRASH_BIN {
+      position: fixed;
+      bottom: 100px;
+      right: 50px;
+    }
+
+    @include mobile {
+      &.SLIDES,
+      &.CV,
+      &.BLOG,
+      &.README {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+  }
+}
