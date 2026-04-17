@@ -211,7 +211,7 @@ export default defineConfig({
             <h3 className='list__title'>Установленный Node.js и npm </h3>
             <div>
               <p>
-                Это среда, в которой живёт React. Если есть сомнение есть ли такое у вас - откройте терминал (командную
+                Это среда, в которой живёт React. Если есть сомнение есть ли такое у вас — откройте терминал (командную
                 строку) и напишите:
               </p>
               <CodeSnippet code={nodeInstallBashSnippet} lang={ECodeLang.BASH} hideLines={true} />
@@ -750,7 +750,7 @@ export default defineConfig({
             <div className='spacer top medium'>
               <CodeSnippet code={pushCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
               <p>
-                Если спросит логин и пароль - вводим. Для пароля теперь нужно использовать токен, а не обычный пароль.
+                Если спросит логин и пароль — вводим. Для пароля теперь нужно использовать токен, а не обычный пароль.
                 Но если вы не настраивали SSH, GitHub сам предложит залогиниться через браузер - нужно согласиться.
               </p>
             </div>

@@ -343,9 +343,7 @@ export const AnimatedStar = () => {
           pattern={EWindowPatternVariant.CROSS}>
           <AnimatedStarDemo />
         </Window>
-        <p className='explanation'>
-          Начните двигать курсом по странице - вот такая анимация получится в конце этого урока
-        </p>
+        <p className='explanation'>Начните двигать курсом по странице — такую анимацию будем делать в этом уроке</p>
       </section>
       <section>
         <h2>Подготовительные работы</h2>
@@ -404,6 +402,8 @@ export const AnimatedStar = () => {
             <div className={styles.eyes_container}></div>
           </div>
         </Window>
+        <p className='explanation'>Ой, у звёздочки украли глаза! А, мы их ещё не сделали...</p>
+
         <p className='spacer top bottom medium'>
           Сам глаз застилизуем с помощью класса <code className='code'>.eye</code>, а зрачок добавим псевдоэлементом{' '}
           <code className='code'>:before</code>. HTML-разметка остаётся без изменений т.к. элементы с классом{' '}
@@ -430,7 +430,7 @@ export const AnimatedStar = () => {
         </Window>
         <p className='spacer top bottom medium'>
           Все размеры в коде выше я подбирала индивидуально. Не стесняйтесь экспериментировать на этом этапе: можно
-          менять размер глаз, зрачков, расстояние между ними и т.д. Саму звёздочку можно поменять на другой рисунок -
+          менять размер глаз, зрачков, расстояние между ними и т.д. Саму звёздочку можно поменять на другой рисунок:
           сердце, облако, яблоко, etc.
         </p>
       </section>
@@ -446,8 +446,8 @@ export const AnimatedStar = () => {
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS1} />
 
         <p className='spacer top bottom medium'>
-          В этом коде <code className='code'>mousemove</code> - событие, которое срабатывает при каждом движении мыши,{' '}
-          <code className='code'>moveEyesToCursor</code> - функция-обработчик, которая будет вызываться каждый раз при
+          В этом коде <code className='code'>mousemove</code> — событие, которое срабатывает при каждом движении мыши,{' '}
+          <code className='code'>moveEyesToCursor</code> — функция-обработчик, которая будет вызываться каждый раз при
           движении мыши.
         </p>
         <p className='spacer top bottom medium'>
@@ -464,20 +464,21 @@ export const AnimatedStar = () => {
           храниться список объектов NodeList с нашими глазами-дивами и с ними можно будет что-то сделать.
         </p>
         <p className='spacer top bottom medium'>
-          А сделаем мы вот что - пройдёмся по всем элементам полученного списка с помощью метода перебора массивов{' '}
-          <code className='code'>forEach</code>:
+          А сделаем мы вот что — пройдёмся по всем элементам полученного списка с помощью метода перебора элементов
+          массива <code className='code'>forEach</code>:
         </p>
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS3} />
 
         <p className='spacer top bottom medium'>
-          Время освежить курс математики. Для каждого глаза вычисляем его центр <code className='code'>x, y</code>:
+          Время освежить курс математики. Для каждого глаза надо вычислить координаты его центра{' '}
+          <code className='code'>x, y</code> по несложной формуле:
         </p>
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS4} />
 
         <p className='spacer top bottom medium'>Теперь вычислим угол между глазом и курсором:</p>
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS5} />
 
-        <p className='spacer top bottom medium'>Преобразуем и корректируем угол:</p>
+        <p className='spacer top bottom medium'>Преобразуем и скорректируем угол:</p>
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS6} />
 
         <p className='spacer top bottom medium'>
@@ -555,8 +556,8 @@ export const AnimatedStar = () => {
         <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact4} />
 
         <p className='spacer top medium'>
-          Чтобы использовать подписку на событие <code className='code'>mousemove</code> как в нативном JavaScript выше
-          в React мы воспользуемся хуком <code className='code'>useEffect</code>:
+          Чтобы использовать подписку на событие <code className='code'>mousemove</code> в React, как в нативном
+          JavaScript выше, воспользуемся хуком <code className='code'>useEffect</code>:
         </p>
         <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact5} />
 
@@ -566,6 +567,7 @@ export const AnimatedStar = () => {
         </p>
         <p className='spacer top medium'>Ну вот и всё, собираем всё вместе:</p>
         <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact6} />
+        <br />
         <CodeSnippet lang={ECodeLang.SCSS} name='styles' code={exampleSCSS2} />
       </section>
     </PostWrapper>
