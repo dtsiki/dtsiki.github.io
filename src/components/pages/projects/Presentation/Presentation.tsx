@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+/*import React, { ReactElement } from 'react';
 import { nanoid } from 'nanoid';
 
 import { Hero } from 'src/components/layout/Hero/Hero';
@@ -70,3 +70,4 @@ const ProjectsPresentation = (): ReactElement => {
 };
 
 export default ProjectsPresentation;
+*/
