@@ -39,8 +39,13 @@ export const WindowHeader = (props: IWindowHeaderProps) => {
       <span className={bind([styles.window_header__decoration, windowStyles])}>
         {Array(3)
           .fill(0)
-          .map((_) => (
-            <CircleIcon useMini={true} useFilled={true} className={styles.window_header__decoration_icon} />
+          .map((_, index) => (
+            <CircleIcon
+              key={`circle-icon-${index}`}
+              useMini={true}
+              useFilled={true}
+              className={styles.window_header__decoration_icon}
+            />
           ))}
       </span>
     );

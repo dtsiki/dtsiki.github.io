@@ -16,8 +16,10 @@ import { Lists } from 'src/components/pages/blog/eng/semantic-markup-for-the-lit
 import { MarkupValidity } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/MarkupValidity/MarkupValidity';
 import { Summary } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Summary/Summary';
 import { SemanticPageDemo } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/SemanticPageDemo/SemanticPageDemo';
-import { HERO_CONFIG, SOURCES_CONFIG } from './index.utils';
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
+import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
+import { nanoid } from 'nanoid';
+import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
 
 const Post = () => {
   const purposeRef = useRef<HTMLParagraphElement>(null);
@@ -44,7 +46,7 @@ const Post = () => {
     }
   };
 
-  const tableOfContents: Array<IItemOfContent> = [
+  const TABLE_OF_CONTENTS_CONFIG: Array<IItemOfContent> = [
     {
       title: 'What is semantic markup and why should you write it?',
       ref: purposeRef,
@@ -91,16 +93,78 @@ const Post = () => {
     },
   ];
 
+  const SOURCES_CONFIG: Array<TReadMoreSource> = [
+    {
+      id: nanoid(),
+      link: 'https://www.ambitiouskitchen.com/best-cinnamon-rolls/',
+      label: 'The best cinnamon rolls recipe',
+    },
+    {
+      id: nanoid(),
+      link: 'https://validator.w3.org/',
+      label: 'W3C Markup Validation Service',
+    },
+    {
+      id: nanoid(),
+      link: 'https://khan.github.io/tota11y/',
+      label: 'An accessibility visualization toolkit',
+    },
+    {
+      id: nanoid(),
+      link: 'https://www.samanthaming.com/pictorials/css-inline-vs-inlineblock-vs-block/',
+      label: 'An article about inline, block and (WHOA) inline-block behaivor of HTML elements',
+    },
+    {
+      id: nanoid(),
+      link: 'https://www.w3docs.com/learn-html/deprecated-html-tags.html',
+      label: 'Depricated HTML tags',
+    },
+    {
+      id: nanoid(),
+      link: 'https://www.dofactory.com/html/attributes/deprecated',
+      label: 'List of deprecated HTML attributes',
+    },
+    {
+      id: nanoid(),
+      link: 'https://milhidaka.github.io/chainer-image-caption/',
+      label: 'Image caption generator',
+    },
+    {
+      id: nanoid(),
+      link: 'https://moz.com/learn/seo/alt-text',
+      label: 'Alternative texts guide',
+    },
+    {
+      id: nanoid(),
+      link: 'https://benmyers.dev/blog/clickable-divs/',
+      label: 'How (not) to build a button',
+    },
+    {
+      id: nanoid(),
+      link: 'https://www.smashingmagazine.com/2019/02/buttons-interfaces/',
+      label: 'When is a button not a button?',
+    },
+    {
+      id: nanoid(),
+      link: 'https://accessibility.psu.edu/listshtml/',
+      label: 'Lists in HTML',
+    },
+  ];
+
   return (
     <PostWrapper
       postConfig={POSTS_CONFIG_[EBlogPostRecord.SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES]}
-      heroConfig={HERO_CONFIG}>
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.WAVY,
+        variant: EHeroVariant.LIGHT,
+      }}>
       <section>
         <Foreword />
         <SemanticPageDemo />
       </section>
       <TableOfContents
-        items={tableOfContents}
+        items={TABLE_OF_CONTENTS_CONFIG}
         strictLanguage={POSTS_CONFIG_[EBlogPostRecord.SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES].language}
       />
       <section ref={purposeRef}>

@@ -1,8 +1,6 @@
 import { useMemo } from 'react';
 import classNames from 'classnames/bind';
 import { EWindowBodyBackground, EWindowType, IWindowProps } from './Window.types';
-import { OBJECTS } from 'src/i18n';
-import { useTranslate } from 'src/hooks/useTranslate';
 import { useWindowManager } from 'src/hooks/useWindowManager';
 import { TextFile } from './components/TextFile/TextFile';
 import { DocFile } from './components/DocFile';
@@ -10,9 +8,9 @@ import { Slideshow } from './components/Slideshow/Slideshow';
 import { WindowFakeMenu } from './components/WindowFakeMenu';
 import { WindowFakeSubmenu } from './components/WindowFakeSubmenu';
 import { WindowHeader } from './components/WindowHeader/WindowHeader';
-import { Language } from 'src/types';
 
 import styles from './Window.module.scss';
+import { noop } from 'lodash';
 
 export const Window = (props: IWindowProps) => {
   const {
@@ -34,8 +32,6 @@ export const Window = (props: IWindowProps) => {
   } = props;
   const bind = classNames.bind(styles);
   const { closeWindow, minimizeWindow, windowsOrder, focusWindow } = useWindowManager();
-
-  const maximizeWindow = () => {};
 
   const handleCloseWindow = () => {
     if (id) {
@@ -100,7 +96,7 @@ export const Window = (props: IWindowProps) => {
   }, [type, windowStyles]);
 
   return (
-    <div className={bind([styles.window, windowStyles])} onClick={handleWindowClick}>
+    <div className={bind([styles.window, windowStyles])} onClick={handleWindowClick} role='none'>
       <div className={bind([styles.window__wrapper, windowStyles])}>
         {renderOverlay}
         <WindowHeader
@@ -110,7 +106,7 @@ export const Window = (props: IWindowProps) => {
           fileTitle={fileTitle}
           handleMinimizeWindow={handleMinimizeWindow}
           handleCloseWindow={handleCloseWindow}
-          handleMaximizeWindow={maximizeWindow}
+          handleMaximizeWindow={noop}
         />
         <WindowFakeMenu type={type} />
         <WindowFakeSubmenu type={type} />

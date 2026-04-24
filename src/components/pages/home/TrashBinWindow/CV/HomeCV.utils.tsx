@@ -7,7 +7,7 @@ import { TDocPage } from 'src/components/common/Window/components/DocFile/compon
 import { Education } from './components/Education/Education';
 import { WorkExperiencePage } from './components/WorkExperience/WorkExperience.types';
 
-export const TRASH_BIN_CV_CONFIG: TDocPage[] = [
+export const TRASH_BIN_CV_CONFIG: Array<TDocPage> = [
   {
     id: nanoid(),
     content: [<Header />, <AboutMe />],

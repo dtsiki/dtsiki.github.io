@@ -8,7 +8,6 @@ import { TWindow } from 'src/types';
 import { TrashBinWindow } from 'src/components/pages/home/TrashBinWindow/TrashBinWindow';
 import { BLOG_FOLDER_CONFIG } from 'src/components/blog/BlogWindow/BlogWindow.utils';
 import { TRASH_BIN_CV_CONFIG } from 'src/components/pages/home/TrashBinWindow/CV/HomeCV.utils';
-// import { TrashBinWindow } from 'src/components/pages/home/TrashBinWindow/TrashBinWindow';
 
 export enum EWindowRecord {
   CV_DOC_FILE = 'CV_DOC_FILE',

@@ -6,7 +6,8 @@ import { TableOfContents } from 'src/components/pages/blog/TableOfContents/Table
 import { IItemOfContent } from 'src/interfaces';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { SOURCES_CONFIG } from './index.utils';
+import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
+import { nanoid } from 'nanoid';
 import { EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
@@ -18,7 +19,6 @@ import styles from './index.module.scss';
 import meme from 'public/assets/blog/keep-calm-and-test/meme.jpeg';
 
 const Post = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
   const postRef = useRef<HTMLDivElement>(null);
   const noteRef = useRef<HTMLParagraphElement>(null);
   const whatIsJestRef = useRef<HTMLDivElement>(null);
@@ -33,7 +33,35 @@ const Post = () => {
     noteRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const tableOfContents: Array<IItemOfContent> = [
+  const SOURCES_CONFIG: Array<TReadMoreSource> = [
+    {
+      id: nanoid(),
+      link: 'https://jestjs.io',
+      label: 'Jest documentation',
+    },
+    {
+      id: nanoid(),
+      link: 'https://reactjs.org/docs/test-renderer.html',
+      label: 'Test Rendered documentation',
+    },
+    {
+      id: nanoid(),
+      link: 'https://jestjs.io/docs/snapshot-testing',
+      label: 'Jest snapshot testing documentation',
+    },
+    {
+      id: nanoid(),
+      link: 'https://www.valentinog.com/blog/jest-coverage/',
+      label: 'Configuring code coverage in Jest',
+    },
+    {
+      id: nanoid(),
+      link: 'https://reactjs.org/docs/test-renderer.html',
+      label: 'React Test Rendered documentation',
+    },
+  ];
+
+  const TABLE_OF_CONTENTS_CONFIG: Array<IItemOfContent> = [
     {
       title: 'What is Jest?',
       ref: whatIsJestRef,
@@ -481,7 +509,7 @@ describe('Button', () => {
       }>
       <article ref={postRef}>
         <TableOfContents
-          items={tableOfContents}
+          items={TABLE_OF_CONTENTS_CONFIG}
           strictLanguage={POSTS_CONFIG_[EBlogPostRecord.KEEP_CALM_AND_TEST].language}
         />
         <section ref={whatIsJestRef}>

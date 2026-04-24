@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { HERO_CONFIG } from './index.utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import ExternalLink from 'src/components/common/ExternalLink';
@@ -11,6 +10,7 @@ import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippe
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
 import { IItemOfContent } from 'src/interfaces';
+import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import newRepoButtonImage from 'public/assets/blog/creating-a-react-app/new-repo-button.png';
 import newRepoFormImage from 'public/assets/blog/creating-a-react-app/new-repo-form.png';
@@ -195,7 +195,12 @@ export default defineConfig({
 });`;
 
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.CREATING_A_REACT_APP]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.CREATING_A_REACT_APP]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.CROSS,
+      }}>
       <section>
         <TableOfContents
           items={tableOfContents}
@@ -310,7 +315,8 @@ export default defineConfig({
         <h2>Шаг 2. Клонируем репозиторий</h2>
         <p>
           Пока что репозиторий есть только на сервисе GitHub и он абсолютно пустой. Нам нужно склонировать удалённый
-          репозиторий к себе на устройство (ноутбук или персональный компьютер) и начать заполнять его там React'ом.
+          репозиторий к себе на устройство (ноутбук или персональный компьютер) и начать заполнять его там
+          React&apos;ом.
         </p>
         <p>
           Для копирования к себе нам потребуется ссылка на удалённый репозиторий. Ссылку можно скопировать на странице
@@ -459,8 +465,8 @@ export default defineConfig({
           <li className='list__item'>
             <h3 className='list__title'>public/index.html </h3>
             <p>
-              Единственная HTML-страница, которую видит браузер. Внутри есть 
-              <code className='code'>&lt;div id="root"&gt;&lt;div&gt;</code>,  туда React будет вставлять всё
+              Единственная HTML-страница, которую видит браузер. Внутри есть
+              <code className='code'>&lt;div id=&quot;root&quot;&gt;&lt;div&gt;</code>, туда React будет вставлять всё
               приложение.
             </p>
           </li>
@@ -475,7 +481,7 @@ export default defineConfig({
             <h3 className='list__title'>src/index.tsx</h3>
             <p>
               Точка входа. Здесь React рендерит <code className='code'>&lt;App /&gt;</code> в 
-              <code className='code'>&lt;div id="root"&gt;&lt;div&gt;</code> в файле <em>index.html.</em>
+              <code className='code'>&lt;div id=&quot;root&quot;&gt;&lt;div&gt;</code> в файле <em>index.html.</em>
             </p>
           </li>
         </ul>
@@ -511,7 +517,7 @@ export default defineConfig({
             <h3 className='list__title'>index.html </h3>
             <p>
               Единственная HTML-страница, которую видит браузер. Внутри есть 
-              <code className='code'>&lt;div id="root"&gt;&lt;div&gt;</code>,  туда React будет вставлять всё
+              <code className='code'>&lt;div id=&quot;root&quot;&gt;&lt;div&gt;</code>,  туда React будет вставлять всё
               приложение. В отличии от Create React App, здесь этот файл находится не в папке <em>public</em>.
             </p>
           </li>
@@ -526,7 +532,7 @@ export default defineConfig({
             <h3 className='list__title'>src/main.tsx</h3>
             <p>
               Точка входа. Здесь React рендерит <code className='code'>&lt;App /&gt;</code> в 
-              <code className='code'>&lt;div id="root"&gt;&lt;div&gt;</code> в файле <em>index.html.</em>
+              <code className='code'>&lt;div id=&quot;root&quot;&gt;&lt;div&gt;</code> в файле <em>index.html.</em>
             </p>
           </li>
         </ul>

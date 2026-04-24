@@ -1,8 +1,5 @@
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
-import { HERO_CONFIG } from './index.utils';
-import { Thanks } from 'src/components/common/Thanks/Thanks';
-
 import { WhatIsJavaScript } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/WhatIsJavaScript/WhatIsJavaScript';
 import { JavaScriptDataTypes } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/JavaScriptDataTypes/JavaScriptDataTypes';
 import { MutableAndImmutable } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/MutableAndImmutable/MutableAndImmutable';
@@ -23,12 +20,18 @@ import { Callbacks } from 'src/components/pages/blog/eng/javascript-in-a-nutshel
 import { AsyncAwait } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/AsyncAwait/AsyncAwait';
 import { Promises } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Promises/Promises';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
+import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import book from './../../../../../public/assets/blog/frontend-in-a-nutshell/javascript/book.jpg';
 
 const Post = () => {
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.JAVASCRIPT_IN_A_NUTSHELL]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.JAVASCRIPT_IN_A_NUTSHELL]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.MOTION_LINES,
+      }}>
       <>
         <WhatIsJavaScript />
         <JavaScriptDataTypes />

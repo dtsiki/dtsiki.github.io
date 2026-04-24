@@ -5,7 +5,7 @@ import { Contacts } from './components/Contacts/Contacts';
 import { TDocPage } from 'src/components/common/Window/components/DocFile/components/DocPage/DocPage.types';
 import { SkillsPage } from './components/Skills/Skills.types';
 
-export const HOME_CV_CONFIG: TDocPage[] = [
+export const HOME_CV_CONFIG: Array<TDocPage> = [
   {
     id: nanoid(),
     content: [<Header />, <Skills page={SkillsPage.FIRST} />],

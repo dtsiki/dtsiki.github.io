@@ -3,7 +3,7 @@ import type { FC, SVGProps } from 'react';
 export const HeartIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1128_24860)'>
+      <g clipPath='url(#clip0_1128_24860)'>
         <path d='M1.52 9.14H30.48V28.95H32V3.05H30.48V7.62H1.52V3.05H0V28.95H1.52V9.14Z' fill='currentColor' />
         <path d='M30.48 28.95H1.52V30.48H30.48V28.95Z' fill='currentColor' />
         <path

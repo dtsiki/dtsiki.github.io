@@ -1,9 +1,9 @@
 import { useDrag } from 'react-dnd';
 import { IDragItemProps } from './DragItem.types';
 import { getPositionStyle, getPosition } from './DragItem.utils';
+import { useWindowSize } from 'src/hooks';
 
 import styles from './DragItem.module.scss';
-import { useWindowSize } from 'src/hooks';
 
 export const DragItem = ({ config, children }: IDragItemProps) => {
   const { windowSize } = useWindowSize();

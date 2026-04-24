@@ -1,5 +1,5 @@
 import { faFileLines, faFolder } from '@fortawesome/free-solid-svg-icons';
-import { TFolderItemType } from '../../Folder.types';
+import { TFolderItemType } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
 
 export const SHORTCUT_ICON = {
   [TFolderItemType.TXT_FILE]: faFileLines,

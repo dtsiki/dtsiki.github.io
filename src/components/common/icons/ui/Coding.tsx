@@ -25,7 +25,7 @@ export const CodingIcon: FC<SVGProps<SVGSVGElement> & ICustomIconProps> = (props
 
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1128_24589)'>
+      <g clipPath='url(#clip0_1128_24589)'>
         <path d='M32 1.53H30.48V30.48H32V1.53Z' fill='currentColor' />
         <path d='M30.48 30.48H1.52V32H30.48V30.48Z' fill='currentColor' />
         <path

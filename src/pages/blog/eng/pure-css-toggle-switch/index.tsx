@@ -5,7 +5,6 @@ import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { HERO_CONFIG, SOURCES_CONFIG } from './index.utils';
 import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window/Window.types';
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
@@ -13,6 +12,9 @@ import { ECodeLang } from 'src/components/common/Code/Code.types';
 import ExternalLink from 'src/components/common/ExternalLink';
 import { Window } from 'src/components/common/Window/Window';
 import HtmlTag from 'src/components/common/HtmlTag';
+import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
+import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
+import { nanoid } from 'nanoid';
 
 import styles from './index.module.scss';
 import dimension1 from 'public/assets/blog/pure-css-toggle-switch/dimension1.svg';
@@ -178,8 +180,46 @@ const Post = () => {
   const exampleCSSVariables = `$width: 24px;
 $gap: 4px;`;
 
+  const SOURCES_CONFIG: Array<TReadMoreSource> = [
+    {
+      id: nanoid(),
+      link: 'https://dtsiki.github.io/blog/eng/semantic-markup-for-the-little-ones',
+      label: 'Semantic Markup for the Little Ones',
+    },
+    {
+      id: nanoid(),
+      link: 'https://www.nngroup.com/articles/toggle-switch-guidelines/',
+      label: 'Toggle switch guidelines',
+    },
+    {
+      id: nanoid(),
+      link: 'https://reactjs.org/docs/handling-events.html',
+      label: 'Handling Events in React',
+    },
+    {
+      id: nanoid(),
+      link: 'https://dribbble.com/tags/toggle',
+      label: 'Toggles ideas',
+    },
+    {
+      id: nanoid(),
+      link: 'https://finolex.com/evolution-of-switchboards-over-the-years/',
+      label: 'Evolution of switchboards over the years',
+    },
+    {
+      id: nanoid(),
+      link: 'https://sass-lang.com/documentation/variables',
+      label: 'SASS variables syntax',
+    },
+  ];
+
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.PURE_CSS_TOGGLE_SWITCH]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.PURE_CSS_TOGGLE_SWITCH]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.SMILEY,
+      }}>
       <section>
         <h2 className='spacer top large'>What is a toggle switch?</h2>
         <p className='spacer bottom medium'>
@@ -552,7 +592,7 @@ $gap: 4px;`;
             </div>
           </div>
         </div>
-        <p className='spacer top large'>That's all you need to know about pure CSS toggle switches.</p>
+        <p className='spacer top large'>That&apos;s all you need to know about pure CSS toggle switches.</p>
       </section>
       <ReadMoreList items={SOURCES_CONFIG} language={POSTS_CONFIG_[EBlogPostRecord.PURE_CSS_TOGGLE_SWITCH].language} />
     </PostWrapper>

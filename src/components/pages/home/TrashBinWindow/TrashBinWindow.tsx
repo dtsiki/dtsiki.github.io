@@ -11,14 +11,14 @@ import { useFolderNavigation } from 'src/hooks/useFolderNavigation';
 import { GridMiniIcon, ArrowLeftIcon, BinIcon, ListMiniIcon } from 'src/components/common/icons/ui';
 import { WindowHeader } from 'src/components/common/Window/components/WindowHeader/WindowHeader';
 import { EWindowType } from 'src/components/common/Window/Window.types';
-
-import styles from './TrashBinWindow.module.scss';
 import { Language, TranslationObject } from 'src/types';
 import { TrashBinShortcut } from './Shortcut/Shortcut';
-import { EFolderView } from 'src/components/common/Window/components/Folder/Folder.types';
 import { WindowFooter } from 'src/components/common/Window/components/WindowFooter';
 import { WindowFakeMenu } from 'src/components/common/Window/components/WindowFakeMenu';
 import { WindowFakeSubmenu } from 'src/components/common/Window/components/WindowFakeSubmenu';
+import { EFolderView } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
+
+import styles from './TrashBinWindow.module.scss';
 
 const TRASH_BIN_ITEMS = [OLD_CV_FILE_NAME];
 

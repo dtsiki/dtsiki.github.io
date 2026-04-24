@@ -62,10 +62,10 @@ export const WindowRenderer = () => {
                 title={config?.title}
                 type={config?.type}
                 content={config?.content}
-                children={config?.children}
                 isMinimized={isMinimized}
-                isFocused={isFocused}
-              />
+                isFocused={isFocused}>
+                {config?.children}
+              </Window>
             ) : config?.customComponent?.type === EWindowRecord.BLOG_FOLDER ? (
               <BlogWindow isMinimized={isMinimized} isFocused={isFocused} />
             ) : config?.customComponent?.type === EWindowRecord.TRASH_BIN ? (

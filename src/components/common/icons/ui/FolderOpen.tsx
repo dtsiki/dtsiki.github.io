@@ -3,7 +3,7 @@ import type { FC, SVGProps } from 'react';
 export const FolderOpenIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1138_2455)'>
+      <g clipPath='url(#clip0_1138_2455)'>
         <path
           d='M30.472 3.045H28.952V1.525H27.432V-0.00500488H6.092V12.195H1.522V13.715H9.142V12.195H7.622V1.525H24.382V7.615H30.472V22.855H28.952V25.905H30.472V30.475H32.002V4.575H30.472V3.045Z'
           fill='currentColor'

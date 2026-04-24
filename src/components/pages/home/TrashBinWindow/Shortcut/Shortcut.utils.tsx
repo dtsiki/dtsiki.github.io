@@ -1,5 +1,5 @@
+import { EFolderView, TFolderItemType } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
 import { TextFileIcon } from 'src/components/common/icons/ui/';
-import { EFolderView, TFolderItemType } from 'src/components/common/Window/components/Folder/Folder.types';
 
 export const SHORTCUT_ICON = {
   [EFolderView.GRID]: {

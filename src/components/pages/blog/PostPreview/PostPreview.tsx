@@ -6,6 +6,7 @@ import { useTranslate } from 'src/hooks/useTranslate';
 import { CATEGORY_LOC } from 'src/components/blog/PostContent/PostContent.utils';
 
 import styles from './PostPreview.module.scss';
+import { translate } from 'src/utils/translate';
 
 export const PostPreview = ({
   title,
@@ -17,9 +18,10 @@ export const PostPreview = ({
   thumbnail,
   hasExternalLink = false,
   strictLang,
+  language,
 }: IPostPreviewProps) => {
   const bind = classNames.bind(styles);
-  const { language, translate } = useTranslate();
+  const { language: currentLanguage } = useTranslate();
 
   const renderTags = useMemo(() => {
     return tags?.map((tag) => (
@@ -36,7 +38,7 @@ export const PostPreview = ({
           <ul className={styles.post_preview__tags}>
             {category && (
               <li className={bind([styles.post_preview__tag, styles.CATEGORY])}>
-                {translate(strictLang ? language : language, CATEGORY_LOC[category])}
+                {translate(strictLang ? language : currentLanguage, CATEGORY_LOC[category])}
               </li>
             )}
             {renderTags}

@@ -1,5 +1,5 @@
 import { StaticImageData } from 'next/image';
-import { TranslationObject } from 'src/utils/translate';
+import { TranslationObject } from 'src/types';
 
 export interface IImageThumbnailProps {
   image: StaticImageData;

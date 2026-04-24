@@ -13,3 +13,5 @@ export const DocPage = forwardRef<HTMLDivElement, IDocPageProps>(({ page, order 
     </div>
   );
 });
+
+DocPage.displayName = 'DocPage';

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { isUndefined } from 'lodash';
 import { useWindowManager } from './useWindowManager';
-import { TFolderItem } from 'src/components/common/Window/components/Folder/Folder.types';
+import { TFolderItem } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
 
 export const useFolderNavigation = (windowId: string) => {
   const { updateWindow, windows } = useWindowManager();

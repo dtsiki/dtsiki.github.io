@@ -3,7 +3,7 @@ import type { FC, SVGProps } from 'react';
 export const BandageIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1138_95083)'>
+      <g clipPath='url(#clip0_1138_95083)'>
         <path d='M32 22.86H30.48V27.43H32V22.86Z' fill='currentColor' />
         <path d='M32 4.57001H30.48V9.15001H32V4.57001Z' fill='currentColor' />
         <path d='M30.48 27.43H28.96V28.96H30.48V27.43Z' fill='currentColor' />

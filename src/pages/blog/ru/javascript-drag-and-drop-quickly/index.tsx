@@ -5,7 +5,6 @@ import { ISource } from 'src/interfaces';
 import { DragAndDropDemo } from 'src/components/pages/blog/ru/javascript-drag-and-drop-quickly/DragAndDropDemo/DragAndDropDemo';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { HERO_CONFIG } from './index.utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { Window } from 'src/components/common/Window/Window';
@@ -13,6 +12,7 @@ import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
+import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import styles from './index.module.scss';
 import dnd_ui from 'public/assets/blog/javascript-drag-and-drop-quickly/dnd-ui.png';
@@ -315,7 +315,12 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
         tags={['JavaScript']}*/
 
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.JAVASCRIPT_DRAG_AND_DROP_QUICKLY]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.JAVASCRIPT_DRAG_AND_DROP_QUICKLY]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.SPRINKLES,
+      }}>
       <section>
         <p>
           <Hint

@@ -3,7 +3,7 @@ import type { FC, SVGProps } from 'react';
 export const LightBulbIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1128_22741)'>
+      <g clipPath='url(#clip0_1128_22741)'>
         <path d='M28.95 6.1H27.43V18.29H28.95V6.1Z' fill='currentColor' />
         <path d='M27.43 18.29H25.9V19.81H27.43V18.29Z' fill='currentColor' />
         <path d='M27.43 4.57H25.9V6.1H27.43V4.57Z' fill='currentColor' />

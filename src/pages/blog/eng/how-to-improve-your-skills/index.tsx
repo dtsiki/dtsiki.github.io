@@ -5,9 +5,9 @@ import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { Window } from 'src/components/common/Window/Window';
 import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window/Window.types';
 import Dictionary from 'src/components/pages/blog/eng/how-to-improve-your-skills/Dictionary';
+import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 
 import styles from './index.module.scss';
-import { HERO_CONFIG } from './index.utils';
 
 const Post = () => {
   const bind = classNames.bind(styles);
@@ -36,7 +36,13 @@ const Post = () => {
   }, [tips]);
 
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.HOW_TO_IMPROVE_YOUR_SKILLS]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.HOW_TO_IMPROVE_YOUR_SKILLS]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.CROSS,
+        variant: EHeroVariant.VIOLET,
+      }}>
       <section>
         <p>
           We learn to walk by standing up and falling. We learn how to read and write. We learn at school, we go to

@@ -37,3 +37,5 @@ export const CustomScrollbar = forwardRef<ICustomScrollbarRef, ICustomScrollbarP
     );
   }
 );
+
+CustomScrollbar.displayName = 'MyComponent';

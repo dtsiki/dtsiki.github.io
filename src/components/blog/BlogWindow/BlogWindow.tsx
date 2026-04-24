@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
-import { isString } from 'lodash';
+import { isString, noop } from 'lodash';
 import { IBlogWindowProps } from './BlogWindow.types';
 import { useWindowManager } from 'src/hooks/useWindowManager';
 import { EBlogRecord } from './BlogWindow.utils';
@@ -39,8 +39,6 @@ export const BlogWindow = (props: IBlogWindowProps) => {
       setTitle(currentTitle);
     }
   }, [currentTitle]);
-
-  const maximizeWindow = () => {};
 
   const handleMinimizeWindow = () => {
     minimizeWindow(EWindowRecord.BLOG_FOLDER);
@@ -99,7 +97,7 @@ export const BlogWindow = (props: IBlogWindowProps) => {
   }, [windowStyles]);
 
   return (
-    <div className={bind([styles.blog_window, windowStyles])} onClick={handleWindowClick}>
+    <div className={bind([styles.blog_window, windowStyles])} onClick={handleWindowClick} role='none'>
       <div className={bind([styles.blog_window__wrapper, windowStyles])}>
         {renderOverlay}
         <WindowHeader
@@ -109,7 +107,7 @@ export const BlogWindow = (props: IBlogWindowProps) => {
           title={title}
           handleMinimizeWindow={handleMinimizeWindow}
           handleCloseWindow={() => closeWindow(EWindowRecord.BLOG_FOLDER)}
-          handleMaximizeWindow={maximizeWindow}
+          handleMaximizeWindow={noop}
         />
         <WindowFakeMenu type={EWindowType.FOLDER} />
         <div className={bind([styles.blog_window__body, windowStyles])}>{renderContent}</div>

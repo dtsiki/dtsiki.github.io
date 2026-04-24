@@ -1,4 +1,4 @@
-import { TranslationObject } from 'src/utils/translate';
+import { TranslationObject } from 'src/types';
 
 export type TNotification = {
   id: string;

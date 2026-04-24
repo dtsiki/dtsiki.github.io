@@ -3,7 +3,7 @@ import type { FC, SVGProps } from 'react';
 export const WebsiteIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1128_24632)'>
+      <g clipPath='url(#clip0_1128_24632)'>
         <path d='M1.52 7.62H30.48V30.47H32V1.52H30.48V6.09H1.52V1.52H0V30.47H1.52V7.62Z' fill='currentColor' />
         <path d='M30.48 30.47H1.52V32H30.48V30.47Z' fill='currentColor' />
         <path d='M27.43 25.9H21.33V27.43H27.43V25.9Z' fill='currentColor' />

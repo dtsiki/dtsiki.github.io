@@ -1,17 +1,47 @@
 import Image from 'next/image';
+import { nanoid } from 'nanoid';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { HERO_CONFIG, SOURCES_CONFIG } from './index.utils';
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import ExternalLink from 'src/components/common/ExternalLink';
 import HtmlTag from 'src/components/common/HtmlTag';
+import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
+import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
 
 import heights from 'public/assets/blog/how-to-create-a-page-scroll-progress-bar/heights.svg';
 
 const Post = () => {
+  const SOURCES_CONFIG: Array<TReadMoreSource> = [
+    {
+      id: nanoid(),
+      link: 'https://create-react-app.dev/',
+      label: 'React Create App',
+    },
+    {
+      id: nanoid(),
+      link: 'https://react.dev/reference/react/hooks',
+      label: 'React Hooks',
+    },
+    {
+      id: nanoid(),
+      link: 'https://usehooks-ts.com/react-hook/use-event-listener',
+      label: 'useEventListener',
+    },
+    {
+      id: nanoid(),
+      link: 'https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight',
+      label: 'What is scroll height',
+    },
+    {
+      id: nanoid(),
+      link: 'https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight',
+      label: 'What is client height',
+    },
+  ];
+
   const componentStructure = `.
 └── <YOUR AWESOME PROJECT NAME>/
     └── src/
@@ -97,7 +127,11 @@ export const ProgressScroll = () => {
   return (
     <PostWrapper
       postConfig={POSTS_CONFIG_[EBlogPostRecord.HOW_TO_CREATE_A_PAGE_SCROLL_PROGRESS_BAR]}
-      heroConfig={HERO_CONFIG}>
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.SPRINKLES,
+        variant: EHeroVariant.SECONDARY,
+      }}>
       <section>
         <p className='note spacer bottom large'>
           It&#39;s supposed that you have already have your configured project. If you don&#39;t have one, I recommend
@@ -171,7 +205,9 @@ export const ProgressScroll = () => {
           height and client height after each scroll. Here is difference between scroll height and client height:
         </p>
         <Image src={heights} layout='responsive' objectFit='cover' />
-        <p className='explanation'>Here's an explanation of the difference between scroll height and client height</p>
+        <p className='explanation'>
+          Here&apos;s an explanation of the difference between scroll height and client height
+        </p>
         <p className='spacer top large'>
           Then using the formula above we calculate the scrolling progress. If you want to see the final result just
           look at the top of this page and scroll up and down.

@@ -1,6 +1,5 @@
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { HERO_CONFIG } from './index.utils';
 import ExternalLink from 'src/components/common/ExternalLink';
 import { AnimatedStarDemo } from 'src/components/pages/blog/AnimatedStarDemo/AnimatedStarDemo';
 import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window/Window.types';
@@ -9,6 +8,7 @@ import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleC
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
+import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import styles from './index.module.scss';
 import figmaPreviewPng from 'public/assets/blog/animated-star-tutorial/figma-preview.png';
@@ -334,7 +334,12 @@ export const AnimatedStar = () => {
 }`;
 
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.ANIMATED_STAR_TUTORIAL]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.ANIMATED_STAR_TUTORIAL]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.CROSS,
+      }}>
       <section>
         <Window
           type={EWindowType.CUSTOM}

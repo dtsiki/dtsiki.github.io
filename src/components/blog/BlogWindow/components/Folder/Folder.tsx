@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { EFolderView, IFolderProps, TFolderItem, TFolderItemType } from './Folder.types';
-import { BACK, FOLDER_IS_EMPTY, OBJECTS, SEARCH, TOGGLE_VIEW, TYPE_HERE } from 'src/i18n';
+import { BACK, FOLDER_IS_EMPTY, OBJECTS, TOGGLE_VIEW } from 'src/i18n';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderMinus } from '@fortawesome/free-solid-svg-icons';
@@ -39,6 +39,7 @@ export const Folder = ({ content, handleItemClick, isRoot, navigateBack }: IFold
       <li
         key={shortcut.type === TFolderItemType.TXT_FILE ? shortcut.postConfig?.title : shortcut.id}
         className={bind([styles.folder__shortcut, styles[view]])}
+        role='none'
         onClick={() => handleItemClick(shortcut)}>
         <Shortcut
           title={shortcut.title}

@@ -5,7 +5,7 @@ export const SlidesIcon: FC<SVGProps<SVGSVGElement> & ICustomIconProps> = (props
   if (props.useMini) {
     return (
       <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-        <g clip-path='url(#clip0_76_189)'>
+        <g clipPath='url(#clip0_76_189)'>
           <path d='M20 2H4V4H20V2Z' fill='currentColor' />
           <path d='M20 8H4V10H20V8Z' fill='currentColor' />
           <path d='M20 20H4V22H20V20Z' fill='currentColor' />

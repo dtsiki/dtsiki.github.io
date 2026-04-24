@@ -3,7 +3,7 @@ import type { FC, SVGProps } from 'react';
 export const NotepadIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1138_2395)'>
+      <g clipPath='url(#clip0_1138_2395)'>
         <path
           d='M12.955 0V1.52H9.905V3.05H12.955V4.57H14.475V3.05H17.525V4.57H19.045V3.05H22.095V4.57H23.625V3.05H25.145V6.1H26.665V4.57H28.195V30.48H11.435V32H29.715V30.48H31.235V4.57H29.715V3.05H28.195V1.52H23.625V0H22.095V1.52H19.045V0H17.525V1.52H14.475V0H12.955Z'
           fill='currentColor'

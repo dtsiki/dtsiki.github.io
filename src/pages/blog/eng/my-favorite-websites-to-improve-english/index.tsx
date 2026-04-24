@@ -1,8 +1,8 @@
 import ExternalLink from 'src/components/common/ExternalLink';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { HERO_CONFIG } from './index.utils';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
+import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 
 import quizletSet from 'public/assets/blog/my-favorite-websites-to-improve-english/quizlet-set.png';
 import quizletAchievements from 'public/assets/blog/my-favorite-websites-to-improve-english/quizlet-achievements.png';
@@ -17,7 +17,11 @@ const Post = () => {
   return (
     <PostWrapper
       postConfig={POSTS_CONFIG_[EBlogPostRecord.MY_FAVORITE_WEBSITES_TO_IMPROVE_ENGLISH]}
-      heroConfig={HERO_CONFIG}>
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.PENCILS,
+        variant: EHeroVariant.VIOLET,
+      }}>
       <section>
         <h2>1. Quizlet</h2>
         <h3>

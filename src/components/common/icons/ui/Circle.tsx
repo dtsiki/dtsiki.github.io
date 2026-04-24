@@ -9,7 +9,7 @@ export const CircleIcon: FC<SVGProps<SVGSVGElement> & ICustomIconProps> = (props
         <rect y='2' width='2' height='6' fill='currentColor' />
         <rect x='2' y='8' width='6' height='2' fill='currentColor' />
         <rect x='8' y='2' width='2' height='6' fill='currentColor' />
-        <rect x='2' y='2' width='6' height='6' fill='currentColor' fill-opacity='0.7' />
+        <rect x='2' y='2' width='6' height='6' fill='currentColor' fillOpacity='0.7' />
       </svg>
     );
   }

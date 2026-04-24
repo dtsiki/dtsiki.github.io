@@ -1,4 +1,4 @@
-import { EFolderView } from 'src/components/common/Window/components/Folder/Folder.types';
+import { EFolderView } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
 import { TranslationObject } from 'src/types';
 
 export interface IShortcutProps {

@@ -6,8 +6,8 @@ import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleC
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { DragAndDropDemo } from 'src/components/pages/blog/eng/react-drag-and-drop/DragAndDropDemo/DragAndDrop';
-import { HERO_CONFIG } from './index.utils';
 import { Note } from 'src/components/common/Note/Note';
+import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import styles from './index.module.scss';
 
@@ -87,7 +87,12 @@ const handleDragEnd = () => {
 };`;
 
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.REACT_DRAG_AND_DROP]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.REACT_DRAG_AND_DROP]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.CURSORS,
+      }}>
       <section>
         <h2>What is a drag and drop?</h2>
         <p>

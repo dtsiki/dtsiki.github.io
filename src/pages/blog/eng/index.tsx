@@ -3,12 +3,11 @@ import classNames from 'classnames';
 import { BLOG, BLOG_DESCRIPTION } from 'src/i18n/';
 import { getPostsByLang } from 'src/data/postsConfig';
 import { PostPreview } from 'src/components/blog/PostPreview/PostPreview';
-
-import styles from './../Blog.module.scss';
 import { Language } from 'src/types';
 import { useWindowManager } from 'src/hooks/useWindowManager';
-import { HomeShortcut } from 'src/components/pages/home/HomeShortcuts/HomeShortcuts.types';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
+
+import styles from './../blog.module.scss';
 
 const BlogEng = () => {
   const bind = classNames.bind(styles);

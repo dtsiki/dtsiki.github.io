@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import { TDocPage } from './components/DocFile/components/DocPage/DocPage.types';
 import { TSlide } from './components/Slideshow/Slideshow.types';
-import { TFolderConfig } from './components/Folder/Folder.types';
 import { TranslationObject } from 'src/types';
+import { TFolderConfig } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
 
 export type TWindowContent = {
   slides?: TSlide[];

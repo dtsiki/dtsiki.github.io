@@ -21,7 +21,7 @@ export const TextFileIcon: FC<SVGProps<SVGSVGElement> & ICustomIconProps> = (pro
 
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1138_2425)'>
+      <g clipPath='url(#clip0_1138_2425)'>
         <path d='M28.952 4.57495H27.432V30.475H28.952V4.57495Z' fill='currentColor' />
         <path d='M27.432 3.04504H25.902V4.57504H27.432V3.04504Z' fill='currentColor' />
         <path d='M25.902 1.52502H24.382V3.04502H25.902V1.52502Z' fill='currentColor' />

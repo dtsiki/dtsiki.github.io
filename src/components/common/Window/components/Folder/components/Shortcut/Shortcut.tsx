@@ -3,7 +3,7 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IShortcutProps } from './Shortcut.types';
-import { EFolderView, TFolderItemType } from '../../Folder.types';
+import { EFolderView, TFolderItemType } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
 import { SHORTCUT_FORMAT, SHORTCUT_ICON, isFileType } from './Shortcut.utils';
 import { useTranslate } from 'src/hooks/useTranslate';
 import { useWindowManager } from 'src/hooks/useWindowManager';

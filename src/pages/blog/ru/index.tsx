@@ -5,7 +5,7 @@ import { getPostsByLang } from 'src/data/postsConfig';
 import { PostPreview } from 'src/components/blog/PostPreview/PostPreview';
 import { Language } from 'src/types';
 
-import styles from './../Blog.module.scss';
+import styles from './../blog.module.scss';
 
 const BlogRu = () => {
   const bind = classNames.bind(styles);

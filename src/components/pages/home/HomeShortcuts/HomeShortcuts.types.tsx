@@ -1,5 +1,13 @@
 import { ReactNode } from 'react';
-import { TDragItemPosition, TWindow, TranslationObject } from 'src/types';
+import { TWindow, TranslationObject } from 'src/types';
+
+export const HomeItem = {
+  CV: 'CV',
+  SLIDES: 'SLIDES',
+  README: 'README',
+} as const;
+
+export type HomeItem = typeof HomeItem[keyof typeof HomeItem];
 
 export const HomeShortcut = {
   CV: 'CV',

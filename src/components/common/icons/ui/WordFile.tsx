@@ -23,7 +23,7 @@ export const WordFileIcon: FC<SVGProps<SVGSVGElement> & ICustomIconProps> = (pro
 
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_54_57)'>
+      <g clipPath='url(#clip0_54_57)'>
         <mask id='mask0_54_57' maskUnits='userSpaceOnUse' x='0' y='0' width='32' height='32'>
           <path d='M32 0H0V32H32V0Z' fill='white' />
         </mask>

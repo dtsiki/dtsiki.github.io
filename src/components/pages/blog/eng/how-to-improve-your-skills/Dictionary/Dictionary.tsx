@@ -1,11 +1,19 @@
 import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faSearch, faStar, faVolumeUp, faWindowMaximize, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBook,
+  faSearch,
+  faStar,
+  faVolumeUp,
+  faWindowMaximize,
+  faWindowMinimize,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
-import styles from './dictionary.module.scss';
+import styles from './Dictionary.module.scss';
 
 interface Props {
-  word:  string;
+  word: string;
   type: string;
   definition: string;
   pronunciation: string;

@@ -1,13 +1,14 @@
 import { useRef } from 'react';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { HERO_CONFIG } from './index.utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import ExternalLink from 'src/components/common/ExternalLink';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { IItemOfContent } from 'src/interfaces';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
+import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
+import { Hero } from 'src/components/pages/blog/ru/custom-react-i18n/Hero/Hero';
 
 const Post = () => {
   const appDesignRef = useRef<HTMLDivElement>(null);
@@ -276,7 +277,13 @@ export const LanguageSwitcher = () => {
 };`;
 
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.CUSTOM_REACT_I18N]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.CUSTOM_REACT_I18N]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.CROSS,
+        content: <Hero />,
+      }}>
       <section>
         <TableOfContents
           items={tableOfContents}
@@ -456,9 +463,9 @@ export const LanguageSwitcher = () => {
         <p>Для переводов нам потребуется специальный объект:</p>
         <CodeSnippet code={translationObjectSnippet} name='src/types/i18n.types' lang={ECodeLang.TYPESCRIPT} />
         <p>
-          Этот объект поможет нам типизировать объекты перевода. Он будет говорить TypeScript'у: "Любой объект, который
-          хочет быть переводом, должен содержать поля English и Russian, и эти оба поля должны быть строками". Таким
-          образом, когда будем составлять словари, избежим дурацких ошибок:
+          Этот объект поможет нам типизировать объекты перевода. Он будет говорить TypeScript&apos;у: «Любой объект,
+          который хочет быть переводом, должен содержать поля English и Russian, и эти оба поля должны быть строками».
+          Таким образом, когда будем составлять словари, избежим дурацких ошибок:
         </p>
         <CodeSnippet
           code={translationObjectExampleSnippet}

@@ -60,11 +60,6 @@ export const SKILLS: TranslationObject = {
   [Language.RU]: 'Навыки',
 };
 
-export const ABOUT_ME: TranslationObject = {
-  [Language.ENG]: 'About me',
-  [Language.RU]: 'Обо мне',
-};
-
 export const ANOTHER_SKILLS: TranslationObject = {
   [Language.ENG]: 'Another skills',
   [Language.RU]: 'Ещё навыки',

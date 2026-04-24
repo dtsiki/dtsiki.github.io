@@ -1,8 +1,40 @@
 import { EWindowRecord, WINDOW_REGISTRY } from 'src/context/WindowManager/WindowManager.utils';
-import { HomeShortcut, THomeShortcut } from './HomeShortcuts.types';
+import { HomeItem, HomeShortcut, THomeShortcut } from './HomeShortcuts.types';
 import { BLOG, CV_FILE_NAME, README_FILE_NAME, SLIDES_FILE_NAME, TRASH_BIN } from 'src/i18n/';
 import { BinIcon, SlidesIcon, TypingMachineIcon, WordFileIcon } from 'src/components/common/icons/ui';
 import { NotepadIcon } from 'src/components/common/icons/ui';
+import { DocFile } from 'src/components/common/Window/components/DocFile';
+import { Slideshow } from 'src/components/common/Window/components/Slideshow/Slideshow';
+import { EWindowType } from 'src/components/common/Window/Window.types';
+import { TextFile } from 'src/components/common/Window/components/TextFile/TextFile';
+import { nanoid } from 'nanoid';
+import { HOME_CV_CONFIG } from 'src/components/pages/home/HomeCV/HomeCV.utils';
+import { HomeReadme } from 'src/components/pages/home/HomeReadme/HomeReadme';
+import { HOME_SLIDES_CONFIG } from 'src/components/pages/home/HomeSlides/HomeSlides.utils';
+
+export const HOME_HERO_MODAL_CONFIG = {
+  [HomeItem.CV]: {
+    id: nanoid(),
+    type: EWindowType.DOC_FILE,
+    title: CV_FILE_NAME,
+    content: <DocFile pages={HOME_CV_CONFIG} />,
+    showMenu: true,
+  },
+  [HomeItem.SLIDES]: {
+    id: nanoid(),
+    type: EWindowType.SLIDESHOW,
+    title: SLIDES_FILE_NAME,
+    content: <Slideshow slides={HOME_SLIDES_CONFIG} />,
+    showMenu: true,
+  },
+  [HomeItem.README]: {
+    id: nanoid(),
+    type: EWindowType.TXT_FILE,
+    title: README_FILE_NAME,
+    content: <TextFile content={<HomeReadme />} />,
+    showMenu: true,
+  },
+};
 
 export const HOME_SHORTCUTS_CONFIG: THomeShortcut[] = [
   {

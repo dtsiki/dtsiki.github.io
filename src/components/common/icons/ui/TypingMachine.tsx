@@ -26,7 +26,7 @@ export const TypingMachineIcon: FC<SVGProps<SVGSVGElement> & ICustomIconProps> =
 
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
-      <g clip-path='url(#clip0_1138_2121)'>
+      <g clipPath='url(#clip0_1138_2121)'>
         <path d='M28.96 25.91V27.43H30.48V30.48H32V24.38H30.48V25.91H28.96Z' fill='currentColor' />
         <path d='M30.48 21.33H28.96V24.38H30.48V21.33Z' fill='currentColor' />
         <path d='M30.48 30.48H1.53V32H30.48V30.48Z' fill='currentColor' />

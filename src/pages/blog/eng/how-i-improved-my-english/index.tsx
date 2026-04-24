@@ -1,11 +1,17 @@
 import ExternalLink from 'src/components/common/ExternalLink';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { HERO_CONFIG } from './index.utils';
+import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 
 const Post = () => {
   return (
-    <PostWrapper postConfig={POSTS_CONFIG_[EBlogPostRecord.HOW_I_IMPROVED_MY_ENGLISH]} heroConfig={HERO_CONFIG}>
+    <PostWrapper
+      postConfig={POSTS_CONFIG_[EBlogPostRecord.HOW_I_IMPROVED_MY_ENGLISH]}
+      heroConfig={{
+        size: EHeroSize.SMALL,
+        pattern: EHeroPattern.ARROWS,
+        variant: EHeroVariant.VIOLET,
+      }}>
       <section>
         <p>
           I was never very good in English. Probably, I should say I&#39;ve never been good at that because I&#39;ve not
