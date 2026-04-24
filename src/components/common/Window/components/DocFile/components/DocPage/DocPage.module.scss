@@ -1,5 +1,6 @@
 @import './../../../../../../../styles/colors';
 @import './../../../../../../../styles/vars';
+@import './../../../../../../../styles/breakpoints';
 
 .doc_page {
   position: relative;
@@ -9,6 +10,14 @@
   width: $PAGE_WIDTH;
   height: calc($A4_RATIO * $PAGE_WIDTH);
   margin: 0 auto $SPACER * 2;
+
+  @include mobile {
+    width: auto;
+    height: auto;
+    padding: $SPACER;
+    margin: 0 auto $SPACER;
+    aspect-ratio: 1 / 1.414;
+  }
 
   &:last-child {
     margin: 0 auto;
@@ -21,11 +30,19 @@
     left: 0;
     right: 0;
     text-align: center;
+
+    @include mobile {
+      bottom: $SPACER / 2;
+    }
   }
 
   &__counter {
     color: $color--grey-darker;
     font-size: 12px;
     text-align: center;
+
+    @include mobile {
+      font-size: 8px;
+    }
   }
 }

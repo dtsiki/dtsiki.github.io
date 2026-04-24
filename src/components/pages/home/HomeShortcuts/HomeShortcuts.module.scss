@@ -2,7 +2,7 @@
 @import './../../../../styles/vars';
 @import './../../../../styles/breakpoints';
 
-$GRID_CELL_MOBILE: 200px;
+$GRID_CELL_MOBILE: 150px;
 $GRID_CELL_DESKTOP: 150px;
 
 .home_shortcuts {
@@ -11,6 +11,7 @@ $GRID_CELL_DESKTOP: 150px;
   margin: 0 auto;
 
   @include mobile {
+    margin-top: -200px;
     width: calc($GRID_CELL_MOBILE * 2);
     height: calc($GRID_CELL_MOBILE * 2);
   }
@@ -40,8 +41,12 @@ $GRID_CELL_DESKTOP: 150px;
       grid-row: 4;
 
       @include mobile {
-        margin-top: -20px;
-        margin-left: -20px;
+        // margin-top: -20px;
+        //margin-left: -20px;
+        opacity: 0;
+        pointer-events: none;
+        grid-column: unset;
+        grid-row: unset;
       }
     }
 
@@ -50,8 +55,9 @@ $GRID_CELL_DESKTOP: 150px;
       grid-row: 1;
 
       @include mobile {
-        margin-top: -100px;
-        margin-left: 30px;
+        //margin-top: -100px;
+        //margin-left: 30px;
+        margin-bottom: -200px;
       }
     }
 

@@ -1,17 +1,32 @@
 @import './../../../../../../../styles/colors';
 @import './../../../../../../../styles/vars';
+@import './../../../../../../../styles/breakpoints';
 
 .header {
   margin-bottom: $SPACER;
 
+  @include mobile {
+    margin-bottom: $SPACER / 4;
+  }
+
   &__name {
     display: block;
     font-size: 28px;
+
+    @include mobile {
+      font-size: 16px;
+      font-weight: 700;
+    }
   }
 
   &__position {
     display: block;
     font-size: 32px;
     color: $color--violet;
+
+    @include mobile {
+      font-size: 14px;
+      font-weight: 700;
+    }
   }
 }

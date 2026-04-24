@@ -1,5 +1,6 @@
 @import './../../../../styles/colors';
 @import './../../../../styles/vars';
+@import './../../../../styles/breakpoints';
 
 .home_shortcut {
   position: relative;
@@ -43,20 +44,14 @@
   }
 
   &__label {
-    /*font-family: Musinka;
-    font-size: 40px;
-    */
-    // font-family: KurochkaLapkoi;
-    /*font-size: 32px;
-    font-family: Musinka;
-    */
     font-family: Pixelify;
     font-size: 24px;
-    //text-transform: uppercase;
     text-align: center;
-    //font-size: 18px;
-    //font-weight: 600;
     margin: $SPACER / 2 0;
+
+    @include mobile {
+      font-size: 18px;
+    }
   }
 
   &__button {

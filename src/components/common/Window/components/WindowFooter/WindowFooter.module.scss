@@ -1,5 +1,6 @@
 @import './../../../../../styles/colors';
 @import './../../../../../styles/vars';
+@import './../../../../../styles/breakpoints';
 
 .window_footer {
   display: flex;
@@ -13,5 +14,10 @@
     font-family: Pixelify;
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    @include mobile {
+      font-size: 8px;
+      font-weight: 600;
+    }
   }
 }

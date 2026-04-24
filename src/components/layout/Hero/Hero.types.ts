@@ -24,8 +24,6 @@ export enum EHeroSize {
 }
 
 export enum EHeroPattern {
-  TOPOGRAPHY_LIGHT = 'TOPOGRAPHY_LIGHT',
-  TOPOGRAPHY_DARK = 'TOPOGRAPHY_DARK',
   MOTION_LINES = 'MOTION_LINES',
   ARROWS = 'ARROWS',
   CROSS = 'CROSS',
@@ -34,13 +32,6 @@ export enum EHeroPattern {
   WAVY = 'WAVY',
   CURSORS = 'CURSORS',
   SMILEY = 'SMILEY',
-  GRAPH_PAPER = 'GRAPH_PAPER',
-  JIGSAW = 'JIGSAW',
-  WINDY = 'WINDY',
-  CLOSES = 'CLOSES',
-  CURRENT = 'CURRENT',
-  TIC_TAC_TOE = 'TIC_TAC_TOE',
-  DOODLES = 'DOODLES',
 }
 
 export interface IHeroProps {

@@ -1,20 +1,33 @@
 @import './../../../../../../../styles/colors';
 @import './../../../../../../../styles/vars';
+@import './../../../../../../../styles/breakpoints';
 
 .contacts {
   margin-top: $SPACER * 2;
+
+  @include mobile {
+    margin-top: $SPACER / 2;
+  }
 
   &__title {
     font-size: 20px;
     margin-bottom: $SPACER / 2;
     color: $color--violet;
+
+    @include mobile {
+      font-size: 12px;
+      font-weight: 600;
+    }
   }
 
   &__item {
     display: flex;
     align-items: center;
-
     margin-bottom: $SPACER / 2;
+
+    @include mobile {
+      margin-bottom: $SPACER / 4;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -26,9 +39,19 @@
     width: 24px;
     height: 24px;
 
+    @include mobile {
+      width: 16px;
+      height: 16px;
+    }
+
     svg {
       width: 24px;
       height: 24px;
+
+      @include mobile {
+        width: 16px;
+        height: 16px;
+      }
     }
   }
 
@@ -37,9 +60,18 @@
     font-size: 16px;
     line-height: 1.5;
     color: rgba($color--black, 0.8);
+
+    @include mobile {
+      font-size: 12px;
+      margin-bottom: $SPACER / 2;
+    }
   }
 
   &__link {
     margin-left: $SPACER / 2;
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 }

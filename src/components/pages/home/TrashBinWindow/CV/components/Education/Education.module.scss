@@ -1,5 +1,6 @@
 @import './../../../../../../../styles/colors';
 @import './../../../../../../../styles/vars';
+@import './../../../../../../../styles/breakpoints';
 
 .education {
   margin-top: $SPACER * 2;
@@ -8,6 +9,11 @@
     font-size: 20px;
     margin-bottom: $SPACER / 2;
     color: $color--violet;
+
+    @include mobile {
+      font-size: 12px;
+      font-weight: 600;
+    }
   }
 
   &__list {
@@ -24,6 +30,10 @@
     &::first-letter {
       text-transform: uppercase;
     }
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 
   &__item {
@@ -32,12 +42,20 @@
     &:last-child {
       margin-bottom: 0;
     }
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 
   &__text {
     font-size: 16px;
     line-height: 1.5;
     color: rgba($color--black, 0.8);
+
+    @include mobile {
+      font-size: 12px;
+    }
   }
 
   &__footer {

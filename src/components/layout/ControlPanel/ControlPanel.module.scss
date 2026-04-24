@@ -13,16 +13,13 @@ $PANEL_HEIGHT: 60px;
   left: 0;
   right: 0;
   background-color: rgba($color--violet, 0.9);
-  //border-top: 2px solid rgba($color--violet, 1);
   backdrop-filter: blur(2px);
-  // font-family: $font--base;
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: $PANEL_HEIGHT;
-    // overflow: hidden;
   }
 
   &__section {
@@ -43,27 +40,16 @@ $PANEL_HEIGHT: 60px;
     padding: 0 $SPACER;
 
     &.HOME {
-      // width: 200px;
       width: 90px;
       padding: 0;
       text-align: center;
       background: $color--violet-darker;
       color: $color--white;
-
-      /*
-      font-family: Musinka;
-      font-size: 30px;
-      */
       font-family: Pixelify;
       font-size: 18px;
       text-transform: lowercase;
-
-      //text-transform: uppercase;
-      // font-weight: 600;
-
       font-weight: 400;
       line-height: $PANEL_HEIGHT;
-      //border-right: 2px solid $color--violet;
       transition: $COMMON_TRANSITION;
 
       &:hover {
@@ -71,31 +57,35 @@ $PANEL_HEIGHT: 60px;
       }
 
       svg {
-        //display: none;
         width: 32px;
         height: 32px;
-        //margin-right: $SPACER / 2;
+
+        @include mobile {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      @include mobile {
+        width: 60px;
       }
     }
 
     &.LANG {
       width: 70px;
-      /*font-size: 30px;
-      font-family: Musinka;
-      */
       font-family: Pixelify;
       font-size: 20px;
-      //font-weight: 600;
       color: $color--white;
-
       line-height: $PANEL_HEIGHT;
       transition: $COMMON_TRANSITION;
 
-      //border-right: 2px solid $color--violet;
-      //border-left: 2px solid $color--violet;
-
       &:hover {
         background-color: $color--violet-dark;
+      }
+
+      @include mobile {
+        font-size: 14px;
+        width: 60px;
       }
     }
 
@@ -110,7 +100,10 @@ $PANEL_HEIGHT: 60px;
         height: 24px;
         color: $color--white;
       }
-      //border-right: 2px solid $color--violet;
+
+      @include mobile {
+        display: none;
+      }
     }
   }
 
@@ -134,31 +127,24 @@ $PANEL_HEIGHT: 60px;
   }
 
   &__window {
-    //min-width: 250px;
-
     &_button {
       display: inline-flex;
       align-items: center;
       width: 100%;
       height: calc($PANEL_HEIGHT - $SPACER);
-      //border: 2px solid $color--violet;
+      margin: 0;
+      padding: 0 $SPACER;
       border: 0;
       @include step1(2px, $color--white);
       color: $color--white;
       background: rgba($color--violet-darker, 0.3);
       opacity: 0.6;
-      //border-radius: 5px;
-      margin: 0;
-      padding: 0 $SPACER;
       cursor: pointer;
       text-align: left;
       font-size: 20px;
       line-height: 16px;
       font-family: Pixelify;
       transition: $COMMON_TRANSITION;
-      //font-weight: 500;
-      //font-weight: 500;
-      //text-transform: uppercase;
 
       &:hover {
         opacity: 0.8;
@@ -170,9 +156,7 @@ $PANEL_HEIGHT: 60px;
       }
 
       &.focused {
-        //border: 2px solid $color--violet;
         @include step1(2px, $color--white);
-
         color: $color--white;
         opacity: 1;
         font-weight: 500;
@@ -191,22 +175,15 @@ $PANEL_HEIGHT: 60px;
     align-items: center;
     justify-content: center;
     background-color: $color--violet-lighter;
-    // gap: $SPACER / 2;
-
-    /*
-    &::before {
-      content: '';
-      display: block;
-      width: 2px;
-      border-left: 2px solid $color--violet;
-      height: 40px;
-      margin: 0 $SPACER / 4;
-      border-radius: $BORDER_RADIUS;
-    }
-      */
   }
 
   &__time {
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   &__notifications {

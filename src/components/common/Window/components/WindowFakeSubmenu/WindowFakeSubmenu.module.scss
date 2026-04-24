@@ -1,7 +1,7 @@
 @import './../../../../../styles/colors';
 @import './../../../../../styles/vars';
+@import './../../../../../styles/breakpoints';
 
-$HEADER_HEIGHT: 32px;
 $OFFSET: $SPACER / 4;
 
 .window_fake_submenu {
@@ -17,6 +17,10 @@ $OFFSET: $SPACER / 4;
     background: rgba($color--grey, 0.3);
     border-top: 1px solid rgba($color--grey, 0.8);
     font-family: Pixelify;
+
+    @include mobile {
+      font-size: 10px;
+    }
   }
 
   &__group {
@@ -31,6 +35,10 @@ $OFFSET: $SPACER / 4;
     &:first-child {
       border-left: 0;
       margin-left: -$OFFSET;
+
+      @include mobile {
+        margin-left: 0;
+      }
     }
 
     &:last-child {
@@ -46,9 +54,18 @@ $OFFSET: $SPACER / 4;
     border-radius: 2px;
     box-sizing: content-box;
 
+    @include mobile {
+      padding: 0;
+    }
+
     &.DEFAULT {
       width: 20px;
       height: 20px;
+
+      @include mobile {
+        width: 14px;
+        height: 14px;
+      }
     }
 
     /*&:hover {
@@ -65,6 +82,12 @@ $OFFSET: $SPACER / 4;
       text-align: center;
       font-size: 18px;
       font-weight: 600;
+
+      @include mobile {
+        width: 14px;
+        height: 14px;
+        font-size: 12px;
+      }
     }
 
     &.BOLD {
@@ -87,6 +110,11 @@ $OFFSET: $SPACER / 4;
   &__chevron {
     width: 14px;
     height: 14px;
+
+    @include mobile {
+      width: 8px;
+      height: 8px;
+    }
   }
 
   &__select {
@@ -97,15 +125,27 @@ $OFFSET: $SPACER / 4;
     text-transform: none;
     padding: 4px 6px 4px 6px;
     border-radius: 2px;
-    margin: 0 5px;
+    margin: 0 2px;
+
+    @include mobile {
+      padding: 2px;
+    }
 
     &.FONT_FAMILY {
       width: 150px;
       font-family: Inter;
+
+      @include mobile {
+        width: 50px;
+      }
     }
 
     &.FONT_SIZE {
       width: 100px;
+
+      @include mobile {
+        width: 30px;
+      }
     }
   }
 }

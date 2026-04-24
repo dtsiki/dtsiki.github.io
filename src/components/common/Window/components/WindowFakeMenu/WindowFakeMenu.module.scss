@@ -1,7 +1,6 @@
 @import './../../../../../styles/colors';
 @import './../../../../../styles/vars';
-
-$HEADER_HEIGHT: 32px;
+@import './../../../../../styles/breakpoints';
 
 .window_fake_menu {
   &__wrapper {
@@ -21,6 +20,10 @@ $HEADER_HEIGHT: 32px;
     margin: 0 $SPACER / 6;
     transition: 0.5s all;
     font-size: 12px;
+
+    @include mobile {
+      font-size: 8px;
+    }
 
     &::first-letter {
       text-decoration: underline;

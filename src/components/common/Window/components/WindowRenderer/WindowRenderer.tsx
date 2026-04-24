@@ -5,9 +5,12 @@ import { isBaseWindow } from '../../Window.utils';
 import { BlogWindow } from 'src/components/blog/BlogWindow';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
 import { TrashBinWindow } from 'src/components/pages/home/TrashBinWindow/TrashBinWindow';
+import { useWindowSize } from 'src/hooks';
+import { getWindowStyle } from './WindowRenderer.utils';
 
 export const WindowRenderer = () => {
   const { windows } = useWindowManager();
+  const { isMobile } = useWindowSize();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const sortedWindows = [...windows]
@@ -49,23 +52,10 @@ export const WindowRenderer = () => {
         zIndex: 1000,
       }}>
       {sortedWindows.map((window) => {
-        const { id, isFocused, isMinimized, position, size, config } = window;
+        const { id, isFocused, isMinimized, config } = window;
 
         return (
-          <div
-            key={id}
-            data-window-id={id}
-            style={{
-              pointerEvents: 'auto', // Восстанавливаем кликабельность для самого окна
-              position: 'absolute',
-              top: position?.top || `${100 + windows.indexOf(window) * 60}px`,
-              right: position?.right || 'unset',
-              left: position?.right ? 'unset' : position?.left || `${100 + windows.indexOf(window) * 60}px`,
-              width: size?.width || 400,
-              height: size?.height || 'auto',
-              transform: position?.transform || 'none',
-              zIndex: isFocused ? 1002 : 1001,
-            }}>
+          <div key={id} data-window-id={id} style={getWindowStyle(window, windows.indexOf(window), isMobile)}>
             {isBaseWindow(config) ? (
               <Window
                 id={id}

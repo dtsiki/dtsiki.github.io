@@ -620,6 +620,10 @@ ul,
   &-track {
     width: 14px !important;
     background: $color--white-violet;
+
+    @include mobile {
+      display: none;
+    }
   }
 }
 

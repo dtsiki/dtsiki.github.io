@@ -1,18 +1,27 @@
 @import './../../../../../../styles/colors';
 @import './../../../../../../styles/vars';
+@import './../../../../../../styles/breakpoints';
 
 .skills {
   &__title {
     font-size: 20px;
     margin-bottom: $SPACER / 2;
     color: $color--violet;
+
+    @include mobile {
+      font-size: 12px;
+      font-weight: 600;
+    }
   }
 
   &__item {
     display: flex;
     align-items: center;
-
     margin-bottom: $SPACER / 2;
+
+    @include mobile {
+      margin-bottom: $SPACER / 4;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -25,5 +34,10 @@
     line-height: 1.5;
     text-indent: $SPACER;
     color: rgba($color--black, 0.8);
+
+    @include mobile {
+      font-size: 12px;
+      margin-bottom: $SPACER / 2;
+    }
   }
 }
