@@ -1,4 +1,4 @@
-import { GUIDE, TUTORIAL, ENGLISH, THOUGHTS } from 'src/i18n';
+import { GUIDE, TUTORIAL, ENGLISH, THOUGHTS, READING } from 'src/i18n';
 import { EPostType } from '../PostWrapper/PostWrapper.types';
 
 export const CATEGORY_LOC = {
@@ -6,4 +6,5 @@ export const CATEGORY_LOC = {
   [EPostType.TUTORIAL]: TUTORIAL,
   [EPostType.ENGLISH]: ENGLISH,
   [EPostType.THOUGHTS]: THOUGHTS,
+  [EPostType.READING]: READING,
 };

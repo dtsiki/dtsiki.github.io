@@ -8,6 +8,7 @@ export enum EPostType {
   TUTORIAL = 'TUTORIAL',
   ENGLISH = 'ENGLISH',
   THOUGHTS = 'THOUGHTS',
+  READING = 'READING',
 }
 
 export type TPostMeta = {

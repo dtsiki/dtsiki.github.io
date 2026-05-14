@@ -35,6 +35,11 @@ export const THOUGHTS: TranslationObject = {
   [Language.RU]: 'Мыслишки',
 };
 
+export const READING: TranslationObject = {
+  [Language.ENG]: 'Reading',
+  [Language.RU]: 'О книгах',
+};
+
 export const ENGLISH_POST_NOTIFICATION: TranslationObject = {
   [Language.ENG]:
     "This post was originally written in English, so it's only available in its original language. The site's language switcher won't affect it.",

@@ -17,6 +17,7 @@ export enum EBlogPostRecord {
   JAVASCRIPT_DRAG_AND_DROP_QUICKLY = 'JAVASCRIPT_DRAG_AND_DROP_QUICKLY',
   CREATING_A_REACT_APP = 'CREATING_A_REACT_APP',
   CUSTOM_REACT_I18N = 'CUSTOM_REACT_I18N',
+  APRIL_READING_LIST = 'APRIL_READING_LIST',
 }
 
 export const POSTS_CONFIG_: Record<string, TPostConfig> = {
@@ -268,6 +269,20 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     meta: {
       description:
         'В этой статье изобретём велосипед и создадим своими руками i18next в приложении на React.  Контекст, хук и никакой магии.',
+    },
+    strictLanguage: true,
+  },
+  [EBlogPostRecord.APRIL_READING_LIST]: {
+    id: EBlogPostRecord.APRIL_READING_LIST,
+    title: 'Что я прочитала в апреле',
+    highlight: 'Рассказываю какие книги прочитала или прослушала за прошлый месяц.',
+    link: 'april-reading-list',
+    category: EPostType.READING,
+    createdAt: '14 may 2026',
+    tags: ['Прочитанное'],
+    language: Language.RU,
+    meta: {
+      description: 'Рассказываю какие книги прочитала или прослушала за прошлый месяц.',
     },
     strictLanguage: true,
   },
