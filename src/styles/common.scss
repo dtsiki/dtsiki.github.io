@@ -1,0 +1,31 @@
+@import './vars';
+@import './colors';
+
+.tags {
+  display: flex;
+  justify-content: start;
+}
+
+.tag {
+  width: fit-content;
+  margin: 0 ($SPACER / 2) 0 0;
+  padding: $SPACER / 2;
+  border: 2px solid;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.PRIMARY {
+    border-color: $color--violet;
+    color: $color--violet;
+  }
+
+  &.SECONDARY {
+    color: $color--grey-darker;
+    border-color: $color--grey-darker;
+  }
+}
