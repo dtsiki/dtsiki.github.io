@@ -1,6 +1,6 @@
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import ExternalLink from 'src/components/common/ExternalLink';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 import { AnimatedStarDemo } from 'src/components/pages/blog/AnimatedStarDemo/AnimatedStarDemo';
 import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window/Window.types';
 import { Window } from 'src/components/common/Window/Window';
