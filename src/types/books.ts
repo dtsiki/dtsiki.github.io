@@ -11,5 +11,5 @@ export type TReadingListItem = {
   category: string[];
   tags?: string[];
   content?: ReactNode;
-  cover?: StaticImageData;
+  cover?: string;
 };

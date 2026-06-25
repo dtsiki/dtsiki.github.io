@@ -9,9 +9,7 @@ export const renderBookLayout = (book: TReadingListItem) => {
     return (
       <article key={id} className='row'>
         <div className='col col--20'>
-          <div className='image COVER'>
-            <Image layout='responsive' src={cover} alt={`Обложка книги «${title}»`} />
-          </div>
+          <img src={cover} alt={`Обложка книги «${title}»`} className='image BOOKCOVER' />
         </div>
         <div className='col col--80'>{renderBookInfo(book)}</div>
       </article>

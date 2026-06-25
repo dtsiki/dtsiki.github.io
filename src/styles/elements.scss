@@ -979,8 +979,8 @@ ul,
   width: 100%;
   height: auto;
 
-  &.COVER {
-    aspect-ratio: 16 / 9;
+  &.BOOKCOVER {
+    aspect-ratio: 1 / 1.6;
     object-fit: cover;
   }
 }

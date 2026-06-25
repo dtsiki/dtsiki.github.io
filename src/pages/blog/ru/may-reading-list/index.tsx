@@ -5,11 +5,11 @@ import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import { TReadingListItem } from 'src/types';
 import { renderBookLayout } from 'src/utils/books';
 
-import legionImage from 'public/assets/blog/may-reading-list/legion.webp';
-import tamGdeRakiPoyutImage from 'public/assets/blog/may-reading-list/tam-gde-raki-poyut.webp';
-import nervnyySryvImage from 'public/assets/blog/may-reading-list/nervnyy-sryv.webp';
-import prostiNasNatImage from 'public/assets/blog/may-reading-list/prosti-nas-nat.webp';
-import patZelanijImage from 'public/assets/blog/may-reading-list/pat-zelanij.webp';
+const legionImage = '/assets/blog/may-reading-list/legion.webp';
+const tamGdeRakiPoyutImage = '/assets/blog/may-reading-list/tam-gde-raki-poyut.webp';
+const nervnyySryvImage = '/assets/blog/may-reading-list/nervnyy-sryv.webp';
+const prostiNasNatImage = '/assets/blog/may-reading-list/prosti-nas-nat.webp';
+const patZelanijImage = '/assets/blog/may-reading-list/pat-zelanij.webp';
 
 const Post = () => {
   const BOOKS_CONFIG: TReadingListItem[] = [

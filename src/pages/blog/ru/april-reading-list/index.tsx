@@ -6,14 +6,14 @@ import { ExternalLink } from 'src/components/common/ExternalLink';
 import { TReadingListItem } from 'src/types';
 import { renderBookLayout } from 'src/utils/books';
 
-import artemidaImage from 'public/assets/blog/april-reading-list/artemida.webp';
-import hizhinaImage from 'public/assets/blog/april-reading-list/hizhina.webp';
-import magpieMurdersImage from 'public/assets/blog/april-reading-list/magpie_murders.webp';
-import naselenieOdnaImage from 'public/assets/blog/april-reading-list/naselenie_odna.webp';
-import obychnyjVtornikImage from 'public/assets/blog/april-reading-list/obychnyj_vtornik.webp';
-import pokaTechjotRekaImage from 'public/assets/blog/april-reading-list/poka_techjot_reka.webp';
-import zajmisNichemImage from 'public/assets/blog/april-reading-list/zajmis_nichem.webp';
-import lubimchikEpohiImage from 'public/assets/blog/april-reading-list/lubimchik_epohi.webp';
+const artemidaImage = '/assets/blog/april-reading-list/artemida.webp';
+const hizhinaImage = '/assets/blog/april-reading-list/hizhina.webp';
+const magpieMurdersImage = '/assets/blog/april-reading-list/magpie_murders.webp';
+const naselenieOdnaImage = '/assets/blog/april-reading-list/naselenie_odna.webp';
+const obychnyjVtornikImage = '/assets/blog/april-reading-list/obychnyj_vtornik.webp';
+const pokaTechjotRekaImage = '/assets/blog/april-reading-list/poka_techjot_reka.webp';
+const zajmisNichemImage = '/assets/blog/april-reading-list/zajmis_nichem.webp';
+const lubimchikEpohiImage = '/assets/blog/april-reading-list/lubimchik_epohi.webp';
 
 const Post = () => {
   const BOOKS_CONFIG: TReadingListItem[] = [
