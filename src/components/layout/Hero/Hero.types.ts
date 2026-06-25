@@ -32,6 +32,11 @@ export enum EHeroPattern {
   WAVY = 'WAVY',
   CURSORS = 'CURSORS',
   SMILEY = 'SMILEY',
+  TRIANGLES = 'TRIANGLES',
+  SQUARES = 'SQUARES',
+  MEMPHIS = 'MEMPHIS',
+  BUBBLES = 'BUBBLES',
+  BOOKSHELF = 'BOOKSHELF',
 }
 
 export interface IHeroProps {

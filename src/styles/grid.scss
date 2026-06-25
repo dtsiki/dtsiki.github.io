@@ -33,17 +33,42 @@
   width: var(--col-size);
   flex: 0 0 var(--col-size);
 
-  &--20 {--col-size: 20%;}
-  &--25 {--col-size: 25%;}
-  &--33 {--col-size: 33.33%;}
-  &--35 {--col-size: 35%;}
-  &--40 {--col-size: 40%;}
-  &--50 {--col-size: 50%;}
-  &--60 {--col-size: 60%;}
-  &--65 {--col-size: 65%;}
-  &--66 {--col-size: 66.66%;}
-  &--75 {--col-size: 75%;}
-  &--85 {--col-size: 85%;}
+  &--20 {
+    --col-size: 20%;
+  }
+  &--25 {
+    --col-size: 25%;
+  }
+  &--33 {
+    --col-size: 33.33%;
+  }
+  &--35 {
+    --col-size: 35%;
+  }
+  &--40 {
+    --col-size: 40%;
+  }
+  &--50 {
+    --col-size: 50%;
+  }
+  &--60 {
+    --col-size: 60%;
+  }
+  &--65 {
+    --col-size: 65%;
+  }
+  &--66 {
+    --col-size: 66.66%;
+  }
+  &--75 {
+    --col-size: 75%;
+  }
+  &--85 {
+    --col-size: 85%;
+  }
+  &--80 {
+    --col-size: 80%;
+  }
 
   &--reversed {
     text-align: right;
