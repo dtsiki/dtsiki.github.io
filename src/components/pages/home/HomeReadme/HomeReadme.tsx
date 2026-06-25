@@ -1,4 +1,3 @@
-import HtmlTag from 'src/components/common/HtmlTag';
 import { useTranslate } from 'src/hooks/useTranslate';
 import { Language } from 'src/types';
 
@@ -59,6 +58,13 @@ export const HomeReadme = () => {
             </a>{' '}
             авторства Steve Schoger
           </p>
+          <p>
+            4. И паттерны с другого замечательного сайта{' '}
+            <a href='https://pattern.monster/' className='link'>
+              «Pattern Monster»
+            </a>{' '}
+            авторства Naveen CS
+          </p>
           <p>Спасибо авторам этих замечательным ресурсов &lt;3</p>
         </section>
       </div>
@@ -104,14 +110,35 @@ export const HomeReadme = () => {
       <section>
         <p>Credits</p>
         <p>
-          1. <a href='https://www.figma.com/community/file/952542622393317653/pixelarticons-free'>Pixelarticons</a> by
-          Gerrit Halfmann
+          1.{' '}
+          <a href='https://www.figma.com/community/file/952542622393317653/pixelarticons-free' className='link'>
+            Pixelarticons
+          </a>{' '}
+          by Gerrit Halfmann
         </p>
         <p>
-          2. <a href='https://www.figma.com/community/file/1196864707579677521'>Free Pixel Icons</a> by Streamline
+          2.{' '}
+          <a href='https://www.figma.com/community/file/1196864707579677521' className='link'>
+            Free Pixel Icons
+          </a>{' '}
+          by Streamline
         </p>
         <p>
-          3. <a href='https://heropatterns.com/'>Hero Patterns</a> by Steve Schoger
+          3.{' '}
+          <a href='https://heropatterns.com/' className='link'>
+            Hero Patterns
+          </a>{' '}
+          by Steve Schoger
+        </p>
+        <p>
+          4.{' '}
+          <a href='https://pattern.monster/' className='link'>
+            Pattern Monster
+          </a>{' '}
+          by Naveen CS
+        </p>
+        <p>
+          Thank you <span style={{ color: '#8A2BE2' }}>❤</span>
         </p>
       </section>
     </div>
