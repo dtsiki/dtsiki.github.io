@@ -1,14 +1,15 @@
+import classNames from 'classnames';
 import { ENoteType, INoteProps } from './Note.types';
-import { AlertMiniIcon } from '../icons/ui';
 
 import styles from './Note.module.scss';
 
-export const Note = ({ title, children, type = ENoteType.DEFAULT }: INoteProps) => {
+export const Note = ({ title, children, type = ENoteType.PRIMARY }: INoteProps) => {
+  const bind = classNames.bind(styles);
+
   return (
-    <p className={styles.note}>
-      {type === ENoteType.ALERT && <AlertMiniIcon className={styles.note__icon} />}
+    <div className={bind([styles.note, styles[type]])}>
       {title && <span className={styles.note__title}>{title}: </span>}
       {children}
-    </p>
+    </div>
   );
 };

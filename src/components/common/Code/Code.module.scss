@@ -1,21 +1,25 @@
 @import './../../../styles/colors';
 @import './../../../styles/vars';
 @import './../../../styles/breakpoints';
+@import './../../../styles/theme';
 
 .code {
+  @include step1(2px, $color--violet);
+
   &__wrapper {
     margin: 0 auto;
     background: $color--white-darker;
-    box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+    //box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+    box-shadow: 5px 5px 0 0 $color--violet;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border: 2px solid $color--violet;
+    //border-top-left-radius: 5px;
+    //border-top-right-radius: 5px;
+    //border: 2px solid $color--violet;
     border-bottom: 0;
   }
 
@@ -34,8 +38,9 @@
   }
 
   &__body {
-    padding: 0 10px;
-    border: 2px solid $color--violet;
+    padding: 0 $SPACER / 2 1px;
+    //border: 2px solid $color--violet;
+    border-top: 2px solid $color--violet;
     background: $color--white-darker;
   }
 

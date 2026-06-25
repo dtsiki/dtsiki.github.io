@@ -6,7 +6,7 @@ import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
-import ExternalLink from 'src/components/common/ExternalLink';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';

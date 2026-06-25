@@ -5,7 +5,7 @@
 .example {
   position: relative;
   background: $color--white-darker;
-  padding: ($spacer / 4) $spacer;
+  padding: $SPACER / 4 $SPACER;
 
   &__actions {
     position: absolute;
@@ -24,11 +24,11 @@
     padding: 0;
     height: 40px;
     width: 40px;
-    transition: 0.5s all;
+    transition: $COMMON_TRANSITION;
 
     svg {
-      color: $color--violet;
-      transition: 0.5s all;
+      color: $color--grey-darker;
+      transition: $COMMON_TRANSITION;
     }
 
     &:hover {

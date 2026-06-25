@@ -6,6 +6,7 @@
   background: rgba($color--white-violet, 0.5);
   border-radius: $BORDER_RADIUS;
   border: 1px solid $color--white-violet;
+  margin-bottom: $SPACER;
 
   &__title {
     font-weight: 600;
@@ -15,8 +16,25 @@
   &__icon {
     width: 24px;
     height: 24px;
-    color: $color--violet;
     margin-right: 5px;
     margin-bottom: -5px;
+  }
+
+  &.PRIMARY {
+    background: rgba($color--white-violet, 0.5);
+    border: 1px solid $color--white-violet;
+
+    &__title {
+      color: $color--black;
+    }
+  }
+
+  &.SECONDARY {
+    background: rgba($color--grey-lighter, 0.5);
+    border: 1px solid $color--grey;
+
+    &__title {
+      color: $color--violet;
+    }
   }
 }

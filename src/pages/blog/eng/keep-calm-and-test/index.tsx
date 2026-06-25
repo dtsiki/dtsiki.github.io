@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import ExternalLink from 'src/components/common/ExternalLink';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { Hero } from 'src/components/layout/Hero/Hero';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';

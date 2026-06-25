@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import ExternalLink from 'src/components/common/ExternalLink';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';

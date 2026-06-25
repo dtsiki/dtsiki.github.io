@@ -5,7 +5,7 @@ import { ShareIcon } from '../icons/ui';
 
 import styles from './ExternalLink.module.scss';
 
-const ExternalLink = ({ href, label }: IExternalLinkProps): ReactElement => {
+export const ExternalLink = ({ href, label }: IExternalLinkProps): ReactElement => {
   const bind = classNames.bind(styles);
 
   return (
@@ -15,5 +15,3 @@ const ExternalLink = ({ href, label }: IExternalLinkProps): ReactElement => {
     </a>
   );
 };
-
-export default ExternalLink;

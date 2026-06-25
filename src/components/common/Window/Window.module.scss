@@ -335,6 +335,12 @@ $HEADER_HEIGHT: 32px;
       background-repeat: repeat;
       background-size: 2%;
     }
+
+    &.MEMPHIS {
+      background: url('./../../../../public/assets/patterns/memphis.svg');
+      background-repeat: repeat;
+      background-size: 200px;
+    }
   }
 
   &__content {

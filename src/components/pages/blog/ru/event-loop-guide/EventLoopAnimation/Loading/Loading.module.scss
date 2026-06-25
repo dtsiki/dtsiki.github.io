@@ -1,0 +1,37 @@
+@import './../../../../../../../styles/colors';
+@import './../../../../../../../styles/vars';
+@import './../../../../../../../styles/theme';
+
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.loading {
+  display: inline-flex;
+  align-items: center;
+  gap: $SPACER / 4;
+
+  &__dot {
+    width: 3px;
+    height: 3px;
+    background-color: $color--violet;
+    animation: blink 1.4s infinite ease-in-out both;
+
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+  }
+}

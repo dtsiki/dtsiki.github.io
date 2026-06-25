@@ -1,4 +1,4 @@
-import ExternalLink from 'src/components/common/ExternalLink';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';

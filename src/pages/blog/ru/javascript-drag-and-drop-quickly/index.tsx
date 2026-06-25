@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
-import ExternalLink from 'src/components/common/ExternalLink';
-import { Hint } from 'src/components/common/Hint/Hint';
+import { ExternalLink } from 'src/components/common/ExternalLink';
+import { InlineHint } from 'src/components/common/InlineHint';
 import { ISource } from 'src/interfaces';
 import { DragAndDropDemo } from 'src/components/pages/blog/ru/javascript-drag-and-drop-quickly/DragAndDropDemo/DragAndDropDemo';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
@@ -323,7 +323,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
       }}>
       <section>
         <p>
-          <Hint
+          <InlineHint
             title='Drag-and-drop'
             hint='Часто пишется как «драг-н-дроп», а произносится «дрэг-энд-дроп». Переводится буквально как «тащи и бросай». Иногда ещё можно встретить аббревиатуру DND.'
           />{' '}
@@ -358,7 +358,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           <li className='list__item'>
             <div className='list__title'>
               Droppable или{' '}
-              <Hint
+              <InlineHint
                 title='сбрасываемые'
                 hint='Сбрасываемые - не самый лучший перевода для слова «Droppable» на русский язык. Правильнее было бы перевести как «какая-то область, куда можно сбросить или перетащить что-то». Чтобы не писать каждый раз такую длинную конструкцию будем использовать перевод сбрасываемые.'
               />{' '}

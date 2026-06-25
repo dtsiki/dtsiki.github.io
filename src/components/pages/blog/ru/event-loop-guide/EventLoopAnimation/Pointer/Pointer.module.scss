@@ -1,0 +1,14 @@
+@import './../../../../../../../styles/colors';
+@import './../../../../../../../styles/vars';
+@import './../../../../../../../styles/keyframes';
+
+.pointer {
+  height: 18px;
+  width: 18px;
+
+  &__icon {
+    color: $color--violet;
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+}

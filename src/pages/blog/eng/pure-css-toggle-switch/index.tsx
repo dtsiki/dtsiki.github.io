@@ -9,7 +9,7 @@ import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
-import ExternalLink from 'src/components/common/ExternalLink';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 import { Window } from 'src/components/common/Window/Window';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';

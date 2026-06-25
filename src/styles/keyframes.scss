@@ -82,7 +82,6 @@
   }
 }
 
-
 @keyframes appearFromNearFront {
   0% {
     opacity: 0;
@@ -113,55 +112,55 @@
   }
 
   10% {
-    left:0%;
-    right:75%;
-    width:25%;
+    left: 0%;
+    right: 75%;
+    width: 25%;
   }
 
   90% {
-    right:0%;
-    left:75%;
-    width:25%;
+    right: 0%;
+    left: 75%;
+    width: 25%;
   }
 
   100% {
-    left:100%;
-    right:0%;
-    width:0%;
+    left: 100%;
+    right: 0%;
+    width: 0%;
   }
 }
 
 @keyframes shake {
   0% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
 
   10% {
-    transform: rotate(14deg)
+    transform: rotate(14deg);
   }
 
   20% {
-    transform: rotate(-8deg)
+    transform: rotate(-8deg);
   }
 
   30% {
-    transform: rotate(14deg)
+    transform: rotate(14deg);
   }
 
   40% {
-    transform: rotate(-4deg)
+    transform: rotate(-4deg);
   }
 
   50% {
-    transform: rotate(10deg)
+    transform: rotate(10deg);
   }
 
   60% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
 
   100% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
 }
 
@@ -179,23 +178,219 @@
 
 @keyframes neon {
   0% {
-    text-shadow: -1px -1px 1px $color--white, -1px 1px 1px $color--white, 1px -1px 1px $color--white, 1px 1px 1px $color--white,
-      0 0 3px $color--white, 0 0 10px $color--white, 0 0 20px $color--white, 0 0 30px $color--white-violet,
-      0 0 40px $color--white-violet, 0 0 50px $color--white-violet, 0 0 70px $color--white-violet,
-      0 0 100px $color--white-violet, 0 0 200px $color--white-violet;
+    text-shadow: -1px -1px 1px $color--white, -1px 1px 1px $color--white, 1px -1px 1px $color--white,
+      1px 1px 1px $color--white, 0 0 3px $color--white, 0 0 10px $color--white, 0 0 20px $color--white,
+      0 0 30px $color--white-violet, 0 0 40px $color--white-violet, 0 0 50px $color--white-violet,
+      0 0 70px $color--white-violet, 0 0 100px $color--white-violet, 0 0 200px $color--white-violet;
   }
 
   50% {
-    text-shadow: -1px -1px 1px $color--white, -1px 1px 1px $color--white, 1px -1px 1px $color--white, 1px 1px 1px $color--white,
-      0 0 5px $color--white, 0 0 15px $color--white, 0 0 25px $color--white, 0 0 40px $color--white-violet,
-      0 0 50px $color--white-violet, 0 0 60px $color--white-violet, 0 0 80px $color--white-violet,
-      0 0 110px $color--white-violet, 0 0 210px $color--white-violet;
+    text-shadow: -1px -1px 1px $color--white, -1px 1px 1px $color--white, 1px -1px 1px $color--white,
+      1px 1px 1px $color--white, 0 0 5px $color--white, 0 0 15px $color--white, 0 0 25px $color--white,
+      0 0 40px $color--white-violet, 0 0 50px $color--white-violet, 0 0 60px $color--white-violet,
+      0 0 80px $color--white-violet, 0 0 110px $color--white-violet, 0 0 210px $color--white-violet;
   }
 
   100% {
-    text-shadow: -1px -1px 1px $color--white, -1px 1px 1px $color--white, 1px -1px 1px $color--white, 1px 1px 1px $color--white,
-      0 0 3px $color--white, 0 0 10px $color--white, 0 0 20px $color--white, 0 0 30px $color--white-violet,
-      0 0 40px $color--white-violet, 0 0 50px $color--white-violet, 0 0 70px $color--white-violet,
-      0 0 100px $color--white-violet, 0 0 200px $color--white-violet;
+    text-shadow: -1px -1px 1px $color--white, -1px 1px 1px $color--white, 1px -1px 1px $color--white,
+      1px 1px 1px $color--white, 0 0 3px $color--white, 0 0 10px $color--white, 0 0 20px $color--white,
+      0 0 30px $color--white-violet, 0 0 40px $color--white-violet, 0 0 50px $color--white-violet,
+      0 0 70px $color--white-violet, 0 0 100px $color--white-violet, 0 0 200px $color--white-violet;
   }
+}
+
+// event loop
+@keyframes appear-and-hide {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+
+  25% {
+    opacity: 1;
+    transform: none;
+  }
+
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+}
+
+@keyframes appear-and-move {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+
+  25% {
+    opacity: 1;
+    transform: none;
+  }
+
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes noop {
+  from {
+  }
+  to {
+  }
+}
+
+@keyframes ghost-appear {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+
+  100% {
+    opacity: 0 !important;
+    transform: none;
+  }
+}
+
+@keyframes waiting {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes move-and-appear {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ding-dong {
+  0% {
+    opacity: 1;
+    transform: none;
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(14deg);
+  }
+
+  60% {
+    transform: rotate(-8deg);
+  }
+
+  70% {
+    transform: rotate(14deg);
+  }
+
+  80% {
+    transform: rotate(0deg);
+  }
+
+  90% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    opacity: unset;
+    transform: unset;
+  }
+}
+
+.APPEAR_FROM_NOWHERE {
+  opacity: 1;
+  animation: appearFromNowhere 1s ease-in-out forwards;
+}
+
+.APPEAR {
+  opacity: 1;
+  animation: appear 1.5s ease-in-out forwards;
+}
+
+.APPEAR_AND_HIDE {
+  opacity: 1;
+  animation: appear-and-hide 3s ease-in-out forwards;
+}
+
+.MOVE {
+  animation: noop 2s ease-in-out forwards;
+}
+
+.HIDE {
+  animation: hide 1.5s ease-in-out forwards;
+}
+
+.HIDE-WITH-DELAY {
+  animation: hide 1s ease-in-out 2s forwards;
+}
+
+.NOOP {
+  animation: noop 1s ease-in-out none;
+}
+
+.SHAKE-AND-HIDE {
+  animation: ding-dong 1s ease-in-out forwards, hide 1.5s ease-in-out 1s forwards;
 }

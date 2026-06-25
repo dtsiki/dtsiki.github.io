@@ -1,18 +1,24 @@
-import { ReactElement } from 'react';
+import { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import { useTranslate } from 'src/hooks/useTranslate';
+import { COPY_TO_CLIPBOARD } from 'src/i18n';
 import { ascetic } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import { CopyIcon } from '../icons/ui';
+import { CheckMiniIcon, ClipboardMiniIcon } from '../icons/ui';
+import { IExampleProps } from './Example.types';
 
-import styles from './example.module.scss';
+import styles from './Example.module.scss';
 
-interface Props {
-  code: string;
-  isCopyable?: boolean;
-}
+export const Example = ({ code, isCopyable = true }: IExampleProps) => {
+  const { translate } = useTranslate();
+  const [isCopied, setIsCopied] = useState<boolean>(false);
 
-const Example = ({ code, isCopyable = true }: Props): ReactElement => {
   const copyToClipboard = (): void => {
     navigator.clipboard.writeText(code);
+    setIsCopied(true);
+
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 5000);
   };
 
   return (
@@ -20,9 +26,11 @@ const Example = ({ code, isCopyable = true }: Props): ReactElement => {
       <div className={styles.code__wrapper}>
         {isCopyable && (
           <div className={styles.example__actions}>
-            <button className={styles.example__control} onClick={copyToClipboard}>
-              <CopyIcon />
-              <span className='visually-hidden'>Copy to clipboard</span>
+            <button
+              className={styles.example__control}
+              onClick={copyToClipboard}
+              aria-label={translate(COPY_TO_CLIPBOARD)}>
+              {isCopied ? <CheckMiniIcon /> : <ClipboardMiniIcon />}
             </button>
           </div>
         )}
@@ -33,5 +41,3 @@ const Example = ({ code, isCopyable = true }: Props): ReactElement => {
     </div>
   );
 };
-
-export default Example;

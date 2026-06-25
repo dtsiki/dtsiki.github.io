@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { ascetic } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { useState } from 'react';
+import { CheckMiniIcon } from '../icons/ui/mini/Check';
+import { xcode } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { ECodeExt, ECodeLang, ICodeProps } from './Code.types';
-import { CopyIcon } from '../icons/ui';
 import { useTranslate } from 'src/hooks/useTranslate';
 import { COPY_TO_CLIPBOARD } from 'src/i18n';
 import { CodingIcon, TextFileIcon, ClipboardMiniIcon } from '../icons/ui';
@@ -24,9 +25,15 @@ export const Code = (props: ICodeProps) => {
 
   const bind = classNames.bind(styles);
   const { translate } = useTranslate();
+  const [isCopied, setIsCopied] = useState<boolean>(false);
 
   const copyToClipboard = (): void => {
     navigator.clipboard.writeText(code);
+    setIsCopied(true);
+
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 5000);
   };
 
   return (
@@ -38,14 +45,14 @@ export const Code = (props: ICodeProps) => {
               className={styles.code__control}
               onClick={copyToClipboard}
               aria-label={translate(COPY_TO_CLIPBOARD)}>
-              <CopyIcon />
+              {isCopied ? <CheckMiniIcon /> : <ClipboardMiniIcon />}
             </button>
           </div>
           <SyntaxHighlighter
             startingLineNumber={startingLineNumber}
-            language={language || 'plaintext'}
+            language={language?.toLocaleLowerCase() || 'plaintext'}
             showLineNumbers={showLineNumbers}
-            style={ascetic}>
+            style={xcode}>
             {code}
           </SyntaxHighlighter>
         </div>
@@ -66,15 +73,15 @@ export const Code = (props: ICodeProps) => {
                 className={styles.code__control}
                 onClick={copyToClipboard}
                 aria-label={translate(COPY_TO_CLIPBOARD)}>
-                <ClipboardMiniIcon />
+                {isCopied ? <CheckMiniIcon /> : <ClipboardMiniIcon />}
               </button>
             </div>
           </div>
           <div className={styles.code__body}>
             <SyntaxHighlighter
-              language={language || 'plaintext'}
+              language={language?.toLocaleLowerCase() || 'plaintext'}
               showLineNumbers={isTerminal ? false : showLineNumbers}
-              style={ascetic}>
+              style={xcode}>
               {code}
             </SyntaxHighlighter>
           </div>

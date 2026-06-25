@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 export enum ENoteType {
-  DEFAULT = 'DEFAULT',
-  ALERT = 'ALERT',
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
 }
 
 export interface INoteProps {

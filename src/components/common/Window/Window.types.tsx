@@ -54,6 +54,7 @@ export enum EWindowPatternVariant {
   SPRINKLES = 'SPRINKLES',
   BUBBLES = 'BUBBLES',
   FOUR_POINT_STAR = 'FOUR-POINT-STAR',
+  MEMPHIS = 'MEMPHIS',
 }
 
 export enum EWindowBodyBackground {

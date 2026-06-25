@@ -1,5 +1,5 @@
 import { IExampleSnippetProps } from './ExampleSnippet.types';
-import Example from 'src/components/common/Example';
+import { Example } from 'src/components/common/Example';
 
 import styles from './ExampleSnippet.module.scss';
 

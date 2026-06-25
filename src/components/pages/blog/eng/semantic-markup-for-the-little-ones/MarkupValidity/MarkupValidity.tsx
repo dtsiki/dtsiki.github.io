@@ -1,4 +1,4 @@
-import ExternalLink from 'src/components/common/ExternalLink';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 
 export const MarkupValidity = () => {
   return (

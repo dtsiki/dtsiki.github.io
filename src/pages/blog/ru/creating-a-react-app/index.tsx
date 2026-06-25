@@ -3,7 +3,7 @@ import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
-import ExternalLink from 'src/components/common/ExternalLink';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 import { Note } from 'src/components/common/Note/Note';
 import { ENoteType } from 'src/components/common/Note/Note.types';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
@@ -24,6 +24,9 @@ import githubActionsImage from 'public/assets/blog/creating-a-react-app/github-a
 import viteReactTemplateImage from 'public/assets/blog/creating-a-react-app/vite-react-template.png';
 import viteReactTemplateFolderImage from 'public/assets/blog/creating-a-react-app/vite-template.png';
 import viteReactTemplateEditImage from 'public/assets/blog/creating-a-react-app/vite-template-edit.png';
+import { AlertMiniIcon } from 'src/components/common/icons/ui';
+
+import styles from './index.module.scss';
 
 const Post = () => {
   const preparationRef = useRef<HTMLDivElement>(null);
@@ -347,7 +350,8 @@ export default defineConfig({
           это набор инструментов, созданный и поддерживаемый разработчиками из Facebook, который предназначен для
           быстрого создания шаблонных проектов на React. Никакой сложной настройки, никаких танцев с бубном.
         </p>
-        <Note type={ENoteType.ALERT}>
+        <Note>
+          <AlertMiniIcon className={styles.alert_icon} />
           Create React App официально признан устаревшим (deprecated) инструментом для создания React-приложений с 14
           февраля 2025 года. Инструмент больше не рекомендуется для создания новых проектов из-за медленной сборки на
           Webpack и отсутствия поддержки современных возможностей React 19. Рекомендуется переходить на более
@@ -558,7 +562,8 @@ export default defineConfig({
           репозиториев. Для этого нужно установить сам пакет <em>gh-pages</em> в проект. Команда для установки:
         </p>
         <CodeSnippet code={npmInstallGhPagesSnippet} lang={ECodeLang.BASH} hideLines={true} />
-        <Note type={ENoteType.ALERT}>
+        <Note>
+          <AlertMiniIcon className={styles.alert_icon} />
           Выполнять команду установки GitHub Pages следует в директории вашего проекта.
         </Note>
         <p>
@@ -570,7 +575,7 @@ export default defineConfig({
             <p className='list__title'>Добавьте homepage будущего GitHub Pages</p>
             <p>Это должна быть ссылка в формате:</p>
             <CodeSnippet code={ghPagesURLTemplateSnippet} lang={ECodeLang.JSON} name='package' hideLines={true} />
-            <Note type={ENoteType.ALERT} title='Обратите внимание'>
+            <Note title='Обратите внимание'>
               проект с URL <strong>https://&lt;ваше-имя-пользователя&gt;.github.io</strong> собирается и билдится в
               отдельном репозитории, название у этого репозитория будет{' '}
               <strong>&lt;ваше имя пользователя&gt;.github.io</strong>. В нём нужно повторить все перечисленные в этом

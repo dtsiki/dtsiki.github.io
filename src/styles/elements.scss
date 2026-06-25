@@ -1,6 +1,7 @@
 @import './breakpoints';
 @import './keyframes';
 @import './vars';
+@import './theme';
 
 html {
   scroll-behavior: smooth;
@@ -235,11 +236,13 @@ ul,
         color: $color--violet;
       }
     }
-  }
 
-  &.nested {
-    ul {
-      margin-left: 30px;
+    .nested {
+      li {
+        &::marker {
+          color: rgba($color--violet, 0.6);
+        }
+      }
     }
   }
 }
@@ -885,10 +888,11 @@ ul,
 }
 
 .code {
-  background-color: $color--white-violet;
-  color: $color--violet-darker;
-  padding: 6px;
-  border-radius: 6px;
+  background-color: rgba($color--white-violet, 0.5);
+  border: 1px solid rgba($color--black, 0.1);
+  color: $color--black;
+  padding: $SPACER / 8 $SPACER / 4;
+  border-radius: 4px;
   font-size: 90%;
 }
 
@@ -912,5 +916,71 @@ ul,
   &.centered {
     justify-content: center;
     align-items: center;
+  }
+}
+
+.checkbox {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $SPACER / 4;
+
+  &__label {
+    padding-left: $SPACER / 2;
+    cursor: pointer;
+  }
+
+  &__input {
+    appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: $color--white;
+    border-radius: 2px;
+    box-shadow: none;
+    border: 0;
+    @include step1(2px, $color--violet);
+    transition: 500ms;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 7px);
+      left: calc(50% - 5px);
+      width: 10px;
+      height: 10px;
+      background-color: $color--white;
+      @include step1(2px, $color--white);
+      transition: 500ms;
+      overflow: hidden;
+      color: $color--violet;
+    }
+
+    &:checked::after {
+      transition: 500ms;
+      background-color: $color--violet;
+      @include step1(2px, $color--violet);
+    }
+
+    &:disabled {
+      background: $color--grey-lighter;
+      border-color: $color--grey;
+    }
+
+    &:disabled::after {
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+
+  &.COVER {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 }

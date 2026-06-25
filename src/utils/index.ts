@@ -46,3 +46,7 @@ export const getRandomInt = (min: number, max: number) => {
 export const getRandomSign = () => {
   return Math.round(Math.random()) * 2 - 1;
 };
+
+export const getEmptyArray = (length: number) => {
+  return Array.from({ length }, (_) => null);
+};

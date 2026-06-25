@@ -1,0 +1,110 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+@import './../../../styles/theme';
+@import './../../../styles/keyframes';
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translate(-300px, -16px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(12px, -16px);
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    transform: translate(12px, -16px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-300px, -16px);
+  }
+}
+
+.inline_hint {
+  position: relative;
+
+  &__wrapper {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 0;
+  }
+
+  &__title {
+    border-bottom: 2px $color--violet dotted;
+    cursor: pointer;
+
+    &:hover {
+      color: $color--violet-dark;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 $SPACER / 6;
+    color: $color--violet;
+    cursor: pointer;
+  }
+
+  &__icon_label {
+    position: absolute;
+    margin-top: -2px;
+    font-family: Pixelify;
+    font-size: 18px;
+    font-weight: 500;
+    color: $color--violet;
+  }
+
+  &__content {
+    position: absolute;
+    width: 300px;
+    background: $color--white;
+    color: $color--violet;
+    padding: $SPACER / 1.5;
+    font-size: 14px;
+    line-height: 1.5;
+    @include step1(2px, $color--violet);
+    pointer-events: none;
+    animation: hide 0.3s ease-in-out forwards;
+
+    &.ACTIVE {
+      animation: appear 0.3s ease-in-out forwards;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      left: -10px;
+      top: 20px;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 7px 10px 7px 0;
+      border-color: transparent $color--violet-lighter transparent transparent;
+      transform: rotate(0deg);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      left: -7px;
+      top: 20px;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 7px 10px 7px 0;
+      border-color: transparent $color--white transparent transparent;
+      transform: rotate(0deg);
+    }
+  }
+}

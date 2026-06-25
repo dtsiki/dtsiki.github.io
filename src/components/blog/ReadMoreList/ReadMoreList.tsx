@@ -1,9 +1,9 @@
 import { ReactElement, useMemo } from 'react';
-import ExternalLink from 'src/components/common/ExternalLink';
 import { READ_MORE } from 'src/i18n';
 import { IReadMoreListProps } from './ReadMoreList.types';
 import { translate } from 'src/utils/translate';
 import { Language } from 'src/types';
+import { ExternalLink } from 'src/components/common/ExternalLink';
 
 export const ReadMoreList = ({ items, language = Language.RU }: IReadMoreListProps): ReactElement => {
   const renderItems = useMemo(() => {

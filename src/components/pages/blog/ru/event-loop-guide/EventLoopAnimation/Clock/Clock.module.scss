@@ -1,0 +1,81 @@
+@import './../../../../../../../styles/colors';
+@import './../../../../../../../styles/vars';
+@import './../../../../../../../styles/theme';
+@import './../../../../../../../styles/keyframes';
+
+@keyframes time {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  gap: $SPACER / 2;
+
+  &__frame {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include step1(2px, $color--violet);
+    margin: 0;
+    height: 16px;
+    width: 16px;
+  }
+
+  &__hand {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    animation: time 5s infinite linear;
+
+    &:before {
+      position: absolute;
+      content: '';
+      background: $color--violet;
+      height: 7px;
+      width: 2px;
+      top: 7px;
+    }
+  }
+
+  &__mark {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    margin: 0 auto;
+    background: $color--violet;
+
+    &.TOP {
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    &.RIGHT {
+      right: 0;
+    }
+
+    &.BOTTOM {
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &.LEFT {
+      left: 0;
+    }
+  }
+
+  &__delay {
+    color: $color--violet;
+    font-family: Pixelify;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
