@@ -10,4 +10,5 @@ export interface ITableOfContentsProps {
   items: TItemOfContent[];
   strictLanguage?: Language;
   hideNumbers?: boolean;
+  showOnScroll?: boolean;
 }

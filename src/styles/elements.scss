@@ -36,6 +36,7 @@ a {
   &.active {
     text-decoration: none;
     color: $color--black-lighter;
+    text-decoration: none;
   }
 
   &.light {
@@ -43,6 +44,14 @@ a {
 
     &.active {
       color: $color--white-violet;
+    }
+  }
+
+  &.PRIMARY {
+    border-bottom: 2px dotted rgba($color--violet, 0.2);
+
+    &:hover {
+      border-bottom: 0;
     }
   }
 }
@@ -169,6 +178,10 @@ a {
 
   &--light {
     color: $color--white;
+  }
+
+  &.GHOST {
+    color: $color--grey;
   }
 }
 

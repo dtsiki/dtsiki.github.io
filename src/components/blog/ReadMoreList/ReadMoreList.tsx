@@ -18,7 +18,7 @@ export const ReadMoreList = ({ items, language = Language.RU }: IReadMoreListPro
 
   return (
     <section>
-      <h2>{translate(language, READ_MORE)}</h2>
+      <h2 className='spacer bottom medium'>{translate(language, READ_MORE)}</h2>
       <ol className='list ordered'>{renderItems}</ol>
     </section>
   );

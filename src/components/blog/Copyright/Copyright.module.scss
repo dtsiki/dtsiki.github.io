@@ -1,0 +1,12 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.copyright {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: rgba($color--black, 0.2);
+  font-family: Pixelify;
+  font-weight: 600;
+}

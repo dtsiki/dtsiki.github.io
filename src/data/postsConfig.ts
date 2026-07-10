@@ -19,6 +19,7 @@ export enum EBlogPostRecord {
   APRIL_READING_LIST = 'APRIL_READING_LIST',
   EVENT_LOOP_GUIDE = 'EVENT_LOOP_GUIDE',
   MAY_READING_LIST = 'MAY_READING_LIST',
+  TYPESCRIPT_CHEATSHEET = 'TYPESCRIPT_CHEATSHEET',
 }
 
 export const POSTS_CONFIG_: Record<string, TPostConfig> = {
@@ -307,6 +308,9 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
       description:
         'Изучим работу событийного цикла на пальцах и перестанем его бояться. Спойлер: там нет ничего страшного!',
     },
+    pagination: {
+      next: EBlogPostRecord.EVENT_LOOP_GUIDE,
+    },
     strictLanguage: true,
   },
   [EBlogPostRecord.MAY_READING_LIST]: {
@@ -320,6 +324,21 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     language: Language.RU,
     meta: {
       description: 'Книжные итоги последнего месяца весны 🌸',
+    },
+    strictLanguage: true,
+  },
+  [EBlogPostRecord.TYPESCRIPT_CHEATSHEET]: {
+    id: EBlogPostRecord.TYPESCRIPT_CHEATSHEET,
+    title: 'Шпаргалка по TypeScript: всё важное на одной странице',
+    highlight: 'Большая шпаргалка по синтаксису и основным возможностям TypeScript. Бесплатно, без регистрации и смс.',
+    link: 'typescript-cheatsheet',
+    category: EPostType.GUIDE,
+    createdAt: '12 july 2026',
+    tags: ['TypeScript'],
+    language: Language.RU,
+    meta: {
+      description:
+        'Большая шпаргалка по синтаксису и основным возможностям TypeScript. Бесплатно, без регистрации и смс.',
     },
     strictLanguage: true,
   },

@@ -12,6 +12,7 @@ import { ArrowRightIcon, ArrowLeftIcon } from 'src/components/common/icons/ui';
 
 import styles from './PostContent.module.scss';
 import { Thanks } from 'src/components/common/Thanks';
+import { Copyright } from '../Copyright';
 
 export const PostContent = ({ postConfig, children }: IPostContentProps) => {
   const { title, highlight, createdAt, meta, category, tags, strictLanguage, pagination } = postConfig;
@@ -91,6 +92,7 @@ export const PostContent = ({ postConfig, children }: IPostContentProps) => {
                 )}
               </ul>
             </nav>
+            <Copyright />
           </footer>
         </article>
       </div>

@@ -37,6 +37,11 @@ export enum EHeroPattern {
   MEMPHIS = 'MEMPHIS',
   BUBBLES = 'BUBBLES',
   BOOKSHELF = 'BOOKSHELF',
+  SQUIGGLES = 'SQUIGGLES',
+  DOODLES = 'DOODLES',
+  DOUBLE_BUBBLE = 'DOUBLE_BUBBLE',
+  CONFETTI = 'CONFETTI',
+  ARCS = 'ARCS',
 }
 
 export interface IHeroProps {
