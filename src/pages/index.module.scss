@@ -12,6 +12,8 @@
     min-height: 100vh;
     position: relative;
     background-repeat: repeat;
-    background-image: url('./../../public/assets/patterns/grid.svg');
+    background-image: url('./../../public/assets/patterns/dot.svg');
+    background-size: 50px;
+    background-position: -25px -25px;
   }
 }
