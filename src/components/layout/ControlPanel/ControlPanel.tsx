@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { HOME, OPEN_THE_WINDOW, SWITCH_LANGUAGE, BLOG_FOLDER_NAME } from 'src/i18n';
+import { HOME, OPEN_THE_WINDOW, SWITCH_LANGUAGE } from 'src/i18n';
 import { useWindowManager } from 'src/hooks/useWindowManager';
 import { EPanelControl } from './ControlPanel.types';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ import { useTranslate } from 'src/hooks/useTranslate';
 import { Notifications } from '../Notifications/Notifications';
 import { useNotifications } from 'src/hooks/useNotifications';
 import { useFolderNavigation } from 'src/hooks/useFolderNavigation';
-import { BLOG_FOLDER_CONFIG, EBlogRecord } from 'src/components/blog/BlogWindow/BlogWindow.utils';
+import { EBlogRecord } from 'src/components/blog/BlogWindow/BlogWindow.utils';
 import { HomeIcon } from 'src/components/common/icons/ui';
 import { getCustomWindowIcon, getCustomWindowTitle, getWindowIcon, getWindowTitle } from './ControlPanel.utils';
 
@@ -22,8 +22,7 @@ export const ControlPanel = () => {
   const router = useRouter();
 
   const { windows, openWindow } = useWindowManager();
-  const { language, toggleLanguage } = useTranslate();
-  const { translate } = useTranslate();
+  const { translate, language, toggleLanguage } = useTranslate();
   const { getUnreadCount } = useNotifications();
   const unreadNotificationsCount = getUnreadCount();
   /*const initialState = {
@@ -54,7 +53,7 @@ export const ControlPanel = () => {
             {windows?.map(({ id, isFocused, isMinimized, config }) => (
               <li key={id} className={styles.control_panel__window}>
                 <button
-                  onClick={() => openWindow(id)}
+                  onClick={() => openWindow(id, false, true)}
                   aria-label={translate(OPEN_THE_WINDOW)}
                   className={bind([
                     styles.control_panel__window_button,

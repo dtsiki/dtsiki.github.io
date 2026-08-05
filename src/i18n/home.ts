@@ -15,6 +15,11 @@ export const DARIA: TranslationObject = {
   [Language.RU]: 'Дарья',
 };
 
+export const DASHICH: TranslationObject = {
+  [Language.ENG]: 'Dashich',
+  [Language.RU]: 'Дашыч',
+};
+
 export const DARIA_T: TranslationObject = {
   [Language.ENG]: 'Daria T.',
   [Language.RU]: 'Дарья T.',

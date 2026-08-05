@@ -5,17 +5,16 @@ import { getPostsByLang } from 'src/data/postsConfig';
 import { PostPreview } from 'src/components/blog/PostPreview/PostPreview';
 import { Language } from 'src/types';
 import { useWindowManager } from 'src/hooks/useWindowManager';
-import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
+import { EWindowRecord, WINDOW_REGISTRY } from 'src/context/WindowManager/WindowManager.utils';
 
 import styles from './../blog.module.scss';
 
 const BlogEng = () => {
   const bind = classNames.bind(styles);
-  const { openWindow, minimizeWindow } = useWindowManager();
+  const { openWindow } = useWindowManager();
 
   useEffect(() => {
-    openWindow(EWindowRecord.BLOG_FOLDER);
-    minimizeWindow(EWindowRecord.BLOG_FOLDER);
+    openWindow(WINDOW_REGISTRY[EWindowRecord.BLOG_FOLDER].id, true, false);
   }, []);
 
   const renderPosts = useMemo(() => {

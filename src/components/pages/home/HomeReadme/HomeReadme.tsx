@@ -1,6 +1,8 @@
 import { useTranslate } from 'src/hooks/useTranslate';
 import { Language } from 'src/types';
 
+const VERSION = '2.0.3';
+
 export const HomeReadme = () => {
   const { language } = useTranslate();
 
@@ -11,10 +13,11 @@ export const HomeReadme = () => {
           <p>КРАТКОЕ ОПИСАНИЕ СИСТЕМЫ</p>
           <p>
             Приветствую тебя, незнакомый цифровой странник. Перед тобой персональная страница в сети интернет
-            фронтенд-разработчицы @dtsiki, версия v2.0.1.
+            фронтенд-разработчицы @dtsiki, версия v{VERSION}.
           </p>
           <p>
             Все элементы интерфейса функциональны (почти). Не бойся кликать на значки, они не укусят (но это не точно).
+            Если что-то сломалось — таков путь.
           </p>
           <p>Все совпадения с реальными операционными системами случайны, но тщательно спланированы.</p>
           <p>Для наилучшего опыта рекомендован браузер и любопытство.</p>
@@ -76,11 +79,11 @@ export const HomeReadme = () => {
       <section>
         <p>SYSTEM OVERVIEW:</p>
         <p>
-          This is an interactive digital system (version 2.0.1) also known as a CV also known as blog for frontend
+          This is an interactive digital system version {VERSION}) also known as a CV also known as blog for frontend
           developer @dtsiki.
         </p>
-        All UI elements are functional (or not). Don't be afraid to click everything (or be afraid, but just a little
-        bit)
+        All UI elements are functional (or not). Don't be afraid to click everything or be afraid, but just a little
+        bit. If something was broken, well, this is the way.
       </section>
       <section>
         <p>CONTENTS:</p>
@@ -97,8 +100,12 @@ export const HomeReadme = () => {
           <p>The most important presentation in the world. DO NOT DELETE!!!!!</p>
         </section>
         <section>
-          <p>3. "README.MD" FILE</p>
-          <p>This file</p>
+          <p>4. "README.MD" FILE</p>
+          <p>The file you are currently reading.</p>
+        </section>
+        <section>
+          <p>5. RECYCLE BIN</p>
+          <p>The recycle bin. Just a recycle bin.</p>
         </section>
       </section>
       <section>

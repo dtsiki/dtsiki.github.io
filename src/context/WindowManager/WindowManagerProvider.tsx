@@ -12,8 +12,9 @@ export const WindowManagerProvider = ({ children }: IWindowManagerProviderProps)
     setWindows((prevWindows) => prevWindows.map((window) => (window.id === id ? { ...window, ...updates } : window)));
   };
 
-  const openWindow = (id: string) => {
+  const openWindow = (id: string, isMinimized: boolean = true, isFocused: boolean = false) => {
     const config = WINDOW_REGISTRY[id];
+    console.log('open window', config);
 
     if (!config) {
       console.warn(`Окно "${id}" не найдено в реестре`);
@@ -23,17 +24,17 @@ export const WindowManagerProvider = ({ children }: IWindowManagerProviderProps)
     const isWindowExisting = windows.find((window) => window.id === id);
 
     if (isWindowExisting) {
-      focusWindow(id);
-      updateWindow(id, { isMinimized: false });
+      isFocused && focusWindow(id);
+      updateWindow(id, { isMinimized });
     } else {
       const newWindow: TWindow = {
         ...config,
-        isMinimized: false,
-        isFocused: true,
+        isMinimized,
+        isFocused,
       };
 
       setWindows((prevWindows) => [...prevWindows, newWindow]);
-      focusWindow(id);
+      isFocused && focusWindow(id);
     }
   };
 
@@ -113,6 +114,20 @@ export const WindowManagerProvider = ({ children }: IWindowManagerProviderProps)
     });
   };
 
+  const minimizeAllWindows = () => {
+    setWindows((prevWindows) => {
+      const minimizedWindows = prevWindows.map((window) => {
+        return {
+          isMinimized: false,
+          isFocused: false,
+          ...window,
+        };
+      });
+
+      return [...minimizedWindows];
+    });
+  };
+
   return (
     <WindowManagerContext.Provider
       value={{
@@ -124,6 +139,7 @@ export const WindowManagerProvider = ({ children }: IWindowManagerProviderProps)
         openCustomWindow,
         updateWindow,
         windowsOrder,
+        minimizeAllWindows,
       }}>
       {children}
     </WindowManagerContext.Provider>

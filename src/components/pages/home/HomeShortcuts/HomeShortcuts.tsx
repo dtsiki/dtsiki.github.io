@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { HomeShortcut as Shortcut } from '../HomeShortcut/HomeShortcut';
 import { EHomeShortcutVariant } from '../HomeShortcut/HomeShortcut.types';
@@ -10,9 +11,11 @@ import { useTranslate } from 'src/hooks/useTranslate';
 import styles from './HomeShortcuts.module.scss';
 
 export const HomeShortcuts = () => {
-  const { language } = useTranslate();
-  const { openWindow } = useWindowManager();
   const bind = classNames.bind(styles);
+
+  const { language } = useTranslate();
+  const { minimizeAllWindows, openWindow } = useWindowManager();
+  const router = useRouter();
 
   /*
   const [dragItems, _] = useState<Array<TDragItemComponent>>([
@@ -35,8 +38,14 @@ export const HomeShortcuts = () => {
   */
 
   const onShortcutClicked = (shortcut: THomeShortcut): void => {
+    if (shortcut.route) {
+      minimizeAllWindows();
+      router.push(shortcut.route);
+      return;
+    }
+
     if (shortcut.window) {
-      openWindow(shortcut.window.id);
+      openWindow(shortcut.window.id, false, true);
     }
   };
 

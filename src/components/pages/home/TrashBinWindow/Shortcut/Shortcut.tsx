@@ -20,7 +20,7 @@ export const TrashBinShortcut = ({ title, createdAt, view = EFolderView.GRID }: 
   }, [title, language]);
 
   const handleClick = () => {
-    openWindow(EWindowRecord.TRASH_BIN_CV_DOC_FILE);
+    openWindow(EWindowRecord.TRASH_BIN_CV_DOC_FILE, false, true);
   };
 
   return (

@@ -53,6 +53,7 @@ export const HOME_SHORTCUTS_CONFIG: THomeShortcut[] = [
     loc: BLOG,
     icon: <TypingMachineIcon />,
     window: WINDOW_REGISTRY[EWindowRecord.BLOG_FOLDER],
+    route: 'blog',
     /* initialPosition: {
       top: 20,
       left: 50,
