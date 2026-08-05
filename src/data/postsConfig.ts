@@ -20,11 +20,12 @@ export enum EBlogPostRecord {
   EVENT_LOOP_GUIDE = 'EVENT_LOOP_GUIDE',
   MAY_READING_LIST = 'MAY_READING_LIST',
   TYPESCRIPT_CHEATSHEET = 'TYPESCRIPT_CHEATSHEET',
+  BIG_O_NOTATION = 'BIG_O_NOTATION',
 }
 
 export const POSTS_CONFIG_: Record<string, TPostConfig> = {
   [EBlogPostRecord.PURE_CSS_TOOLTIPS]: {
-    id: EBlogPostRecord.REACT_DRAG_AND_DROP,
+    id: EBlogPostRecord.PURE_CSS_TOOLTIPS,
     title: 'Pure CSS tooltips',
     highlight:
       'A step-by-step guide to building custom tooltips. No JavaScript, no libraries — just clean HTML and CSS.',
@@ -78,7 +79,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     },
   },
   [EBlogPostRecord.SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES]: {
-    id: EBlogPostRecord.HOW_TO_IMPROVE_YOUR_SKILLS,
+    id: EBlogPostRecord.SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES,
     title: 'Semantic Markup for the Little Ones',
     highlight: 'A beginner-friendly guide to semantic HTML for writing meaningful markup.',
     link: 'semantic-markup-for-the-little-ones',
@@ -309,7 +310,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
         'Изучим работу событийного цикла на пальцах и перестанем его бояться. Спойлер: там нет ничего страшного!',
     },
     pagination: {
-      next: EBlogPostRecord.EVENT_LOOP_GUIDE,
+      next: EBlogPostRecord.TYPESCRIPT_CHEATSHEET,
     },
     strictLanguage: true,
   },
@@ -342,6 +343,36 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     },
     strictLanguage: true,
   },
+  [EBlogPostRecord.BIG_O_NOTATION]: {
+    id: EBlogPostRecord.BIG_O_NOTATION,
+    title: 'Большое и (не)страшное О',
+    highlight: '',
+    link: 'big-o-notation',
+    category: EPostType.GUIDE,
+    createdAt: '5 aug 2026',
+    tags: ['Алгоритмы', 'JavaScript'],
+    language: Language.RU,
+    meta: {
+      description: '',
+    },
+    strictLanguage: true,
+  },
+  /*[EBlogPostRecord.NETWORKS_FOR_FRONTEND_DEVELOPERS]: {
+    id: EBlogPostRecord.NETWORKS_FOR_FRONTEND_DEVELOPERS,
+    title: 'Сети для фронтенд-разработчиков',
+    highlight:
+      'Просто о том, как работает интернет для тех, кто пишет фронтенд. Без занудства и академических формулировок.',
+    link: 'how-internet-works-for-frontend',
+    category: EPostType.GUIDE,
+    createdAt: '31 july 2026',
+    tags: ['Frontend'],
+    language: Language.RU,
+    meta: {
+      description:
+        'Большая шпаргалка по синтаксису и основным возможностям TypeScript. Бесплатно, без регистрации и смс.',
+    },
+    strictLanguage: true,
+  },*/
 };
 
 export const getPostsByLang = (language: Language) => {
