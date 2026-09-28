@@ -12,17 +12,17 @@ export const SquaredComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   }
 }
 
-printAllPairs([1, 2, 3]);
+printAllPairs([1, 2, 3]);`;
 
-// 1, 1
-// 1, 2
-// 1, 3
-// 2, 1
-// 2, 2
-// 2, 3
-// 3, 1
-// 3, 2
-// 3, 3`;
+  const printAllPairsSnippetLog = `1, 1
+1, 2
+1, 3
+2, 1
+2, 2
+2, 3
+3, 1
+3, 2
+3, 3`;
 
   const hiddenInnerForCodeExample = `for (let i = 0; i < users.length; i++) {
   if (blackList.includes(users[i].id)) {
@@ -39,13 +39,18 @@ printAllPairs([1, 2, 3]);
 }`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Квадратичная сложность O(n²)</h2>
       <p>
         В прошлой сложности мы проходились по каждому элементу массива <em>один</em> раз и это было не случайностью.
         Теперь пройдёмся по каждому элементу дважды, например, выведем пары — каждый элементы + каждый элемент:
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={printAllPairsCodeExample} name='printAllPairs' />
+      <CodeSnippet
+        lang={ECodeLang.TYPESCRIPT}
+        code={printAllPairsCodeExample}
+        name='printAllPairs'
+        consoleLog={printAllPairsSnippetLog}
+      />
       <p>Что мы здесь имеем и видим:</p>
       <ul className='list markered'>
         <li className='list__item'>вложенные массивы — один в другой</li>
@@ -63,6 +68,21 @@ printAllPairs([1, 2, 3]);
         видно на примере выше невооружённым взглядом. И чаще всего квадратичную сложность как раз имеют алгоритмы из
         двух вложенных циклов (как всегда есть оговорка: не всегда).
       </p>
+      <Note>
+        <div className='tags'>
+          <div className='tag'>Обратите внимание</div>
+          <div className='tag TEXT-ONLY'>Умножение сложностей</div>
+        </div>
+        <p>
+          Почему квадратичную сложность имеют алгоритмы с двумя вложенными циклами? Связано это с умножением сложностей.
+        </p>
+        <p>
+          Правило умножения сложностей совсем нехитрое:{' '}
+          <em>сложности умножаются, если один цикл или процесс вложен в другой.</em> Имеем цикл по n элементам, у
+          которого будет сложность O(n). Внутри этого цикла имеем вложенный цикл, у которого тоже будет сложность O(n).
+          Перемножаем O(n ⋅ n) и получаем квадратичную сложность O(n²). Готово!
+        </p>
+      </Note>
       <p>А что если у вложенных циклов будут разные размеры? Например:</p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={printArraysCodeExample} name='printArrays' />
       <p>

@@ -42,7 +42,7 @@ export const ConstantComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
 }`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Константная сложность O(1)</h2>
       <p>
         Алгоритму здесь вообще по барабану на входные данные (окак). Да, мы так долго размусоливали про зависимость от

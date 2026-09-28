@@ -10,10 +10,11 @@ export const LinearComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   }
 }
 
-printAll([1, 2, 3]);
-// 1
-// 2
-// 3`;
+printAll([1, 2, 3]);`;
+
+  const forPrintAllSnippetLog = `1
+2
+3`;
 
   const forPrintAllOneElementCodeSnippet = `function printAll(array: number[]) {
   for (let i = 0; i < array.length; i++) {
@@ -21,8 +22,7 @@ printAll([1, 2, 3]);
   }
 }
 
-printAll([1]);
-// 1`;
+printAll([1]);`;
 
   const sumAndProductCodeSnippet = `function sumAndProduct(array: number[]) {
   let sum = 0;
@@ -61,7 +61,7 @@ const slice = arr.slice(0, n); // O(n)
 const concat = arr.concat([1, 2, 3]); // O(n + m)`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Линейная сложность O(n)</h2>
       <p>
         Здесь время прямо пропорционально количеству данных. Если данных в 10 раз больше, то и времени нужно в 10 раз
@@ -72,7 +72,12 @@ const concat = arr.concat([1, 2, 3]); // O(n + m)`;
         Самый просто пример алгоритма с такой сложностью — пройтись старым добрым циклом{' '}
         <code className='code'>for</code> по каждому элементу массиву <em>один</em> раз от его начала до самого конца:
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={forPrintAllCodeSnippet} name='printAll' />
+      <CodeSnippet
+        lang={ECodeLang.TYPESCRIPT}
+        code={forPrintAllCodeSnippet}
+        name='printAll'
+        consoleLog={forPrintAllSnippetLog}
+      />
       <p>
         Три элемента массива — три операции. Если массив станет в 2 раза больше — алгоритм будет работать в 2 раза
         дольше. Всё просто.
@@ -89,7 +94,12 @@ const concat = arr.concat([1, 2, 3]); // O(n + m)`;
         <p>
           <b>Вопрос с подвохом: что будет, если в массиве, по которому проходит цикл, будет всего 1 элемент?</b>
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={forPrintAllOneElementCodeSnippet} name='printAll' />
+        <CodeSnippet
+          lang={ECodeLang.TYPESCRIPT}
+          code={forPrintAllOneElementCodeSnippet}
+          name='printAll'
+          consoleLog='1'
+        />
         <p>
           Если вы ответили O(1) — ответ неверный. Сложность алгоритма все равно останется O(n). Если в массиве будет 1
           элемент, цикл выполнится просто 1 раз.
