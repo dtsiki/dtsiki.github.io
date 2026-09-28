@@ -47,7 +47,7 @@ function getArea(shape: Shape): number {
 getArea({ type: 'circle', radius: 42 });`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>
         Дискриминирующие объединения
         {getGhostText('Discriminated Unions')}

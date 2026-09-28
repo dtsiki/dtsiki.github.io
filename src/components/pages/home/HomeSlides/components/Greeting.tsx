@@ -12,15 +12,15 @@ export const Greeting = () => {
     <header className={styles.greeting}>
       <h1>
         <span className={bind([styles.greeting__item, styles['primary'], styles.greeting__line])}>
-          <span className='accented accented--primary'>{translate(YAY)}! ;)</span>
+          <span className='accented primary'>{translate(YAY)}! ;)</span>
         </span>
         <span className={bind([styles.greeting__item, styles['secondary'], styles.greeting__line])}>
           <span className='stroke primary'>{translate(MY_NAME_IS)}</span>{' '}
-          <span className='accented accented--primary'>{translate(DARIA)}</span>
+          <span className='accented primary'>{translate(DARIA)}</span>
         </span>
         <span className={bind([styles.greeting__item, styles['secondary'], styles.greeting__line])}>
           <span className='stroke primary'>{translate(I_AM)}</span>{' '}
-          <span className='accented accented--primary'>{translate(FRONTEND)}</span>{' '}
+          <span className='accented primary'>{translate(FRONTEND)}</span>{' '}
           <span className='stroke primary'>{translate(DEVELOPER)}</span>
         </span>
       </h1>

@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid';
-import Image from 'next/image';
 import { TReadingListItem } from 'src/types';
 
 export const renderBookLayout = (book: TReadingListItem) => {
@@ -7,16 +6,20 @@ export const renderBookLayout = (book: TReadingListItem) => {
 
   if (cover) {
     return (
-      <article key={id} className='row'>
+      <div className='row'>
         <div className='col col--20'>
           <img src={cover} alt={`Обложка книги «${title}»`} className='image BOOKCOVER' />
         </div>
         <div className='col col--80'>{renderBookInfo(book)}</div>
-      </article>
+      </div>
     );
   }
 
-  return <article key={id}>{renderBookInfo(book)}</article>;
+  return (
+    <section key={id} className='section inner'>
+      {renderBookInfo(book)}
+    </section>
+  );
 };
 
 const renderBookInfo = (book: TReadingListItem) => {

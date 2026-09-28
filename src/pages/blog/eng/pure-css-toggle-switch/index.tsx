@@ -256,8 +256,8 @@ $gap: 4px;`;
         <p className='spacer top large'>
           It may seem that toggles and checkboxes are the same, but they aren&#39;t. At first it seems, checkboxes as
           well as toggles also have two states: unselected and selected. Actually, checkboxes have three states:
-          unselected, selected, and <span className='accented accented--primary'>indeterminate</span> while toggles are
-          either off or on.
+          unselected, selected, and <span className='accented primary'>indeterminate</span> while toggles are either off
+          or on.
         </p>
         <div className='flex h-centered'>
           <div className='row'>

@@ -204,14 +204,12 @@ export default defineConfig({
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.CROSS,
       }}>
-      <section>
-        <TableOfContents
-          items={tableOfContents}
-          strictLanguage={POSTS_CONFIG_[EBlogPostRecord.CREATING_A_REACT_APP].language}
-          hideNumbers={true}
-        />
-      </section>
-      <section ref={preparationRef}>
+      <TableOfContents
+        items={tableOfContents}
+        strictLanguage={POSTS_CONFIG_[EBlogPostRecord.CREATING_A_REACT_APP].language}
+        hideNumbers={true}
+      />
+      <section ref={preparationRef} className='section outer'>
         <h2>Что вам понадобится перед началом</h2>
         <p>Перед стартом проверим, всё ли готово. Нам нужно всего две вещи:</p>
         <ul className='list markered'>
@@ -246,7 +244,7 @@ export default defineConfig({
           </li>
         </ul>
       </section>
-      <section ref={creatingRepoRef}>
+      <section ref={creatingRepoRef} className='section outer'>
         <h2>Шаг 1. Создаём удалённый репозиторий</h2>
         <p>Первым шагом нужно создать удалённый репозиторий на GitHub для вашего проекта на React.</p>
         <Note>
@@ -314,7 +312,7 @@ export default defineConfig({
           <ExternalLink href='https://github.com/dtsiki/hello-react' label='hello-react' />.
         </p>
       </section>
-      <section ref={cloningRepoRef}>
+      <section ref={cloningRepoRef} className='section outer'>
         <h2>Шаг 2. Клонируем репозиторий</h2>
         <p>
           Пока что репозиторий есть только на сервисе GitHub и он абсолютно пустой. Нам нужно склонировать удалённый
@@ -342,7 +340,7 @@ export default defineConfig({
           эта папка будет пуста. А заполнять её будет уже на следующем шаге.
         </p>
       </section>
-      <section ref={reactInstallRef}>
+      <section ref={reactInstallRef} className='section outer'>
         <h2>Шаг 3. Устанавливаем React</h2>
         <h3>Вариант 1. С помощью Create React App</h3>
         <p>
@@ -451,7 +449,7 @@ export default defineConfig({
           maxWidth={600}
         />
       </section>
-      <section ref={projectIntroRef}>
+      <section ref={projectIntroRef} className='section outer'>
         <h2>Шаг 4. Знакомимся со структурой проекта</h2>
         <p>Этот шаг можно пропустить и вернуться к нему позже.</p>
         <h3>Вариант 1. Если вы создавали приложение с помощью Create React App</h3>
@@ -554,7 +552,7 @@ export default defineConfig({
           maxWidth={600}
         />
       </section>
-      <section ref={ghPagesRef}>
+      <section ref={ghPagesRef} className='section outer'>
         <h2>Шаг 5. Готовим проект к публикации</h2>
         <p>
           Прежде чем сделать приложение доступным в интернете осталось всего два небольших действия: собрать и
@@ -644,7 +642,7 @@ export default defineConfig({
         <CodeSnippet code={viteBaseConfigSnippet} lang={ECodeLang.TYPESCRIPT} name='vite.config' hideLines={false} />
         <p>Теперь осталось только собрать проект и опубликовать его.</p>
       </section>
-      <section ref={buildDeployRef}>
+      <section ref={buildDeployRef} className='section outer'>
         <h2>Шаг 6. Собираем и деплоим</h2>
         <h3>Вариант 1. Если вы создавали приложение с помощью Create React App</h3>
         <p>Для того, чтобы можно было увидеть проект вживую в интернете нужно будет выполнить всего две команды:</p>
@@ -730,7 +728,7 @@ export default defineConfig({
           <em>Actions</em>. Также полезно смотреть за логами сборки и деплоя в терминале.
         </p>
       </section>
-      <section ref={gitRef}>
+      <section ref={gitRef} className='section outer'>
         <h2>Шаг 7. Сохраняем изменения</h2>
         <p>
           Пока что изменения в коде вашего приложения хранятся только в вашем локальном репозитории. Если вы откроете
@@ -773,7 +771,7 @@ export default defineConfig({
           советую самостоятельно изучить этот вопрос.
         </p>
       </section>
-      <section ref={faqRef}>
+      <section ref={faqRef} className='section outer'>
         <h2>Что делать, если что-то пошло не так</h2>
         <p>
           Такое тоже бывает, в этом нет ничего страшного. В этом разделе разберём самые частые ошибки, которые могут

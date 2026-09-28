@@ -169,14 +169,14 @@ const Post = () => {
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.BOOKSHELF,
       }}>
-      <section>
+      <section className='section outer'>
         <p>
           Это первая статья о книгах в этом блоге. Постараюсь писать раз в месяц хотя бы о том, какие книги прочитала
           или прослушала за прошлый месяц.
         </p>
         <p>Но прежде, чем перейдём к списку прочитанному за апрель..</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Обо мне как о читателе</h2>
         <ul className='list markered spacer top medium'>
           <li className='list__item'>
@@ -234,7 +234,7 @@ const Post = () => {
         </ul>
         <p>Итак, приступим к итогам апреля.</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Книги, которые я прочитала в апреле</h2>
         {BOOKS_CONFIG.filter((item) => item.type !== 'audiobook').map((item) => renderBookLayout(item))}
         <p className='spacer top large'>

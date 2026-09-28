@@ -48,9 +48,9 @@ function format(value: string | number): string {
 }`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Функции</h2>
-      <article>
+      <section>
         <h3>Типизация входных параметров</h3>
         <p>В TypeScript можно типизировать аргументы функций:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionWithArgsExampleCode} />
@@ -72,9 +72,9 @@ function format(value: string | number): string {
         <p>Параметрам можно задать значение по умолчанию:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionWithDefaultArgExampleCode} />
         <p>Важно помнить, что необязательные параметры должны идти после обязательных. </p>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h3>Типизация возвращаемого значения</h3>
         <p>Также можно типизировать возвращаемое из функции значение:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={returnValueTypeExampleCode} />
@@ -86,13 +86,13 @@ function format(value: string | number): string {
           TypeScript определяет тип возвращаемого значения функции на основе оператора{' '}
           <code className='code'>return</code>, поэтому писать тип возвращаемого значения необязательно.
         </p>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h3>Перегрузки функций {getGhostText('Function Overloads')}</h3>
         <p>Можно заставить функцию вести себя по-разному в зависимости от аргументов с помощью перезагрузки:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={overloadsExampleCode} />
-      </article>
+      </section>
     </section>
   );
 });

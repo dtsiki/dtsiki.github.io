@@ -225,22 +225,22 @@ user.age = 25; // сработал сеттер
 `;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Объектно-ориентированное программирование в TypeScript</h2>
       <p>
         TypeScript полностью поддерживает классическое объектно-ориентированное программирование, предлагая строгую
         типизацию, классы, интерфейсы, модификаторы доступа, абстрактные классы и удобную реализацию наследования через
         ключевое слово <code className='code'>extends</code>.
       </p>
-      <article>
+      <section>
         <h3>Классы</h3>
         <p>
           В TypeScript есть полноценная поддержка классов, унаследованная из стандарта ECMAScript, с добавлением мощных
           возможностей строгой типизации.
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={basicClassExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Модификаторы доступа</h3>
         <p>
           В TypeScript есть четыре модификатора, которые управляют видимостью свойств и методов класса, обеспечивая
@@ -279,8 +279,8 @@ user.age = 25; // сработал сеттер
           аргументах конструктора:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={shortSyntaxModifiersExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Наследование</h3>
         <p>
           Дочерний класс наследует свойства и методы родительского, но может добавлять свои или переопределять
@@ -297,13 +297,13 @@ user.age = 25; // сработал сеттер
           </a>
           ).
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Абстрактные классы</h3>
         <p>Абстрактные классы нельзя инстанциировать. Они нужны как шаблон для других классов.</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={abstractClassExampleCode} />
-      </article>
-      <article id='Interfaces_Implementation'>
+      </section>
+      <section id='Interfaces_Implementation'>
         <h3>Реализация интерфейсов</h3>
         <p>
           Ключевое слово <code className='code'>implements</code> в TypeScript заставляет класс строго соответствовать
@@ -333,8 +333,8 @@ user.age = 25; // сработал сеттер
             </p>
           </li>
         </ul>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Статические свойства и методы</h3>
         <p>
           В TypeScript нет выделенного ключевого слова для создания самих статических классов. Ключевое слово{' '}
@@ -348,8 +348,8 @@ user.age = 25; // сработал сеттер
           или датами), фабрик, сервисов и констант. Они группируют логику и данные, которые принадлежат самому классу, а
           не отдельным экземплярам, избавляя от необходимости вызывать <code className='code'>new ClassName()</code>.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Геттеры и сеттеры</h3>
         <p>
           Геттеры и сеттеры — это специальные методы, которые позволяют управлять доступом к свойствам класса. Они
@@ -360,15 +360,15 @@ user.age = 25; // сработал сеттер
           <code className='code'>set</code>, а при обращении к ним скобки не требуются:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={setterAndGetterExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Классы с дженериками</h3>
         <p>
           И тут не обойдёмся без них: дженерики позволяют создавать классы, которые могут работать с разными типами
           данных, сохраняя при этом строгую типизацию.
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={stackClassExampleCode} />
-      </article>
+      </section>
     </section>
   );
 });

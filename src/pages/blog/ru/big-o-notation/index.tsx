@@ -10,6 +10,7 @@ import {
   SquaredComplexity,
   LogComplexity,
   Conclusion,
+  OtherComplexities,
 } from 'src/components/pages/blog/ru/big-o-notation';
 
 type TypeScriptSection = {
@@ -24,6 +25,7 @@ const Post = () => {
   const linearComplexityRef = useRef<HTMLDivElement>(null);
   const squaredComplexityRef = useRef<HTMLDivElement>(null);
   const logComplexityRef = useRef<HTMLDivElement>(null);
+  const otherComplexitiesRef = useRef<HTMLDivElement>(null);
   const conclusionRef = useRef<HTMLDivElement>(null);
 
   const SECTIONS_CONFIG: TypeScriptSection[] = [
@@ -51,6 +53,11 @@ const Post = () => {
       title: 'Логарифмическая сложность O(log n)',
       ref: logComplexityRef,
       component: LogComplexity,
+    },
+    {
+      title: 'Какие ещё бывают сложности',
+      ref: otherComplexitiesRef,
+      component: OtherComplexities,
     },
     {
       title: 'Вместо заключения',
@@ -82,14 +89,12 @@ const Post = () => {
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.BUBBLES,
       }}>
-      <section>
-        <TableOfContents
-          items={renderTableOfContents}
-          strictLanguage={POSTS_CONFIG_[EBlogPostRecord.TYPESCRIPT_CHEATSHEET].language}
-          hideNumbers={true}
-          showOnScroll={true}
-        />
-      </section>
+      <TableOfContents
+        items={renderTableOfContents}
+        strictLanguage={POSTS_CONFIG_[EBlogPostRecord.TYPESCRIPT_CHEATSHEET].language}
+        hideNumbers={true}
+        showOnScroll={true}
+      />
       {SECTIONS_CONFIG.map((item) => renderSection(item))}
     </PostWrapper>
   );

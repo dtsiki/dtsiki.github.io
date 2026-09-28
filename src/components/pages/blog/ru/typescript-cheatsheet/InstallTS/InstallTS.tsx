@@ -26,7 +26,7 @@ npm --version`;
   const createReactAppInstallTSCommandSnippet = `npx create-react-app <название-репозитория>  --template typescript`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Установка TypeScript</h2>
       <p>
         Перед установкой TypeScript проверьте, что у вас стоит Node.js. Если есть сомнение — откройте терминал
@@ -42,7 +42,7 @@ npm --version`;
         Есть несколько вариантов установки TypeScript: глобальная, локальная вручную и автоматическая через сборщики.
       </p>
 
-      <article>
+      <section className='section inner'>
         <h3>Глобальная установка</h3>
         <p>
           Позволяет использовать команды компилятора TypeScript в любом месте на вашем компьютере. Удобно для
@@ -66,9 +66,9 @@ npm --version`;
 
         <p> Если нужно скомпилировать весь проект используйте команду:</p>
         <ExampleSnippet code={tsCompileCommandSnippet} />
-      </article>
+      </section>
 
-      <article>
+      <section className='section inner'>
         <h3>Локальная установка вручную для проекта</h3>
         <p>Подойдёт для разработки конкретного приложения.</p>
         <p>В терминале перейдите в папку проекта и выполните команду:</p>
@@ -76,9 +76,9 @@ npm --version`;
         <p>
           В зависимостях проекта появится TypeScript, а в директории проекта появится файл <em>tsconfig.json</em>.
         </p>
-      </article>
+      </section>
 
-      <article>
+      <section className='section inner'>
         <h3>Автоматическая установка через сборщики</h3>
         <p>
           Многие современные фреймворки и сборщики, например Vite или Next.js, настраивают TypeScript самостоятельно при
@@ -102,7 +102,7 @@ npm --version`;
             современный методы, например, Vite.
           </p>
         </Note>
-      </article>
+      </section>
     </section>
   );
 });

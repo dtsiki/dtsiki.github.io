@@ -104,7 +104,7 @@ interface B {}
 interface C = A | B; // Error!`;
 
   return (
-    <section ref={ref} id='Interfaces'>
+    <section ref={ref} id='Interfaces' className='section outer'>
       <h2>
         Интерфейсы
         {getGhostText('Interfaces')}
@@ -129,7 +129,7 @@ interface C = A | B; // Error!`;
       <p>Интерфейсы могут описывать функции:</p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionExampleCode} />
 
-      <article>
+      <section>
         <h3>
           Объединение интерфейсов
           {getGhostText('Declaration Merging')}
@@ -140,8 +140,8 @@ interface C = A | B; // Error!`;
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionExampleCode} />
         <p></p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Расширение интерфейсов</h3>
         <p>
           Интерфейсы могут расширять другие интерфейсы с помощью ключевого слова <code className='code'>extends</code>:
@@ -153,8 +153,8 @@ interface C = A | B; // Error!`;
           В отличии от автоматического слияния, расширение с помошью <code className='code'>extends</code> — это явное
           наследование одного интерфейса от другого.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Интерфейсы для классов</h3>
         <p>
           Класс может реализовать интерфейс. С помощью ключевого слова <code className='code'>implements</code>{' '}
@@ -167,8 +167,8 @@ interface C = A | B; // Error!`;
           В отличии от <code className='code'>extends</code>, который наследует код (свойства, методы, конструктор),
           <code className='code'>implements</code> только проверяет соответствие формы.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Ограничения интерфейсов</h3>
         <ul className='list markered'>
           <li className='list__item'>
@@ -180,7 +180,7 @@ interface C = A | B; // Error!`;
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={interfacePrimitivesErrorExampleCode} />
           </li>
         </ul>
-      </article>
+      </section>
     </section>
   );
 });

@@ -100,9 +100,9 @@ let strLength: number = (someValue as string).length;`;
   const anyUnknownNeverVoidList = renderInlineList(['any', 'unknown', 'never', 'void'], 'code', 'code');
 
   return (
-    <section ref={ref} id='Data_Types'>
+    <section ref={ref} id='Data_Types' className='section outer'>
       <h2>Типы данных и их типы</h2>
-      <article id='Type_Annotations'>
+      <section id='Type_Annotations'>
         <h3>
           Аннотация типов
           {getGhostText('Type Annotations')}
@@ -115,8 +115,8 @@ let strLength: number = (someValue as string).length;`;
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeAnnotationExampleCode} />
         <p>В скомпилированном JavaScript аннотации удаляются, оставляя код чистым JavaScript:</p>
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={typeAnnotationCompliedJSSnipped} name='bundle' />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Выводимость типов
           {getGhostText('Type Inference')}
@@ -129,8 +129,8 @@ let strLength: number = (someValue as string).length;`;
           значения из функции, типы у массивов с явными значениями, тип колбэков у методов массивов, в остальных случаях
           лучше помогать ему и прописывать аннотации.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Приведение типов
           {getGhostText('Type Assertions')}
@@ -144,8 +144,8 @@ let strLength: number = (someValue as string).length;`;
           <strong>Важно понимать: это не преобразование, а лишь подсказка компилятору.</strong>
         </p>
         <p>При сборке в JavaScript эти конструкции будут удалены.</p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Примитивные типы данных</h3>
         <p>
           В TypeScript переехали из JavaScript все примитивные типы данных:{' '}
@@ -154,15 +154,15 @@ let strLength: number = (someValue as string).length;`;
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={basicTypesExampleCode} />
 
         <p>TypeScript их не меняет, а просто добавляет к ним соответствующие аннотации типов.</p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>{anyUnknownNeverVoidList}</h3>
         <p>
           В TypeScript появились новые типы данных:{' '}
           {renderInlineList(['any', 'unknown', 'never', 'void'], 'code', 'code')}. Этих типов нет в JavaScript. Они
           существуют только до компиляции, а после того как TypeScript компилируется в JavaScript, они исчезают.
         </p>
-        <article>
+        <section>
           <h4>
             <code className='code'>any</code>
           </h4>
@@ -172,8 +172,8 @@ let strLength: number = (someValue as string).length;`;
             Хотя кажется, что использование <code className='code'>any</code> даёт гибкость, лучше избегать его,
             поскольку это может снизить надежность и читаемость кода. Лучше использовать явные типы данных.
           </p>
-        </article>
-        <article>
+        </section>
+        <section>
           <h4>
             <code className='code'>unknown</code>
           </h4>
@@ -189,8 +189,8 @@ let strLength: number = (someValue as string).length;`;
             переменной. Тип <code className='code'>unknown</code> запрещает это и требует предварительной проверки типа
             переменной, либо приведения к нужному типу.
           </p>
-        </article>
-        <article>
+        </section>
+        <section>
           <h4>
             <code className='code'>never</code>
           </h4>
@@ -199,16 +199,16 @@ let strLength: number = (someValue as string).length;`;
             которые выбрасывают ошибку или для бесконечных циклов:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={neverTypeExampleCode} />
-        </article>
-        <article>
+        </section>
+        <section>
           <h4>
             <code className='code'>void</code>
           </h4>
           <p>Обозначает отсутствие значения. Обычно используется для функций, которые ничего не возвращают:</p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={voidTypeExampleCode} />
-        </article>
-      </article>
-      <article>
+        </section>
+      </section>
+      <section>
         <h3>Массивы</h3>
         <p>
           Массивы в TypeScript работают так же как и в JavaScript. В TypeScript есть два способа протипизировать
@@ -240,8 +240,8 @@ let strLength: number = (someValue as string).length;`;
           сможет работать только со строками. Если попытаться добавить в такой массив число, то будет получена ошибка:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrayTypeErrorExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Кортежи {getGhostText('Tuples')}</h3>
         <p>
           Кортежи — это специальные массивы с фиксированной длиной и строго определенными типами для каждого элемента,
@@ -249,8 +249,8 @@ let strLength: number = (someValue as string).length;`;
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={tupleExampleCode} />
         <p>После компиляции в JavaScript кортежи превращаются в обычные массивы.</p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Объекты</h3>
         <p>
           Как и в JavaScript, в TypeScript можно создавать сложные объекты, которые состоят из других объектов, в том
@@ -275,7 +275,7 @@ let strLength: number = (someValue as string).length;`;
           </a>
           .
         </p>
-      </article>
+      </section>
     </section>
   );
 });

@@ -72,7 +72,7 @@ const comment: Comment = {
 };`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>
         Рекурсивные типы
         {getGhostText('Recursive Types')}

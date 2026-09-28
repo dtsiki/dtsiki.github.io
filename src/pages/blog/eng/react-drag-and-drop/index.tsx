@@ -122,11 +122,11 @@ const handleDragEnd = () => {
         <ol className='list ordered'>
           <li className='list__item'>
             <span className='highlighted ghost'>Draggable:</span> elements{' '}
-            <span className='accented accented--primary'>what</span> we want to drag somewhere
+            <span className='accented primary'>what</span> we want to drag somewhere
           </li>
           <li className='list__item'>
             <span className='highlighted ghost'>Droppable</span> or target: elements{' '}
-            <span className='accented accented--primary'>where</span> we want to drop our draggable elements
+            <span className='accented primary'>where</span> we want to drop our draggable elements
           </li>
         </ol>
         <p>

@@ -140,13 +140,13 @@ type ClickEvent = EventName<"click">; // Тип: "onClick"`;
 type Prop = GetterName<"getUser">; // Тип: "User"`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Литералы {getGhostText('Literal Types')}</h2>
       <p>
         В TypeScript можно использовать не только общие типы, но и конкретные значения как типы.{' '}
         <strong>Литерал</strong> — это тип, который принимает ровно одно конкретное значение.{' '}
       </p>
-      <article>
+      <section>
         <h3>
           Расширение типов
           {getGhostText('Type Widening')}
@@ -165,8 +165,8 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
           Если вы объявите переменную с помощью <code className='code'>const</code>, TypeScript автоматически сузит её
           тип до литерального, так как её значение не может измениться.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Заморозка литералов
           {getGhostText('Const Assertions')}
@@ -183,8 +183,8 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
           значения получают литеральные типы, чтобы избежать случайных ошибок перезаписи:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={asConstExampleCode} name='literal-types-example(3)' />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Виды литералов</h3>
         <p>В TypeScript существует 3 основных вида литеральных типов: строковые, числовые и логические.</p>
         <ul className='list markered'>
@@ -213,8 +213,8 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
             />
           </li>
         </ul>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Приведение к литеральному типу</h3>
         <p>
           Объекты тоже можно приводить к литеральному типу через Type Assertion с помощью{' '}
@@ -227,8 +227,8 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
         </p>
         <CodeSnippet code={objectLiteralTypeExampleLog} lang={ECodeLang.TYPESCRIPT} name='literal-types-example(6)' />
         <p>Такой способ приведения применим и к массивам.</p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Перечисления или литеральные типы</h3>
         <p>
           Перечисления <code className='code'>enum</code> — это ещё способ задать набор именованных констант:
@@ -248,8 +248,8 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
         <CodeSnippet code={compiledStringEnumExampleCode} lang={ECodeLang.JAVASCRIPT} name='index' />
         <p>Тип же исчезнет при компиляции и не попадёт в бандл:</p>
         <CodeSnippet code={'// ничего нет'} lang={ECodeLang.JAVASCRIPT} name='index' />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Как заменить перечисление на тип</h3>
         <p>Например, в вашем проекте сложилось использование перечислений в таком виде:</p>
         <CodeSnippet code={enumBeforeExampleCode} lang={ECodeLang.TYPESCRIPT} name='literal-types-example(8)' />
@@ -264,8 +264,8 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
           <code className='code'>as const</code> и затем выведем из него тип:
         </p>
         <CodeSnippet code={enumAfterExampleCode} lang={ECodeLang.TYPESCRIPT} name='literal-types-example(10)' />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Шаблонные литералы
           {getGhostText('Template Literal Types')}
@@ -334,7 +334,7 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
           типов c помощью ключевого слова <code className='code'>infer</code>:
         </p>
         <CodeSnippet code={inferTemplateLiteralsExampleCode} lang={ECodeLang.TYPESCRIPT} />
-      </article>
+      </section>
     </section>
   );
 });

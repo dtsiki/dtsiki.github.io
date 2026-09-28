@@ -29,7 +29,7 @@ if (element instanceof HTMLImageElement) {
 }`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Типизация DOM и событий</h2>
       <p>
         Для работы с DOM и событиями в TypeScript компилятор использует встроенные определения типов из файла{' '}
@@ -44,15 +44,15 @@ if (element instanceof HTMLImageElement) {
         <em>"dom"</em>. Например:
       </p>
       <CodeSnippet lang={ECodeLang.JSON} code={jsonTsConfig} name='tsconfig' />
-      <article>
+      <section>
         <h3>Проверка типов перед использованием</h3>
         <p>
           Методы вроде <code className='code'>getElementById</code> могут вернуть <code className='code'>null</code>,
           если элемента нет, поэтому TypeScript требует проверку:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={nullButtonExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Приведение типов
           {getGhostText('Type Assertions')}
@@ -66,16 +66,16 @@ if (element instanceof HTMLImageElement) {
           Важно понимать: <strong>это не преобразование, а лишь подсказка компилятору</strong>. При сборке в JavaScript
           эти конструкции будут удалены.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Type Guards</h3>
         <p>
           Альтренатива приведению типов с <code className='code'>as</code> — проверка класса объекта через{' '}
           <code className='code'>instanceof</code>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={instanceofExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Полезные типы DOM</h3>
         <p>Рано или поздно вам пригодится каждый из этих типов:</p>
         <ul className='list markered'>
@@ -116,7 +116,7 @@ if (element instanceof HTMLImageElement) {
             </ul>
           </li>
         </ul>
-      </article>
+      </section>
     </section>
   );
 });

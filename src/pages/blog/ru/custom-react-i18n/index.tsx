@@ -284,14 +284,12 @@ export const LanguageSwitcher = () => {
         pattern: EHeroPattern.CROSS,
         content: <Hero />,
       }}>
-      <section>
-        <TableOfContents
-          items={tableOfContents}
-          strictLanguage={POSTS_CONFIG_[EBlogPostRecord.CUSTOM_REACT_I18N].language}
-          hideNumbers={true}
-        />
-      </section>
-      <section>
+      <TableOfContents
+        items={tableOfContents}
+        strictLanguage={POSTS_CONFIG_[EBlogPostRecord.CUSTOM_REACT_I18N].language}
+        hideNumbers={true}
+      />
+      <section className='section outer'>
         <p>
           Для локализации приложений обычно используются специальные библиотеки. Например для React часто используется
           одна из популярных библиотек <em>react-i18next</em> на базе движка интернационализации <em>i18next</em>. В
@@ -300,7 +298,7 @@ export const LanguageSwitcher = () => {
           кто хочет понять, как это работает изнутри.
         </p>
       </section>
-      <section ref={appDesignRef}>
+      <section ref={appDesignRef} className='section outer'>
         <h2>Планируем архитектуру</h2>
         <p>
           Как говорится «Без ТЗ результат ХЗ». Прежде чем писать код, представим, как будущая система локализации будет
@@ -343,7 +341,7 @@ export const LanguageSwitcher = () => {
           тут понять принцип.
         </p>
       </section>
-      <section ref={languagesRef}>
+      <section ref={languagesRef} className='section outer'>
         <h2>Определяемся с языками</h2>
         <p>
           Сначала нам нужно решить какие языки будем использовать для локализации в проекте. Пойдём простым путём и
@@ -368,7 +366,7 @@ export const LanguageSwitcher = () => {
         </p>
         <CodeSnippet code={anotherLangConstSnippet} name='src/i18n/language' lang={ECodeLang.TYPESCRIPT} />
       </section>
-      <section ref={contextRef}>
+      <section ref={contextRef} className='section outer'>
         <h2>Создаём контекст</h2>
         <p>
           Создадим интерфейс для контекста <em>ILanguagesContextData</em>, который будет описывать, что будет лежать в
@@ -391,7 +389,7 @@ export const LanguageSwitcher = () => {
         <CodeSnippet code={contextSnippet} lang={ECodeLang.REACT} name='src/LanguageContext/LanguageContext' />
         <p>Контекст готов!</p>
       </section>
-      <section ref={providerRef}>
+      <section ref={providerRef} className='section outer'>
         <h2>Создаём провайдер</h2>
         <p>Провайдер будет хранить состояние языка и переключать его для нас.</p>
         <p>
@@ -419,7 +417,7 @@ export const LanguageSwitcher = () => {
         <p>Далее нужно обернуть корневой компонент этим провайдером:</p>
         <CodeSnippet code={rootWithProviderSnippet} lang={ECodeLang.REACT} customName='src/main.tsx' />
       </section>
-      <section ref={hookRef}>
+      <section ref={hookRef} className='section outer'>
         <h2>Создаём хук</h2>
         <p>
           Хранить язык в контексте — это хорошо, но каждый раз писать <em>useContext(LanguageContext)</em> и проверять
@@ -454,7 +452,7 @@ export const LanguageSwitcher = () => {
           </li>
         </ol>
       </section>
-      <section ref={i18nRef}>
+      <section ref={i18nRef} className='section outer'>
         <h2>Организуем хранение переводов</h2>
         <p>
           Мы подошли к вопросу где и в каком виде хранить переводы. Для этого создадим папку <em>i18n</em> в директории
@@ -488,7 +486,7 @@ export const LanguageSwitcher = () => {
           складывать переводы общих компонентов интерфейса, а в папку <em>blog.ts</em> переводы для блога и т.д. и т.п.
         </p>
       </section>
-      <section>
+      <section ref={translateRef} className='section outer'>
         <h2>Переводим</h2>
         <p>Осталось дело за малым - применить всё на деле.</p>
         <p>
@@ -499,7 +497,7 @@ export const LanguageSwitcher = () => {
         </p>
         <CodeSnippet code={translateExampleSnippet} lang={ECodeLang.REACT} name='src/components/HelloWorld' />
       </section>
-      <section ref={langToggleRef}>
+      <section ref={langToggleRef} className='section outer'>
         <h2>Добавляем переключатель языка</h2>
         <p>
           У нас в примере всего два языка, поэтому кнопку смены языка можно сделать в виде переключателя - просто
@@ -515,7 +513,7 @@ export const LanguageSwitcher = () => {
           зависимости от вложенности — переключение языка будет работать везде.
         </p>
       </section>
-      <section ref={conclusionRef}>
+      <section ref={conclusionRef} className='section outer'>
         <h2>Заключение</h2>
         <p>
           Перейдя <ExternalLink href='https://github.com/dtsiki/custom-react-i18n' label='по этой ссылке' /> вам

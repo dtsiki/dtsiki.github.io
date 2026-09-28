@@ -1,4 +1,11 @@
 import { EPostType, TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
+import {
+  allInline,
+  allSettledInline,
+  anyInline,
+  raceInline,
+} from 'src/components/pages/blog/ru/promises-collection/utils';
+import { LONG_DASH } from 'src/constants';
 import { Language } from 'src/types';
 
 export enum EBlogPostRecord {
@@ -21,6 +28,9 @@ export enum EBlogPostRecord {
   MAY_READING_LIST = 'MAY_READING_LIST',
   TYPESCRIPT_CHEATSHEET = 'TYPESCRIPT_CHEATSHEET',
   BIG_O_NOTATION = 'BIG_O_NOTATION',
+  THIS = 'THIS',
+  PROMISES = 'PROMISES',
+  PROMISES_COLLECTION = 'PROMISES_COLLECTION',
 }
 
 export const POSTS_CONFIG_: Record<string, TPostConfig> = {
@@ -317,14 +327,14 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
   [EBlogPostRecord.MAY_READING_LIST]: {
     id: EBlogPostRecord.MAY_READING_LIST,
     title: 'Что я читала в мае',
-    highlight: 'Книжные итоги последнего месяца весны 🌸',
+    highlight: 'Мои книжные итоги последнего месяца весны',
     link: 'may-reading-list',
     category: EPostType.READING,
     createdAt: '26 june 2026',
     tags: ['Прочитанное'],
     language: Language.RU,
     meta: {
-      description: 'Книжные итоги последнего месяца весны 🌸',
+      description: 'Книжные итоги последнего месяца весны: что я читала, что мне понравилось, а что нет',
     },
     strictLanguage: true,
   },
@@ -341,6 +351,9 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
       description:
         'Большая шпаргалка по синтаксису и основным возможностям TypeScript. Бесплатно, без регистрации и смс.',
     },
+    pagination: {
+      next: EBlogPostRecord.BIG_O_NOTATION,
+    },
     strictLanguage: true,
   },
   [EBlogPostRecord.BIG_O_NOTATION]: {
@@ -353,26 +366,64 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     tags: ['Алгоритмы', 'JavaScript'],
     language: Language.RU,
     meta: {
-      description: '',
+      description:
+        'Оценка сложности алгоритмов Big O Notation: что это такое, зачем нужно, какие бывают сложности, много примеров',
+    },
+    pagination: {
+      next: EBlogPostRecord.THIS,
     },
     strictLanguage: true,
   },
-  /*[EBlogPostRecord.NETWORKS_FOR_FRONTEND_DEVELOPERS]: {
-    id: EBlogPostRecord.NETWORKS_FOR_FRONTEND_DEVELOPERS,
-    title: 'Сети для фронтенд-разработчиков',
-    highlight:
-      'Просто о том, как работает интернет для тех, кто пишет фронтенд. Без занудства и академических формулировок.',
-    link: 'how-internet-works-for-frontend',
+  [EBlogPostRecord.THIS]: {
+    id: EBlogPostRecord.THIS,
+    title: 'this',
+    highlight: '',
+    link: 'this',
     category: EPostType.GUIDE,
-    createdAt: '31 july 2026',
-    tags: ['Frontend'],
+    createdAt: '10 sep 2026',
+    tags: ['JavaScript'],
+    language: Language.RU,
+    meta: {
+      description: 'Контекст выполнения и this в JavaScript: что такое, в чём разница, примеры',
+    },
+    pagination: {
+      next: EBlogPostRecord.PROMISES,
+    },
+    strictLanguage: true,
+  },
+  [EBlogPostRecord.PROMISES]: {
+    id: EBlogPostRecord.PROMISES,
+    title: 'Промисы',
+    highlight: `Лучший способ понять промисы ${LONG_DASH} написать их.`,
+    link: 'promises',
+    category: EPostType.GUIDE,
+    createdAt: '16 sep 2026',
+    tags: ['JavaScript'],
+    language: Language.RU,
+    meta: {
+      description: 'Промисы в JavaScript: гайд по теории и практика - напишем свой класс промисов',
+    },
+    pagination: {
+      next: EBlogPostRecord.PROMISES_COLLECTION,
+    },
+    strictLanguage: true,
+  },
+  [EBlogPostRecord.PROMISES_COLLECTION]: {
+    id: EBlogPostRecord.PROMISES_COLLECTION,
+    title: 'Коллекции промисов',
+    highlight:
+      'Четыре метода для работы с группой промисов: разбирём, как они устроены, и напишем собственные реализации.',
+    link: 'promises-collection',
+    category: EPostType.GUIDE,
+    createdAt: '24 sep 2026',
+    tags: ['JavaScript'],
     language: Language.RU,
     meta: {
       description:
-        'Большая шпаргалка по синтаксису и основным возможностям TypeScript. Бесплатно, без регистрации и смс.',
+        'Промисы в JavaScript: разбирём что делают функции Promise.all, Promise.race, Promise.allSettled и Promise.any и напишем собственные реализации',
     },
     strictLanguage: true,
-  },*/
+  },
 };
 
 export const getPostsByLang = (language: Language) => {

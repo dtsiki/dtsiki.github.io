@@ -340,7 +340,7 @@ export const AnimatedStar = () => {
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.CROSS,
       }}>
-      <section>
+      <section className='section outer'>
         <Window
           type={EWindowType.CUSTOM}
           filesCount={1}
@@ -350,7 +350,7 @@ export const AnimatedStar = () => {
         </Window>
         <p className='explanation'>Начните двигать курсом по странице — такую анимацию будем делать в этом уроке</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Подготовительные работы</h2>
         <p>
           Прежде чем приступать к созданию анимации нужно подготовить саму звезду. Это можно сделать разными способами,
@@ -394,7 +394,7 @@ export const AnimatedStar = () => {
           name={['index', 'style']}
           code={[exampleHTML1, exampleCSS1]}
         />
-        <p className='spacer top bottom medium'>
+        <p className='spacer bottom medium'>
           На этом этапе звёздочка без глаз выглядит пока что совсем грустно. Поэтому на следующем этапе добавим глаза с
           помощью чистого CSS.
         </p>
@@ -420,7 +420,7 @@ export const AnimatedStar = () => {
           code={[exampleHTML1, exampleCSS2]}
         />
 
-        <p className='spacer top bottom medium'>Теперь звёздочка выглядит отлично!</p>
+        <p className='spacer bottom medium'>Теперь звёздочка выглядит отлично!</p>
         <Window
           type={EWindowType.CUSTOM}
           filesCount={1}
@@ -433,13 +433,13 @@ export const AnimatedStar = () => {
             </div>
           </div>
         </Window>
-        <p className='spacer top bottom medium'>
+        <p className='spacer bottom medium'>
           Все размеры в коде выше я подбирала индивидуально. Не стесняйтесь экспериментировать на этом этапе: можно
           менять размер глаз, зрачков, расстояние между ними и т.д. Саму звёздочку можно поменять на другой рисунок:
           сердце, облако, яблоко, etc.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>А теперь анимируем!</h2>
         <p className='spacer top bottom medium'>
           Сперва реализуем анимацию на чистом JavaScript, а затем я подскажу как перенести её на React.
@@ -450,19 +450,19 @@ export const AnimatedStar = () => {
         </p>
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS1} />
 
-        <p className='spacer top bottom medium'>
+        <p className='spacer bottom medium'>
           В этом коде <code className='code'>mousemove</code> — событие, которое срабатывает при каждом движении мыши,{' '}
           <code className='code'>moveEyesToCursor</code> — функция-обработчик, которая будет вызываться каждый раз при
           движении мыши.
         </p>
-        <p className='spacer top bottom medium'>
+        <p className='spacer bottom medium'>
           Напишем теперь эту самую функцию-обработчик <code className='code'>moveEyesToCursor</code>, которая и будет
           делать всю магию движения глаз. Для начала нужно найти все глаза, которые мы хотим анимировать. Сделаем это
           так:
         </p>
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS2} />
 
-        <p className='spacer top bottom medium'>
+        <p className='spacer bottom medium'>
           Метод <code className='code'>querySelectorAll</code> в JavaScript используется для поиска и возврата списка
           всех элементов документа, соответствующих заданному CSS-селектору. В нашем случае это класс{' '}
           <code className='code'>.eye</code>. Таким образом в переменной <code className='code'>eyes</code> будет
@@ -508,7 +508,7 @@ export const AnimatedStar = () => {
           потыкать результат вживую 🔍
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Переносим на React</h2>
         <p>
           Чтобы перенести наш код на React нужно чуть-чуть модернизировать HTML-разметку, сама разметка при этом
@@ -532,7 +532,7 @@ export const AnimatedStar = () => {
           DOM-элементы глаз. Делать это будем с помощью ссылок <code className='code'>ref</code> и хука{' '}
           <code className='code'>useRef</code>. Сперва проинициализируем ссылку:
         </p>
-        <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact1} />
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact1} />
 
         <p>
           Не пугайтесь, я использую React в связке с TypeScript. Если вы не знакомы с TypeScript, то небольшое
@@ -545,33 +545,33 @@ export const AnimatedStar = () => {
           Чуть попозже назначим ссылки на элементы, но пока что займёмся другим - напишем функцию добавления ссылки в
           созданный массив <code className='code'>eyesRef</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact2} />
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact2} />
 
         <p className='spacer top medium'>
           Вот теперь можно назначать ссылки. Созданная только что выше функция <code className='code'>addToRefs</code>{' '}
           будет вызываться для каждого глаза через свойство <code className='code'>ref</code> следующим образом:
         </p>
-        <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact3} />
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact3} />
 
         <p className='spacer top medium'>
           Функция-обработчик движения глаз <code className='code'>moveEyesToCursor</code> при переносе на React остаётся
           почти без изменений, но нужно поддержать добавленные ссылки, добавив проверку{' '}
           <code className='code'>current</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact4} />
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact4} />
 
         <p className='spacer top medium'>
           Чтобы использовать подписку на событие <code className='code'>mousemove</code> в React, как в нативном
           JavaScript выше, воспользуемся хуком <code className='code'>useEffect</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact5} />
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact5} />
 
         <p className='spacer top medium'>
           Return-функция здесь выполняет роль очистки: удаляет обработчик при размонтировании компонента, предотвращая
           таким образом утечки памяти.
         </p>
         <p className='spacer top medium'>Ну вот и всё, собираем всё вместе:</p>
-        <CodeSnippet lang={ECodeLang.REACT} name='AnimatedStar' code={exampleReact6} />
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact6} />
         <br />
         <CodeSnippet lang={ECodeLang.SCSS} name='styles' code={exampleSCSS2} />
       </section>

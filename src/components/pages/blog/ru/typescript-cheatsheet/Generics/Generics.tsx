@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
+import { InlineCode } from 'src/components/blog/InlineCode';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { getGhostText } from 'src/utils/formatting';
 
@@ -119,15 +120,33 @@ numberList.add(10);`;
 
 const box: Box = { value: "Привет" }; // тип string`;
 
+  const entityExampleCode = `// С бэка приходят данные о пользователе:
+const userFromApi = { id: 42, name: 'dtsiki', url: 'https://dtsiki.github.io' };
+
+// На фронте оборачиваем данные в Entity:
+type Entity<T> = {
+  id: string; // Уникальный ID для фронта
+  data: T;
+  isLoading: boolean;
+  error?: string;
+};
+
+// Пример использования:
+const userEntity: Entity<User> = {
+  id: 'user-1',
+  data: { id: 42, name: 'Alice', email: 'alice@mail.com' },
+  isLoading: false,
+};`;
+
   return (
-    <section ref={ref} id='Generics'>
+    <section ref={ref} id='Generics' className='section outer'>
       <h2>Дженерики {getGhostText('Generics')}</h2>
       <p>
         Это инструмент, который позволяет создавать компоненты (функции, классы, интерфейсы), способные работать с
         различными типами данных без потери строгой типизации. Вместо жесткого указания типа, он передается как
         параметр.
       </p>
-      <article>
+      <section>
         <h3>Обобщённые функции</h3>
         <p>Позволяют зафиксировать тип аргумента так, чтобы функция возвращала значение того же типа.</p>
         <p>
@@ -177,7 +196,7 @@ const box: Box = { value: "Привет" }; // тип string`;
           через запятую. Для второго параметра принято использовать букву <em>U</em>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={pairExampleCode} />
-      </article>
+      </section>
       <p>
         Для третьего параметра принято использовать букву <em>V</em> (следующая по алфавиту за <em>T</em> и <em>U</em>
         ).
@@ -187,15 +206,15 @@ const box: Box = { value: "Привет" }; // тип string`;
         значения и метаданных:
       </p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={historyStateExampleCode} />
-      <article>
+      <section>
         <h3>Обобщённые интерфейсы и типы</h3>
         <p>Используются когда структура данных должна оставаться гибкой.</p>
         <p>При использовании с интерфейсами они работают как параметры функций:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={interfaceExampleCode} />
         <p>Объявления типов работают с дженериками точно так же, как и интерфейсы:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Ограничения
           {getGhostText('Constraints')}
@@ -209,8 +228,8 @@ const box: Box = { value: "Привет" }; // тип string`;
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={lengthErrorExampleCode} />
         <p>Если сузить круг возможных типов, передаваемых в дженерик, ошибки больше не будет:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Обобщённые классы</h3>
         <p>
           Дженерики в классах позволяют создавать шаблоны, способные работать с различными типами данных без
@@ -221,12 +240,29 @@ const box: Box = { value: "Привет" }; // тип string`;
           экземпляра и затем TypeScript сам подставит нужный тип:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={classExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Значения по умолчанию</h3>
         <p>Можно задать значение по умолчанию:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={defaultValueExampleCode} />
-      </article>
+      </section>
+      <section>
+        <h3>
+          <InlineCode>
+            Entity<AngleBrackets>T</AngleBrackets>
+          </InlineCode>
+        </h3>
+        <p>
+          Это дженерик-тип, который оборачивает любые данные <InlineCode>T</InlineCode>, добавляя к ним общие поля:{' '}
+          <InlineCode>id</InlineCode>, <InlineCode>isLoading</InlineCode>, <InlineCode>createdAt</InlineCode>,{' '}
+          <InlineCode>error</InlineCode> и т.д.
+        </p>
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={entityExampleCode} />
+        <p>
+          С помощью этого дженерика-типа не нужно вручную прописывать поля заново для каждого объекта, а все сущности в
+          приложении будут иметь одинаковую структуру.
+        </p>
+      </section>
     </section>
   );
 });

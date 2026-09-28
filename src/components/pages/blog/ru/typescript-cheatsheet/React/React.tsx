@@ -284,7 +284,7 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
 Button.displayName = 'Button';`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Типизация React</h2>
       <p>TypeScript поддерживает большинство популярных веб-фреймворков, в том числе и React.</p>
       <p>
@@ -292,7 +292,7 @@ Button.displayName = 'Button';`;
         заключаться только в том, что нужно будет указывать типы для компонентов, пропсов, стейтов и функций.
       </p>
 
-      <article>
+      <section>
         <h3>Настройка TypeScript</h3>
         <p>
           Чтобы использовать TypeScript в React-проектах достаточно использовать расширение <em>.tsx</em> для файлов
@@ -310,8 +310,8 @@ Button.displayName = 'Button';`;
             <ExampleSnippet code={installCommand} />
           </li>
         </ul>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Типизация пропсов</h3>
         <p>
           Для типизации пропсов используйте ключевое слово <code className='code'>type</code> или{' '}
@@ -330,8 +330,8 @@ Button.displayName = 'Button';`;
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typesInterfaceExampleCode} name='Button.types' />
         <div className='spacer top small'></div>
         <CodeSnippet lang={ECodeLang.REACT} code={componentExampleCode} name='Button' />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Типизация компонентов</h3>
         <p>
           Раньше надо было типизировать компоненты с <em>FC</em> (или <em>FunctionComponent</em>):
@@ -350,8 +350,8 @@ Button.displayName = 'Button';`;
         <CodeSnippet lang={ECodeLang.REACT} code={withoutFCTypeExampleCode} name='Button.types' />
         <div className='spacer top small'></div>
         <CodeSnippet lang={ECodeLang.REACT} code={withoutFCComponentExampleCode} name='Button' />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Типизация <code className='code'>children</code>
         </h3>
@@ -367,15 +367,15 @@ Button.displayName = 'Button';`;
           React (JSX), строки, числа, массивы, фрагменты, <code className='code'>null</code>,{' '}
           <code className='code'>undefined</code> и логические значения.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Типизация событий</h3>
         <p>
           События типизируются встроенными типами из <strong>React</strong>. В зависимости от типа действия (клик, ввод,
           отправка формы) используются специфические типы, такие как <strong>MouseEvent</strong>,{' '}
           <strong>ChangeEvent</strong> или <strong>FormEvent</strong>, соответственно.
         </p>
-        <article>
+        <section>
           <h4>
             События мыши
             {getGhostText('Mouse Events')}
@@ -389,8 +389,8 @@ Button.displayName = 'Button';`;
             будет <strong>HTMLButtonElement</strong>:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={mouseEventExampleCode} name='Button' />
-        </article>
-        <article>
+        </section>
+        <section>
           <h4>
             События ввода
             {getGhostText('Change Events')}
@@ -400,7 +400,7 @@ Button.displayName = 'Button';`;
             <strong>ChangeEvent</strong>. В качестве дженерика нужно передать элемент формы:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inputEventExampleCode} name='Input' />
-        </article>
+        </section>
         <p>
           Остальные события работают аналогично. Если не понятно, какой тип следует присвоить, то в React с TypeScript
           для определения типа события достаточно: либо воспользоваться подсказкой вашей среды разработки, наведя курсор
@@ -433,14 +433,14 @@ Button.displayName = 'Button';`;
           <strong>ChangeEvent</strong> используется, когда меняется значение (ввод), а <strong>MouseEvent</strong> для
           кликов или перемещений. В качестве дженерика нужно передать тип HTML-элемента.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Типизация хуков</h3>
         <p>
           Типизация хуков происходит автоматически, но часто требует явного указания типов при работе с начальными
           состояниями, сложными объектами или массивами.
         </p>
-        <article>
+        <section>
           <h4>
             <code className='code'>useState</code>
           </h4>
@@ -465,8 +465,8 @@ Button.displayName = 'Button';`;
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsUseStateExampleCode} />
           <p>Если начальное состояние это массив объектов, который изначально пуст:</p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={emptyArrayUseStateExampleCode} />
-        </article>
-        <article>
+        </section>
+        <section>
           <h4>
             <code className='code'>useRef</code>
           </h4>
@@ -496,8 +496,8 @@ Button.displayName = 'Button';`;
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={forwardRefTypesExampleCode} />
           <div className='spacer top small'></div>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={forwardRefComponentExampleCode} />
-        </article>
-        <article>
+        </section>
+        <section>
           <h4>Кастомные хуки</h4>
           <p>
             Для создания кастомных хуков применяются те же правила типизации аргументов функций и возвращаемых значений.
@@ -519,8 +519,8 @@ Button.displayName = 'Button';`;
             </a>{' '}
             для создания хуков.
           </p>
-        </article>
-        <article>
+        </section>
+        <section>
           <h4>
             <code className='code'>useMemo</code>, <code className='code'>useCallback</code>
           </h4>
@@ -537,8 +537,8 @@ Button.displayName = 'Button';`;
           <p>
             Тип возвращемого значения, аналогично как и дл <code className='code'>useMemo</code>, указывать не надо.
           </p>
-        </article>
-        <article>
+        </section>
+        <section>
           <h4>
             <code className='code'>useContext</code>
           </h4>
@@ -561,9 +561,9 @@ Button.displayName = 'Button';`;
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={providerExampleCode} />
           <div className='spacer top small'></div>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={themeExampleCode} />
-        </article>
-      </article>
-      <article>
+        </section>
+      </section>
+      <section>
         <h3>Компоненты-дженерики</h3>
         <p>
           С помощью дженериков можно делать универсальные компоненты, которые будут работать с разными типами данных,
@@ -573,8 +573,8 @@ Button.displayName = 'Button';`;
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsListTypesExampleCode} name='List.types' />
         <div className='spacer top small'></div>
         <CodeSnippet lang={ECodeLang.REACT} code={genericsListComponentExampleCode} name='List' />
-      </article>
-      <article id='Generics_Custom_Hooks'>
+      </section>
+      <section id='Generics_Custom_Hooks'>
         <h3>Дженерики-хуки</h3>
         <p>
           Дженерики также позволяют создавать переиспользуемые хуки, которые адаптируют свои типы под передаваемые
@@ -588,7 +588,7 @@ Button.displayName = 'Button';`;
           </code>{' '}
           TypeScript автоматически выведет все типы как <em>string</em>.
         </p>
-      </article>
+      </section>
     </section>
   );
 });

@@ -166,14 +166,12 @@ const Post = () => {
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.ARCS,
       }}>
-      <section>
-        <TableOfContents
-          items={renderTableOfContents}
-          strictLanguage={POSTS_CONFIG_[EBlogPostRecord.TYPESCRIPT_CHEATSHEET].language}
-          hideNumbers={true}
-          showOnScroll={true}
-        />
-      </section>
+      <TableOfContents
+        items={renderTableOfContents}
+        strictLanguage={POSTS_CONFIG_[EBlogPostRecord.TYPESCRIPT_CHEATSHEET].language}
+        hideNumbers={true}
+        showOnScroll={true}
+      />
       {SECTIONS_CONFIG.map((item) => renderSection(item))}
     </PostWrapper>
   );

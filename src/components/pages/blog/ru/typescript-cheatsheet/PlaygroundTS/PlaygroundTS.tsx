@@ -3,7 +3,7 @@ import { ExternalLink } from 'src/components/common/ExternalLink';
 
 export const PlaygroundTS = forwardRef<HTMLDivElement>(({}, ref) => {
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Песочница TypeScript</h2>
       <p>
         У TypeScript есть официальная{' '}

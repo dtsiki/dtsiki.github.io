@@ -133,13 +133,13 @@ const Post = () => {
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.BOOKSHELF,
       }}>
-      <section>
+      <section className='section outer'>
         <p>
           Май на книги выдался небогатым — прочитала всего 5. Из них 0 аудиокниг и всего 1 бумажная книга. В следующем
           месяце дочитаю кучу висящих хвостов, среди них книга, которую я начала читать аж 3 года назад.
         </p>
       </section>
-      <section>{BOOKS_CONFIG.map((item) => renderBookLayout(item))}</section>
+      <section className='section outer'>{BOOKS_CONFIG.map((item) => renderBookLayout(item))}</section>
       <footer>До встреч в июле!</footer>
     </PostWrapper>
   );

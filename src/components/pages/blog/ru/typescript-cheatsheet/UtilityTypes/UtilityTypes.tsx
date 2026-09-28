@@ -124,13 +124,13 @@ type UserFunctionReturnType = ReturnType<typeof fetchUser>;
 type User = Awaited<UserFunctionReturnType>;`;
 
   return (
-    <section ref={ref} id='Utility Types'>
+    <section ref={ref} id='Utility Types' className='section outer'>
       <h2>
         Встроенные типы
         {getGhostText('Utility Types')}
       </h2>
       <p>Встроенные типы помогают создавать новые на основе уже существующих. </p>
-      <article>
+      <section className='section inner'>
         <h3>
           {renderInlineList(
             ['Partial<Type>', 'Required<Type>', 'Readonly<Type>', 'Pick<Type, Keys>', 'Omit<Type, Keys>'],
@@ -206,8 +206,8 @@ type User = Awaited<UserFunctionReturnType>;`;
           — объектный тип:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={userInterfaceExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section className='section inner'>
         <h3>
           <code className='code'>
             Record<AngleBrackets>Keys, Type</AngleBrackets>
@@ -222,8 +222,8 @@ type User = Awaited<UserFunctionReturnType>;`;
           нужный тип:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={recordExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section className='section inner'>
         <h3>{renderInlineList(['Exclude<Type, U>', 'Extract<Type, U>', 'NonNullable<Type>'], 'code', 'code')}</h3>
         <p>Позволяют фильтровать элементы в объединениях, например, оставлять только нужные.</p>
         <ul className='list markered'>
@@ -257,8 +257,8 @@ type User = Awaited<UserFunctionReturnType>;`;
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={nonNullableExampleCode} />
           </li>
         </ul>
-      </article>
-      <article>
+      </section>
+      <section className='section inner'>
         <h3>
           {renderInlineList(
             ['Parameters<Type>', 'ReturnType<Type>', 'ConstructorParameters<Type>', 'InstanceType<Type>'],
@@ -305,8 +305,8 @@ type User = Awaited<UserFunctionReturnType>;`;
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={instanceTypeExampleCode} />
           </li>
         </ul>
-      </article>
-      <article>
+      </section>
+      <section className='section inner'>
         <h3>{renderInlineList(['Awaited<Type>'], 'code', 'code')}</h3>
         <p>
           <code className='code'>
@@ -320,7 +320,7 @@ type User = Awaited<UserFunctionReturnType>;`;
           с <code className='code'>ReturnType</code>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={awaitedExampleCode} />
-      </article>
+      </section>
     </section>
   );
 });

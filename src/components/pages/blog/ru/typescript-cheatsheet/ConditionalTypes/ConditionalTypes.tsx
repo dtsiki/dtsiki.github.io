@@ -40,7 +40,7 @@ function doSomething(abc: string, num: number, flag: boolean) {
 type FuncArgs = MyParams<typeof doSomething>; // [abc: string, num: number, flag: boolean]`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Условные типы {getGhostText('Conditional Types')}</h2>
       <p>
         Позволяют создавать типы, которые меняются в зависимости от условий. Это <code className='code'>if/else</code>,
@@ -70,7 +70,7 @@ type FuncArgs = MyParams<typeof doSomething>; // [abc: string, num: number, flag
           </p>
         </li>
       </ul>
-      <article>
+      <section>
         <h3>
           <code className='code'>infer</code>
         </h3>
@@ -92,7 +92,7 @@ type FuncArgs = MyParams<typeof doSomething>; // [abc: string, num: number, flag
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inferFuncArgsExampleCode} />
           </li>
         </ul>
-      </article>
+      </section>
     </section>
   );
 });

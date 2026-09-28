@@ -309,11 +309,6 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
     console.log('onDrop');
   };
 
-  /*
-  category='tutorial'
-        date='25 dec, 2025'
-        tags={['JavaScript']}*/
-
   return (
     <PostWrapper
       postConfig={POSTS_CONFIG_[EBlogPostRecord.JAVASCRIPT_DRAG_AND_DROP_QUICKLY]}
@@ -321,7 +316,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.SPRINKLES,
       }}>
-      <section>
+      <section className='section outer'>
         <p>
           <InlineHint
             title='Drag-and-drop'
@@ -347,7 +342,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
         </p>
         <p className='spacer top medium'>Но сперва разберём быстро небольшую теорию.</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Элементы драг-н-дропа</h2>
         <p>В драг-н-дропе есть два вида элементов:</p>
         <ul className='list markered'>
@@ -432,7 +427,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           зависимости от ваших вводных данных и требований, но это уже другая история.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>События и обработчики</h2>
         <p>
           Плохие новости: само по себе ничего не заработает после добавления флага{' '}
@@ -543,7 +538,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           очень пригодится в дальнейшем.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Верстаем</h2>
         <p>
           С теорией всё, займёмся практикой и сперва чуть-чуть поверстаем. Нам нужен будет какой-то контейнер, в котором
@@ -567,8 +562,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
         <p>В итоге HTML-разметка и CSS-стили будет выглядеть так:</p>
         <DoubleCodeSnippet code={[exampleMarkUpHtml, exampleCSS]} lang={[ECodeLang.HTML, ECodeLang.CSS]} />
       </section>
-
-      <section>
+      <section className='section outer'>
         <h2>Пишем JavaScript</h2>
         <p>Приступим к самой интересной части, попишем чуть-чуть на JavaScript.</p>
         <p>

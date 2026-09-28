@@ -24,7 +24,7 @@ export const ReadMore = forwardRef<HTMLDivElement>(({}, ref) => {
   ];
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <ReadMoreList items={SOURCES_CONFIG} language={POSTS_CONFIG_[EBlogPostRecord.TYPESCRIPT_CHEATSHEET].language} />
     </section>
   );

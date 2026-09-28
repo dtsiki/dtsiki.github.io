@@ -81,7 +81,7 @@ function process(data: unknown) {
 }`;
 
   return (
-    <section ref={ref}>
+    <section ref={ref} className='section outer'>
       <h2>Сужение типов {getGhostText('Type Narrowing')}</h2>
       <p>Позволяет ограничить общий тип до более конкретного на основе проверок в коде.</p>
       <p>
@@ -98,28 +98,28 @@ function process(data: unknown) {
       <p>
         Функция, которая сужает тип, и будет называться <strong>type guard</strong>'ом.
       </p>
-      <article>
+      <section>
         <h3>
           С помощью <code className='code'>typeof</code>
         </h3>
         <p>Подойдет для примитивов:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeofNarrowingExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           С помощью <code className='code'>instanceof</code>
         </h3>
         <p>Подойдёт для классов:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={instanceofNarrowingExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           С помощью оператора <code className='code'>in</code>
         </h3>
         <p>Можно проверять на наличие свойства:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inNarrowingExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>Custom Type Guard</h3>
         <p>Когда нужно что-то сложнее, то можно написать свою функцию-проверку:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={customTypeGuardExampleCode} />
@@ -128,8 +128,8 @@ function process(data: unknown) {
           специальный синтаксис, который сообщает компилятору, что если функция возвращает <em>true</em>, то переданный
           аргумент фактически принадлежит к указанному типу.
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Проверка на существование
           {getGhostText('Truthiness Narrowing')}
@@ -144,8 +144,8 @@ function process(data: unknown) {
           автоматически во время проверки значения <code className='code'>name</code>. Таким образом можно отсечь{' '}
           {renderInlineList(['null', 'undefined', '""', '0', 'false'], 'code', 'code')}
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h3>
           Сужение на основе равенства
           {getGhostText('Equality narrowing')}
@@ -156,7 +156,7 @@ function process(data: unknown) {
           <code className='code'>!=</code>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={equalityNarrowingExampleCode} />
-      </article>
+      </section>
     </section>
   );
 });

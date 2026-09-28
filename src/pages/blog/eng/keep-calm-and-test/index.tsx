@@ -507,7 +507,7 @@ describe('Button', () => {
           </div>
         </Hero>
       }>
-      <article ref={postRef}>
+      <section ref={postRef}>
         <TableOfContents
           items={TABLE_OF_CONTENTS_CONFIG}
           strictLanguage={POSTS_CONFIG_[EBlogPostRecord.KEEP_CALM_AND_TEST].language}
@@ -627,9 +627,9 @@ describe('Button', () => {
           <CodeSnippet customName='Component.test.tsx' lang={ECodeLang.TYPESCRIPT} code={testExample} />
 
           <p className='spacer top large'>
-            To run only one test with Jest, add <code className='accented accented--primary'>only()</code> after block
-            name. This applies to <code>test()</code> as well as to its alias <code>it()</code>. In the example below
-            the first test will be the only test that runs, and the second test will not run:
+            To run only one test with Jest, add <code className='accented primary'>only()</code> after block name. This
+            applies to <code>test()</code> as well as to its alias <code>it()</code>. In the example below the first
+            test will be the only test that runs, and the second test will not run:
           </p>
 
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Component.test.tsx' code={onlyExample} />
@@ -831,7 +831,7 @@ describe('Button', () => {
 
           <p>It looks much better!</p>
           <p ref={noteRef} className='note spacer top medium'>
-            <span className='note__title accented accented--primary'>Note:</span> I&#39;ve used CSS framework{' '}
+            <span className='note__title accented primary'>Note:</span> I&#39;ve used CSS framework{' '}
             <ExternalLink label='Bulma' href='https://bulma.io/' /> in this example project. Used above{' '}
             <code>is-info</code>, <code>is-success</code>, etc are Bulma CSS classes for buttons.
           </p>
@@ -882,7 +882,7 @@ describe('Button', () => {
           </p>
         </section>
         <ReadMoreList items={SOURCES_CONFIG} language={POSTS_CONFIG_[EBlogPostRecord.KEEP_CALM_AND_TEST].language} />
-      </article>
+      </section>
     </PostWrapper>
   );
 };

@@ -76,3 +76,8 @@ export const RUSSIAN_POSTS_FOLDER_PATH: TranslationObject = {
   [Language.ENG]: 'D:/Blog/Russian posts',
   [Language.RU]: 'D:/Блог/Статьи на русском',
 };
+
+export const EXAMPLES: TranslationObject = {
+  [Language.ENG]: 'Examples',
+  [Language.RU]: 'Примеры',
+};

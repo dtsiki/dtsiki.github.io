@@ -49,7 +49,7 @@ type Admin = User & { role: string };`;
 type User = { age: number }; //  Error: Duplicate identifier 'User' `;
 
   return (
-    <section ref={ref} id='Types'>
+    <section ref={ref} id='Types' className='section outer'>
       <h2>Типы {getGhostText('Types')}</h2>
       <p>
         С помощью типов можно описывать любые структуры данных: примитивные типы, объекты, функций, массивов и т.д.
@@ -88,7 +88,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
           </p>
         </Note>
       </div>
-      <article>
+      <section className='section inner'>
         <h3>Объединение и пересечение типов</h3>
         <p>
           Для создания нового типа можно комбинировать несколько типов с помощью объединения (Union) и пересечения
@@ -106,8 +106,8 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={intersectionTypesExampleCode} />
         <p>Также с помощью пересечения можно расширять типы:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsTypeExampleCode} />
-      </article>
-      <article>
+      </section>
+      <section className='section inner'>
         <h3>Ограничения типов</h3>
         <ul className='list markered'>
           <li className='list__item'>
@@ -115,7 +115,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeRedeclarationErrorExampleCode} />
           </li>
         </ul>
-      </article>
+      </section>
     </section>
   );
 });
