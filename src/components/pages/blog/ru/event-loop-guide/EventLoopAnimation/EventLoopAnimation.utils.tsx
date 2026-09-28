@@ -9,7 +9,9 @@ import { Pointer } from './Pointer';
 const bind = classNames.bind(styles);
 
 export const WINDOW_TITLE_CONFIG = {
-  [AnimationDemo.FUNCTIONS]: 'call-stack',
+  [AnimationDemo.SYNC_CODE]: 'sync-code',
+  [AnimationDemo.FUNCTIONS]: 'functions',
+  [AnimationDemo.ASYNC_FUNCTIONS]: 'async-functions',
   [AnimationDemo.SINGLE_TIMEOUT]: 'timeout',
   [AnimationDemo.SINGLE_PROMISE]: 'promise',
   [AnimationDemo.FETCH]: 'fetch',

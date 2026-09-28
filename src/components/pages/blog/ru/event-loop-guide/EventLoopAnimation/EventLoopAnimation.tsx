@@ -43,6 +43,35 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
   const [initialItems, setInitialItems] = useState<TAnimationItem>({});
   const [preparedItems, setPreparedItems] = useState<TAnimationItem>({});
 
+  const syncLogDoSomething = getConsoleLog('Сделать то');
+  const syncLogDoSomethingElse = getConsoleLog('Сделать сё');
+
+  const SYNC_CODE_ANIMATION_ITEMS: TPreparedItem[] = [
+    {
+      id: 'syncLogDoSomething',
+      content: syncLogDoSomething,
+      initialSpot: {
+        target: Target.CALL_STACK,
+        cell: 9,
+      },
+    },
+    {
+      id: 'syncLogDoSomethingElse',
+      content: syncLogDoSomethingElse,
+      initialSpot: {
+        target: Target.CALL_STACK,
+        cell: 9,
+      },
+    },
+  ];
+
+  const SYNC_CODE_ANIMATION_SEQUENCE = [
+    () => animateItem('syncLogDoSomething', Animation.APPEAR),
+    () => animateItem('syncLogDoSomething', Animation.HIDE),
+    () => animateItem('syncLogDoSomethingElse', Animation.APPEAR),
+    () => animateItem('syncLogDoSomethingElse', Animation.HIDE),
+  ];
+
   const doSomethingFunction = getFunction('doSomething');
   const logDoSomething = getConsoleLog('Сделать то');
   const doSomethingElseFunction = getFunction('doSomethingElse');
@@ -527,6 +556,69 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
     () => animateItem('googleCallbackLog', Animation.HIDE),
   ];
 
+  const asyncAwaitDoSomethingAsyncFunc = getFunction('doSomethingAsync');
+  const asyncAwaitLogDoSomething = getConsoleLog('Сделать то');
+  const asyncAwaitDoAnotherAsyncFunc = getFunction('doAnotherAsync');
+  const asyncAwaitLogDoSomethingElse = getConsoleLog('Сделать сё');
+  const asyncAwaitLogDoSomethingThird = getConsoleLog('Сделать пятое...');
+
+  const ASYNC_FUNCTIONS_ANIMATION_ITEMS: TPreparedItem[] = [
+    {
+      id: 'asyncAwaitDoSomethingAsyncFunc',
+      content: asyncAwaitDoSomethingAsyncFunc,
+      initialSpot: {
+        target: Target.CALL_STACK,
+        cell: 9,
+      },
+    },
+    {
+      id: 'asyncAwaitLogDoSomething',
+      content: asyncAwaitLogDoSomething,
+      initialSpot: {
+        target: Target.CALL_STACK,
+        cell: 8,
+      },
+    },
+    {
+      id: 'asyncAwaitDoAnotherAsyncFunc',
+      content: asyncAwaitDoAnotherAsyncFunc,
+      initialSpot: {
+        target: Target.CALL_STACK,
+        cell: 8,
+      },
+    },
+    {
+      id: 'asyncAwaitLogDoSomethingElse',
+      content: asyncAwaitLogDoSomethingElse,
+      initialSpot: {
+        target: Target.CALL_STACK,
+        cell: 7,
+      },
+    },
+    {
+      id: 'asyncAwaitLogDoSomethingThird',
+      content: asyncAwaitLogDoSomethingThird,
+      initialSpot: {
+        target: Target.MICRO_QUEUE,
+        cell: 0,
+      },
+    },
+  ];
+
+  const ASYNC_FUNCTIONS_ANIMATION_SEQUENCE = [
+    () => animateItem('asyncAwaitDoSomethingAsyncFunc', Animation.APPEAR),
+    () => animateItem('asyncAwaitLogDoSomething', Animation.APPEAR),
+    () => animateItem('asyncAwaitLogDoSomething', Animation.HIDE),
+    () => animateItem('asyncAwaitDoAnotherAsyncFunc', Animation.APPEAR),
+    () => animateItem('asyncAwaitLogDoSomethingElse', Animation.APPEAR),
+    () => animateItem('asyncAwaitLogDoSomethingElse', Animation.HIDE),
+    () => animateItem('asyncAwaitDoAnotherAsyncFunc', Animation.HIDE),
+    () => animateItem('asyncAwaitLogDoSomethingThird', Animation.APPEAR),
+    () => animateItem('asyncAwaitDoSomethingAsyncFunc', Animation.HIDE),
+    () => animateItem('asyncAwaitLogDoSomethingThird', Animation.MOVE, { target: Target.CALL_STACK, cell: 9 }),
+    () => animateItem('asyncAwaitLogDoSomethingThird', Animation.HIDE),
+  ];
+
   const resetAnimation = () => {
     if (!animationQueue) {
       return;
@@ -541,8 +633,12 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
 
   const getAnimationItems = (demo: AnimationDemo) => {
     switch (demo) {
+      case AnimationDemo.SYNC_CODE:
+        return SYNC_CODE_ANIMATION_ITEMS;
       case AnimationDemo.FUNCTIONS:
         return FUNCTIONS_ANIMATION_ITEMS;
+      case AnimationDemo.ASYNC_FUNCTIONS:
+        return ASYNC_FUNCTIONS_ANIMATION_ITEMS;
       case AnimationDemo.SINGLE_PROMISE:
         return SINGLE_PROMISE_ANIMATION_ITEMS;
       case AnimationDemo.SINGLE_TIMEOUT:
@@ -558,8 +654,12 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
 
   const getAnimationSequence = (demo: AnimationDemo) => {
     switch (demo) {
+      case AnimationDemo.SYNC_CODE:
+        return SYNC_CODE_ANIMATION_SEQUENCE;
       case AnimationDemo.FUNCTIONS:
         return FUNCTIONS_ANIMATION_SEQUENCE;
+      case AnimationDemo.ASYNC_FUNCTIONS:
+        return ASYNC_FUNCTIONS_ANIMATION_SEQUENCE;
       case AnimationDemo.SINGLE_PROMISE:
         return SINGLE_PROMISE_ANIMATION_SEQUENCE;
       case AnimationDemo.SINGLE_TIMEOUT:

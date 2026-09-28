@@ -54,7 +54,9 @@ export const Animation = {
 export type Animation = typeof Animation[keyof typeof Animation];
 
 export const AnimationDemo = {
+  SYNC_CODE: 'SYNC_CODE',
   FUNCTIONS: 'FUNCTIONS',
+  ASYNC_FUNCTIONS: 'ASYNC_FUNCTIONS',
   SINGLE_PROMISE: 'SINGLE_PROMISE',
   SINGLE_TIMEOUT: 'SINGLE_TIMEOUT',
   PROMISE_AND_TIMEOUT: 'PROMISE_AND_TIMEOUT',
