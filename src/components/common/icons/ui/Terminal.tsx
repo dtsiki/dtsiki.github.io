@@ -1,6 +1,6 @@
 import type { FC, SVGProps } from 'react';
 
-export const HeartIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
+export const TerminalIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
       <g clipPath='url(#clip0_1128_24860)'>

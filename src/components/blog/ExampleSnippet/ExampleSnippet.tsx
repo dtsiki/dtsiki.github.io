@@ -8,7 +8,7 @@ export const ExampleSnippet = ({ code, isCopyable }: IExampleSnippetProps) => {
     <div className={styles.example_snippet}>
       <div className='row'>
         <div className='col col--100 col--tablet-100'>
-          <Example code={code} isCopyable={isCopyable} />
+          <Example code={code} isCopyable={isCopyable} showConsole={true} />
         </div>
       </div>
     </div>

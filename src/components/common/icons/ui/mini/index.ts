@@ -20,6 +20,7 @@ export * from './Pointer';
 export * from './Printer';
 export * from './Redo';
 export * from './Script';
+export * from './Terminal';
 export * from './TextAlignJustify';
 export * from './TextAlignLeft';
 export * from './TextAlignRight';

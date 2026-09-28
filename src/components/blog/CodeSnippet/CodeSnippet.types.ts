@@ -6,4 +6,5 @@ export interface ICodeSnippetProps {
   name?: string;
   customName?: string;
   hideLines?: boolean;
+  consoleLog?: string;
 }

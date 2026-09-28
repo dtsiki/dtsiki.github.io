@@ -24,6 +24,7 @@ export interface ICodeProps {
   name?: string;
   customName?: string;
   code: string;
+  consoleLog?: string;
   language?: ECodeLang;
   showOnlyCode?: boolean;
   showLineNumbers?: boolean;

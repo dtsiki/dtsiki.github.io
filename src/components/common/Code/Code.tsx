@@ -7,6 +7,7 @@ import { ECodeExt, ECodeLang, ICodeProps } from './Code.types';
 import { useTranslate } from 'src/hooks/useTranslate';
 import { COPY_TO_CLIPBOARD } from 'src/i18n';
 import { CodingIcon, TextFileIcon, ClipboardMiniIcon } from '../icons/ui';
+import { Example } from '../Example';
 
 import styles from './Code.module.scss';
 
@@ -21,6 +22,7 @@ export const Code = (props: ICodeProps) => {
     startingLineNumber,
     isTerminal = false,
     isNameUppercase = false,
+    consoleLog,
   } = props;
 
   const bind = classNames.bind(styles);
@@ -81,9 +83,15 @@ export const Code = (props: ICodeProps) => {
             <SyntaxHighlighter
               language={language?.toLocaleLowerCase() || 'plaintext'}
               showLineNumbers={isTerminal ? false : showLineNumbers}
+              wrapLines={true}
               style={xcode}>
               {code}
             </SyntaxHighlighter>
+            {consoleLog && (
+              <div className={styles.code__console}>
+                <Example code={consoleLog} showConsole={true} isCopyable={true} isEmbedded={true} />
+              </div>
+            )}
           </div>
         </div>
       )}
