@@ -2,19 +2,8 @@ import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
-import { Note } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
-import {
-  allInline,
-  anyInline,
-  catchInline,
-  myAllInline,
-  myAnyInline,
-  raceInline,
-  resolveStaticInline,
-  thenInline,
-} from '../../../utils';
-import { undefinedInline } from 'src/components/pages/blog/utils';
+import { allInline, anyInline, catchInline, myAllInline, myAnyInline, thenInline } from '../../../utils';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 
 export const MyPromiseAny = forwardRef<HTMLDivElement>((_, ref) => {
@@ -25,14 +14,6 @@ export const MyPromiseAny = forwardRef<HTMLDivElement>((_, ref) => {
   ]).then((result) => console.log(result));`;
 
   const anyAllResolvedSnippetLog = `Успешный успех #1`;
-
-  const anyOnlyOneResolvedSnippetCode = `Promise.any([
-    Promise.reject('Ой-ой, ошибочка #1'),
-    Promise.resolve('Успешный успех'),
-    Promise.reject('Ой-ой, ошибочка #2'),
-  ]).then((result) => console.log(result));`;
-
-  const anyOnlyOneResolvedSnippetLog = `Успешный успех`;
 
   const anyAllRejectedSnippetCode = `Promise.any([
     Promise.reject('Ой-ой, ошибочка #1'),
@@ -79,21 +60,6 @@ rejectedCount++;`;
   const rejectResultsSnippetCode = `if (rejectedCount === items.length) {
   reject(new AggregateError(errors, 'All promises were rejected'));
 }`;
-
-  const itemsForEachWithCallbacksSnippetCode = `items.forEach((item, index) => {
-  MyPromise.resolve(item)
-    .then((value) => {
-      resolve(value);
-    })
-    .catch((error) => {
-      errors[index] = error;
-      rejectedCount++;
-
-      if (rejectedCount === items.length) {
-        reject(new AggregateError(errors, 'All promises were rejected'));
-      }
-    });
-});`;
 
   const myPromiseAnySnippetCode = `class MyPromise {
   static any(iterable) {

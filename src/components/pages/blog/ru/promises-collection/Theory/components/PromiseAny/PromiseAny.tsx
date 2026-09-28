@@ -2,20 +2,8 @@ import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
-import { Note } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
-import {
-  allInline,
-  anyInline,
-  catchInline,
-  myAllInline,
-  myAnyInline,
-  raceInline,
-  resolveStaticInline,
-  thenInline,
-} from '../../../utils';
-import { undefinedInline } from 'src/components/pages/blog/utils';
-import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
+import { allInline, anyInline } from '../../../utils';
 
 export const PromiseAny = forwardRef<HTMLDivElement>((_, ref) => {
   const anyAllResolvedSnippetCode = `Promise.any([
@@ -41,59 +29,6 @@ export const PromiseAny = forwardRef<HTMLDivElement>((_, ref) => {
   ]).catch((error) => console.error(error.errors));`;
 
   const anyAllRejectedSnippetLog = `[ 'Ой-ой, ошибочка #1', 'Ой-ой, ошибочка #2', 'Ой-ой, ошибочка #3' ]`;
-
-  const anyTemplateSnippetCode = `static any(iterable) {
-  return new MyPromise((resolve, reject) => {
-    if (!iterable || typeof iterable[Symbol.iterator] !== 'function') {
-      return reject(new TypeError('Argument must be iterable'));
-    }
-
-    const items = Array.from(iterable);
-
-    if (items.length === 0) {
-      return reject(new AggregateError([], 'All promises were rejected'));
-    }
-  });
-}`;
-
-  const errorsArrayAndCounterSnippetCode = `const errors = new Array(items.length);
-let rejectedCount = 0;`;
-
-  const itemsForEachSnippetCode = `items.forEach((item, index) => {
-  MyPromise.resolve(item)
-    .then((value) => {
-      // Что-то делаем с результатом
-    })
-    .catch((error) => {
-      // Что-то делаем с ошибкой
-    });
-});`;
-
-  const resolveCallbackSnippetCode = `.then((value) => {
-  resolve(value);
-})`;
-
-  const saveAndCountSnippetCode = `errors[index] = error;
-rejectedCount++;`;
-
-  const rejectResultsSnippetCode = `if (rejectedCount === items.length) {
-  reject(new AggregateError(errors, 'All promises were rejected'));
-}`;
-
-  const itemsForEachWithCallbacksSnippetCode = `items.forEach((item, index) => {
-  MyPromise.resolve(item)
-    .then((value) => {
-      resolve(value);
-    })
-    .catch((error) => {
-      errors[index] = error;
-      rejectedCount++;
-
-      if (rejectedCount === items.length) {
-        reject(new AggregateError(errors, 'All promises were rejected'));
-      }
-    });
-});`;
 
   return (
     <section ref={ref} className='section outer'>
