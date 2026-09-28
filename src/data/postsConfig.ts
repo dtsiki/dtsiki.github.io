@@ -377,7 +377,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
   [EBlogPostRecord.THIS]: {
     id: EBlogPostRecord.THIS,
     title: 'this',
-    highlight: '',
+    highlight: 'Про this и контекст выполнения и ничего более.',
     link: 'this',
     category: EPostType.GUIDE,
     createdAt: '10 sep 2026',
