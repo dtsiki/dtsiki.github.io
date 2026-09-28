@@ -112,8 +112,36 @@ export const RU_POSTS_FOLDER_CONFIG: TFolderConfig = {
   children: [
     {
       type: TFolderItemType.TXT_FILE,
+      id: POSTS_CONFIG_[EBlogPostRecord.PROMISES_COLLECTION].id,
+      parentId: EBlogRecord.RU_POSTS_FOLDER,
+      title: POSTS_CONFIG_[EBlogPostRecord.PROMISES_COLLECTION].title,
+      postConfig: POSTS_CONFIG_[EBlogPostRecord.PROMISES_COLLECTION],
+    },
+    {
+      type: TFolderItemType.TXT_FILE,
+      id: POSTS_CONFIG_[EBlogPostRecord.PROMISES].id,
+      parentId: EBlogRecord.RU_POSTS_FOLDER,
+      title: POSTS_CONFIG_[EBlogPostRecord.PROMISES].title,
+      postConfig: POSTS_CONFIG_[EBlogPostRecord.PROMISES],
+    },
+    {
+      type: TFolderItemType.TXT_FILE,
+      id: POSTS_CONFIG_[EBlogPostRecord.THIS].id,
+      parentId: EBlogRecord.RU_POSTS_FOLDER,
+      title: POSTS_CONFIG_[EBlogPostRecord.THIS].title,
+      postConfig: POSTS_CONFIG_[EBlogPostRecord.THIS],
+    },
+    {
+      type: TFolderItemType.TXT_FILE,
+      id: POSTS_CONFIG_[EBlogPostRecord.BIG_O_NOTATION].id,
+      parentId: EBlogRecord.RU_POSTS_FOLDER,
+      title: POSTS_CONFIG_[EBlogPostRecord.BIG_O_NOTATION].title,
+      postConfig: POSTS_CONFIG_[EBlogPostRecord.BIG_O_NOTATION],
+    },
+    {
+      type: TFolderItemType.TXT_FILE,
       id: POSTS_CONFIG_[EBlogPostRecord.TYPESCRIPT_CHEATSHEET].id,
-      parentId: EBlogRecord.ENG_POSTS_FOLDER,
+      parentId: EBlogRecord.RU_POSTS_FOLDER,
       title: POSTS_CONFIG_[EBlogPostRecord.TYPESCRIPT_CHEATSHEET].title,
       postConfig: POSTS_CONFIG_[EBlogPostRecord.TYPESCRIPT_CHEATSHEET],
     },
