@@ -180,16 +180,25 @@ a {
     color: $color--white;
   }
 
-  &.GHOST {
+  &.italic {
+    font-style: italic;
+  }
+
+  &.bold {
+    font-weight: 600;
+  }
+
+  &.primary {
+    color: $color--violet;
+  }
+
+  &.secondary {
+    color: rgba($color--black, 0.3);
+  }
+
+  &.ghost {
     color: $color--grey;
   }
-}
-
-ol,
-ul,
-.list {
-  margin: 0;
-  padding: 0;
 }
 
 .list {
@@ -228,29 +237,87 @@ ul,
 
   &__footer {
     color: $color--grey-dark;
+    color: rgba($color--black, 0.5);
+  }
+
+  &.stepped {
+    list-style: none;
+    counter-reset: my-counter;
+
+    > li {
+      counter-increment: my-counter;
+    }
+
+    li {
+      position: relative;
+      padding-left: 65px;
+
+      &::before {
+        content: 'Шаг ' counter(my-counter) ' ';
+        font-weight: 600;
+        position: absolute;
+        left: 0;
+        background-color: rgba($color--white-pink, 0.5);
+        border: 1px solid rgba($color--violet, 0.1);
+        color: $color--black;
+        padding: $SPACER / 8 $SPACER / 4;
+        border-radius: 4px;
+        font-size: 90%;
+      }
+
+      ul,
+      ol {
+        counter-reset: none;
+
+        li {
+          padding: initial;
+          counter-increment: none;
+
+          &::before {
+            content: none;
+            padding: initial;
+          }
+        }
+      }
+    }
   }
 
   &.ordered {
-    padding-left: 20px;
+    padding-left: $SPACER * 1.5;
 
-    li {
+    > .list__item {
       &::marker {
         font-weight: 600;
+      }
+
+      ul,
+      ol {
+        counter-reset: none;
+
+        li {
+          padding: initial;
+          counter-increment: none;
+
+          &::before {
+            content: none;
+            padding: initial;
+          }
+        }
       }
     }
   }
 
   &.markered {
     list-style-type: disc;
-    margin-left: 15px;
+    padding-left: $SPACER * 1.5;
 
-    li {
+    > .list__item {
       &::marker {
         color: $color--violet;
       }
     }
 
-    .nested {
+    ol.nested {
       li {
         &::marker {
           color: rgba($color--violet, 0.6);
@@ -523,91 +590,101 @@ ul,
 .spacer {
   &.extra-large {
     &.top {
-      margin-top: calc($spacer * 8);
+      margin-top: calc($SPACER * 8);
     }
 
     &.bottom {
-      margin-bottom: calc($spacer * 8);
+      margin-bottom: calc($SPACER * 8);
     }
 
     &.left {
-      margin-left: calc($spacer * 8);
+      margin-left: calc($SPACER * 8);
     }
 
     &.right {
-      margin-right: calc($spacer * 8);
+      margin-right: calc($SPACER * 8);
     }
   }
 
   &.large {
     &.top {
-      margin-top: calc($spacer * 4);
+      margin-top: calc($SPACER * 4);
     }
 
     &.bottom {
-      margin-bottom: calc($spacer * 4);
+      margin-bottom: calc($SPACER * 4);
     }
 
     &.left {
-      margin-left: calc($spacer * 4);
+      margin-left: calc($SPACER * 4);
     }
 
     &.right {
-      margin-right: calc($spacer * 4);
+      margin-right: calc($SPACER * 4);
     }
   }
 
   &.medium {
     &.top {
-      margin-top: calc($spacer * 2);
+      margin-top: calc($SPACER * 2);
     }
 
     &.bottom {
-      margin-bottom: calc($spacer * 2);
+      margin-bottom: calc($SPACER * 2);
     }
 
     &.left {
-      margin-left: calc($spacer * 2);
+      margin-left: calc($SPACER * 2);
     }
 
     &.right {
-      margin-right: calc($spacer * 2);
+      margin-right: calc($SPACER * 2);
     }
   }
 
   &.small {
     &.top {
-      margin-top: $spacer;
+      margin-top: $SPACER;
     }
 
     &.bottom {
-      margin-bottom: $spacer;
+      margin-bottom: $SPACER;
     }
 
     &.left {
-      margin-left: $spacer;
+      margin-left: $SPACER;
     }
 
     &.right {
-      margin-right: $spacer;
+      margin-right: $SPACER;
     }
   }
 
   &.extra-small {
     &.top {
-      margin-top: calc($spacer / 3);
+      margin-top: calc($SPACER / 2);
     }
 
     &.bottom {
-      margin-bottom: calc($spacer / 3);
+      margin-bottom: calc($SPACER / 2);
     }
 
     &.left {
-      margin-left: calc($spacer / 3);
+      margin-left: calc($SPACER / 2);
     }
 
     &.right {
-      margin-right: calc($spacer / 3);
+      margin-right: calc($SPACER / 2);
+    }
+  }
+
+  &.text {
+    &-below {
+      margin-top: calc($SPACER * 2);
+    }
+
+    &-above {
+      margin-bottom: calc($SPACER * 2);
     }
   }
 }
@@ -836,10 +913,16 @@ ul,
 }
 
 .width-limiter {
-  display: inline-block;
-  font-weight: inherit;
-  font-size: inherit;
-  font-style: inherit;
+  &.inlined {
+    display: inline-block;
+    font-weight: inherit;
+    font-size: inherit;
+    font-style: inherit;
+  }
+
+  &.centered {
+    margin: 0 auto;
+  }
 
   &.extra-small {
     max-width: 200px;
@@ -995,5 +1078,15 @@ ul,
   &.BOOKCOVER {
     aspect-ratio: 1 / 1.6;
     object-fit: cover;
+  }
+}
+
+.prefixed-line {
+  &::before {
+    content: '› ';
+    position: absolute;
+    left: 0;
+    color: currentColor;
+    user-select: none;
   }
 }

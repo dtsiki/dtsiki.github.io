@@ -9,10 +9,10 @@ import { BLOG, NEXT_POST } from 'src/i18n';
 import { CATEGORY_LOC } from './PostContent.utils';
 import { POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { ArrowRightIcon, ArrowLeftIcon } from 'src/components/common/icons/ui';
-
-import styles from './PostContent.module.scss';
 import { Thanks } from 'src/components/common/Thanks';
 import { Copyright } from '../Copyright';
+
+import styles from './PostContent.module.scss';
 
 export const PostContent = ({ postConfig, children }: IPostContentProps) => {
   const { title, highlight, createdAt, meta, category, tags, strictLanguage, pagination } = postConfig;
@@ -53,12 +53,12 @@ export const PostContent = ({ postConfig, children }: IPostContentProps) => {
             )}
             <h1 className={styles.post_content__title}>{title}</h1>
           </header>
-          <div className={styles.post_content__info}>
+          <aside className={styles.post_content__info}>
             <div className={styles.post_content__details}>
               <div className={styles.post_content__date}>{createdAt}</div>
             </div>
             <p className={styles.post_content__highlight}>{highlight}</p>
-          </div>
+          </aside>
           <main className={styles.post_content__content}>{children}</main>
 
           <footer className={styles.post_content__footer}>

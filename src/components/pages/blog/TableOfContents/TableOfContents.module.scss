@@ -4,6 +4,11 @@
 .table_of_contents {
   &__title {
     padding-bottom: $SPACER;
+
+    &.SECONDARY {
+      font-size: 24px;
+      padding-bottom: $SPACER / 2;
+    }
   }
 
   &__button {
@@ -12,7 +17,6 @@
     border: 0;
     background: transparent;
     cursor: pointer;
-    color: $color--violet;
     transition: all 0.5s;
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
@@ -20,17 +24,21 @@
     background-repeat: no-repeat;
     background-size: 0% 2px;
     transition: background-size 0.5s;
-    font-size: 1.2rem;
-    line-height: 1.5;
+
+    &.PRIMARY {
+      color: $color--violet;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    &.SECONDARY {
+      color: $color--grey-dark;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
 
     &:hover {
       background-size: 100% 2px;
-    }
-  }
-
-  li {
-    &::marker {
-      font-size: 1.2rem;
     }
   }
 }

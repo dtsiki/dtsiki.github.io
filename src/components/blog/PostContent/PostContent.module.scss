@@ -154,23 +154,6 @@
     }
   }
 
-  section {
-    margin-bottom: $SPACER * 3;
-
-    @include md {
-      margin-bottom: $SPACER * 6;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  article {
-    margin-bottom: $SPACER * 2;
-    margin-top: $SPACER;
-  }
-
   ul,
   ol {
     margin-bottom: $SPACER * 2;

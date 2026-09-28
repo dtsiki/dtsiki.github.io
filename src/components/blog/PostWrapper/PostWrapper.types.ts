@@ -25,7 +25,7 @@ export type TPostConfig = {
   id: EBlogPostRecord;
   link: string;
   title: string;
-  highlight: string;
+  highlight: ReactNode;
   category: EPostType;
   tags?: string[];
   createdAt: string;

@@ -28,4 +28,27 @@
     color: $color--grey-darker;
     border-color: $color--grey-darker;
   }
+
+  &.TEXT-ONLY {
+    color: $color--grey-dark;
+    border-color: transparent;
+  }
+}
+
+.section {
+  &.outer {
+    margin-bottom: $SPACER * 4;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.inner {
+    margin-bottom: $SPACER * 2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }

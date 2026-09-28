@@ -7,6 +7,7 @@ import { useNotifications } from 'src/hooks/useNotifications';
 import { Language, NotificationType } from 'src/types';
 import { ENGLISH_POST_NOTIFICATION, TAKE_A_NOTE } from 'src/i18n';
 import { useTranslate } from 'src/hooks/useTranslate';
+import { CodeSnippetProvider } from 'src/context/CodeSnippetContext/CodeSnippetProvider';
 
 import styles from './PostWrapper.module.scss';
 
@@ -41,7 +42,9 @@ export const PostWrapper = ({ postConfig, heroConfig, children }: IPostProps) =>
   return (
     <div className={styles.post_wrapper}>
       {renderHero}
-      <PostContent postConfig={postConfig}>{children}</PostContent>
+      <CodeSnippetProvider>
+        <PostContent postConfig={postConfig}>{children}</PostContent>
+      </CodeSnippetProvider>
     </div>
   );
 };

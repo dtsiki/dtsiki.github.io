@@ -1,12 +1,21 @@
 import { MutableRefObject, useMemo } from 'react';
+import classNames from 'classnames';
 import { useTranslate } from 'src/hooks/useTranslate';
-import { ITableOfContentsProps } from './TableOfContents.types';
+import { ITableOfContentsProps, TableOfContentsVariant } from './TableOfContents.types';
 import { GO_TO, TABLE_OF_CONTENTS } from 'src/i18n';
 import { translate } from 'src/utils/translate';
 
 import styles from './TableOfContents.module.scss';
 
-export const TableOfContents = ({ items, strictLanguage, hideNumbers }: ITableOfContentsProps) => {
+export const TableOfContents = ({
+  customTitle,
+  items,
+  strictLanguage,
+  hideNumbers,
+  variant = TableOfContentsVariant.PRIMARY,
+}: ITableOfContentsProps) => {
+  const bind = classNames.bind(styles);
+
   const { language } = useTranslate();
 
   const onScrollTo = (ref: MutableRefObject<HTMLElement | null>): void => {
@@ -26,7 +35,7 @@ export const TableOfContents = ({ items, strictLanguage, hideNumbers }: ITableOf
         <li key={item.title} className='list__item'>
           <button
             onClick={() => onScrollTo(item.ref)}
-            className={styles.table_of_contents__button}
+            className={bind([styles.table_of_contents__button, styles[variant]])}
             arial-label={`${translate(strictLanguage || language, GO_TO)} ${item.title}`}>
             {item.title}
           </button>
@@ -36,8 +45,10 @@ export const TableOfContents = ({ items, strictLanguage, hideNumbers }: ITableOf
   }, [items]);
 
   return (
-    <section className={styles.table_of_contents}>
-      <h2 className={styles.table_of_contents__title}>{translate(strictLanguage || language, TABLE_OF_CONTENTS)}</h2>
+    <section className={bind([styles.table_of_contents, 'section outer'])}>
+      <h2 className={bind([styles.table_of_contents__title, styles[variant]])}>
+        {translate(strictLanguage || language, customTitle ? customTitle : TABLE_OF_CONTENTS)}
+      </h2>
       {hideNumbers ? <ul className='list'>{renderItems}</ul> : <ol className='list ordered'>{renderItems}</ol>}
     </section>
   );
