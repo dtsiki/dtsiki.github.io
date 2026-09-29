@@ -22,7 +22,7 @@ const Post = () => {
         pattern: EHeroPattern.PENCILS,
         variant: EHeroVariant.VIOLET,
       }}>
-      <section>
+      <section className='section outer'>
         <h2>1. Quizlet</h2>
         <h3>
           <ExternalLink href='https://quizlet.com/' label='https://quizlet.com' />
@@ -75,7 +75,7 @@ const Post = () => {
         />
         <p className='explanation'>Quizlet search result for &quot;frontend&quot;</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>2. Youglish</h2>
         <h3>
           <ExternalLink href='https://youglish.com' label='https://youglish.com' />
@@ -111,7 +111,7 @@ const Post = () => {
           it with Youglish.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>3. Reverso Context</h2>
         <h3>
           <ExternalLink href='https://context.reverso.net' label='https://context.reverso.net' />
@@ -150,7 +150,7 @@ const Post = () => {
           Reverso Context search result for &quot;leviosa&quot;. As you can see, there are real quotes
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>4. Google Images</h2>
         <h3>
           <ExternalLink href='https://images.google.com' label='https://images.google.com' />
@@ -182,7 +182,7 @@ const Post = () => {
           device and put image files inside it.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>5. Leetcode</h2>
         <h3>
           <ExternalLink href='https://leetcode.com' label='https://leetcode.com' />
@@ -214,7 +214,7 @@ const Post = () => {
           variety of communities on the Internet, I&#39;m sure you will find something appropriate for yourself.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>6. ???</h2>
         <p>I hope the list will continue to grow. So come back often and check out the new updates. See y&#39;all!</p>
       </section>

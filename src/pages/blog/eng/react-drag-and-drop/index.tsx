@@ -93,7 +93,7 @@ const handleDragEnd = () => {
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.CURSORS,
       }}>
-      <section>
+      <section className='section outer'>
         <h2>What is a drag and drop?</h2>
         <p>
           Drag and drop is a common interaction technique added to allow users to move things around on a web page. It
@@ -115,7 +115,7 @@ const handleDragEnd = () => {
         </p>
         <DragAndDropDemo />
       </section>
-      <section>
+      <section className='section outer'>
         <p>There are two things you need to know about drag and drop API:</p>
         <h2>1. Types of elements</h2>
         <p>There are two types of elements:</p>
@@ -145,7 +145,7 @@ const handleDragEnd = () => {
           events.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>
           2. Events
           <button className={styles.post__anchor} onClick={onScrollToNote}>
@@ -205,7 +205,7 @@ const handleDragEnd = () => {
           you&#39;re dragging, the browser&#39;ll try to execute that and not do drag and drop
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <div className='row spacer bottom large'>
           <div className='col col--50 col--tablet-100'>
             <h2>Hint</h2>
@@ -231,7 +231,7 @@ const handleDragEnd = () => {
           lang={[ECodeLang.HTML, ECodeLang.JAVASCRIPT]}
         />
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Summary</h2>
         <p>All you have to do for implementation of drag and drop on your application:</p>
         <ol className='list ordered'>
@@ -249,7 +249,7 @@ const handleDragEnd = () => {
           <span className='highlighted ghost'>onDragStart</span>. All the rest work the same way.
         </Note>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Read more</h2>
         <ol className='list ordered'>
           <li className='list__item'>

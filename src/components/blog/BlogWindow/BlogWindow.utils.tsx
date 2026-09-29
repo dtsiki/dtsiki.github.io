@@ -92,13 +92,6 @@ export const ENG_POSTS_FOLDER_CONFIG: TFolderConfig = {
       title: POSTS_CONFIG_[EBlogPostRecord.REACT_DRAG_AND_DROP].title,
       postConfig: POSTS_CONFIG_[EBlogPostRecord.REACT_DRAG_AND_DROP],
     },
-    {
-      type: TFolderItemType.TXT_FILE,
-      id: POSTS_CONFIG_[EBlogPostRecord.PURE_CSS_TOOLTIPS].id,
-      parentId: EBlogRecord.ENG_POSTS_FOLDER,
-      title: POSTS_CONFIG_[EBlogPostRecord.PURE_CSS_TOOLTIPS].title,
-      postConfig: POSTS_CONFIG_[EBlogPostRecord.PURE_CSS_TOOLTIPS],
-    },
   ],
 };
 

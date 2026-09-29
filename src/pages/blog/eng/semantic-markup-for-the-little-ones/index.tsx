@@ -1,39 +1,39 @@
 import { MutableRefObject, useRef } from 'react';
+import { nanoid } from 'nanoid';
 import { IItemOfContent } from 'src/interfaces';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { Foreword } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Foreword/Foreword';
-import { Purpose } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Purpose/Purpose';
-import { Divs } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Divs/Divs';
-import { Headings } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Headings/Headings';
-import { Formatting } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Formatting/Formatting';
-import { ClickableNonclickable } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/ClickableNonclickable/ClickableNonclickable';
-import { Attributes } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Attributes/Attributes';
-import { DeprecatedHTML } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/DeprecatedHtml/DeprecatedHtml';
-import { Nesting } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Nesting/Nesting';
-import { Lists } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Lists/Lists';
-import { MarkupValidity } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/MarkupValidity/MarkupValidity';
-import { Summary } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/Summary/Summary';
-import { SemanticPageDemo } from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/SemanticPageDemo/SemanticPageDemo';
-import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
+import { ReadMoreList, TReadMoreSource } from 'src/components/blog/ReadMoreList';
 import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
-import { nanoid } from 'nanoid';
-import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
+import {
+  Attributes,
+  ClickableNonclickable,
+  Foreword,
+  Formatting,
+  Purpose,
+  Divs,
+  Nesting,
+  DeprecatedHTML,
+  Headings,
+  Summary,
+  Lists,
+  MarkupValidity,
+} from 'src/components/pages/blog/eng/semantic-markup-for-the-little-ones/components';
 
 const Post = () => {
-  const purposeRef = useRef<HTMLParagraphElement>(null);
-  const readMoreRef = useRef<HTMLParagraphElement>(null);
-  const listsRef = useRef<HTMLParagraphElement>(null);
-  const refMarkupValidity = useRef<HTMLParagraphElement>(null);
-  const refSummary = useRef<HTMLParagraphElement>(null);
-  const divsRef = useRef<HTMLParagraphElement>(null);
-  const headingsRef = useRef<HTMLParagraphElement>(null);
-  const formattingRef = useRef<HTMLParagraphElement>(null);
-  const attributesRef = useRef<HTMLParagraphElement>(null);
-  const deprecatedHtmlRef = useRef<HTMLParagraphElement>(null);
-  const clickableUnclickableRef = useRef<HTMLParagraphElement>(null);
-  const nestingRef = useRef<HTMLParagraphElement>(null);
+  const purposeRef = useRef<HTMLDivElement>(null);
+  const readMoreRef = useRef<HTMLDivElement>(null);
+  const listsRef = useRef<HTMLDivElement>(null);
+  const refMarkupValidity = useRef<HTMLDivElement>(null);
+  const refSummary = useRef<HTMLDivElement>(null);
+  const divsRef = useRef<HTMLDivElement>(null);
+  const headingsRef = useRef<HTMLDivElement>(null);
+  const formattingRef = useRef<HTMLDivElement>(null);
+  const attributesRef = useRef<HTMLDivElement>(null);
+  const deprecatedHtmlRef = useRef<HTMLDivElement>(null);
+  const clickableUnclickableRef = useRef<HTMLDivElement>(null);
+  const nestingRef = useRef<HTMLDivElement>(null);
 
   const onScrollTo = (ref: MutableRefObject<HTMLElement | null>): void => {
     const element = ref.current?.getBoundingClientRect();
@@ -159,54 +159,27 @@ const Post = () => {
         pattern: EHeroPattern.WAVY,
         variant: EHeroVariant.LIGHT,
       }}>
-      <section>
-        <Foreword />
-        <SemanticPageDemo />
-      </section>
+      <Foreword />
       <TableOfContents
         items={TABLE_OF_CONTENTS_CONFIG}
         strictLanguage={POSTS_CONFIG_[EBlogPostRecord.SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES].language}
       />
-      <section ref={purposeRef}>
-        <Purpose />
-      </section>
-      <section ref={divsRef}>
-        <Divs />
-      </section>
-      <section ref={headingsRef}>
-        <Headings />
-      </section>
-      <section ref={formattingRef}>
-        <Formatting handleScroll={() => onScrollTo(listsRef)} />
-      </section>
-      <section ref={clickableUnclickableRef}>
-        <ClickableNonclickable handleScroll={() => onScrollTo(readMoreRef)} />
-      </section>
-      <section ref={attributesRef}>
-        <Attributes />
-      </section>
-      <section ref={deprecatedHtmlRef}>
-        <DeprecatedHTML />
-      </section>
-      <section ref={nestingRef}>
-        <Nesting />
-      </section>
-      <section ref={listsRef}>
-        <Lists />
-        <p className='spacer top large'>And that&#39;s all!</p>
-      </section>
-      <section ref={refMarkupValidity}>
-        <MarkupValidity />
-      </section>
-      <section ref={refSummary}>
-        <Summary />
-      </section>
-      <section ref={readMoreRef}>
-        <ReadMoreList
-          items={SOURCES_CONFIG}
-          language={POSTS_CONFIG_[EBlogPostRecord.SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES].language}
-        />
-      </section>
+      <Purpose ref={purposeRef} />
+      <Divs ref={divsRef} />
+      <Headings ref={headingsRef} />
+      <Formatting ref={formattingRef} handleScroll={() => onScrollTo(listsRef)} />
+      <ClickableNonclickable ref={clickableUnclickableRef} handleScroll={() => onScrollTo(readMoreRef)} />
+      <Attributes ref={attributesRef} />
+      <DeprecatedHTML ref={deprecatedHtmlRef} />
+      <Nesting ref={nestingRef} />
+      <Lists ref={listsRef} />
+      <MarkupValidity ref={refMarkupValidity} />
+      <Summary ref={refSummary} />
+      <ReadMoreList
+        ref={readMoreRef}
+        items={SOURCES_CONFIG}
+        language={POSTS_CONFIG_[EBlogPostRecord.SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES].language}
+      />
     </PostWrapper>
   );
 };

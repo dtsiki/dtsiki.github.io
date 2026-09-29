@@ -1,26 +1,28 @@
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
-import { WhatIsJavaScript } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/WhatIsJavaScript/WhatIsJavaScript';
-import { JavaScriptDataTypes } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/JavaScriptDataTypes/JavaScriptDataTypes';
-import { MutableAndImmutable } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/MutableAndImmutable/MutableAndImmutable';
-import { NullAndUndefined } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/NullAndUndefined/NullAndUndefined';
-import { VarLetConst } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/VarLetConst/VarLetConst';
-import { Functions } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Functions/Functions';
-import { Scope } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Scope/Scope';
-import { Hoisting } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Hoisting/Hoisting';
-import { TemporalDeadZone } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/TemporalDeadZone/TemporalDeadZone';
-import { StrictMode } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/StrictMode/StrictMode';
-import { Closures } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Closures/Closures';
-import { Arrays } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Arrays/Arrays';
-import { ArraysMethods } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/ArraysMethods/ArraysMethods';
-import { Timers } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Timers/Timers';
-import { EventLoop } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/EventLoop/EventLoop';
-import { AsynchronousJavaScript } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/AsynchronousJavaScript/AsynchronousJavaScript';
-import { Callbacks } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Callbacks/Callbacks';
-import { AsyncAwait } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/AsyncAwait/AsyncAwait';
-import { Promises } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/Promises/Promises';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
+import {
+  Arrays,
+  ArraysMethods,
+  Callbacks,
+  Closures,
+  WhatIsJavaScript,
+  JavaScriptDataTypes,
+  MutableAndImmutable,
+  NullAndUndefined,
+  VarLetConst,
+  Functions,
+  Scope,
+  Hoisting,
+  TemporalDeadZone,
+  StrictMode,
+  Timers,
+  EventLoop,
+  AsynchronousJavaScript,
+  AsyncAwait,
+  Promises,
+} from 'src/components/pages/blog/eng/javascript-in-a-nutshell/components/';
 
 import book from './../../../../../public/assets/blog/frontend-in-a-nutshell/javascript/book.jpg';
 

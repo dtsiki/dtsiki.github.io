@@ -12,7 +12,7 @@ const Post = () => {
         pattern: EHeroPattern.ARROWS,
         variant: EHeroVariant.VIOLET,
       }}>
-      <section>
+      <section className='section outer'>
         <p>
           I was never very good in English. Probably, I should say I&#39;ve never been good at that because I&#39;ve not
           known it perfect yet and there is still room to grow.
@@ -30,7 +30,7 @@ const Post = () => {
         </p>
         <p>Let&#39;s go!</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Preparation</h2>
         <p>There are a couple of steps to be made before diving in learning.</p>
         <p>
@@ -70,7 +70,7 @@ const Post = () => {
         </p>
         <p>Alright, we are ready to move on. Here&#39;s steps that helped me to improve my English level:</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>1. Have a plan</h2>
         <p>
           Before all, you need a strategy because it sets the direction of the whole learning process. That&#39;s true
@@ -113,7 +113,7 @@ const Post = () => {
         <p>One way or another, there’re always a way if you have some plan.</p>
         <p>Let&#39;s go to the next important tip, which is linked with this.</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>2. Take a time</h2>
         <p>
           Even the best plan is powerless without if you don&#39;t have time. Set aside time each day for learning
@@ -136,7 +136,7 @@ const Post = () => {
         </p>
         <p>Well, let&#39;s suppose you have a plan and set aside some time. What to do next?</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>3. Practice, practice, practice</h2>
         <p>
           Your next step is practice. Practice, practice, practice. And then practice again. But how to practice?
@@ -278,7 +278,7 @@ const Post = () => {
         </ul>
         <p>Now you know my little secrets. What to do next?</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>4. Enjoy the process!</h2>
         <p>
           And, last but not least. This is the most important step. We, humans, don&#39;t like doing boring things.
@@ -288,7 +288,7 @@ const Post = () => {
         </p>
         <p>Find a learning process which will make you happy and go for it!</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Summary</h2>
         <p>To improve your English you should have a plan, take a time and enjoy the process!</p>
       </section>

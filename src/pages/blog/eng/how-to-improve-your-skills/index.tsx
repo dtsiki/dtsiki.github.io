@@ -43,7 +43,7 @@ const Post = () => {
         pattern: EHeroPattern.CROSS,
         variant: EHeroVariant.VIOLET,
       }}>
-      <section>
+      <section className='section outer'>
         <p>
           We learn to walk by standing up and falling. We learn how to read and write. We learn at school, we go to
           university, we learn at work. Learning is a never-ending process of self improvement. We have to learn and
@@ -64,7 +64,7 @@ const Post = () => {
           </div>
         </Window>
       </section>
-      <section>
+      <section className='section outer'>
         <p className='spacer medium bottom'>Here are 10 tips how to improve your skills:</p>
         <ol className={bind(['list ordered', styles.post__list])}>{renderTips}</ol>
       </section>

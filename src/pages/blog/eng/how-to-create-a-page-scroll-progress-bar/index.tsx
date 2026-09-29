@@ -132,13 +132,13 @@ export const ProgressScroll = () => {
         pattern: EHeroPattern.SPRINKLES,
         variant: EHeroVariant.SECONDARY,
       }}>
-      <section>
+      <section className='section outer'>
         <p className='note spacer bottom large'>
           It&#39;s supposed that you have already have your configured project. If you don&#39;t have one, I recommend
           install React via <ExternalLink href='https://create-react-app.dev' label='Create React App' />
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 1: Create a component in your project directory</h2>
         <p>
           For example, I created <HtmlTag isSingle>ProgressScroll</HtmlTag> component folder. There are two files
@@ -153,7 +153,7 @@ export const ProgressScroll = () => {
 
         <CodeSnippet code={emptyComponent} lang={ECodeLang.REACT} name='ProgressScroll' />
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 2: Add a progress state</h2>
         <p>
           To display scrolling progress we need to store scroll progress somewhere. React Hook <code>useState</code> is
@@ -167,7 +167,7 @@ export const ProgressScroll = () => {
           the page. The second value, <code>setProgress</code>, is the function that is used to update our state.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 3: Add some style</h2>
         <p>
           Before we add magic let&#39;s style our scroll progress bar. Check the code below, there are updated markup:
@@ -187,7 +187,7 @@ export const ProgressScroll = () => {
           If you run the component now, you will just see a gray bar at the top of the page. It&#39;s time for magic!
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 4: Add magic</h2>
         <p>
           It&#39;s right around the corner. Before we added the scroll progress state. Now let&#39;s add a function that

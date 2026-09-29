@@ -1,15 +1,8 @@
 import { EPostType, TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
-import {
-  allInline,
-  allSettledInline,
-  anyInline,
-  raceInline,
-} from 'src/components/pages/blog/ru/promises-collection/utils';
 import { LONG_DASH } from 'src/constants';
 import { Language } from 'src/types';
 
 export enum EBlogPostRecord {
-  PURE_CSS_TOOLTIPS = 'PURE_CSS_TOOLTIPS',
   REACT_DRAG_AND_DROP = 'REACT_DRAG_AND_DROP',
   HOW_TO_IMPROVE_YOUR_SKILLS = 'HOW_TO_IMPROVE_YOUR_SKILLS',
   SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES = 'SEMANTIC_MARKUP_FOR_THE_LITTLE_ONES',
@@ -34,25 +27,6 @@ export enum EBlogPostRecord {
 }
 
 export const POSTS_CONFIG_: Record<string, TPostConfig> = {
-  [EBlogPostRecord.PURE_CSS_TOOLTIPS]: {
-    id: EBlogPostRecord.PURE_CSS_TOOLTIPS,
-    title: 'Pure CSS tooltips',
-    highlight:
-      'A step-by-step guide to building custom tooltips. No JavaScript, no libraries — just clean HTML and CSS.',
-    link: 'pure-css-tooltips',
-    category: EPostType.TUTORIAL,
-    createdAt: '30 jul 2022',
-    tags: ['HTML', 'CSS'],
-    language: Language.ENG,
-    meta: {
-      description:
-        'Learn how to create custom tooltips step-by-step. No JavaScript, no libraries — just clean HTML and CSS. Perfect for beginners and pros.',
-    },
-    strictLanguage: true,
-    pagination: {
-      next: EBlogPostRecord.REACT_DRAG_AND_DROP,
-    },
-  },
   [EBlogPostRecord.REACT_DRAG_AND_DROP]: {
     id: EBlogPostRecord.REACT_DRAG_AND_DROP,
     title: 'React Drag and Drop',

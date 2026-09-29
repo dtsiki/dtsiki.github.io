@@ -220,7 +220,7 @@ $gap: 4px;`;
         size: EHeroSize.SMALL,
         pattern: EHeroPattern.SMILEY,
       }}>
-      <section>
+      <section className='section outer'>
         <h2 className='spacer top large'>What is a toggle switch?</h2>
         <p className='spacer bottom medium'>
           A toggle switch (known also as a «toggle» or just a «switch») is one of the common and classic an user
@@ -289,7 +289,7 @@ $gap: 4px;`;
         </div>
         <p>Let&#39;s go!</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 1: Create a markup</h2>
         <p>
           Our future javascripless toggle has a quite simple HTML markup. To begin with, we need to add the skeleton.
@@ -341,7 +341,7 @@ $gap: 4px;`;
           with...
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 2: Hide the input element</h2>
         <p>
           We&#39;re going to create custom toggle interface therefore we have to hide the input element because its
@@ -371,7 +371,7 @@ $gap: 4px;`;
         </div>
         <p>The demo above looks lonely, but wait a minute and scroll to the next step.</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 3: Make the toggle fancy ✨</h2>
         <p>Next up, let&#39;s start to customize the toggle.</p>
         <div className='flex h-centered'>
@@ -511,7 +511,7 @@ $gap: 4px;`;
           Move on. The result are still far from satisfactory, but it won&#39;t be long now, I promise.
         </p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 4: Create the toggle switch ball</h2>
         <div className='flex h-centered'>
           <div className='row'>
@@ -547,7 +547,7 @@ $gap: 4px;`;
         </p>
         <p>And that&#39;s all here!</p>
       </section>
-      <section>
+      <section className='section outer'>
         <h2>Step 5: Add the toggle animation</h2>
         <p>
           As you may have noticed, the toggle above does not switch. Let&#39;s revive out it! We&#39;ll specify some
