@@ -12,9 +12,10 @@ import styles from './../blog.module.scss';
 const BlogRu = () => {
   const bind = classNames.bind(styles);
 
-  const { openWindow } = useWindowManager();
+  const { openWindow, minimizeWindow } = useWindowManager();
 
   useEffect(() => {
+    minimizeWindow(WINDOW_REGISTRY[EWindowRecord.SLIDES_PPT_FILE].id);
     openWindow(WINDOW_REGISTRY[EWindowRecord.BLOG_FOLDER].id, true, false);
   }, []);
 

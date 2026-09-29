@@ -45,7 +45,7 @@ export const WINDOW_REGISTRY: Record<string, TWindow> = {
     },
     position: {
       top: 'calc(50% - 60px)',
-      left: '50%',
+      left: 'calc(50% - 20px)',
       transform: 'translate(-50%, -50%)',
     },
     config: {
@@ -80,8 +80,8 @@ export const WINDOW_REGISTRY: Record<string, TWindow> = {
       width: '1024px',
     },
     position: {
-      top: '50%',
-      left: '50%',
+      top: 'calc(50% + 20px)',
+      left: 'calc(50% + 20px)',
       transform: 'translate(-50%, -50%)',
     },
     initialState: {

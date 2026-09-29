@@ -13,12 +13,13 @@ import styles from './blog.module.scss';
 
 const Blog = () => {
   const bind = classNames.bind(styles);
-  const { openWindow } = useWindowManager();
+  const { openWindow, minimizeWindow } = useWindowManager();
 
   const { language } = useTranslate();
   const [posts, setPosts] = useState<TPostConfig[]>([]);
 
   useEffect(() => {
+    minimizeWindow(WINDOW_REGISTRY[EWindowRecord.SLIDES_PPT_FILE].id);
     openWindow(WINDOW_REGISTRY[EWindowRecord.BLOG_FOLDER].id, true, false);
   }, []);
 
