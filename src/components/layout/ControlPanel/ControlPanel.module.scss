@@ -135,7 +135,7 @@ $PANEL_HEIGHT: 60px;
       margin: 0;
       padding: 0 $SPACER;
       border: 0;
-      @include step1(2px, $color--white);
+      @include border1x1(2px, $color--white);
       color: $color--white;
       background: rgba($color--violet-darker, 0.3);
       opacity: 0.6;
@@ -156,7 +156,7 @@ $PANEL_HEIGHT: 60px;
       }
 
       &.focused {
-        @include step1(2px, $color--white);
+        @include border1x1(2px, $color--white);
         color: $color--white;
         opacity: 1;
         font-weight: 500;

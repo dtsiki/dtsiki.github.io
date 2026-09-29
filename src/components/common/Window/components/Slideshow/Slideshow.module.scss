@@ -20,7 +20,7 @@
 
   &__sidebar {
     //border: 2px solid rgba($color--violet, 0.4);
-    @include step1(2px, $color--violet);
+    @include border1x1(2px, $color--violet);
     margin-right: 15px;
   }
 
@@ -31,7 +31,7 @@
     padding: 5px 10px;
 
     //border: 1px solid $color--violet;
-    @include step1(2px, $color--violet);
+    @include border1x1(2px, $color--violet);
 
     border-bottom: 0;
     margin-right: 15px;

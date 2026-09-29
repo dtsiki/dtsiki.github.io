@@ -1,9 +1,17 @@
-import { Hero } from 'src/components/layout/Hero/Hero';
+import { useEffect } from 'react';
+import { EWindowRecord, WINDOW_REGISTRY } from 'src/context/WindowManager/WindowManager.utils';
+import { useWindowManager } from 'src/hooks/useWindowManager';
 import { HomeShortcuts } from 'src/components/pages/home/HomeShortcuts/HomeShortcuts';
 
 import styles from './index.module.scss';
 
 const Home = (): JSX.Element => {
+  const { openWindow } = useWindowManager();
+
+  useEffect(() => {
+    openWindow(WINDOW_REGISTRY[EWindowRecord.SLIDES_PPT_FILE].id, false, true);
+  }, []);
+
   return (
     <div className={styles.home}>
       <div className={styles.home__hero}>

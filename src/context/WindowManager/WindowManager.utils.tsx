@@ -44,8 +44,9 @@ export const WINDOW_REGISTRY: Record<string, TWindow> = {
       width: '1024px',
     },
     position: {
-      top: '100px',
-      left: '100px',
+      top: 'calc(50% - 60px)',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
     },
     config: {
       type: EWindowType.SLIDESHOW,

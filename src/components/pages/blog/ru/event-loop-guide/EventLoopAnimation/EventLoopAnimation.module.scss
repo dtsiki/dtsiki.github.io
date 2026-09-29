@@ -31,7 +31,7 @@
     background: $color--white;
     margin-bottom: $SPACER;
 
-    @include step1(2px, $color--violet);
+    @include border1x1(2px, $color--violet);
 
     + .event_loop_animation__card {
       margin-top: $SPACER;
@@ -59,7 +59,7 @@
     line-height: 18px;
     text-align: left;
     padding: $SPACER / 4 $SPACER / 2;
-    @include step1(2px, $color--white-violet);
+    @include border1x1(2px, $color--white-violet);
     font-family: Pixelify;
     font-size: 16px;
 
@@ -78,7 +78,7 @@
 
     &.ACTIVE {
       background: $color--white-violet;
-      @include step1(2px, $color--violet-lighter);
+      @include border1x1(2px, $color--violet-lighter);
       z-index: 10;
     }
   }
@@ -90,7 +90,7 @@
     line-height: 18px;
     text-align: left;
     padding: $SPACER / 4 $SPACER / 2;
-    @include step1(2px, $color--white-violet);
+    @include border1x1(2px, $color--white-violet);
     font-family: Pixelify;
     font-size: 16px;
 
@@ -113,7 +113,7 @@
     font-family: Pixelify;
     font-size: 16px;
     background: $color--white-violet;
-    @include step1(2px, $color--violet-lighter);
+    @include border1x1(2px, $color--violet-lighter);
     z-index: 10;
     opacity: 0;
   }
@@ -136,7 +136,7 @@
     min-width: 150px;
     padding: $SPACER / 2;
     background: $color--violet;
-    @include step1(2px, $color--violet);
+    @include border1x1(2px, $color--violet);
     margin: 0;
     border: 2px solid;
     border-color: $color--white $color--violet-darker $color--violet-darker $color--white;
@@ -158,7 +158,7 @@
     &:disabled {
       background-color: $color--grey-lighter;
       color: $color--grey-darker;
-      @include step1(2px, $color--grey-darker);
+      @include border1x1(2px, $color--grey-darker);
       cursor: not-allowed;
       border: 2px solid;
       border-color: $color--white $color--grey-darker $color--grey-darker $color--white;

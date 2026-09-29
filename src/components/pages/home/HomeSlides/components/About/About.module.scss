@@ -1,0 +1,51 @@
+@import '../../../../../../styles/colors';
+@import '../../../../../../styles/vars';
+
+.about {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: Musinka;
+  text-align: center;
+  padding: $SPACER 0;
+
+  &__line {
+    display: block;
+
+    + .about__line {
+      margin-top: $SPACER / 2;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    width: 100%;
+
+    &.primary {
+      font-size: 50px;
+      line-height: 30%;
+    }
+
+    &.secondary {
+      font-size: 40px;
+      line-height: 50%;
+    }
+  }
+
+  &__item {
+    // position: relative;
+    // z-index: 2;
+
+    &.primary {
+      // font-size: 160px;
+      font-size: 110px;
+      line-height: 60%;
+    }
+
+    &.secondary {
+      // font-size: 100px;
+      font-size: 50px;
+      line-height: 1;
+    }
+  }
+}

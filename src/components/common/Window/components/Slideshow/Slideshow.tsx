@@ -23,6 +23,8 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
   const [showEmptySlide, setShowEmptySlide] = useState<number | null>(null);
 
   const onEmptyThumbnailClicked = (thumbnailIndex: number) => {
+    return;
+
     if (thumbnailIndex + 1 === emptyThumbnails) {
       setEmptyThumbnails(emptyThumbnails + 1);
     }
@@ -91,7 +93,7 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
               <FontAwesomeIcon icon={faXmark} />
             </div>
             <div className={styles.slideshow__sidebar}>
-              <CustomScrollbar maxHeight={400}>
+              <CustomScrollbar>
                 <ul className={styles.slideshow__thumbnails}>
                   {renderThumbnails}
                   {renderEmptyThumbnails}
@@ -108,7 +110,7 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
               ) : (
                 slides &&
                 (selectedSlide > 0 ? (
-                  <div className={styles.slideshow__mainThumbnail}>{slides[selectedSlide].content}</div>
+                  <div className={styles.slideshow__mainSlide}>{slides[selectedSlide].content}</div>
                 ) : (
                   <div className={styles.slideshow__mainSlide}>{slides[0].content}</div>
                 ))

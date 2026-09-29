@@ -6,10 +6,10 @@
 
 .blog_window {
   position: relative;
-  @include step1(2px, $color--grey);
+  @include border1x1(2px, $color--grey);
 
   &.focused {
-    @include step1(2px, $color--violet);
+    @include border1x1(2px, $color--violet);
   }
 
   &__wrapper {

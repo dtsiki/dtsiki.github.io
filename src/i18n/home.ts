@@ -124,3 +124,13 @@ export const BIN: TranslationObject = {
   [Language.ENG]: 'Bin',
   [Language.RU]: 'Корзина',
 };
+
+export const CORE_LANGUAGES: TranslationObject = {
+  [Language.ENG]: 'Core Languages',
+  [Language.RU]: 'Пишу на',
+};
+
+export const EXPERIENCE_WITH: TranslationObject = {
+  [Language.ENG]: 'Experience with ',
+  [Language.RU]: 'Работала с',
+};

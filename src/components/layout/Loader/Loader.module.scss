@@ -16,7 +16,7 @@
     width: 100%;
     height: 10px;
     //border: 1px solid $color--white-violet;
-    @include step1(2px, $color--violet);
+    @include border1x1(2px, $color--violet);
 
     //border-radius: $BORDER_RADIUS;
     box-sizing: border-box;

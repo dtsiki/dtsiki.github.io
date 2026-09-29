@@ -4,7 +4,7 @@
 @import './../../../styles/theme';
 
 .code {
-  @include step1(2px, $color--violet);
+  @include border1x1(2px, $color--violet);
 
   &__wrapper {
     margin: 0 auto;

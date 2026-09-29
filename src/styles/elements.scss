@@ -1036,7 +1036,7 @@ a {
     border-radius: 2px;
     box-shadow: none;
     border: 0;
-    @include step1(2px, $color--violet);
+    @include border1x1(2px, $color--violet);
     transition: 500ms;
     cursor: pointer;
 
@@ -1048,7 +1048,7 @@ a {
       width: 10px;
       height: 10px;
       background-color: $color--white;
-      @include step1(2px, $color--white);
+      @include border1x1(2px, $color--white);
       transition: 500ms;
       overflow: hidden;
       color: $color--violet;
@@ -1057,7 +1057,7 @@ a {
     &:checked::after {
       transition: 500ms;
       background-color: $color--violet;
-      @include step1(2px, $color--violet);
+      @include border1x1(2px, $color--violet);
     }
 
     &:disabled {
