@@ -24,6 +24,7 @@ export enum EBlogPostRecord {
   THIS = 'THIS',
   PROMISES = 'PROMISES',
   PROMISES_COLLECTION = 'PROMISES_COLLECTION',
+  SUMMER_READING_LIST = 'SUMMER_READING_LIST',
 }
 
 export const POSTS_CONFIG_: Record<string, TPostConfig> = {
@@ -310,6 +311,9 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     meta: {
       description: 'Книжные итоги последнего месяца весны: что я читала, что мне понравилось, а что нет',
     },
+    pagination: {
+      next: EBlogPostRecord.SUMMER_READING_LIST,
+    },
     strictLanguage: true,
   },
   [EBlogPostRecord.TYPESCRIPT_CHEATSHEET]: {
@@ -395,6 +399,20 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     meta: {
       description:
         'Промисы в JavaScript: разбирём что делают функции Promise.all, Promise.race, Promise.allSettled и Promise.any и напишем собственные реализации',
+    },
+    strictLanguage: true,
+  },
+  [EBlogPostRecord.SUMMER_READING_LIST]: {
+    id: EBlogPostRecord.SUMMER_READING_LIST,
+    title: 'Как я провела лето',
+    highlight: 'Книжные итоги лета — что я читала в июне, июле и августе.',
+    link: 'summer-reading-list',
+    category: EPostType.READING,
+    createdAt: '2 oct 2026',
+    tags: ['Прочитанное'],
+    language: Language.RU,
+    meta: {
+      description: 'Книжные итоги лета — что я читала в июне, июле и августе',
     },
     strictLanguage: true,
   },

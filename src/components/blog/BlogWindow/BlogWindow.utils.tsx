@@ -105,6 +105,13 @@ export const RU_POSTS_FOLDER_CONFIG: TFolderConfig = {
   children: [
     {
       type: TFolderItemType.TXT_FILE,
+      id: POSTS_CONFIG_[EBlogPostRecord.SUMMER_READING_LIST].id,
+      parentId: EBlogRecord.RU_POSTS_FOLDER,
+      title: POSTS_CONFIG_[EBlogPostRecord.SUMMER_READING_LIST].title,
+      postConfig: POSTS_CONFIG_[EBlogPostRecord.SUMMER_READING_LIST],
+    },
+    {
+      type: TFolderItemType.TXT_FILE,
       id: POSTS_CONFIG_[EBlogPostRecord.PROMISES_COLLECTION].id,
       parentId: EBlogRecord.RU_POSTS_FOLDER,
       title: POSTS_CONFIG_[EBlogPostRecord.PROMISES_COLLECTION].title,

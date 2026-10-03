@@ -6,12 +6,14 @@ export const renderBookLayout = (book: TReadingListItem) => {
 
   if (cover) {
     return (
-      <div className='row'>
-        <div className='col col--20'>
-          <img src={cover} alt={`Обложка книги «${title}»`} className='image BOOKCOVER' />
+      <section key={id} className='section inner'>
+        <div className='row'>
+          <div className='col col--20'>
+            <img src={cover} alt={`Обложка книги «${title}»`} className='image BOOKCOVER' />
+          </div>
+          <div className='col col--80'>{renderBookInfo(book)}</div>
         </div>
-        <div className='col col--80'>{renderBookInfo(book)}</div>
-      </div>
+      </section>
     );
   }
 

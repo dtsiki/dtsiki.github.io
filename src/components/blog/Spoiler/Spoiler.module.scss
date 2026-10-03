@@ -1,0 +1,32 @@
+@import './../../../styles/colors';
+@import './../../../styles/vars';
+
+.spoiler {
+  display: inline;
+
+  &__label {
+    display: block;
+    font-weight: 600;
+  }
+
+  &__content {
+    position: relative;
+    display: inline;
+    color: transparent !important;
+    background: $color--white-violet;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    z-index: 2;
+    margin-top: 0;
+
+    &.REVEALED {
+      color: inherit !important;
+      text-shadow: none;
+      cursor: text;
+      user-select: text;
+      background: none;
+    }
+  }
+}
