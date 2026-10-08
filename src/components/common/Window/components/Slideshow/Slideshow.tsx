@@ -19,18 +19,7 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
   const { translate, language } = useTranslate();
 
   const [selectedSlide, setSelectedSlide] = useState<number>(0);
-  const [emptyThumbnails, setEmptyThumbnails] = useState<number>(1);
   const [showEmptySlide, setShowEmptySlide] = useState<number | null>(null);
-
-  const onEmptyThumbnailClicked = (thumbnailIndex: number) => {
-    return;
-
-    if (thumbnailIndex + 1 === emptyThumbnails) {
-      setEmptyThumbnails(emptyThumbnails + 1);
-    }
-
-    setShowEmptySlide(thumbnailIndex);
-  };
 
   const onSlideThumbnailClicked = (thumbnailIndex: number) => {
     setShowEmptySlide(null);
@@ -45,7 +34,7 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
     return selectedSlide + 1;
   };
 
-  const renderThumbnails = useMemo(() => {
+  const thumbnails = useMemo(() => {
     return slides?.map((item, index) => {
       const { id, thumbnail } = item;
 
@@ -62,27 +51,19 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
     });
   }, [slides, selectedSlide, language]);
 
-  const renderEmptyThumbnails = useMemo(() => {
-    return Array(emptyThumbnails)
-      .fill(0)
-      .map((_, index) => {
-        return (
-          <li className={styles.slideshow__thumbnail} key={`empty-thumbnail-${index}`}>
-            <div className={styles.slideshow__preview}>
-              <div className='image-box'>
-                <div className='image-box__wrapper'>
-                  {index + 1 === emptyThumbnails && <PlusIcon className={styles.slideshow__thumbnail_icon} />}
-                </div>
-              </div>
+  const emptyThumbnail = useMemo(() => {
+    return (
+      <li className={styles.slideshow__thumbnail} key='empty-thumbnail'>
+        <div className={styles.slideshow__preview}>
+          <div className='image-box'>
+            <div className='image-box__wrapper'>
+              <PlusIcon className={styles.slideshow__thumbnail_icon} />
             </div>
-            <button
-              className={styles.slideshow__button}
-              onClick={() => onEmptyThumbnailClicked(index)}
-              aria-label={translate(SELECT_SLIDE)}></button>
-          </li>
-        );
-      });
-  }, [emptyThumbnails]);
+          </div>
+        </div>
+      </li>
+    );
+  }, []);
 
   return (
     <div className={styles.slideshow}>
@@ -95,35 +76,31 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
             <div className={styles.slideshow__sidebar}>
               <CustomScrollbar>
                 <ul className={styles.slideshow__thumbnails}>
-                  {renderThumbnails}
-                  {renderEmptyThumbnails}
+                  {thumbnails}
+                  {emptyThumbnail}
                 </ul>
               </CustomScrollbar>
             </div>
           </div>
           <div className='col col--75'>
-            <div className={styles.slideshow__main}>
+            <div className={styles.slideshow__frame}>
               {isNumber(showEmptySlide) ? (
-                <div className={styles.slideshow__mainSlide}>
+                <div className={styles.slideshow__slide}>
                   <BaseSlide />
                 </div>
               ) : (
                 slides &&
                 (selectedSlide > 0 ? (
-                  <div className={styles.slideshow__mainSlide}>{slides[selectedSlide].content}</div>
+                  <div className={styles.slideshow__slide}>{slides[selectedSlide].content}</div>
                 ) : (
-                  <div className={styles.slideshow__mainSlide}>{slides[0].content}</div>
+                  <div className={styles.slideshow__slide}>{slides[0].content}</div>
                 ))
               )}
             </div>
           </div>
         </div>
         <div className={styles.slideshow__footer}>
-          <WindowFooter
-            content={`${translate(SLIDE)} ${getSlideNumber()} ${translate(OF)} ${
-              emptyThumbnails + (slides?.length || 0)
-            }`}
-          />
+          <WindowFooter content={`${translate(SLIDE)} ${getSlideNumber()} ${translate(OF)} ${slides?.length || 0}`} />
         </div>
       </div>
     </div>

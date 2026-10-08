@@ -19,30 +19,26 @@
   }
 
   &__sidebar {
-    //border: 2px solid rgba($color--violet, 0.4);
-    @include border1x1(2px, $color--violet);
+    @include border1x1(2px, $color--violet-light);
     margin-right: 15px;
-  }
 
-  &__sidebar_heading {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 5px 10px;
-
-    //border: 1px solid $color--violet;
-    @include border1x1(2px, $color--violet);
-
-    border-bottom: 0;
-    margin-right: 15px;
-    font-family: Pixelify;
-    color: $color--violet;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-
-    svg {
+    &_heading {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 5px 10px;
+      @include border1x1(2px, $color--violet-light);
+      border-bottom: 0;
+      margin-right: 15px;
+      font-family: Pixelify;
       color: $color--violet;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      svg {
+        color: $color--violet;
+      }
     }
   }
 
@@ -63,7 +59,7 @@
     }
 
     + .slideshow__thumbnail {
-      margin-top: 20px;
+      margin-top: $SPACER;
     }
 
     &.selected {
@@ -115,16 +111,18 @@
     z-index: 99;
   }
 
-  &__main {
+  &__frame {
     height: 100%;
-    padding: 30px;
+    padding: $SPACER * 2;
     background: $color--grey;
+    aspect-ratio: 3 / 2;
   }
 
-  &__mainSlide {
+  &__slide {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     box-shadow: 6px 6px 0 0 rgba($color--violet, 0.4);
     background: $color--white;
     height: 100%;
