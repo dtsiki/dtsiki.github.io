@@ -121,21 +121,97 @@ numberList.add(10);`;
 
 const box: Box = { value: "Привет" }; // тип string`;
 
-  const entityExampleCode = `// С бэка приходят данные о пользователе:
-const userFromApi = { id: 42, name: 'dtsiki', url: 'https://dtsiki.github.io' };
+  const userDataExampleCode = `type TUser = {
+  id: number;
+  name: string;
+  email: string;
+};
 
-// На фронте оборачиваем данные в Entity:
-type Entity<T> = {
-  id: string; // Уникальный ID для фронта
-  data: T;
+const user: TUser = {
+  id: 42,
+  name: "Awesome User",
+  email: "awesomeuser@gmail.com",
+};`;
+
+  const postDataExampleCode = `type TPost = {
+  id: number;
+  title: string;
+  tags: string[];
+};
+
+const post: TPost = {
+  id: 67,
+  title: "Awesome post about something awesome",
+  tags: ["post", "something", "awesome"],
+};
+`;
+
+  const newTypesExampleCode = `type TUser = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+const user: TUser = {
+  id: 42,
+  name: "Awesome User",
+  email: "awesomeuser@gmail.com",
+};
+
+type TPost = {
+  id: number;
+  title: string;
+  tags: string[];
+};
+
+const post: TPost = {
+  id: 67,
+  title: "Awesome post about something awesome",
+  tags: ["post", "something", "awesome"],
+};
+
+type TUserData = {
+  id: string;
+  data: TUser;
   isLoading: boolean;
   error?: string;
 };
 
-// Пример использования:
-const userEntity: Entity<User> = {
-  id: 'user-1',
-  data: { id: 42, name: 'Alice', email: 'alice@mail.com' },
+type TPostData = {
+  id: string;
+  data: TPost;
+  isLoading: boolean;
+  error?: string;
+};
+
+const userData:TUserData = {
+  id: "user-1",
+  data: user,
+  isLoading: false,
+}
+
+const postData:TPostData = {
+  id: "post-1",
+  data: post,
+  isLoading: false,
+}`;
+
+  const entityExampleCode = `type Entity<T> = {
+  id: string; // Новый уникальный id для фронтенда
+  data: T;
+  isLoading: boolean;
+  error?: string;
+};`;
+
+  const entityUsageExampleCode = `const userEntity: Entity<TUser> = {
+  id: "user-1",
+  data: user,
+  isLoading: false,
+};
+
+const postEntity: Entity<TPost> = {
+  id: "post-1",
+  data: post,
   isLoading: false,
 };`;
 
@@ -257,15 +333,38 @@ const userEntity: Entity<User> = {
           </InlineCode>
         </h3>
         <p>
-          Это дженерик-тип, который оборачивает любые данные <InlineCode>T</InlineCode>, добавляя к ним общие поля:{' '}
-          <InlineCode>id</InlineCode>, <InlineCode>isLoading</InlineCode>, <InlineCode>createdAt</InlineCode>,{' '}
-          <InlineCode>error</InlineCode> и т.д.
+          Это дженерик-тип, который оборачивает любые данные <InlineCode>T</InlineCode>, добавляя к ним какие-то общие
+          поля.
+        </p>
+        <p>Например, с бэка приходят данные о пользователе:</p>
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={userDataExampleCode} />
+        <p>Или данные о посте:</p>
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={postDataExampleCode} />
+        <p>
+          Для фронта нужно, чтобы у пользователей и постах были дополнительные общие поля, например{' '}
+          <InlineCode>id</InlineCode> с другим типом данных, флаг <InlineCode>isLoading</InlineCode>, дата создания{' '}
+          <InlineCode>createdAt</InlineCode>, объект ошибки <InlineCode>error</InlineCode> и т.д. Без{' '}
+          <InlineCode>
+            Entity <AngleBrackets>T</AngleBrackets>
+          </InlineCode>{' '}
+          пришлось бы вручную переписывать поля заново для каждого объекта:
+        </p>
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={newTypesExampleCode} />
+        <p>
+          Но{' '}
+          <InlineCode>
+            Entity <AngleBrackets>T</AngleBrackets>
+          </InlineCode>{' '}
+          позволяет избежать добавления новых полей вручную и создания излишных типов. Просто создаётся в данном случае
+          всего один дженерик-тип:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={entityExampleCode} />
         <p>
-          С помощью этого дженерика-типа не нужно вручную прописывать поля заново для каждого объекта, а все сущности в
-          приложении будут иметь одинаковую структуру.
+          Оригинальные данные при этом сохраняются внутри поля <InlineCode>data</InlineCode>, чтобы не потерять их
+          собственный идентификатор или другие поля.
         </p>
+        <p>Затем дженерик-тип можно применять к нужны типам:</p>
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={entityUsageExampleCode} />
       </section>
     </section>
   );

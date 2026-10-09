@@ -6,7 +6,7 @@ import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { getGhostText } from 'src/utils/formatting';
 
 export const MappedTypes = forwardRef<HTMLDivElement>(({}, ref) => {
-  const syntaxTypeExampleCode = `type User {
+  const syntaxTypeExampleCode = `type User = {
   id: number;
   name: string;
   age?: number;
@@ -63,7 +63,7 @@ type Partial<T> = {
   [P in keyof T as P extends string ? P : never]: T[P];
 };
 
-type User {
+type User = {
   id: number;
   name: string;
   age: number;

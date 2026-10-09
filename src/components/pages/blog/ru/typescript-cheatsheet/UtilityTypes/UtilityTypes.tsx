@@ -7,7 +7,7 @@ import { LONG_DASH } from 'src/constants';
 import { getGhostText, renderInlineList } from 'src/utils/formatting';
 
 export const UtilityTypes = forwardRef<HTMLDivElement>(({}, ref) => {
-  const userTypeExampleCode = `type User {
+  const userTypeExampleCode = `type User = {
   id: number;
   name: string;
   email: string;
@@ -125,13 +125,50 @@ type UserFunctionReturnType = ReturnType<typeof fetchUser>;
 // Распакованный тип: { id: number; name: string; isAwesome: boolean  }
 type User = Awaited<UserFunctionReturnType>;`;
 
+  const pickPlusPartialTypeExampleCode = `type User = {
+  id: number;
+  name: string;
+  email: string;
+  age: number;
+}
+
+// Выбираем name и email, делаем их необязательными
+type UpdateUserDto = Partial<Pick<User, 'name' | 'email'>>;
+
+const user: UpdateUserDto = {
+  name: 'dtsiki', // email можно не указывать
+};`;
+
+  const omitPlusPartialTypeExampleCode = `type SafeUpdateUser = Partial<Omit<User, 'id'>>;
+
+const updateData: SafeUpdateUser = {
+  name: 'dtsiki',
+  // id здесь использовать нельзя
+};`;
+
+  const partialRequiredTypeExampleCode = `// Сделать часть свойств опциональными, а остальные оставить прежними
+type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+// Сделать часть свойств обязательными
+type RequiredBy<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
+
+interface Post {
+  id: number;
+  title: string;
+  body?: string;
+}
+
+// Делаем title обязательным (если он был опциональным) или меняем id
+type StrictPost = RequiredBy<Post, 'body'>;
+// Свойство body теперь точно string, а не string | undefined`;
+
   return (
     <section ref={ref} id='Utility Types' className='section outer'>
       <h2>
         Встроенные типы
         {getGhostText('Utility Types')}
       </h2>
-      <p>Встроенные типы помогают создавать новые на основе уже существующих. </p>
+      <p>Встроенные типы помогают создавать новые на основе уже существующих.</p>
       <section className='section inner'>
         <h3>
           {renderInlineList(
@@ -191,6 +228,12 @@ type User = Awaited<UserFunctionReturnType>;`;
               выбирает только указанные свойства <InlineCode>Keys</InlineCode> из типа <InlineCode>Type</InlineCode>:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={pickUserTypeExampleCode} />
+            <p>
+              <InlineCode>
+                Pick<AngleBrackets>Type, Keys</AngleBrackets>
+              </InlineCode>{' '}
+              часто используется, чтобы сделать компактную версию типа для списка или превью.
+            </p>
           </li>
           <li className='list__item'>
             <p>
@@ -200,10 +243,17 @@ type User = Awaited<UserFunctionReturnType>;`;
               удаляет указанные свойства <InlineCode>Keys</InlineCode> из типа <InlineCode>Type</InlineCode>:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={omitUserTypeExampleCode} />
+            <p>
+              <InlineCode>
+                Omit<AngleBrackets>Type, Keys</AngleBrackets>
+              </InlineCode>{' '}
+              часто используется, чтобы скрыть служебные поля {LONG_DASH} например, <InlineCode>password</InlineCode>{' '}
+              или <InlineCode>createdAt</InlineCode>.
+            </p>
           </li>
         </ul>
         <p>
-          Всё выше перечисленное будет работать и для интерфейсов т.к. для TypeScript типы и интерфейсы это одно и то же
+          Всё выше перечисленное будет работать и для интерфейсов т.к. для TypeScript типы и интерфейсы это одно и то же{' '}
           {LONG_DASH} объектный тип:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={userInterfaceExampleCode} />
@@ -321,6 +371,59 @@ type User = Awaited<UserFunctionReturnType>;`;
           сочетании с <InlineCode>ReturnType</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={awaitedExampleCode} />
+      </section>
+      <section className='section inner'>
+        <h3>Комбинация встроенных типов</h3>
+        <p>
+          Комбинировать можно абсолютно любые встроенные типы. Их можно вкладывать друг в друга как функции или
+          объединять через пересечения <InlineCode>&</InlineCode>, создавая конструкции любой сложности.
+        </p>
+        <section className='section inner'>
+          <h4>
+            <InlineCode>
+              Pick<AngleBrackets>Type, Keys</AngleBrackets>
+            </InlineCode>{' '}
+            +{' '}
+            <InlineCode>
+              Partial<AngleBrackets>Type</AngleBrackets>
+            </InlineCode>
+            : частичный тип на основе выбранных полей
+          </h4>
+          <p>Если нужно взять только пару полей из типа и сделать их необязательными:</p>
+          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={pickPlusPartialTypeExampleCode} />
+        </section>
+        <section className='section inner'>
+          <h4>
+            <InlineCode>
+              Omit<AngleBrackets>Type, Keys</AngleBrackets>
+            </InlineCode>{' '}
+            +{' '}
+            <InlineCode>
+              Partial<AngleBrackets>Type</AngleBrackets>
+            </InlineCode>
+            : исключение полей с последующим изменением обязательности
+          </h4>
+          <p>
+            Если нужно запретить менять какое-то системное поле, например <InlineCode>id</InlineCode>, а остальные поля
+            сделать опциональными:
+          </p>
+          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={omitPlusPartialTypeExampleCode} />
+        </section>
+        <section>
+          <h4>Частичное изменение конкретных свойств</h4>
+          <p>
+            <InlineCode>
+              Partial<AngleBrackets>Type</AngleBrackets>
+            </InlineCode>{' '}
+            и{' '}
+            <InlineCode>
+              Required<AngleBrackets>Type</AngleBrackets>
+            </InlineCode>{' '}
+            действуют сразу на весь объект. Чтобы сделать только некоторые поля опциональными или обязательными, их
+            комбинируют через пересечение <InlineCode>&</InlineCode>:
+          </p>
+          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={partialRequiredTypeExampleCode} />
+        </section>
       </section>
     </section>
   );
