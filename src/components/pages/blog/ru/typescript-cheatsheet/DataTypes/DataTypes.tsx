@@ -1,9 +1,8 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
-import { Note } from 'src/components/common/Note';
-import { ENoteType } from 'src/components/common/Note/Note.types';
+import { LONG_DASH } from 'src/constants';
 import { getGhostText, renderInlineList } from 'src/utils/formatting';
 
 export const DataTypes = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -55,9 +54,9 @@ abc.push(42); // Error: Argument of type 'number' is not assignable to parameter
   const tupleExampleCode = `let user: [number, string] = [42, "Daria"];`;
 
   const objectTypeExampleCode = `let user: { id: number; name: string; isAwesome: boolean } = {
-    id: 42,
-    name: "dtsiki",
-    isAwesome: true
+  id: 42,
+  name: "dtsiki",
+  isAwesome: true
 };`;
 
   const optionalObjectTypeExampleCode = `let user: { id: number; name: string; isAwesome: boolean, age?: number };`;
@@ -102,7 +101,7 @@ let strLength: number = (someValue as string).length;`;
   return (
     <section ref={ref} id='Data_Types' className='section outer'>
       <h2>Типы данных и их типы</h2>
-      <section id='Type_Annotations'>
+      <section id='Type_Annotations' className='section inner'>
         <h3>
           Аннотация типов
           {getGhostText('Type Annotations')}
@@ -116,21 +115,24 @@ let strLength: number = (someValue as string).length;`;
         <p>В скомпилированном JavaScript аннотации удаляются, оставляя код чистым JavaScript:</p>
         <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={typeAnnotationCompliedJSSnipped} name='bundle' />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
           Выводимость типов
           {getGhostText('Type Inference')}
         </h3>
-        <p>TypeScript может сам автоматически определять типы переменных и такую аннотацию можно не прописывать:</p>
+        <p>
+          TypeScript может сам автоматически определять типы переменных у примитивов и такую аннотацию можно не
+          прописывать:
+        </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeAnnotationSkippedExampleCode} />
         <p>
           Это способность TypeScript автоматически определять тип переменной называется{' '}
           <strong>выводимость типов</strong>. Также TypeScript справляется сам и может определять тип возвращаемого
           значения из функции, типы у массивов с явными значениями, тип колбэков у методов массивов, в остальных случаях
-          лучше помогать ему и прописывать аннотации.
+          нужно помогать ему и прописывать аннотации.
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
           Приведение типов
           {getGhostText('Type Assertions')}
@@ -141,58 +143,60 @@ let strLength: number = (someValue as string).length;`;
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeAssertionsExampleCode} />
         <p>
-          <strong>Важно понимать: это не преобразование, а лишь подсказка компилятору.</strong>
+          <strong>Важно понимать:</strong> это не преобразование, а лишь подсказка компилятору.
         </p>
         <p>При сборке в JavaScript эти конструкции будут удалены.</p>
       </section>
-      <section>
+      <section className='section inner'>
+        <p>Итак, теперь можно разобрать как в JavaScript типизируются различные штуки с помощью TypeScript.</p>
         <h3>Примитивные типы данных</h3>
         <p>
           В TypeScript переехали из JavaScript все примитивные типы данных:{' '}
-          {renderInlineList(['number', 'string', 'boolean', 'null', 'undefined', 'bigint', 'symbol'], 'code', 'code')}
+          {renderInlineList(['number', 'string', 'boolean', 'null', 'undefined', 'bigint', 'symbol'], 'code', 'code')}.
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={basicTypesExampleCode} />
-
-        <p>TypeScript их не меняет, а просто добавляет к ним соответствующие аннотации типов.</p>
+        <p>
+          TypeScript их не меняет, а просто добавляет к ним соответствующие аннотации типов. Как уже было написано чуть
+          выше {LONG_DASH} такие анотации можно не писать, TypeScript может сам определить их тип.
+        </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>{anyUnknownNeverVoidList}</h3>
         <p>
           В TypeScript появились новые типы данных:{' '}
           {renderInlineList(['any', 'unknown', 'never', 'void'], 'code', 'code')}. Этих типов нет в JavaScript. Они
           существуют только до компиляции, а после того как TypeScript компилируется в JavaScript, они исчезают.
         </p>
-        <section>
+        <section className='section inner'>
           <h4>
-            <code className='code'>any</code>
+            <InlineCode>any</InlineCode>
           </h4>
           <p>Тип данных, который представляет любое значение:</p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={anyTypeExampleCode} />
           <p>
-            Хотя кажется, что использование <code className='code'>any</code> даёт гибкость, лучше избегать его,
-            поскольку это может снизить надежность и читаемость кода. Лучше использовать явные типы данных.
+            Хотя кажется, что использование <InlineCode>any</InlineCode> даёт гибкость, лучше избегать его, поскольку
+            это может снизить надежность и читаемость кода. Лучше использовать явные типы данных.
           </p>
         </section>
-        <section>
+        <section className='section inner'>
           <h4>
-            <code className='code'>unknown</code>
+            <InlineCode>unknown</InlineCode>
           </h4>
           <p>
-            Безопасная версия <code className='code'>any</code>: тоже можно присвоить что угодно, но перед
-            использованием тип нужно проверить:
+            Безопасная версия <InlineCode>any</InlineCode>: тоже можно присвоить что угодно, но перед использованием тип
+            нужно проверить:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unknownTypeExampleCode} />
           <p>
-            Может показаться, что <code className='code'>unknown</code> работает так же, как{' '}
-            <code className='code'>any</code>, но между ними есть различие. Тип <code className='code'>any</code> по
-            сути отключает проверку типов и позволяет выполнять любые операции, например, обращаться к свойствам
-            переменной. Тип <code className='code'>unknown</code> запрещает это и требует предварительной проверки типа
-            переменной, либо приведения к нужному типу.
+            Может показаться, что <InlineCode>unknown</InlineCode> работает так же, как <InlineCode>any</InlineCode>, но
+            между ними есть различие. Тип <InlineCode>any</InlineCode> по сути отключает проверку типов и позволяет
+            выполнять любые операции, например, обращаться к свойствам переменной. Тип <InlineCode>unknown</InlineCode>{' '}
+            запрещает это и требует предварительной проверки типа переменной, либо приведения к нужному типу.
           </p>
         </section>
-        <section>
+        <section className='section inner'>
           <h4>
-            <code className='code'>never</code>
+            <InlineCode>never</InlineCode>
           </h4>
           <p>
             Используется для обозначения значений, которые никогда не происходят. Можно использовать для функций,
@@ -200,15 +204,15 @@ let strLength: number = (someValue as string).length;`;
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={neverTypeExampleCode} />
         </section>
-        <section>
+        <section className='section inner'>
           <h4>
-            <code className='code'>void</code>
+            <InlineCode>void</InlineCode>
           </h4>
           <p>Обозначает отсутствие значения. Обычно используется для функций, которые ничего не возвращают:</p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={voidTypeExampleCode} />
         </section>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Массивы</h3>
         <p>
           Массивы в TypeScript работают так же как и в JavaScript. В TypeScript есть два способа протипизировать
@@ -217,13 +221,13 @@ let strLength: number = (someValue as string).length;`;
         <ol className='list ordered'>
           <li className='list__item'>
             <p>
-              С помощью синтаксиса <code className='code'>T[]</code>:
+              С помощью синтаксиса <InlineCode>T[]</InlineCode>:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrayTypeAnnotation1ExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              С помощью синтаксиса <code className='code'>Array&lt;T&gt;</code> (см.{' '}
+              С помощью синтаксиса <InlineCode>Array&lt;T&gt;</InlineCode> (см.{' '}
               <a href='#Generics' className='link PRIMARY'>
                 Дженерики
               </a>
@@ -233,24 +237,26 @@ let strLength: number = (someValue as string).length;`;
           </li>
         </ol>
         <p>
-          Оба варианта равнозначны, но чаще используют первый с <code className='code'>T[]</code>.
+          Оба варианта равнозначны, но чаще используют первый с <InlineCode>T[]</InlineCode>.
         </p>
         <p>
-          При этом массивы являются строго типизированными — если изначально массив содержит строки, то в будущем он
-          сможет работать только со строками. Если попытаться добавить в такой массив число, то будет получена ошибка:
+          При этом массивы являются строго типизированными {LONG_DASH} если изначально массив содержит строки, то в
+          будущем он сможет работать только со строками. Если попытаться добавить в такой массив число, то будет
+          получена ошибка:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrayTypeErrorExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Кортежи {getGhostText('Tuples')}</h3>
         <p>
-          Кортежи — это специальные массивы с фиксированной длиной и строго определенными типами для каждого элемента,
-          даже если они разные. В отличие от обычных массивов, порядок элементов в кортеже имеет значение:
+          Кортежи {LONG_DASH} это специальные массивы с фиксированной длиной и строго определенными типами для каждого
+          элемента, даже если они разные. В отличие от обычных массивов, порядок элементов в кортеже имеет значение:
         </p>
+        <p>Типизируются указанием типа для каждого элемента:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={tupleExampleCode} />
         <p>После компиляции в JavaScript кортежи превращаются в обычные массивы.</p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Объекты</h3>
         <p>
           Как и в JavaScript, в TypeScript можно создавать сложные объекты, которые состоят из других объектов, в том

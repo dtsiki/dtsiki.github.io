@@ -1,8 +1,10 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 
 export const LiteralTypes = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -144,39 +146,39 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
       <h2>Литералы {getGhostText('Literal Types')}</h2>
       <p>
         В TypeScript можно использовать не только общие типы, но и конкретные значения как типы.{' '}
-        <strong>Литерал</strong> — это тип, который принимает ровно одно конкретное значение.{' '}
+        <strong>Литерал</strong> {LONG_DASH} это тип, который принимает ровно одно конкретное значение.{' '}
       </p>
-      <section>
+      <section className='section inner'>
         <h3>
           Расширение типов
           {getGhostText('Type Widening')}
         </h3>
         <p>
-          TypeScript по разному реагирует на переменные, объявленние с помощью ключевых слов{' '}
-          <code className='code'>let</code> и <code className='code'>const</code>:
+          TypeScript по разному реагирует на переменные, объявленные с помощью ключевых слов{' '}
+          <InlineCode>let</InlineCode> и <InlineCode>const</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={literalExampleCode} name='literal-types-example(1)' />
         <p>
-          В этом примере типом переменной <em>admin</em> будет не <code className='code'>string</code>, а строка{' '}
-          <code className='code'>admin</code>. А вот типом переменной <em>user</em> будет как раз{' '}
-          <code className='code'>string</code>. TypeScript превращает переменную <em>admin</em> в литерал.
+          В этом примере типом переменной <em>admin</em> будет не <InlineCode>string</InlineCode>, а строка{' '}
+          <InlineCode>admin</InlineCode>. А вот типом переменной <em>user</em> будет как раз{' '}
+          <InlineCode>string</InlineCode>. TypeScript превращает переменную <em>admin</em> в литерал.
         </p>
         <p>
-          Если вы объявите переменную с помощью <code className='code'>const</code>, TypeScript автоматически сузит её
-          тип до литерального, так как её значение не может измениться.
+          Если вы объявите переменную с помощью <InlineCode>const</InlineCode>, TypeScript автоматически сузит её тип до
+          литерального, так как её значение не может измениться.
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
           Заморозка литералов
           {getGhostText('Const Assertions')}
         </h3>
         <p>
-          Можно добавить <code className='code'>as const</code> и присвоить литеральные типы:
+          Можно добавить <InlineCode>as const</InlineCode> и присвоить литеральные типы:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={literalLetExampleCode} name='literal-types-example(2)' />
         <p>
-          Теперь <em>user</em> будет литералом с типом <code className='code'>user</code>.
+          Теперь <em>user</em> будет литералом с типом <InlineCode>user</InlineCode>.
         </p>
         <p>
           Обычно это используется для заморозки объектов: все свойства автоматически помечаются как readonly, а их
@@ -184,7 +186,7 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={asConstExampleCode} name='literal-types-example(3)' />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Виды литералов</h3>
         <p>В TypeScript существует 3 основных вида литеральных типов: строковые, числовые и логические.</p>
         <ul className='list markered'>
@@ -214,42 +216,42 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
           </li>
         </ul>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Приведение к литеральному типу</h3>
         <p>
           Объекты тоже можно приводить к литеральному типу через Type Assertion с помощью{' '}
-          <code className='code'>as const</code>:
+          <InlineCode>as const</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={objectLiteralTypeExampleCode} name='literal-types-example(5)' />
         <p>
-          В результате будет получен тип с неизменяемыми <code className='code'>readonly</code> полями и литеральными
-          типами в значении:
+          В результате будет получен тип с неизменяемыми <InlineCode>readonly</InlineCode> полями и литеральными типами
+          в значении:
         </p>
         <CodeSnippet code={objectLiteralTypeExampleLog} lang={ECodeLang.TYPESCRIPT} name='literal-types-example(6)' />
         <p>Такой способ приведения применим и к массивам.</p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Перечисления или литеральные типы</h3>
         <p>
-          Перечисления <code className='code'>enum</code> — это ещё способ задать набор именованных констант:
+          Перечисления <InlineCode>enum</InlineCode> {LONG_DASH} это ещё способ задать набор именованных констант:
         </p>
         <CodeSnippet code={stringEnumExampleCode} lang={ECodeLang.TYPESCRIPT} name='literal-types-example(7)' />
         <p>
-          Теперь можно использовать <code className='code'>Status.IDLE</code>,{' '}
-          <code className='code'>Status.LOADING</code> и т.д. — и получать соответствующие строки.
+          Теперь можно использовать <InlineCode>Status.IDLE</InlineCode>, <InlineCode>Status.LOADING</InlineCode> и т.д.{' '}
+          {LONG_DASH} и получать соответствующие строки.
         </p>
         <p>
-          Рекомендуется избегать использования <code className='code'>enum</code> для именнованных констант и отдавать
-          предпочтение типам и литералам. Связано это с тем, что типы и литералы — это чистый TypeScript, который
-          исчезает после компиляции, в том время как перечисления — это реальный JavaScript-объект, который остаётся в
-          рантайме и генерирует лишний код.
+          Рекомендуется избегать использования <InlineCode>enum</InlineCode> для именнованных констант и отдавать
+          предпочтение типам и литералам. Связано это с тем, что типы и литералы {LONG_DASH} это чистый TypeScript,
+          который исчезает после компиляции, в том время как перечисления {LONG_DASH} это реальный JavaScript-объект,
+          который остаётся в рантайме и генерирует лишний код.
         </p>
         <p> Например, после компиляции перечисление из примера выше будет выглядеть так:</p>
         <CodeSnippet code={compiledStringEnumExampleCode} lang={ECodeLang.JAVASCRIPT} name='index' />
         <p>Тип же исчезнет при компиляции и не попадёт в бандл:</p>
         <CodeSnippet code={'// ничего нет'} lang={ECodeLang.JAVASCRIPT} name='index' />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Как заменить перечисление на тип</h3>
         <p>Например, в вашем проекте сложилось использование перечислений в таком виде:</p>
         <CodeSnippet code={enumBeforeExampleCode} lang={ECodeLang.TYPESCRIPT} name='literal-types-example(8)' />
@@ -260,12 +262,12 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
           name='literal-types-example(9)'
         />
         <p>
-          Эта замена — один из самых частых рефакторингов в современном TypeScript. Для решения создадим объект с{' '}
-          <code className='code'>as const</code> и затем выведем из него тип:
+          Эта замена {LONG_DASH} один из самых частых рефакторингов в современном TypeScript. Для решения создадим
+          объект с <InlineCode>as const</InlineCode> и затем выведем из него тип:
         </p>
         <CodeSnippet code={enumAfterExampleCode} lang={ECodeLang.TYPESCRIPT} name='literal-types-example(10)' />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
           Шаблонные литералы
           {getGhostText('Template Literal Types')}
@@ -296,33 +298,33 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
         <ul className='list markered'>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Uppercase<AngleBrackets>T</AngleBrackets>
-              </code>{' '}
+              </InlineCode>{' '}
               приводит к верхнему регистру
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Lowercase<AngleBrackets>T</AngleBrackets>
-              </code>{' '}
+              </InlineCode>{' '}
               приводит к нижнему регистру
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Capitalize<AngleBrackets>T</AngleBrackets>
-              </code>{' '}
+              </InlineCode>{' '}
               делает первую букву заглавной
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Uncapitalize<AngleBrackets>T</AngleBrackets>
-              </code>{' '}
+              </InlineCode>{' '}
               делает первую букву строчной
             </p>
           </li>
@@ -331,7 +333,7 @@ type Prop = GetterName<"getUser">; // Тип: "User"`;
         <CodeSnippet code={capitalizeTemplateLiteralsExampleCode} lang={ECodeLang.TYPESCRIPT} />
         <p>
           TypeScript позволяет динамически извлекать части строк или проверять их соответствие шаблону внутри условных
-          типов c помощью ключевого слова <code className='code'>infer</code>:
+          типов c помощью ключевого слова <InlineCode>infer</InlineCode>:
         </p>
         <CodeSnippet code={inferTemplateLiteralsExampleCode} lang={ECodeLang.TYPESCRIPT} />
       </section>

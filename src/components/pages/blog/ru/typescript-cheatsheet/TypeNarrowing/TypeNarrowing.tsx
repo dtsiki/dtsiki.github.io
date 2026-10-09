@@ -1,6 +1,8 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { LONG_DASH } from 'src/constants';
 import { getGhostText, renderInlineList } from 'src/utils/formatting';
 
 export const TypeNarrowing = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -85,51 +87,57 @@ function process(data: unknown) {
       <h2>Сужение типов {getGhostText('Type Narrowing')}</h2>
       <p>Позволяет ограничить общий тип до более конкретного на основе проверок в коде.</p>
       <p>
-        Например, объединения <code className='code'>string | number</code> можно уточнить к более узкому типу,
-        например, <code className='code'>string</code> внутри блока кода:
+        Например, объединения <InlineCode>string | number</InlineCode> можно уточнить к более узкому типу, например,{' '}
+        <InlineCode>string</InlineCode> внутри блока кода. Без сужения в коде ниже будет ошибка {LONG_DASH} потому что
+        значение может быть и строкой и числом, а у чисел нет метода <InlineCode>toUpperCase</InlineCode>:
       </p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeNarrowingExampleCode} />
+      <p>А с проверкой всё будет работать:</p>
+      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeofNarrowingExampleCode} />
       <p>
         Это позволяет безопасно вызывать специфичные методы. В примере выше будет получена ошибка из-за того, что в
-        случае, если будет передана переменная типа <code className='code'>number</code>, метод{' '}
-        <code className='code'>toUpperCase()</code> не будет найден т.к. его просто не существует. Этот метод
-        предназначен исключительно для работы со строками.
+        случае, если будет передана переменная типа <InlineCode>number</InlineCode>, метод{' '}
+        <InlineCode>toUpperCase()</InlineCode> не будет найден т.к. его просто не существует. Этот метод предназначен
+        исключительно для работы со строками.
       </p>
       <p>
         Функция, которая сужает тип, и будет называться <strong>type guard</strong>'ом.
       </p>
-      <section>
+      <section className='section inner'>
         <h3>
-          С помощью <code className='code'>typeof</code>
+          С помощью <InlineCode>typeof</InlineCode>
         </h3>
-        <p>Подойдет для примитивов:</p>
+        <p>Пример такого сужения был показан выше случай:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeofNarrowingExampleCode} />
+        <p>
+          Сужение с помощью <InlineCode>typeof</InlineCode> отлично подходит для примитивов.
+        </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
-          С помощью <code className='code'>instanceof</code>
+          С помощью <InlineCode>instanceof</InlineCode>
         </h3>
         <p>Подойдёт для классов:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={instanceofNarrowingExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
-          С помощью оператора <code className='code'>in</code>
+          С помощью оператора <InlineCode>in</InlineCode>
         </h3>
         <p>Можно проверять на наличие свойства:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inNarrowingExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Custom Type Guard</h3>
         <p>Когда нужно что-то сложнее, то можно написать свою функцию-проверку:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={customTypeGuardExampleCode} />
         <p>
-          <code className='code'>obj is User</code> здесь <strong>предикат типа</strong> (type predicate). Это
-          специальный синтаксис, который сообщает компилятору, что если функция возвращает <em>true</em>, то переданный
-          аргумент фактически принадлежит к указанному типу.
+          <InlineCode>obj is User</InlineCode> здесь <strong>предикат типа</strong> (type predicate). Это специальный
+          синтаксис, который сообщает компилятору, что если функция возвращает <em>true</em>, то переданный аргумент
+          фактически принадлежит к указанному типу.
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
           Проверка на существование
           {getGhostText('Truthiness Narrowing')}
@@ -140,20 +148,20 @@ function process(data: unknown) {
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={truthinessNarrowingExampleCode} />
         <p>
-          Значения <code className='code'>null</code> и <code className='code'>undefined</code> здесь отфильтровались
-          автоматически во время проверки значения <code className='code'>name</code>. Таким образом можно отсечь{' '}
+          Значения <InlineCode>null</InlineCode> и <InlineCode>undefined</InlineCode> здесь отфильтровались
+          автоматически во время проверки значения <InlineCode>name</InlineCode>. Таким образом можно отсечь{' '}
           {renderInlineList(['null', 'undefined', '""', '0', 'false'], 'code', 'code')}
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
           Сужение на основе равенства
           {getGhostText('Equality narrowing')}
         </h3>
         <p>
           В этом случае сужение будет происходить на основе проверок равенства с помощью операторов{' '}
-          <code className='code'>===</code>, <code className='code'>!==</code>, <code className='code'>==</code> или{' '}
-          <code className='code'>!=</code>:
+          <InlineCode>===</InlineCode>, <InlineCode>!==</InlineCode>, <InlineCode>==</InlineCode> или{' '}
+          <InlineCode>!=</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={equalityNarrowingExampleCode} />
       </section>

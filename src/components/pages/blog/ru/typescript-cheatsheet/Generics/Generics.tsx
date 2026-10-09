@@ -3,6 +3,7 @@ import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 
 export const Generics = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -143,19 +144,19 @@ const userEntity: Entity<User> = {
       <h2>Дженерики {getGhostText('Generics')}</h2>
       <p>
         Это инструмент, который позволяет создавать компоненты (функции, классы, интерфейсы), способные работать с
-        различными типами данных без потери строгой типизации. Вместо жесткого указания типа, он передается как
+        различными типами данных без потери строгой типизации. Вместо железобетонно указанного типа он передаётся как
         параметр.
       </p>
-      <section>
+      <section className='section inner'>
         <h3>Обобщённые функции</h3>
         <p>Позволяют зафиксировать тип аргумента так, чтобы функция возвращала значение того же типа.</p>
         <p>
           Например есть функция, которая возвращает то, что получила. Без дженериков придётся использовать{' '}
-          <code className='code'>any</code>:
+          <InlineCode>any</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={anyPrintFunctionExampleCode} />
         <p>
-          Из-за использования <code className='code'>any</code> тип переменной будет утерян.
+          Из-за использования <InlineCode>any</InlineCode> тип переменной будет утерян.
         </p>
         <p>Эту же функцию можно переписать с помощью дженерика, а тип переменной при этом будет сохранён:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsPrintFunction} />
@@ -164,21 +165,21 @@ const userEntity: Entity<User> = {
           <li className='list__item'>
             <p>
               С помощью{' '}
-              <code className='code'>
+              <InlineCode>
                 <AngleBrackets>T</AngleBrackets>
-              </code>
+              </InlineCode>
                объявляем параметр типа. Можно назвать как угодно: <em>Value</em>, <em>Something</em>, но принято{' '}
               <em>T</em> или <em>Type</em>.
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>value: T</code> — параметр функции будет иметь указанный перед этим.
+              <InlineCode>value: T</InlineCode> {LONG_DASH} параметр функции будет иметь указанный перед этим.
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>: T</code> — функция возвращает этот же тип
+              <InlineCode>: T</InlineCode> {LONG_DASH} функция возвращает этот же тип
             </p>
           </li>
         </ul>
@@ -190,23 +191,23 @@ const userEntity: Entity<User> = {
         <p>
           В TypeScript можно использовать несколько параметров дженерика. Для этого их нужно перечислить в угловых
           скобках{' '}
-          <code className='code'>
+          <InlineCode>
             <AngleBrackets> </AngleBrackets>
-          </code>{' '}
+          </InlineCode>{' '}
           через запятую. Для второго параметра принято использовать букву <em>U</em>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={pairExampleCode} />
+        <p>
+          Для третьего параметра принято использовать букву <em>V</em> (следующая по алфавиту за <em>T</em> и <em>U</em>
+          ).
+        </p>
+        <p>
+          Три параметра часто нужны в сложных структурах данных. Например, для хранения текущего значения, предыдущего
+          значения и метаданных:
+        </p>
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={historyStateExampleCode} />
       </section>
-      <p>
-        Для третьего параметра принято использовать букву <em>V</em> (следующая по алфавиту за <em>T</em> и <em>U</em>
-        ).
-      </p>
-      <p>
-        Три параметра часто нужны в сложных структурах данных. Например, для хранения текущего значения, предыдущего
-        значения и метаданных:
-      </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={historyStateExampleCode} />
-      <section>
+      <section className='section inner'>
         <h3>Обобщённые интерфейсы и типы</h3>
         <p>Используются когда структура данных должна оставаться гибкой.</p>
         <p>При использовании с интерфейсами они работают как параметры функций:</p>
@@ -214,7 +215,7 @@ const userEntity: Entity<User> = {
         <p>Объявления типов работают с дженериками точно так же, как и интерфейсы:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
           Ограничения
           {getGhostText('Constraints')}
@@ -222,31 +223,34 @@ const userEntity: Entity<User> = {
         <p>
           Это инструмент, который заставляет дженерики соответствовать определенной структуре. Они сужают
           "вседозволенность" обычных дженериков, позволяя компилятору гарантировать наличие нужных методов и свойств
-          внутри функции или класса. Делается с помощью ключевого слова <code className='code'>extends</code>.
+          внутри функции или класса. Делается с помощью ключевого слова <InlineCode>extends</InlineCode>.
         </p>
         <p>Например, без ограничения получим ошибку:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={lengthErrorExampleCode} />
         <p>Если сузить круг возможных типов, передаваемых в дженерик, ошибки больше не будет:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Обобщённые классы</h3>
         <p>
           Дженерики в классах позволяют создавать шаблоны, способные работать с различными типами данных без
           дублирования кода.
         </p>
         <p>
-          Синтаксис здесь такой же: в угловых скобках <AngleBrackets> </AngleBrackets> передаётся тип при создании
-          экземпляра и затем TypeScript сам подставит нужный тип:
+          Синтаксис здесь такой же: в угловых скобках{' '}
+          <code className='code'>
+            <AngleBrackets> </AngleBrackets>
+          </code>{' '}
+          передаётся тип при создании экземпляра и затем TypeScript сам подставит нужный тип:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={classExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Значения по умолчанию</h3>
         <p>Можно задать значение по умолчанию:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={defaultValueExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
           <InlineCode>
             Entity<AngleBrackets>T</AngleBrackets>

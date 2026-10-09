@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { getGhostText } from 'src/utils/formatting';
@@ -43,15 +44,14 @@ type FuncArgs = MyParams<typeof doSomething>; // [abc: string, num: number, flag
     <section ref={ref} className='section outer'>
       <h2>Условные типы {getGhostText('Conditional Types')}</h2>
       <p>
-        Позволяют создавать типы, которые меняются в зависимости от условий. Это <code className='code'>if/else</code>,
-        но для типов:
+        Позволяют создавать типы, которые меняются в зависимости от условий. Это <InlineCode>if/else</InlineCode>, но
+        для типов:
       </p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={syntaxExample} />
       <p>Например:</p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={isStringTypeExampleCode} />
       <p>Как использовать этот тип:</p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={isStringTypeUsageExampleCode} />
-
       <p>Что можно сделать с помощью условных типов:</p>
       <ul className='list markered'>
         <li className='list__item'>
@@ -65,18 +65,17 @@ type FuncArgs = MyParams<typeof doSomething>; // [abc: string, num: number, flag
           <p>Фильтровать типы:</p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionFilterExampleCode} />
           <p>
-            Тип <code className='code'>never</code> в объединениях ведет себя как пустое множество: он просто исчезает
-            из объединения, никак не влияя на итоговый тип.
+            Тип <InlineCode>never</InlineCode> в объединениях ведет себя как пустое множество: он просто исчезает из
+            объединения, никак не влияя на итоговый тип.
           </p>
         </li>
       </ul>
-      <section>
+      <section className='section inner'>
         <h3>
-          <code className='code'>infer</code>
+          <InlineCode>infer</InlineCode>
         </h3>
         <p>
-          Ключевое слово <code className='code'>infer</code> используется в TypeScript внутри условных типов для того,
-          чтобы:
+          Ключевое слово <InlineCode>infer</InlineCode> используется в TypeScript внутри условных типов для того, чтобы:
         </p>
         <ul className='list markered'>
           <li className='list__item'>

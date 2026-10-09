@@ -1,8 +1,10 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { Note } from 'src/components/common/Note';
 import { ENoteType } from 'src/components/common/Note/Note.types';
+import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 
 export const Interfaces = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -105,31 +107,33 @@ interface C = A | B; // Error!`;
 
   return (
     <section ref={ref} id='Interfaces' className='section outer'>
-      <h2>
-        Интерфейсы
-        {getGhostText('Interfaces')}
-      </h2>
-      <p>
-        Интерфейсы подходят для описания структуры объектов, функций и классов. Ключевое здесь — в первую очередь для
-        объектов.
-      </p>
-      <p>
-        Интерфейсы записываются с помощью ключевого слова <code className='code'>interface</code>:
-      </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={interfaceExampleCode} />
-      <div className='spacer top medium'>
-        <Note type={ENoteType.SECONDARY}>
-          <p>
-            Интерфейсы в TypeScript можно называть с префиксом <em>I</em>, например, <em>IUser</em> вместо <em>User</em>
-            . Это не обязательное правило TypeScript, а соглашение, пришедшее из других языков для улучшения читаемости
-            кода. Это помогает мгновенно отличить интерфейсы от других значений, например типов, классов или объектов.
-          </p>
-        </Note>
-      </div>
-      <p>Интерфейсы могут описывать функции:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionExampleCode} />
-
-      <section>
+      <section className='section inner'>
+        <h2>
+          Интерфейсы
+          {getGhostText('Interfaces')}
+        </h2>
+        <p>
+          Интерфейсы подходят для описания структуры объектов, функций и классов. Ключевое здесь {LONG_DASH} в первую
+          очередь для объектов.
+        </p>
+        <p>
+          Интерфейсы записываются с помощью ключевого слова <InlineCode>interface</InlineCode>:
+        </p>
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={interfaceExampleCode} />
+        <div className='spacer top medium'>
+          <Note type={ENoteType.SECONDARY}>
+            <p>
+              Интерфейсы в TypeScript можно называть с префиксом <em>I</em>, например, <em>IUser</em> вместо{' '}
+              <em>User</em>. Это не обязательное правило TypeScript, а соглашение, пришедшее из других языков для
+              улучшения читаемости кода. Это помогает мгновенно отличить интерфейсы от других значений, например типов,
+              классов или объектов.
+            </p>
+          </Note>
+        </div>
+        <p>Интерфейсы могут описывать функции:</p>
+        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionExampleCode} />
+      </section>
+      <section className='section inner'>
         <h3>
           Объединение интерфейсов
           {getGhostText('Declaration Merging')}
@@ -141,34 +145,34 @@ interface C = A | B; // Error!`;
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionExampleCode} />
         <p></p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Расширение интерфейсов</h3>
         <p>
-          Интерфейсы могут расширять другие интерфейсы с помощью ключевого слова <code className='code'>extends</code>:
+          Интерфейсы могут расширять другие интерфейсы с помощью ключевого слова <InlineCode>extends</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsExampleCode} />
         <p>Можно расширять несколько интерфейсов сразу:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={multipleExtendsExampleCode} />
         <p>
-          В отличии от автоматического слияния, расширение с помошью <code className='code'>extends</code> — это явное
-          наследование одного интерфейса от другого.
+          В отличии от автоматического слияния, расширение с помошью <InlineCode>extends</InlineCode> {LONG_DASH} это
+          явное наследование одного интерфейса от другого.
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Интерфейсы для классов</h3>
         <p>
-          Класс может реализовать интерфейс. С помощью ключевого слова <code className='code'>implements</code>{' '}
-          TypeScript заставляет класс строго соответствовать определенному интерфейсу:
+          Класс может реализовать интерфейс. С помощью ключевого слова <InlineCode>implements</InlineCode> TypeScript
+          заставляет класс строго соответствовать определенному интерфейсу:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={classExampleCode} />
-        <p>Если чего-то не хватит — TypeScript покажет ошибку:</p>
+        <p>Если чего-то не хватит {LONG_DASH} TypeScript покажет ошибку:</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={classErrorExampleCode} />
         <p>
-          В отличии от <code className='code'>extends</code>, который наследует код (свойства, методы, конструктор),
-          <code className='code'>implements</code> только проверяет соответствие формы.
+          В отличии от <InlineCode>extends</InlineCode>, который наследует код (свойства, методы, конструктор),
+          <InlineCode>implements</InlineCode> только проверяет соответствие формы.
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Ограничения интерфейсов</h3>
         <ul className='list markered'>
           <li className='list__item'>

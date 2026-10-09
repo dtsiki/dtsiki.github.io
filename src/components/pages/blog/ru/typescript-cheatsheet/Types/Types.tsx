@@ -1,7 +1,9 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { Note, NoteType } from 'src/components/common/Note';
+import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 
 export const Types = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -53,7 +55,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
       <h2>Типы {getGhostText('Types')}</h2>
       <p>
         С помощью типов можно описывать любые структуры данных: примитивные типы, объекты, функций, массивов и т.д.
-        Ключевое слово здесь — <strong>любые</strong>.
+        Ключевое слово здесь {LONG_DASH} <strong>любые</strong>.
       </p>
       <Note type={NoteType.SECONDARY}>
         Не следует путать с{' '}
@@ -63,7 +65,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
         .
       </Note>
       <p>
-        Типы записываются с помощью ключевого слова <code className='code'>type</code>.
+        Типы записываются с помощью ключевого слова <InlineCode>type</InlineCode>.
       </p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeExampleCode} />
 
@@ -79,7 +81,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
       <p>Кортежи:</p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={tupleTypeExampleCode} />
 
-      <div className='spacer top medium'>
+      <div className='spacer top bottom medium'>
         <Note type={NoteType.SECONDARY}>
           <p>
             Типы в TypeScript можно называть с префиксом <em>T</em>, например, <em>TUser</em> вместо <em>User</em>. Это
@@ -89,23 +91,29 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
         </Note>
       </div>
       <section className='section inner'>
-        <h3>Объединение и пересечение типов</h3>
+        <h3>Объединение и пересечение типов {getGhostText('Union & Intersection')}</h3>
         <p>
           Для создания нового типа можно комбинировать несколько типов с помощью объединения (Union) и пересечения
           (Intersection).
         </p>
-        <p>
-          Для объединения используется символ <code className='code'>|</code>. В результате объединения получается новый
-          тип, который будет содержать всё, что есть в типах, участвующих в объединении:
-        </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionTypesExampleCode} />
-        <p>
-          Для пересечения используется символ <code className='code'>&</code>. Новый тип будет содержать свойства{' '}
-          <strong>всех</strong> указанных при пересечении типов:
-        </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={intersectionTypesExampleCode} />
-        <p>Также с помощью пересечения можно расширять типы:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsTypeExampleCode} />
+        <section className='section inner'>
+          <h4>Объединение типов</h4>
+          <p>
+            Для объединения используется символ <InlineCode>|</InlineCode>. В результате объединения получается новый
+            тип, который будет содержать всё, что есть в типах, участвующих в объединении:
+          </p>
+          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionTypesExampleCode} />
+        </section>
+        <section className='section inner'>
+          <h4>Пересечение типов</h4>
+          <p>
+            Для пересечения используется символ <InlineCode>&</InlineCode>. Новый тип будет содержать свойства{' '}
+            <strong>всех</strong> указанных при пересечении типов:
+          </p>
+          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={intersectionTypesExampleCode} />
+          <p>Также с помощью пересечения можно расширять типы:</p>
+          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsTypeExampleCode} />
+        </section>
       </section>
       <section className='section inner'>
         <h3>Ограничения типов</h3>

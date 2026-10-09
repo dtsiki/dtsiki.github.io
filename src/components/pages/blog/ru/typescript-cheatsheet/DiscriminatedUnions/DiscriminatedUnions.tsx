@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
 import { getGhostText } from 'src/utils/formatting';
@@ -53,14 +54,14 @@ getArea({ type: 'circle', radius: 42 });`;
         {getGhostText('Discriminated Unions')}
       </h2>
       <p>
-        Это набор типов, у которых есть общее поле-дискриминатор. Обычно это <code className='code'>type</code>,{' '}
-        <code className='code'>kind</code> или <code className='code'>status</code>. По этому полю TypeScript понимает
-        какой именно тип будет нужен.
+        Это набор типов, у которых есть общее поле-дискриминатор. Обычно это <InlineCode>type</InlineCode>,{' '}
+        <InlineCode>kind</InlineCode> или <InlineCode>status</InlineCode>. По этому полю TypeScript понимает какой
+        именно тип будет нужен.
       </p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={exampleCode} />
       <p>
-        Теперь TypeScript знает: если <code className='code'>shape.type === 'circle'</code>, то нужным типом точно будет{' '}
-        <code className='code'>Circle</code>:
+        Теперь TypeScript знает: если <InlineCode>shape.type === 'circle'</InlineCode>, то нужным типом точно будет{' '}
+        <InlineCode>Circle</InlineCode>:
       </p>
       <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={exampleUsageCode} />
     </section>

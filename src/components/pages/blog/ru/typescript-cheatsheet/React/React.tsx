@@ -1,8 +1,10 @@
 import { MouseEvent, forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 
 export const React = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -91,7 +93,7 @@ export interface IListProps<T> {
 
   const genericsListComponentExampleCode = `import { IListProps } from './types';
 
-export const List = <T,>({ items, renderItem }: IListProps<T>) => {
+export const List = <T>({ items, renderItem }: IListProps<T>) => {
   return (
     <ul>
       {items.map((item, index) => (
@@ -285,53 +287,72 @@ Button.displayName = 'Button';`;
 
   return (
     <section ref={ref} className='section outer'>
-      <h2>Типизация React</h2>
-      <p>TypeScript поддерживает большинство популярных веб-фреймворков, в том числе и React.</p>
-      <p>
-        Написание кода на React в связке с TypeScript очень похоже на JavaScript/React код, ключевая разница будет
-        заключаться только в том, что нужно будет указывать типы для компонентов, пропсов, стейтов и функций.
-      </p>
-
-      <section>
+      <section className='section inner'>
+        <h2>Типизация React</h2>
+        <p>TypeScript поддерживает большинство популярных веб-фреймворков, в том числе и React.</p>
+        <p>
+          Написание кода на React в связке с TypeScript очень похоже на написание обычного JavaScript кода, ключевая
+          разница будет заключаться только в том, что нужно будет указывать типы для компонентов, пропсов, состояний и
+          функций.
+        </p>
+        <p>
+          Помимо этого поменяется расширение файлов. В обычном React файлы имеют расширение <em>.jsx</em> или{' '}
+          <em>.js</em>. В связке с TypeScript файлы компонентов и утилит должны иметь расширение <em>.tsx</em> или{' '}
+          <em>.ts</em>.
+        </p>
+      </section>
+      <section className='section inner'>
         <h3>Настройка TypeScript</h3>
         <p>
-          Чтобы использовать TypeScript в React-проектах достаточно использовать расширение <em>.tsx</em> для файлов
-          компонентов и установить типы:
+          Чтобы использовать TypeScript в React-проектах помимо смены расширения файлов на <em>.tsx</em>/<em>.ts</em>,
+          нужно установить типы:
         </p>
         <ul className='list markered'>
           <li className='list__item'>
             <p>
-              Для новых проектов лучший способ — инициализировать приложение через поддерживаемые фреймворки (например,
-              с помощью Vite или Next.js), выбрав шаблон с TypeScript
+              Для новых проектов лучший способ {LONG_DASH} инициализировать приложение через поддерживаемые фреймворки
+              (например, с помощью Vite или Next.js), выбрав при установке шаблон с TypeScript, типы появятся сами после
+              установки.
             </p>
           </li>
           <li className='list__item'>
             <p>Для ручного подключения установите типы командой:</p>
             <ExampleSnippet code={installCommand} />
           </li>
+          <li className='list__item'>
+            <p>
+              Многие современные библиотеки уже имеют типы (как в примере выше React), но иногда, особенно в старых или
+              библиотеках, написанных на нативном JavaScript, они могут отсутствовать. Для них нужно отдельно
+              устанавливать пакеты типов. Обычно названия таких пакетов начинаются с префикса <em>@types</em>.
+            </p>
+          </li>
         </ul>
+        <p>
+          В финальный билд такие библиотеки типов обычно не попадают, поэтому их всегда устанавливают с флагом{' '}
+          <em>-D</em> или <em>--save-dev</em> (только для разработки).
+        </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Типизация пропсов</h3>
         <p>
-          Для типизации пропсов используйте ключевое слово <code className='code'>type</code> или{' '}
-          <code className='code'>interface</code>. Создайте отдельный тип для пропсов и задайте его для функционального
-          компонента:
+          Для типизации пропсов обычно используется ключевое слово <InlineCode>type</InlineCode> или{' '}
+          <InlineCode>interface</InlineCode> для создания отдельных типов для пропсов компонента:
         </p>
         <CodeSnippet lang={ECodeLang.REACT} code={componentWithInterfaceExampleCode} name='Button' />
         <p>
-          Что выбрать: <code className='code'>interface</code> или <code className='code'>type</code>? Для пропсов они
-          взаимозаменяемы, но часто выбирают <code className='code'>interface</code>.
+          Что выбрать: <InlineCode>interface</InlineCode> или <InlineCode>type</InlineCode>? Для пропсов они
+          взаимозаменяемы, но часто выбирают <InlineCode>interface</InlineCode>.
         </p>
         <p>
-          Можно создать в директории компонента отдельный файл <em>COMPONENT_NAME.types.ts</em> и перенести
-          тип/интерфейс для пропса туда — это отличная практика для очистки кода компонентов:
+          <strong>Best practice:</strong> создать в директории компонента отдельный файл{' '}
+          <em>COMPONENT_NAME.types.ts</em> и перенести тип/интерфейс для пропса туда {LONG_DASH} это отличная практика
+          для очистки кода компонентов:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typesInterfaceExampleCode} name='Button.types' />
         <div className='spacer top small'></div>
         <CodeSnippet lang={ECodeLang.REACT} code={componentExampleCode} name='Button' />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Типизация компонентов</h3>
         <p>
           Раньше надо было типизировать компоненты с <em>FC</em> (или <em>FunctionComponent</em>):
@@ -341,22 +362,22 @@ Button.displayName = 'Button';`;
         <CodeSnippet lang={ECodeLang.REACT} code={FCComponentExampleCode} name='Button' />
         <p className='explanation'>Внимание: это старый подход!</p>
         <p>
-          В современном TypeScript это делать не обязательно и часто не рекомендуется — <em>FC</em> автоматически
-          добавляет <code className='code'>children: ReactNode</code> в пропсы компонента, а также тип <em>FC</em> не
-          принимает дженерики в пропсах. Это может привести к ситуациям, когда компонент, который не должен принимать
-          дочерние элементы, всё равно их принимает без ошибок со стороны TypeScript. Поэтому достаточно просто
-          протипизировать пропсы без типизации самого компонента:
+          В современном TypeScript это делать не обязательно и часто не рекомендуется {LONG_DASH} <em>FC</em>{' '}
+          автоматически добавляет <InlineCode>children: ReactNode</InlineCode> в пропсы компонента, а также тип{' '}
+          <em>FC</em> не принимает дженерики в пропсах. Это может привести к ситуациям, когда компонент, который не
+          должен принимать дочерние элементы, всё равно их принимает без ошибок со стороны TypeScript. Поэтому
+          достаточно просто протипизировать пропсы без типизации самого компонента:
         </p>
         <CodeSnippet lang={ECodeLang.REACT} code={withoutFCTypeExampleCode} name='Button.types' />
         <div className='spacer top small'></div>
         <CodeSnippet lang={ECodeLang.REACT} code={withoutFCComponentExampleCode} name='Button' />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>
-          Типизация <code className='code'>children</code>
+          Типизация <InlineCode>children</InlineCode>
         </h3>
         <p>
-          Если компонент должен оборачивать другие компоненты т.е. принимать <code className='code'>children</code>,
+          Если компонент должен оборачивать другие компоненты т.е. принимать <InlineCode>children</InlineCode>,
           используйте стандартный тип <strong>ReactNode</strong>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={childrenTypesExampleCode} name='Header.types' />
@@ -364,33 +385,33 @@ Button.displayName = 'Button';`;
         <CodeSnippet lang={ECodeLang.REACT} code={childrenComponentExampleCode} name='Header' />
         <p>
           Этот тип настоящая палочка-выручалочка и представляет собой всё, что может быть отрендерено в React: элементы
-          React (JSX), строки, числа, массивы, фрагменты, <code className='code'>null</code>,{' '}
-          <code className='code'>undefined</code> и логические значения.
+          React (JSX), строки, числа, массивы, фрагменты, <InlineCode>null</InlineCode>,{' '}
+          <InlineCode>undefined</InlineCode> и логические значения.
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Типизация событий</h3>
         <p>
           События типизируются встроенными типами из <strong>React</strong>. В зависимости от типа действия (клик, ввод,
           отправка формы) используются специфические типы, такие как <strong>MouseEvent</strong>,{' '}
           <strong>ChangeEvent</strong> или <strong>FormEvent</strong>, соответственно.
         </p>
-        <section>
+        <section className='section inner'>
           <h4>
             События мыши
             {getGhostText('Mouse Events')}
           </h4>
           <p>
             Для кликов, наведений и других манипуляций мышью используйте тип <strong>MouseEvent</strong>. В дженерике{' '}
-            <code className='code'>
+            <InlineCode>
               <AngleBrackets> </AngleBrackets>
-            </code>{' '}
+            </InlineCode>{' '}
             обычно указывается HTML-тег элемента, с которого приходит событие, в данном случае это кнопка поэтому тип
             будет <strong>HTMLButtonElement</strong>:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={mouseEventExampleCode} name='Button' />
         </section>
-        <section>
+        <section className='section inner'>
           <h4>
             События ввода
             {getGhostText('Change Events')}
@@ -409,9 +430,9 @@ Button.displayName = 'Button';`;
         <ul className='list markered'>
           <li className='list__item'>
             <p>
-              Посмотреть на атрибут тега, например, <code className='code'>onClick</code> или{' '}
-              <code className='code'>onChange</code>. Начните писать тег, напишите атрибут, наведите на слово{' '}
-              <code className='code'>event</code> в IDE и TypeScript покажет, что это{' '}
+              Посмотреть на атрибут тега, например, <InlineCode>onClick</InlineCode> или{' '}
+              <InlineCode>onChange</InlineCode>. Начните писать тег, напишите атрибут, наведите на слово{' '}
+              <InlineCode>event</InlineCode> в IDE и TypeScript покажет, что это{' '}
               <strong>
                 MouseEvent<AngleBrackets>HTMLButtonElement</AngleBrackets>
               </strong>
@@ -423,7 +444,7 @@ Button.displayName = 'Button';`;
             <p>
               Воспользоваться подсказкой вашей среды разработки, наведя курсор на место, где будет передан аргумент
               события. Похоже на предыдущий способ: вынесите функцию, но не пишите тип сразу, наведите на{' '}
-              <code className='code'>event</code>, IDE снова подскажет нужный тип:
+              <InlineCode>event</InlineCode>, IDE снова подскажет нужный тип:
             </p>
             <CodeSnippet lang={ECodeLang.REACT} code={clickHandlerHintHintExampleCode} name='Button' />
           </li>
@@ -431,77 +452,88 @@ Button.displayName = 'Button';`;
         <p>
           В большинстве проектов вам понадобятся лишь несколько основных типов. Главное правило:{' '}
           <strong>ChangeEvent</strong> используется, когда меняется значение (ввод), а <strong>MouseEvent</strong> для
-          кликов или перемещений. В качестве дженерика нужно передать тип HTML-элемента.
+          кликов или перемещений. В качестве дженерика нужно передать тип HTML-элемента (см.{' '}
+          <a className='link PRIMARY' href='#DOM_and_Events'>
+            Типизация DOM и событий
+          </a>
+          ).
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Типизация хуков</h3>
         <p>
           Типизация хуков происходит автоматически, но часто требует явного указания типов при работе с начальными
           состояниями, сложными объектами или массивами.
         </p>
-        <section>
+        <section className='section inner'>
           <h4>
-            <code className='code'>useState</code>
+            <InlineCode>useState</InlineCode>
           </h4>
-          <p>Типизация useState обычно выводится автоматически из начального значения. Тип можно указывать:</p>
+          <p>
+            Типизация <InlineCode>useState</InlineCode> для примитивов обычно выводится автоматически из начального
+            значения. Тип можно указывать:
+          </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={awesomeComponentPrimitiveStatesExampleCode} />
           <p>
             А можно и пропустить, как и в случае с переменными (см.{' '}
             <a href='#Type_Annotations' className='link PRIMARY'>
               Аннотация типов
             </a>
-            ) — TypeScript сам может автоматически определить тип по начальному значению:
+            ) {LONG_DASH} TypeScript сам может автоматически определить тип по начальному значению:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={awesomeComponentPrimitiveStatesSkippedExampleCode} />
           <p>
-            Если начальное значение может быть <code className='code'>null</code> или тип неочевиден, используйте
-            дженерик в виде{' '}
-            <code className='code'>
+            Если начальное значение может быть <InlineCode>null</InlineCode> или тип неочевиден, используйте дженерик в
+            виде{' '}
+            <InlineCode>
               useState<AngleBrackets>Type</AngleBrackets>(initialValue)
-            </code>{' '}
+            </InlineCode>{' '}
             c объединением для явного указания:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsUseStateExampleCode} />
           <p>Если начальное состояние это массив объектов, который изначально пуст:</p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={emptyArrayUseStateExampleCode} />
         </section>
-        <section>
+        <section className='section inner'>
           <h4>
-            <code className='code'>useRef</code>
+            <InlineCode>useRef</InlineCode>
           </h4>
           <p>
-            Хук <code className='code'>useRef</code> используется как для хранения значений, так и для ссылок на
+            Хук <InlineCode>useRef</InlineCode> используется как для хранения значений, так и для ссылок на
             DOM-элементы, поэтому есть два способа его типизации, важно передавать точный тип элемента и начальное
             значение в зависимости от варианта использования хука:
           </p>
           <ul className='list markered'>
             <li className='list__item'>
               <p>
-                <code className='code'>useRef</code> хранит ссылку на DOM-элемент:
+                <InlineCode>useRef</InlineCode> хранит ссылку на DOM-элемент:
               </p>
               <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useRefDOMRefExampleCode} />
             </li>
             <li className='list__item'>
               <p>
-                <code className='code'>useRef</code> используется как переменная для сохранения данных:
+                <InlineCode>useRef</InlineCode> используется как переменная для сохранения данных:
               </p>
               <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useRefVarRefExampleCode} />
             </li>
           </ul>
           <p>
-            Если нужно пробросить <code className='code'>ref</code> в компонент как пропс, то нужно обернуть дочерний
-            компонент в <code className='code'>forwardRef</code> и проставить соответствующие типы:
+            Если нужно пробросить <InlineCode>ref</InlineCode> в компонент как пропс, то нужно обернуть дочерний
+            компонент в <InlineCode>forwardRef</InlineCode> и проставить соответствующие типы в угловых скобках{' '}
+            <code className='code'>
+              <AngleBrackets></AngleBrackets>
+            </code>{' '}
+            через запятую {LONG_DASH} типы HTML-элемента и тип для пропсов компонента:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={forwardRefTypesExampleCode} />
           <div className='spacer top small'></div>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={forwardRefComponentExampleCode} />
         </section>
-        <section>
+        <section className='section inner'>
           <h4>Кастомные хуки</h4>
           <p>
-            Для создания кастомных хуков применяются те же правила типизации аргументов функций и возвращаемых значений.
-            Возвращаемый результат часто типизируется как кортеж:
+            Для типизации кастомных хуков применяются те же правила типизации аргументов функций и возвращаемых
+            значений. Возвращаемый результат часто типизируется как кортеж:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={customHookExampleCode} />
 
@@ -517,44 +549,43 @@ Button.displayName = 'Button';`;
             <a href='#Generics_Custom_Hooks' className='link PRIMARY'>
               дженерики
             </a>{' '}
-            для создания хуков.
+            для типизации хуков.
           </p>
         </section>
-        <section>
+        <section className='section inner'>
           <h4>
-            <code className='code'>useMemo</code>, <code className='code'>useCallback</code>
+            <InlineCode>useMemo</InlineCode>, <InlineCode>useCallback</InlineCode>
           </h4>
           <p>
-            TypeScript автоматически определяет возвращаемый тип функции или значения в{' '}
-            <code className='code'>useMemo</code>:
+            TypeScript автоматически определяет возвращаемый тип функции или значения в <InlineCode>useMemo</InlineCode>
+            :
           </p>
-
           <p>
-            Основное внимание нужно уделить аргументам функции, передаваемой в <code className='code'>useCallback</code>{' '}
-            — их типы лучше прописывать явно, чтобы избежать ошибок типизации при передаче пропсов:
+            Основное внимание нужно уделить аргументам функции, передаваемой в <InlineCode>useCallback</InlineCode>{' '}
+            {LONG_DASH} их типы лучше прописывать явно, чтобы избежать ошибок типизации при передаче пропсов:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useCallbackExampleCode} />
           <p>
-            Тип возвращемого значения, аналогично как и дл <code className='code'>useMemo</code>, указывать не надо.
+            Тип возвращемого значения, аналогично как и дл <InlineCode>useMemo</InlineCode>, указывать не надо.
           </p>
         </section>
-        <section>
+        <section className='section inner'>
           <h4>
-            <code className='code'>useContext</code>
+            <InlineCode>useContext</InlineCode>
           </h4>
           <p>
-            Чтобы типизировать хук <code className='code'>useContext</code>, нужно задать интерфейс для данных контекста
-            на этапе создания через <code className='code'>createContext</code>:
+            Чтобы типизировать хук <InlineCode>useContext</InlineCode>, нужно задать интерфейс для данных контекста на
+            этапе создания через <InlineCode>createContext</InlineCode>:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useContextInterfaceExampleCode} />
           <p>
-            Передаем <code className='code'>null</code> в качестве значения по умолчанию, чтобы избежать ложных
+            В качестве значения по умолчанию указывается <InlineCode>null</InlineCode> , чтобы избежать ложных
             срабатываний.
           </p>
           <p>
-            TypeScript автоматически подхватит указанный тип при вызове <code className='code'>useContext</code>. Для
-            избежания проблем с <code className='code'>null</code> рекомендуется создавать кастомный хук-обертку,
-            который будет проверять, что компонент находится внутри провайдера:
+            TypeScript автоматически подхватит указанный тип при вызове <InlineCode>useContext</InlineCode>. Для
+            избежания проблем с <InlineCode>null</InlineCode> рекомендуется создавать кастомный хук-обертку, который
+            будет проверять, что компонент находится внутри провайдера:
           </p>
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useThemeExampleCode} />
           <div className='spacer top small'></div>
@@ -563,7 +594,7 @@ Button.displayName = 'Button';`;
           <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={themeExampleCode} />
         </section>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Компоненты-дженерики</h3>
         <p>
           С помощью дженериков можно делать универсальные компоненты, которые будут работать с разными типами данных,
@@ -574,7 +605,7 @@ Button.displayName = 'Button';`;
         <div className='spacer top small'></div>
         <CodeSnippet lang={ECodeLang.REACT} code={genericsListComponentExampleCode} name='List' />
       </section>
-      <section id='Generics_Custom_Hooks'>
+      <section id='Generics_Custom_Hooks' className='section inner'>
         <h3>Дженерики-хуки</h3>
         <p>
           Дженерики также позволяют создавать переиспользуемые хуки, которые адаптируют свои типы под передаваемые
@@ -583,9 +614,9 @@ Button.displayName = 'Button';`;
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsHookExampleCode} name='useLocalStorage' />
         <p>
           При вызове{' '}
-          <code className='code'>
+          <InlineCode>
             useLocalStorage<AngleBrackets>string</AngleBrackets>('user', 'dtsiki')
-          </code>{' '}
+          </InlineCode>{' '}
           TypeScript автоматически выведет все типы как <em>string</em>.
         </p>
       </section>

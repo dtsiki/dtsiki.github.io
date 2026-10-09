@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
-import { Note } from 'src/components/common/Note';
-import { getGhostText } from 'src/utils/formatting';
+import { LONG_DASH } from 'src/constants';
 
 export const OOP = forwardRef<HTMLDivElement>(({}, ref) => {
   const basicClassExampleCode = `class User {
@@ -95,7 +95,7 @@ myDog.makeSound(); // Выведет: Кеша лает: Гав-гав!`;
   const abstractClassExampleCode = `abstract class AbstractUser {
   constructor(public id: number, public email: string) {}
 
-  // Абстрактный метод — у него нет тела, дочерние классы обязаны его реализовать
+  // Абстрактный метод {LONG_DASH} у него нет тела, дочерние классы обязаны его реализовать
   abstract getRole(): string;
 
   displayInfo(): void {
@@ -221,8 +221,7 @@ const user = new User(20);
 console.log(user.age); // 20 (сработал геттер)
 
 user.age = 25; // сработал сеттер
-// user.age = -5; // выбросит ошибку
-`;
+// user.age = -5; // выбросит ошибку`;
 
   return (
     <section ref={ref} className='section outer'>
@@ -230,9 +229,9 @@ user.age = 25; // сработал сеттер
       <p>
         TypeScript полностью поддерживает классическое объектно-ориентированное программирование, предлагая строгую
         типизацию, классы, интерфейсы, модификаторы доступа, абстрактные классы и удобную реализацию наследования через
-        ключевое слово <code className='code'>extends</code>.
+        ключевое слово <InlineCode>extends</InlineCode>.
       </p>
-      <section>
+      <section className='section inner'>
         <h3>Классы</h3>
         <p>
           В TypeScript есть полноценная поддержка классов, унаследованная из стандарта ECMAScript, с добавлением мощных
@@ -240,7 +239,7 @@ user.age = 25; // сработал сеттер
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={basicClassExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Модификаторы доступа</h3>
         <p>
           В TypeScript есть четыре модификатора, которые управляют видимостью свойств и методов класса, обеспечивая
@@ -249,27 +248,28 @@ user.age = 25; // сработал сеттер
         <ul className='list markered'>
           <li className='list__item'>
             <p>
-              <code className='code'>public</code>: свойства и методы с этим модификатором доступны из любого места —
+              <InlineCode>public</InlineCode>: свойства и методы с этим модификатором доступны из любого места{' '}
+              {LONG_DASH}
               внутри класса, в дочерних классах и снаружи (в экземпляре объекта). Если модификатор не указан, по
-              умолчанию свойство становится <code className='code'>public</code>.
+              умолчанию свойство становится <InlineCode>public</InlineCode>.
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>private</code>: свойства и методы доступны только внутри того класса, где они
-              объявлены. Доступ к ним извне или из дочерних классов приведет к ошибке компиляции.
+              <InlineCode>private</InlineCode>: свойства и методы доступны только внутри того класса, где они объявлены.
+              Доступ к ним извне или из дочерних классов приведет к ошибке компиляции.
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>protected</code>: свойства и методы доступны внутри самого класса, а также во всех
-              его дочерних классах. Снаружи к ним обращаться нельзя.
+              <InlineCode>protected</InlineCode>: свойства и методы доступны внутри самого класса, а также во всех его
+              дочерних классах. Снаружи к ним обращаться нельзя.
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>readonly</code>: свойства и методы доступы только для чтения, изменить их после
-              создания или инициализации нельзя.
+              <InlineCode>readonly</InlineCode>: свойства и методы доступы только для чтения, изменить их после создания
+              или инициализации нельзя.
             </p>
           </li>
         </ul>
@@ -280,88 +280,88 @@ user.age = 25; // сработал сеттер
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={shortSyntaxModifiersExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Наследование</h3>
         <p>
           Дочерний класс наследует свойства и методы родительского, но может добавлять свои или переопределять
-          существующие. Наследование осуществляется с помощью ключевого слова <code className='code'>extends</code>, а в
-          дочернем классе обязательно нужно вызывать метод <code className='code'>super()</code>:
+          существующие. Наследование осуществляется с помощью ключевого слова <InlineCode>extends</InlineCode>, а в
+          дочернем классе обязательно нужно вызывать метод <InlineCode>super()</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsExampleCode} />
         <p>
-          В TypeScript нет множественного наследования классов, но его поддерживают интерфейсы — можно унаследовать
-          сразу несколько интерфейсов через запятую с помощью ключевого слова <code className='code'>implements</code>{' '}
-          (см.{' '}
+          В TypeScript нет множественного наследования классов, но его поддерживают интерфейсы {LONG_DASH} можно
+          унаследовать сразу несколько интерфейсов через запятую с помощью ключевого слова{' '}
+          <InlineCode>implements</InlineCode> (см.{' '}
           <a href='#Interfaces_Implementation' className='link PRIMARY'>
             Реализация интерфейсов
           </a>
           ).
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Абстрактные классы</h3>
         <p>Абстрактные классы нельзя инстанциировать. Они нужны как шаблон для других классов.</p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={abstractClassExampleCode} />
       </section>
-      <section id='Interfaces_Implementation'>
+      <section id='Interfaces_Implementation' className='section inner'>
         <h3>Реализация интерфейсов</h3>
         <p>
-          Ключевое слово <code className='code'>implements</code> в TypeScript заставляет класс строго соответствовать
+          Ключевое слово <InlineCode>implements</InlineCode> в TypeScript заставляет класс строго соответствовать
           контракту, описанному в интерфейсе. Класс обязан реализовать все указанные свойства и методы; в противном
           случае компилятор выдаст ошибку:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={implementsExampleCode} />
         <p>
-          В это пример,если не будет реализован, например, метод <code className='code'>play()</code>, то будет получена
-          ошибка компиляции, сообщающая о том, что необходимо реализовать этот этот метод потому что он является
-          обязательным в интерфейсе <code className='code'>Pet</code>.
+          В этом примере, если не будет реализован, например, метод <InlineCode>play()</InlineCode>, то будет получена
+          ошибка компиляции, сообщающая о том, что необходимо реализовать этот метод потому что он является обязательным
+          в интерфейсе <InlineCode>Pet</InlineCode>.
         </p>
         <p>
-          Разница между <code className='code'>extends</code> и <code className='code'>implements</code>:
+          Разница между <InlineCode>extends</InlineCode> и <InlineCode>implements</InlineCode>:
         </p>
         <ul className='list markered'>
           <li className='list__item'>
             <p>
-              <code className='code'>extends</code> используют для наследования: класс берёт и копирует готовую
-              реализацию от родительского класса.
+              <InlineCode>extends</InlineCode> используют для наследования: класс берёт и копирует готовую реализацию от
+              родительского класса.
             </p>
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>implements</code>: класс лишь обязуется реализовать все свойства и методы,
-              описанные в интерфейсе.
+              <InlineCode>implements</InlineCode>: класс лишь обязуется реализовать все свойства и методы, описанные в
+              интерфейсе.
             </p>
           </li>
         </ul>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Статические свойства и методы</h3>
         <p>
           В TypeScript нет выделенного ключевого слова для создания самих статических классов. Ключевое слово{' '}
-          <code className='code'>static</code> помечает только свойства и методы, принадлежащие самому классу. Создать
-          объект такого класса через <code className='code'></code> невозможно.
+          <InlineCode>static</InlineCode> помечает только свойства и методы, принадлежащие самому классу. Создать объект
+          такого класса через <InlineCode></InlineCode> невозможно.
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={staticClassExampleCode} />
 
         <p>
           Статические классы используются для создания глобальных утилит (математические операции, работа со строками
           или датами), фабрик, сервисов и констант. Они группируют логику и данные, которые принадлежат самому классу, а
-          не отдельным экземплярам, избавляя от необходимости вызывать <code className='code'>new ClassName()</code>.
+          не отдельным экземплярам, избавляя от необходимости вызывать <InlineCode>new ClassName()</InlineCode>.
         </p>
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Геттеры и сеттеры</h3>
         <p>
-          Геттеры и сеттеры — это специальные методы, которые позволяют управлять доступом к свойствам класса. Они
-          полезны для инкапсуляции, выполнения проверок перед изменением данных или вычисления значений на лету.
+          Геттеры и сеттеры {LONG_DASH} это специальные методы, которые позволяют управлять доступом к свойствам класса.
+          Они полезны для инкапсуляции, выполнения проверок перед изменением данных или вычисления значений на лету.
         </p>
         <p>
-          Для их создания используются ключевые слова <code className='code'>get</code> и{' '}
-          <code className='code'>set</code>, а при обращении к ним скобки не требуются:
+          Для их создания используются ключевые слова <InlineCode>get</InlineCode> и <InlineCode>set</InlineCode>, а при
+          обращении к ним скобки не требуются:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={setterAndGetterExampleCode} />
       </section>
-      <section>
+      <section className='section inner'>
         <h3>Классы с дженериками</h3>
         <p>
           И тут не обойдёмся без них: дженерики позволяют создавать классы, которые могут работать с разными типами

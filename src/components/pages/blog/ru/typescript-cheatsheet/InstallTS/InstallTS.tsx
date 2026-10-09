@@ -48,7 +48,7 @@ npm --version`;
           Позволяет использовать команды компилятора TypeScript в любом месте на вашем компьютере. Удобно для
           экспериментов и небольших скриптов.
         </p>
-
+        <p>Ставим:</p>
         <ExampleSnippet code={installGlobalCommandSnippet} />
         <p>Чтобы проверить, что TypeScript установился, просто введите команду проверки текущий версии:</p>
         <ExampleSnippet code={tsVersionCommandSnippet} />

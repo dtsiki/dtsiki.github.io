@@ -1,7 +1,9 @@
 import { forwardRef } from 'react';
+import { InlineCode } from 'src/components/blog';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { LONG_DASH } from 'src/constants';
 import { getGhostText, renderInlineList } from 'src/utils/formatting';
 
 export const UtilityTypes = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -144,82 +146,81 @@ type User = Awaited<UserFunctionReturnType>;`;
           из типов.
         </p>
         <p>
-          <strong>Важно: встроенные типы создают новый тип, а исходный при этом не меняется.</strong>
+          <strong>Важно:</strong> встроенные типы создают новый тип, а исходный при этом не меняется.
         </p>
         <p>
-          Для примера возьмём тип <code className='code'>User</code>:
+          Для примера возьмём тип <InlineCode>User</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={userTypeExampleCode} />
-        <p>На его основе создадим новые с помощью встроенных типов:</p>
+        <p>На его основе создадим новые типы с помощью встроенных:</p>
         <ul className='list markered'>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Partial<AngleBrackets>Type</AngleBrackets>
-              </code>{' '}
-              делает все свойства типа <code className='code'>Type</code> необязательными (опциональными):
+              </InlineCode>{' '}
+              делает все свойства типа <InlineCode>Type</InlineCode> необязательными (опциональными):
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={partialUserTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Required<AngleBrackets>Type</AngleBrackets>
-              </code>{' '}
-              делает все свойства типа <code className='code'>Type</code> обязательными, даже если они были объявлены
-              как опциональные:
+              </InlineCode>{' '}
+              делает все свойства типа <InlineCode>Type</InlineCode> обязательными, даже если они были объявлены как
+              опциональные:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={requiredUserTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Readonly<AngleBrackets>Type</AngleBrackets>
-              </code>{' '}
-              делает все свойства типа <code className='code'>Type</code> доступными только для чтения, предотвращая
+              </InlineCode>{' '}
+              делает все свойства типа <InlineCode>Type</InlineCode> доступными только для чтения, предотвращая
               последующие изменения:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={readonlyUserTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Pick<AngleBrackets>Type, Keys</AngleBrackets>
-              </code>{' '}
-              выбирает только указанные свойства <code className='code'>Keys</code> из типа{' '}
-              <code className='code'>Type</code>:
+              </InlineCode>{' '}
+              выбирает только указанные свойства <InlineCode>Keys</InlineCode> из типа <InlineCode>Type</InlineCode>:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={pickUserTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Omit<AngleBrackets>Type, Keys</AngleBrackets>
-              </code>{' '}
-              удаляет указанные свойства <code className='code'>Keys</code> из типа <code className='code'>Type</code>:
+              </InlineCode>{' '}
+              удаляет указанные свойства <InlineCode>Keys</InlineCode> из типа <InlineCode>Type</InlineCode>:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={omitUserTypeExampleCode} />
           </li>
         </ul>
         <p>
           Всё выше перечисленное будет работать и для интерфейсов т.к. для TypeScript типы и интерфейсы это одно и то же
-          — объектный тип:
+          {LONG_DASH} объектный тип:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={userInterfaceExampleCode} />
       </section>
       <section className='section inner'>
         <h3>
-          <code className='code'>
+          <InlineCode>
             Record<AngleBrackets>Keys, Type</AngleBrackets>
-          </code>
+          </InlineCode>
         </h3>
         <p>
-          Создает новый объект, где ключи имеют тип <code className='code'>Keys</code>, а значения — тип{' '}
-          <code className='code'>Тype</code>.
+          Создает новый объект, где ключи имеют тип <InlineCode>Keys</InlineCode>, а значения {LONG_DASH} тип{' '}
+          <InlineCode>Тype</InlineCode>.
         </p>
         <p>
-          Чаще всего используется для создания словарей (хеш-таблиц), где ключом является строка, а значением — любой
-          нужный тип:
+          Чаще всего используется для создания словарей (хеш-таблиц), где ключом является строка, а значением{' '}
+          {LONG_DASH} любой нужный тип:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={recordExampleCode} />
       </section>
@@ -229,30 +230,30 @@ type User = Awaited<UserFunctionReturnType>;`;
         <ul className='list markered'>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Exclude<AngleBrackets>T, U</AngleBrackets>
-              </code>{' '}
-              исключает из объединения <code className='code'>T</code> все типы, которые можно присвоить{' '}
-              <code className='code'>U</code>:
+              </InlineCode>{' '}
+              исключает из объединения <InlineCode>T</InlineCode> все типы, которые можно присвоить{' '}
+              <InlineCode>U</InlineCode>:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={excludeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Extract<AngleBrackets>T, U</AngleBrackets>
-              </code>{' '}
-              наоборот — оставляет только совпадающие:
+              </InlineCode>{' '}
+              наоборот {LONG_DASH} оставляет только совпадающие:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extractExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 NonNullable<AngleBrackets>T</AngleBrackets>
-              </code>{' '}
-              убирает из <code className='code'>T</code> все <code className='code'>null</code> и{' '}
-              <code className='code'>undefined</code>:
+              </InlineCode>{' '}
+              убирает из <InlineCode>T</InlineCode> все <InlineCode>null</InlineCode> и{' '}
+              <InlineCode>undefined</InlineCode>:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={nonNullableExampleCode} />
           </li>
@@ -270,36 +271,36 @@ type User = Awaited<UserFunctionReturnType>;`;
         <ul className='list markered'>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 Parameters<AngleBrackets>Type</AngleBrackets>
-              </code>{' '}
-              позволяет получить типы аргументов функции <code className='code'>Type</code> в виде кортежа:
+              </InlineCode>{' '}
+              позволяет получить типы аргументов функции <InlineCode>Type</InlineCode> в виде кортежа:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={parametersExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 ReturnType<AngleBrackets>Type</AngleBrackets>
-              </code>{' '}
+              </InlineCode>{' '}
               позволяет получить тип возвращаемого значения из функции:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={returnTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 ConstructorParameters<AngleBrackets>Type</AngleBrackets>
-              </code>{' '}
+              </InlineCode>{' '}
               позволяет извлечь типы параметров конструктора класса в виде кортежа:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={constructorParametersExampleCode} />
           </li>
           <li className='list__item'>
             <p>
-              <code className='code'>
+              <InlineCode>
                 InstanceType<AngleBrackets>Type</AngleBrackets>
-              </code>{' '}
+              </InlineCode>{' '}
               позволяет извлечь тип, который возвращает конструктор класса:
             </p>
             <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={instanceTypeExampleCode} />
@@ -309,15 +310,15 @@ type User = Awaited<UserFunctionReturnType>;`;
       <section className='section inner'>
         <h3>{renderInlineList(['Awaited<Type>'], 'code', 'code')}</h3>
         <p>
-          <code className='code'>
+          <InlineCode>
             Awaited<AngleBrackets>T</AngleBrackets>
-          </code>{' '}
-          — специальная утилиты для работы с промисами, которая разворачивает (распаковывает) тип{' '}
-          <code className='code'>Promise</code>, возвращая тип, который находится внутри него:
+          </InlineCode>{' '}
+          {LONG_DASH} специальная утилиты для работы с промисами, которая разворачивает (распаковывает) тип{' '}
+          <InlineCode>Promise</InlineCode>, возвращая тип, который находится внутри него:
         </p>
         <p>
-          Самый частый сценарий использования — получение типа возвращаемого значения из асинхронных функций в сочетании
-          с <code className='code'>ReturnType</code>:
+          Самый частый сценарий использования {LONG_DASH} получение типа возвращаемого значения из асинхронных функций в
+          сочетании с <InlineCode>ReturnType</InlineCode>:
         </p>
         <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={awaitedExampleCode} />
       </section>
