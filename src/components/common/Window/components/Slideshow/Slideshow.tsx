@@ -68,13 +68,13 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
   return (
     <div className={styles.slideshow}>
       <div className={styles.slideshow__wrapper}>
-        <div className='row row--no-margin'>
-          <div className={bind(['col col--25'])}>
+        <div className={styles.slideshow__content}>
+          <div className={styles.slideshow__sidebar}>
             <div className={styles.slideshow__sidebar_heading}>
               <FontAwesomeIcon icon={faXmark} />
             </div>
-            <div className={styles.slideshow__sidebar}>
-              <CustomScrollbar>
+            <div className={styles.slideshow__sidebar_thumbnails}>
+              <CustomScrollbar maxHeight={425}>
                 <ul className={styles.slideshow__thumbnails}>
                   {thumbnails}
                   {emptyThumbnail}
@@ -82,7 +82,7 @@ export const Slideshow = ({ slides }: ISlideshowProps) => {
               </CustomScrollbar>
             </div>
           </div>
-          <div className='col col--75'>
+          <div className={styles.slideshow__main}>
             <div className={styles.slideshow__frame}>
               {isNumber(showEmptySlide) ? (
                 <div className={styles.slideshow__slide}>

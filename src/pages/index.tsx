@@ -10,6 +10,8 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     openWindow(WINDOW_REGISTRY[EWindowRecord.SLIDES_PPT_FILE].id, false, true);
+    openWindow(WINDOW_REGISTRY[EWindowRecord.CV_DOC_FILE].id, true, false);
+    openWindow(WINDOW_REGISTRY[EWindowRecord.BLOG_FOLDER].id, true, false);
   }, []);
 
   return (

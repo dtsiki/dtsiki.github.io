@@ -8,12 +8,14 @@ $PANEL_HEIGHT: 60px;
 .control_panel {
   position: fixed;
   z-index: 1000;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  right: 0;
+  bottom: $SPACER * 2;
+  width: calc(100% - ($SPACER * 4));
+  left: $SPACER * 2;
+  right: $SPACER * 2;
   background-color: rgba($color--violet, 0.9);
   backdrop-filter: blur(2px);
+  border-top: 2px solid $color--violet-darker;
+  border-bottom: 2px solid $color--violet-dark;
 
   &__wrapper {
     display: flex;

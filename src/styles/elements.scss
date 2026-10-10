@@ -5,6 +5,19 @@
 
 html {
   scroll-behavior: smooth;
+
+  &::after {
+    content: '';
+    position: fixed;
+    left: $SPACER * 2;
+    right: $SPACER * 2;
+    top: $SPACER * 2;
+    bottom: $SPACER * 2;
+    background: transparent;
+    padding: $SPACER * 2;
+    @include border1x1(2px, $color--violet-dark);
+    pointer-events: none;
+  }
 }
 
 body {

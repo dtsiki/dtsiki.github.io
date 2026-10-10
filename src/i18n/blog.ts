@@ -59,22 +59,22 @@ export const BLOG_FOLDER_NAME: TranslationObject = {
 
 export const ENGLISH_POSTS_FOLDER_NAME: TranslationObject = {
   [Language.ENG]: 'English posts',
-  [Language.RU]: 'Статьи на английском',
+  [Language.RU]: 'Пишу всякое на английском',
 };
 
 export const RUSSIAN_POSTS_FOLDER_NAME: TranslationObject = {
   [Language.ENG]: 'Russian posts',
-  [Language.RU]: 'Статьи на русском',
+  [Language.RU]: 'Пишу всякое на русском',
 };
 
 export const ENGLISH_POSTS_FOLDER_PATH: TranslationObject = {
   [Language.ENG]: 'D:/Blog/English posts',
-  [Language.RU]: 'D:/Блог/Статьи на английском',
+  [Language.RU]: 'D:/Блог/Пишу всякое на английском',
 };
 
 export const RUSSIAN_POSTS_FOLDER_PATH: TranslationObject = {
   [Language.ENG]: 'D:/Blog/Russian posts',
-  [Language.RU]: 'D:/Блог/Статьи на русском',
+  [Language.RU]: 'D:/Блог/Пишу всякое на русском',
 };
 
 export const EXAMPLES: TranslationObject = {

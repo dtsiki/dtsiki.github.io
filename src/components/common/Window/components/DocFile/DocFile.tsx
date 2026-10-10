@@ -6,16 +6,21 @@ import { DocPage } from './components/DocPage';
 import { useTranslate } from 'src/hooks/useTranslate';
 import { WindowFooter } from '../WindowFooter';
 import { ICustomScrollbarRef } from 'src/components/common/CustomScrollbar/CustomScrollbar.types';
+import { useWindowHeight } from 'src/hooks';
+import { docFileOffset } from './DocFile.utils';
 
 import styles from './DocFile.module.scss';
 
-export const DocFile = ({ pages, height = 600 }: IDocFileProps) => {
+export const DocFile = ({ pages }: IDocFileProps) => {
   const { translate } = useTranslate();
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const scrollbarRef = useRef<ICustomScrollbarRef>(null);
   const pageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(null);
+
+  const windowHeight = useWindowHeight();
+  const height = windowHeight - docFileOffset;
 
   useEffect(() => {
     const container = scrollbarRef.current?.getScrollElement() || null;

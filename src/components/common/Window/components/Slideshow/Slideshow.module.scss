@@ -10,6 +10,16 @@
     padding-bottom: 60px;
   }
 
+  &__content {
+    display: flex;
+    gap: $SPACER / 2;
+  }
+
+  &__main {
+    flex: 1;
+    aspect-ratio: 16 / 9;
+  }
+
   &__label {
     color: $color--grey-dark;
     font-size: 0.8rem;
@@ -19,15 +29,18 @@
   }
 
   &__sidebar {
-    @include border1x1(2px, $color--violet-light);
+    @include border1x1(2px, $color--grey-lighter);
     margin-right: 15px;
+    background: $color--grey-lighter;
+    width: 250px;
+    height: 423px;
 
     &_heading {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       padding: 5px 10px;
-      @include border1x1(2px, $color--violet-light);
+      //@include border1x1(2px, $color--violet-light);
       border-bottom: 0;
       margin-right: 15px;
       font-family: Pixelify;
@@ -35,6 +48,7 @@
       font-size: 0.7rem;
       font-weight: 600;
       text-transform: uppercase;
+      display: none;
 
       svg {
         color: $color--violet;
@@ -43,7 +57,7 @@
   }
 
   &__thumbnails {
-    padding: $SPACER;
+    padding: 20px 30px 20px 20px;
   }
 
   &__thumbnail {
@@ -112,10 +126,13 @@
   }
 
   &__frame {
-    height: 100%;
-    padding: $SPACER * 2;
+    width: 100%;
     background: $color--grey;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $SPACER * 1.5;
   }
 
   &__slide {
@@ -125,7 +142,8 @@
     overflow: hidden;
     box-shadow: 6px 6px 0 0 rgba($color--violet, 0.4);
     background: $color--white;
-    height: 100%;
+    width: 100%;
+    aspect-ratio: 16 / 9;
   }
 
   &__mainThumbnail {

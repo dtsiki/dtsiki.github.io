@@ -109,7 +109,7 @@ export const WorkExperience = ({ page }: IWorkExperienceProps) => {
       {page === WorkExperiencePage.FIRST && (
         <h3 className={styles.work_experience__title}>{translate(WORK_EXPERIENCE)}</h3>
       )}
-      <ul className={bind([styles.work_experience__list, 'list markered'])}>
+      <ul className={styles.work_experience__list}>
         {WORK_EXPERIENCE_CONFIG.filter((item) => item.page === page).map(
           ({ id, company, position, start, end, done, stack }) => (
             <li className={styles.work_experience__item} key={id}>

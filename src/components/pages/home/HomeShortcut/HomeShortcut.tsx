@@ -10,7 +10,7 @@ export const HomeShortcut = ({
   variant = EHomeShortcutVariant.PRIMARY,
   handleAction,
   tooltip,
-  iconSize = 60,
+  iconSize = 48,
 }: IHomeShortcutProps): ReactElement => {
   const bind = classNames.bind(styles);
 

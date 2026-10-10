@@ -2,7 +2,7 @@
 @import './../../../../../styles/vars';
 @import './../../../../../styles/breakpoints';
 
-$HEADER_HEIGHT_DESKTOP: 32px;
+$HEADER_HEIGHT_DESKTOP: 24px;
 $HEADER_HEIGHT_MOBILE: 24px;
 
 .window_header {
@@ -18,8 +18,8 @@ $HEADER_HEIGHT_MOBILE: 24px;
     justify-content: center;
 
     svg {
-      width: 24px;
-      height: 24px;
+      width: 16px;
+      height: 16px;
       margin: 0 !important;
     }
 
@@ -76,7 +76,7 @@ $HEADER_HEIGHT_MOBILE: 24px;
   }
 
   &__title {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 16px;
 
     @include mobile {
@@ -143,8 +143,8 @@ $HEADER_HEIGHT_MOBILE: 24px;
 
     &_icon {
       &.CLOSE {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
 
         @include mobile {
           width: 10px;
@@ -153,8 +153,8 @@ $HEADER_HEIGHT_MOBILE: 24px;
       }
 
       &.MAXIMIZE {
-        width: 14px;
-        height: 14px;
+        width: 10px;
+        height: 10px;
 
         @include mobile {
           width: 10px;

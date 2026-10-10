@@ -39,13 +39,13 @@
 
   &__icon {
     svg {
-      color: $color--grey;
+      color: $color--violet;
     }
 
     &.LIST {
       svg {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         margin-bottom: -5px;
       }
     }
@@ -62,12 +62,12 @@
 
   &__title {
     display: inline-block;
-    font-size: 16px;
+    font-size: 1.2rem;
     text-align: center;
-    color: $color--black-lighter;
+    color: $color--violet;
     font-family: Pixelify;
     font-weight: 400;
-    text-transform: uppercase;
+    //text-transform: uppercase;
 
     &.GRID {
       max-width: 150px;

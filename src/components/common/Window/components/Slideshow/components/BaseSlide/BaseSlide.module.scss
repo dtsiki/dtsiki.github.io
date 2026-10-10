@@ -6,24 +6,24 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: ($SPACER * 2) 0;
+  padding: $SPACER / 2 0;
   width: 80%;
   text-align: center;
 
   &__title {
     width: 100%;
-    padding: 20px;
+    padding: $SPACER;
     border: 2px dashed $color--grey;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: $color--grey;
   }
 
   &__text {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     margin-top: 20px;
     border: 2px dashed $color--grey;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: $color--grey;
   }
 }

@@ -33,9 +33,11 @@ export const Layout = ({ children }: ILayoutProps) => {
 
   return (
     <div className={styles.layout}>
-      <WindowRenderer />
-      <main className={styles.layout__content}>{isLoading ? <Loader /> : children}</main>
-      <ControlPanel />
+      <div className={styles.layout__wrapper}>
+        <WindowRenderer />
+        <main className={styles.layout__content}>{isLoading ? <Loader /> : children}</main>
+        <ControlPanel />
+      </div>
     </div>
   );
 };

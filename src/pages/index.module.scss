@@ -9,11 +9,12 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - ($SPACER * 4) - 4px);
     position: relative;
     background-repeat: repeat;
-    background-image: url('./../../public/assets/patterns/dot-light.svg');
-    background-size: 50px;
+    background-image: url('./../../public/assets/patterns/cross-light.svg');
+    background-size: 40px;
     background-position: -25px -25px;
+    background-color: $color--white-violet;
   }
 }

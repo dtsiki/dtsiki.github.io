@@ -4,6 +4,12 @@
 .blog {
   font-family: Inter;
   padding: $SPACER 0 $SPACER * 10;
+  background-repeat: repeat;
+  background-image: url('./../../../public/assets/patterns/cross-white-pink.svg');
+  background-size: 40px;
+  background-position: -25px -25px;
+  background-color: $color--white-violet;
+  background-attachment: fixed;
 
   &__heading {
     margin: $SPACER * 4 0;

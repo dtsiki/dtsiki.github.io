@@ -22,13 +22,12 @@ export const WINDOW_REGISTRY: Record<string, TWindow> = {
   [EWindowRecord.CV_DOC_FILE]: {
     id: EWindowRecord.CV_DOC_FILE,
     size: {
-      width: 'calc(100% - 50px)',
-      height: 'calc(100% - 50px)',
+      width: 'calc(100% - 200px)',
     },
     position: {
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
+      top: '100px',
+      left: '100px',
+      bottom: '100px',
     },
     config: {
       title: CV_FILE_NAME,
@@ -44,8 +43,8 @@ export const WINDOW_REGISTRY: Record<string, TWindow> = {
       width: '1024px',
     },
     position: {
-      top: 'calc(50% - 60px)',
-      left: 'calc(50% - 20px)',
+      top: 'calc(50% - 30px)',
+      left: '50%',
       transform: 'translate(-50%, -50%)',
     },
     config: {
@@ -81,7 +80,7 @@ export const WINDOW_REGISTRY: Record<string, TWindow> = {
     },
     position: {
       top: 'calc(50% + 20px)',
-      left: 'calc(50% + 20px)',
+      left: 'calc(50% + 150px)',
       transform: 'translate(-50%, -50%)',
     },
     initialState: {
@@ -114,13 +113,12 @@ export const WINDOW_REGISTRY: Record<string, TWindow> = {
   [EWindowRecord.TRASH_BIN_CV_DOC_FILE]: {
     id: EWindowRecord.TRASH_BIN_CV_DOC_FILE,
     size: {
-      width: 'calc(100% - 50px)',
-      height: 'calc(100% - 50px)',
+      width: 'calc(100% - 200px)',
     },
     position: {
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
+      top: '100px',
+      left: '100px',
+      bottom: '100px',
     },
     config: {
       title: OLD_CV_FILE_NAME,

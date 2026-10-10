@@ -1,7 +1,39 @@
 @import './../../../styles/colors';
 @import './../../../styles/breakpoints';
 @import './../../../styles/vars';
+@import './../../../styles/theme';
 
 .layout {
   position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    background: $color--white-darker;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 40px;
+    z-index: 3;
+  }
+
+  &::after {
+    content: '';
+    position: fixed;
+    background: $color--white-darker;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    z-index: 3;
+  }
+
+  &__wrapper {
+    padding: $SPACER * 2 !important;
+    background: $color--white-darker;
+  }
+
+  &__content {
+    position: relative;
+  }
 }
