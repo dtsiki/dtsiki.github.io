@@ -43,7 +43,7 @@ export enum EWindowType {
   DOC_FILE = 'DOC_FILE',
   TXT_FILE = 'TXT_FILE',
   CUSTOM = 'CUSTOM',
-  LOADER = 'LOADER',
+  SYSTEM = 'SYSTEM',
 }
 
 export enum EWindowPatternVariant {

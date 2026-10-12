@@ -1,54 +1,63 @@
 @import './../styles/colors';
 @import './../styles/breakpoints';
+@import './../styles/theme';
 
 .custom404 {
+  position: relative;
   font-family: Pixelify;
-  text-transform: uppercase;
 
   &__wrapper {
-    max-width: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: calc(100vh - ($SPACER * 4) - 4px);
+    background-repeat: repeat;
+    background-image: url('./../../public/assets/patterns/face-grin-angled.svg');
+    background-size: 200px;
+    background-color: $color--white-violet;
+  }
+
+  &__content {
+    width: 550px;
+    padding: $SPACER * 2;
   }
 
   &__title {
-    font-size: 1.4rem;
-    color: $color--white;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: $SPACER / 2;
     margin-bottom: $SPACER / 2;
-  }
-
-  &__error {
-    width: fit-content;
-    padding: $SPACER / 2;
-    margin-bottom: $SPACER;
-    font-size: 1.2rem;
-    font-weight: 500;
-    background: $color--white;
+    font-size: 25px;
     color: $color--violet;
-    cursor: default;
+    font-weight: 400;
   }
 
   &__text {
     margin-bottom: $SPACER / 2;
-    color: $color--white;
-    font-size: 1rem;
+    color: $color--violet;
+    font-size: 21px;
     line-height: 1.5rem;
   }
 
-  &__link {
-    font-size: 1.2rem;
-    color: $color--white;
-    border-bottom: 2px solid $color--white;
+  &__footer {
+    margin-top: $SPACER;
+    text-align: right;
   }
 
-  &__divider {
-    color: $color--white;
-    font-size: 20px;
-    font-weight: 600;
-    margin: $SPACER / 2 0;
+  &__button {
+    position: relative;
+    display: inline-block;
+    padding: $SPACER / 2;
+    background: $color--white;
+    font-size: 16px;
+    color: $color--violet;
+    @include border1x1(2px, $color--violet);
+    transition: $COMMON_TRANSITION;
 
-    &::before {
-      display: inline;
-      content: '///////////////////////////////////';
+    &:hover {
+      background-color: $color--white-violet;
     }
   }
 }

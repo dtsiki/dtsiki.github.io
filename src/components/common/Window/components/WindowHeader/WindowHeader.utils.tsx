@@ -21,7 +21,7 @@ export const WINDOW_ICON = {
   [EWindowType.VIDEO]: <VideoIcon useMini={true} />,
   [EWindowType.DOC_FILE]: <WordFileIcon useMini={true} />,
   [EWindowType.TXT_FILE]: <TextFileIcon useMini={true} />,
-  [EWindowType.LOADER]: null,
+  [EWindowType.SYSTEM]: null,
 };
 
 export const hasWindowIcon = (type: EWindowType): type is keyof typeof WINDOW_ICON => {

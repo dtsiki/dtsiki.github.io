@@ -24,3 +24,5 @@ export * from './ArrowDown';
 export * from './ArrowUp';
 export * from './mini';
 export * from './Terminal';
+export * from './TriangleAlert';
+export * from './Hourglass';

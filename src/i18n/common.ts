@@ -10,6 +10,11 @@ export const ERROR: TranslationObject = {
   [Language.RU]: 'Ошибка',
 };
 
+export const TASK_FAILED_SUCCESSFULLY: TranslationObject = {
+  [Language.ENG]: 'Task failed successfully',
+  [Language.RU]: 'Загрузка успешно провалена',
+};
+
 export const PAGE_NOT_FOUND: TranslationObject = {
   [Language.ENG]: 'Page not found',
   [Language.RU]: 'Страница не найдена',

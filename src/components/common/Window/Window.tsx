@@ -55,7 +55,7 @@ export const Window = (props: IWindowProps) => {
   };
 
   const isStaticWindow =
-    type === EWindowType.LOADER ||
+    type === EWindowType.SYSTEM ||
     type === EWindowType.IMAGE ||
     type === EWindowType.VIDEO ||
     type === EWindowType.CUSTOM;
