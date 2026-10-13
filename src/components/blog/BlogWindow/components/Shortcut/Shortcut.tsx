@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { IShortcutProps } from './Shortcut.types';
 import { SHORTCUT_FORMAT, SHORTCUT_ICON, isFileType } from './Shortcut.utils';
 import { EFolderView, TFolderItemType } from '../Folder/Folder.types';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { translateTitle } from 'src/utils/translate';
 
 import styles from './Shortcut.module.scss';

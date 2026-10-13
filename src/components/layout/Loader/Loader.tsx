@@ -1,7 +1,7 @@
 import { Window } from 'src/components/common/Window/Window';
 import { LOADING } from 'src/i18n';
 import { EWindowType } from 'src/components/common/Window/Window.types';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { HourglassIcon } from 'src/components/common/icons/ui';
 
 import styles from './Loader.module.scss';

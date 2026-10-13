@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import { BLOG, BLOG_DESCRIPTION } from 'src/i18n/';
 import { getPostsByLang } from 'src/data/postsConfig';
 import { PostPreview } from 'src/components/blog/PostPreview/PostPreview';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
+import { useWindowManager } from '~hooks/useWindowManager';
 import { TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
 import { BLOG_THUMBNAIL_PATH } from 'src/constants';
-import { useWindowManager } from 'src/hooks/useWindowManager';
 import { EWindowRecord, WINDOW_REGISTRY } from 'src/context/WindowManager/WindowManager.utils';
 
 import styles from './blog.module.scss';

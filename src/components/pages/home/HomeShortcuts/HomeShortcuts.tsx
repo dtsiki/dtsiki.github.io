@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import { HomeShortcut as Shortcut } from '../HomeShortcut/HomeShortcut';
 import { EHomeShortcutVariant } from '../HomeShortcut/HomeShortcut.types';
 import { THomeShortcut } from './HomeShortcuts.types';
-import { useWindowManager } from 'src/hooks/useWindowManager';
+import { useTranslate } from '~hooks/useTranslate';
+import { useWindowManager } from '~hooks/useWindowManager';
 import { HOME_SHORTCUTS_CONFIG } from './HomeShortcuts.utils';
 import { translateTitle } from 'src/utils/translate';
-import { useTranslate } from 'src/hooks/useTranslate';
 
 import styles from './HomeShortcuts.module.scss';
 

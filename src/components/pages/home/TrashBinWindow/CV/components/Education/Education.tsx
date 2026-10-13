@@ -1,10 +1,9 @@
 import classNames from 'classnames';
-import { TCompanyType } from 'src/data/workExperienceConfig';
-import { useTranslate } from 'src/hooks/useTranslate';
-import { EDUCATION, PRESENT, SELF_EMPLOYED, WORK_EXPERIENCE } from 'src/i18n';
+import { nanoid } from 'nanoid';
+import { useTranslate } from '~hooks/useTranslate';
+import { EDUCATION } from 'src/i18n';
 
 import styles from './Education.module.scss';
-import { nanoid } from 'nanoid';
 
 export const Education = () => {
   const bind = classNames.bind(styles);

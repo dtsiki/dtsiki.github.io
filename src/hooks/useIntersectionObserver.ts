@@ -1,6 +1,6 @@
 import { useState, useEffect, MutableRefObject } from 'react';
 
-const useIntersectionObserver = (
+export const useIntersectionObserver = (
   ref: MutableRefObject<HTMLElement | null>,
   threshold?: Array<number> | number,
   rootMargin?: string
@@ -10,7 +10,7 @@ const useIntersectionObserver = (
   const options = {
     root: null,
     rootMargin: rootMargin ?? '0px',
-    threshold: threshold ?? 0.1
+    threshold: threshold ?? 0.1,
   };
 
   const handleObserverElement = (entries: Array<IntersectionObserverEntry>): void => {
@@ -37,5 +37,3 @@ const useIntersectionObserver = (
 
   return isVisible;
 };
-
-export default useIntersectionObserver;

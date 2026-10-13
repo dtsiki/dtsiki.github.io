@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleUp, faCaretRight, faDownLong, faUpLong } from '@fortawesome/free-solid-svg-icons';
 import { useStoreon } from 'storeon/react';
-
-import useEventListener, { Event } from 'src/hooks/useEventListener';
+import { EVENT, useEventListener } from '~hooks/useEventListener';
 import Help from '../Help';
 
 import styles from './menu.module.scss';
@@ -24,20 +23,20 @@ const Menu = (): ReactElement => {
   const pages = [
     {
       path: '',
-      label: 'home'
+      label: 'home',
     },
     {
       path: 'about',
-      label: 'about'
+      label: 'about',
     },
     {
       path: 'projects',
-      label: 'projects'
+      label: 'projects',
     },
     {
       path: 'blog',
-      label: 'blog'
-    }
+      label: 'blog',
+    },
   ];
 
   useEffect(() => {
@@ -84,7 +83,14 @@ const Menu = (): ReactElement => {
 
         const currentIndex = pages.findIndex((page) => page.label === selectedPage);
 
-        const newIndex = event.key === 'ArrowUp' ? currentIndex === 0 ? pages.length - 1 : currentIndex - 1 : currentIndex === pages.length - 1 ? 0 : currentIndex + 1;
+        const newIndex =
+          event.key === 'ArrowUp'
+            ? currentIndex === 0
+              ? pages.length - 1
+              : currentIndex - 1
+            : currentIndex === pages.length - 1
+            ? 0
+            : currentIndex + 1;
 
         setSelectedPage(pages[newIndex].label);
       }
@@ -102,10 +108,10 @@ const Menu = (): ReactElement => {
   }, [selectedPage, isHelpOpened]);
 
   const handleScroll = (): void => {
-    setPageScrolled(window.pageYOffset >= document.documentElement.clientHeight / 2)
+    setPageScrolled(window.pageYOffset >= document.documentElement.clientHeight / 2);
   };
 
-  useEventListener(Event.SCROLL, handleScroll);
+  useEventListener(EVENT.SCROLL, handleScroll);
 
   const toggleMenu = (): void => {
     setMenuOpened(!isMenuOpened);
@@ -114,7 +120,7 @@ const Menu = (): ReactElement => {
   const scrollToTop = (): void => {
     window.scrollTo({
       top: 100,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
@@ -147,9 +153,7 @@ const Menu = (): ReactElement => {
       const { path, label } = item;
 
       return (
-        <li
-          key={label}
-          className={styles.menu__item}>
+        <li key={label} className={styles.menu__item}>
           <div className={bind([styles.menu__pointer, { [styles.visible]: selectedPage === label }])}>
             <FontAwesomeIcon icon={faCaretRight} />
           </div>
@@ -161,23 +165,17 @@ const Menu = (): ReactElement => {
           </button>
         </li>
       );
-    })
+    });
   }, [pages]);
 
   return (
     <header className={bind([styles.menu, { [styles.opened]: isMenuOpened }])}>
-      <button
-        className={bind([styles.menu__toggle, { [styles.opened]: isMenuOpened }])}
-        onClick={toggleMenu}>
+      <button className={bind([styles.menu__toggle, { [styles.opened]: isMenuOpened }])} onClick={toggleMenu}>
         {renderIcon}
-        <span className='visually-hidden'>
-          {isMenuOpened ? 'Close' : 'Open'} menu
-        </span>
+        <span className='visually-hidden'>{isMenuOpened ? 'Close' : 'Open'} menu</span>
       </button>
       <nav className={bind([styles.menu__nav, { [styles.opened]: isMenuOpened, [styles.idle]: isHelpOpened }])}>
-        <ul className={styles.menu__list}>
-          {renderMenuList}
-        </ul>
+        <ul className={styles.menu__list}>{renderMenuList}</ul>
         <ul className={styles.menu__footer}>
           <li className={styles.menu__hotkey}>
             <div className={styles.menu__key}>H</div>
@@ -199,9 +197,7 @@ const Menu = (): ReactElement => {
             to exit
           </li>
         </ul>
-        {isHelpOpened && (
-          <Help />
-        )}
+        {isHelpOpened && <Help />}
       </nav>
       {!isMenuOpened && (
         <aside className={styles.menu__sidebar}>
@@ -215,7 +211,8 @@ const Menu = (): ReactElement => {
                   className={bind([styles.menu__icon, styles[bottomColor]])}
                   icon={faAngleUp}
                   color='#ffffff'
-                  size='2x' />
+                  size='2x'
+                />
               </button>
             </li>
             {isBackButtonShown && (
@@ -228,7 +225,8 @@ const Menu = (): ReactElement => {
                     className={bind([styles.menu__icon, styles[bottomColor]])}
                     icon={faAngleLeft}
                     color='#ffffff'
-                    size='2x' />
+                    size='2x'
+                  />
                 </button>
               </li>
             )}

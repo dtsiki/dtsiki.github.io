@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { IImageThumbnailProps } from './ImageThumbnail.types';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 
 export const ImageThumbnail = ({ image, alt }: IImageThumbnailProps) => {
   const { translate } = useTranslate();

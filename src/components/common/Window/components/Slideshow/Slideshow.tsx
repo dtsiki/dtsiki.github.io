@@ -6,9 +6,9 @@ import classNames from 'classnames/bind';
 import { ISlideshowProps } from './Slideshow.types';
 import { CustomScrollbar } from '../../../CustomScrollbar';
 import { EmptySlide } from './components/EmptySlide/EmptySlide';
-import { OF, SELECT_SLIDE, SLIDE, SLIDES } from 'src/i18n';
+import { OF, SELECT_SLIDE, SLIDE } from 'src/i18n';
 import { WindowFooter } from '../WindowFooter';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { PlusIcon } from 'src/components/common/icons/ui/Plus';
 import { BaseSlide } from './components/BaseSlide';
 

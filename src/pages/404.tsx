@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { ERROR, GO_TO_HOME, PAGE_NOT_FOUND, TASK_FAILED_SUCCESSFULLY } from 'src/i18n';
 import { Window } from 'src/components/common/Window';
 import { EWindowType } from 'src/components/common/Window/Window.types';

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { CheckMiniIcon } from '../icons/ui/mini/Check';
 import { xcode } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { ECodeExt, ECodeLang, ICodeProps } from './Code.types';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { COPY_TO_CLIPBOARD } from 'src/i18n';
 import { CodingIcon, TextFileIcon, ClipboardMiniIcon } from '../icons/ui';
 import { Example } from '../Example';

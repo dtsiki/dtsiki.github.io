@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
 import { ITrashBinWindowProps } from './TrashBinWindow.types';
-import { BACK, CV_FILE_NAME, OBJECTS, OLD_CV_FILE_NAME, TRASH_BIN, TRASH_BIN_IS_EMPTY } from 'src/i18n';
-import { useWindowManager } from 'src/hooks/useWindowManager';
-import { MENU_ITEMS } from './TrashBinWindow.utils';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { BACK, OBJECTS, OLD_CV_FILE_NAME, TRASH_BIN } from 'src/i18n';
+import { useWindowManager } from '~hooks/useWindowManager';
+import { useTranslate } from '~hooks/useTranslate';
+import { useFolderNavigation } from '~hooks/useFolderNavigation';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
-import { useFolderNavigation } from 'src/hooks/useFolderNavigation';
 import { GridMiniIcon, ArrowLeftIcon, BinIcon, ListMiniIcon } from 'src/components/common/icons/ui';
 import { WindowHeader } from 'src/components/common/Window/components/WindowHeader/WindowHeader';
 import { EWindowType } from 'src/components/common/Window/Window.types';
@@ -90,6 +88,7 @@ export const TrashBinWindow = (props: ITrashBinWindowProps) => {
           handleMinimizeWindow={handleMinimizeWindow}
           handleCloseWindow={() => closeWindow(EWindowRecord.TRASH_BIN)}
           handleMaximizeWindow={maximizeWindow}
+          isFocused={isFocused || false}
         />
         <WindowFakeMenu type={EWindowType.FOLDER} />
         <WindowFakeSubmenu type={EWindowType.CUSTOM}>

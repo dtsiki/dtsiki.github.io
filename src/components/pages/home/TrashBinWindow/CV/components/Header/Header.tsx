@@ -1,5 +1,5 @@
 import { DARIA_T, FRONTEND_DEVELOPER } from 'src/i18n';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 
 import styles from './Header.module.scss';
 

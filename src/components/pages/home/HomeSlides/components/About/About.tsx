@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { CORE_LANGUAGES, DARIA, DEVELOPER, EXPERIENCE_WITH, FRONTEND, I_AM, MY_NAME_IS, YAY } from 'src/i18n';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { CORE_LANGUAGES, EXPERIENCE_WITH } from 'src/i18n';
+import { useTranslate } from '~hooks/useTranslate';
 
 import styles from './About.module.scss';
 

@@ -3,10 +3,10 @@ import { IDocFileProps } from './DocFile.types';
 import { CustomScrollbar } from '../../../CustomScrollbar';
 import { OF, PAGES } from 'src/i18n';
 import { DocPage } from './components/DocPage';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
+import { useWindowHeight } from '~hooks/useWindowHeight';
 import { WindowFooter } from '../WindowFooter';
 import { ICustomScrollbarRef } from 'src/components/common/CustomScrollbar/CustomScrollbar.types';
-import { useWindowHeight } from 'src/hooks';
 import { docFileOffset } from './DocFile.utils';
 
 import styles from './DocFile.module.scss';

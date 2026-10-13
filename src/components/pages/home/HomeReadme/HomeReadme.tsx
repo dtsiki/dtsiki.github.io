@@ -1,4 +1,4 @@
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { Language } from 'src/types';
 
 const VERSION = '2.0.3';

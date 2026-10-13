@@ -7,7 +7,7 @@ import { faFolderMinus } from '@fortawesome/free-solid-svg-icons';
 import { ArrowLeftIcon, ListMiniIcon, GridMiniIcon } from 'src/components/common/icons/ui';
 import { WindowFooter } from 'src/components/common/Window/components/WindowFooter';
 import { Language } from 'src/types';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { CustomScrollbar } from 'src/components/common/CustomScrollbar';
 import { Shortcut } from '../Shortcut';
 import { WindowFakeSubmenu } from 'src/components/common/Window/components/WindowFakeSubmenu';

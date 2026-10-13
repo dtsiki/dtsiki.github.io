@@ -1,6 +1,6 @@
 import { ICodeSnippetProps } from './CodeSnippet.types';
 import { Code } from 'src/components/common/Code/Code';
-import { useCodeSnippetNumber } from 'src/hooks/useCodeSnippetNumber';
+import { useCodeSnippetNumber } from '~hooks/useCodeSnippetNumber';
 import { isUndefined } from 'lodash';
 
 import styles from './CodeSnippet.module.scss';

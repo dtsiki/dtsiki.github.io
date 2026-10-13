@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import classNames from 'classnames';
 import { IShortcutProps } from './Shortcut.types';
-import { useWindowManager } from 'src/hooks/useWindowManager';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useWindowManager } from '~hooks/useWindowManager';
+import { useTranslate } from '~hooks/useTranslate';
 import { translateTitle } from 'src/utils/translate';
 import { TextFileIcon } from 'src/components/common/icons/ui';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';

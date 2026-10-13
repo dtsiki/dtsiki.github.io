@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 
-export enum Event {
-  SCROLL = 'scroll',
-  RESIZE = 'resize'
-}
+export const EVENT = {
+  SCROLL: 'scroll',
+  RESIZE: 'resize',
+} as const;
 
-const useEventListener = (eventName: Event, handler: () => void): void => {
+export type TEvent = typeof EVENT[keyof typeof EVENT];
+
+export const useEventListener = (event: TEvent, handler: () => void): void => {
   useEffect(() => {
-    window.addEventListener(eventName, handler);
+    window.addEventListener(event, handler);
 
     return () => {
-      window.removeEventListener(eventName, handler);
+      window.removeEventListener(event, handler);
     };
-  }, [eventName]);
+  }, [event]);
 };
-
-export default useEventListener;

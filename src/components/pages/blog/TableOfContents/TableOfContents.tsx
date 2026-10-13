@@ -1,6 +1,6 @@
 import { MutableRefObject, useMemo } from 'react';
 import classNames from 'classnames';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { ITableOfContentsProps, TableOfContentsVariant } from './TableOfContents.types';
 import { GO_TO, TABLE_OF_CONTENTS } from 'src/i18n';
 import { translate } from 'src/utils/translate';

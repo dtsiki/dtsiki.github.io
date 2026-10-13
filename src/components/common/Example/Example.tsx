@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { COPY_TO_CLIPBOARD } from 'src/i18n';
 import { CheckMiniIcon, ClipboardMiniIcon, TerminalMiniIcon } from '../icons/ui';
 import { IExampleProps } from './Example.types';

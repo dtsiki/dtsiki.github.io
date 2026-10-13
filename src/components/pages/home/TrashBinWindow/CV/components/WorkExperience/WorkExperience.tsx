@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { TCompanyType } from 'src/data/workExperienceConfig';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { PRESENT, SELF_EMPLOYED, WORK_EXPERIENCE } from 'src/i18n';
 
 import styles from './WorkExperience.module.scss';

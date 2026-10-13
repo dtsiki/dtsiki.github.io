@@ -1,5 +1,5 @@
 import { ABOUT_ME } from 'src/i18n';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 
 import styles from './AboutMe.module.scss';
 

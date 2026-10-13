@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { FEEL_FREE_TO_REACH_ME_OUT, GET_IN_TOUCH } from 'src/i18n';
 import { CONTACTS_CONFIG, EContactType } from 'src/data/contactsConfig';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 
 import styles from './Contacts.module.scss';
 

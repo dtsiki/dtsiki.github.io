@@ -1,4 +1,4 @@
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { MADE_WITH_YAY } from 'src/i18n';
 
 import styles from './Copyright.module.scss';

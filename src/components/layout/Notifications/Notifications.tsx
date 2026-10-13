@@ -1,4 +1,4 @@
-import { useNotifications } from 'src/hooks/useNotifications';
+import { useNotifications } from '~hooks/useNotifications';
 import { Notification } from './Notification/Notification';
 
 import styles from './Notifications.module.scss';

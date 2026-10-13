@@ -3,10 +3,10 @@ import { Hero } from 'src/components/layout/Hero/Hero';
 import { IPostProps } from './PostWrapper.types';
 import { TopScrollBar } from 'src/components/common/TopScrollBar';
 import { PostContent } from '../PostContent/PostContent';
-import { useNotifications } from 'src/hooks/useNotifications';
+import { useNotifications } from '~hooks/useNotifications';
+import { useTranslate } from '~hooks/useTranslate';
 import { Language, NotificationType } from 'src/types';
 import { ENGLISH_POST_NOTIFICATION, TAKE_A_NOTE } from 'src/i18n';
-import { useTranslate } from 'src/hooks/useTranslate';
 import { CodeSnippetProvider } from 'src/context/CodeSnippetContext/CodeSnippetProvider';
 
 import styles from './PostWrapper.module.scss';

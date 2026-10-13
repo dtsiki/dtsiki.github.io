@@ -5,7 +5,7 @@ import { isBaseWindow } from '../../Window.utils';
 import { BlogWindow } from 'src/components/blog/BlogWindow';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
 import { TrashBinWindow } from 'src/components/pages/home/TrashBinWindow/TrashBinWindow';
-import { useWindowSize } from 'src/hooks';
+import { useWindowSize } from '~hooks/useWindowSize';
 import { getWindowStyle } from './WindowRenderer.utils';
 
 export const WindowRenderer = () => {

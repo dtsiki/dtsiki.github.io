@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { EVENT, useEventListener } from '~hooks/useEventListener';
 
 import styles from './TopScrollBar.module.scss';
-import useEventListener, { Event } from 'src/hooks/useEventListener';
 
 export const TopScrollBar = () => {
   const [progress, setProgress] = useState(0);
@@ -14,7 +14,7 @@ export const TopScrollBar = () => {
     setProgress(scrolledPercent);
   };
 
-  useEventListener(Event.SCROLL, handleScroll);
+  useEventListener(EVENT.SCROLL, handleScroll);
 
   return (
     <div className={styles.top_scroll_bar}>

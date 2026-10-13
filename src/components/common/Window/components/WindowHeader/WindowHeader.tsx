@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { IWindowHeaderProps } from './WindowHeader.types';
 import { useMemo } from 'react';
-import { useTranslate } from 'src/hooks/useTranslate';
+import { useTranslate } from '~hooks/useTranslate';
 import { EWindowType } from '../../Window.types';
 import { CLOSE_THE_WINDOW, MAXIMIZE_THE_WINDOW, MINIMIZE_THE_WINDOW } from 'src/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
