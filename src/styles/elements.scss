@@ -998,11 +998,10 @@ a {
 
 .code {
   background-color: rgba($color--white-violet, 0.5);
-  border: 1px solid rgba($color--black, 0.1);
   color: $color--black;
   padding: $SPACER / 8 $SPACER / 4;
-  border-radius: 4px;
   font-size: 90%;
+  @include border1x1(1px, rgba($color--violet-dark, 0.2));
 }
 
 .explanation {

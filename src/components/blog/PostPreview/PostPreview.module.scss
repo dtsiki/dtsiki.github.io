@@ -1,6 +1,7 @@
 @import './../../../styles/colors';
 @import './../../../styles/breakpoints';
 @import './../../../styles/vars';
+@import './../../../styles/theme';
 
 .post_preview {
   margin-bottom: $SPACER * 4;
@@ -40,29 +41,25 @@
   &__tags {
     display: flex;
     justify-content: flex-start;
-    margin-right: $spacer;
+    gap: $SPACER / 2;
+    margin-right: $SPACER;
   }
 
   &__tag {
-    border: 2px solid;
     padding: $SPACER / 2;
+    margin: 0;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    margin-right: $SPACER / 3;
-
-    &:last-child {
-      margin-right: 0;
-    }
 
     &.TAG {
+      @include border1x1(2px, $color--grey-darker);
       color: $color--grey-darker;
-      border-color: $color--grey-darker;
     }
 
     &.CATEGORY {
+      @include border1x1(2px, $color--violet);
       color: $color--violet;
-      border-color: $color--violet;
     }
   }
 

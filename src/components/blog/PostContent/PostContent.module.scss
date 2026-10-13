@@ -1,6 +1,7 @@
 @import './../../../styles/colors';
 @import './../../../styles/breakpoints';
 @import './../../../styles/vars';
+@import './../../../styles/theme';
 
 .post_content {
   font-family: $font--base-blog;
@@ -14,15 +15,15 @@
   }
 
   &__tags {
-    display: flex;
+    display: inline-flex;
     justify-content: start;
+    gap: $SPACER;
   }
 
   &__tag {
     width: fit-content;
-    margin: 0 ($SPACER / 2) 0 0;
+    margin: 0;
     padding: $SPACER / 2;
-    border: 2px solid;
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -31,14 +32,14 @@
       margin-right: 0;
     }
 
-    &.CATEGORY {
-      border-color: $color--violet;
-      color: $color--violet;
+    &.TAG {
+      @include border1x1(2px, $color--grey-darker);
+      color: $color--grey-darker;
     }
 
-    &.TAG {
-      color: $color--grey-darker;
-      border-color: $color--grey-darker;
+    &.CATEGORY {
+      @include border1x1(2px, $color--violet);
+      color: $color--violet;
     }
   }
 

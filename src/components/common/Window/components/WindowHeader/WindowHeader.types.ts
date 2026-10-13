@@ -13,4 +13,5 @@ export interface IWindowHeaderProps {
   handleMinimizeWindow: () => void;
   handleMaximizeWindow: () => void;
   handleCloseWindow: () => void;
+  isFocused: boolean;
 }

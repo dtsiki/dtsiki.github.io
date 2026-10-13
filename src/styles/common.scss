@@ -2,15 +2,15 @@
 @import './colors';
 
 .tags {
-  display: flex;
+  display: inline-flex;
   justify-content: start;
+  gap: $SPACER;
 }
 
 .tag {
   width: fit-content;
-  margin: 0 ($SPACER / 2) 0 0;
+  margin: 0;
   padding: $SPACER / 2;
-  border: 2px solid;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -20,18 +20,19 @@
   }
 
   &.PRIMARY {
-    border-color: $color--violet;
+    @include border1x1(2px, $color--violet);
     color: $color--violet;
   }
 
   &.SECONDARY {
+    @include border1x1(2px, $color--grey-darker);
     color: $color--grey-darker;
-    border-color: $color--grey-darker;
   }
 
   &.TEXT-ONLY {
-    color: $color--grey-dark;
-    border-color: transparent;
+    color: rgba($color--black, 0.6);
+    padding: ($SPACER / 2) 0;
+    border-bottom: 2px dotted rgba($color--black, 0.6);
   }
 }
 

@@ -8,9 +8,9 @@ import { Slideshow } from './components/Slideshow/Slideshow';
 import { WindowFakeMenu } from './components/WindowFakeMenu';
 import { WindowFakeSubmenu } from './components/WindowFakeSubmenu';
 import { WindowHeader } from './components/WindowHeader/WindowHeader';
+import { noop } from 'lodash';
 
 import styles from './Window.module.scss';
-import { noop } from 'lodash';
 
 export const Window = (props: IWindowProps) => {
   const {
@@ -65,7 +65,7 @@ export const Window = (props: IWindowProps) => {
       ...{ [styles.popUp]: isPopUp },
       ...{ [styles.inverted]: isInverted },
       ...{ [styles.minimized]: isMinimized },
-      ...{ [styles.focused]: isStaticWindow ? true : isFocused },
+      ...{ [styles.focused]: isStaticWindow || isFocused },
     };
   }, [isPopUp, isInverted, isFocused, isMinimized, windowsOrder]);
 
@@ -107,6 +107,7 @@ export const Window = (props: IWindowProps) => {
           handleMinimizeWindow={handleMinimizeWindow}
           handleCloseWindow={handleCloseWindow}
           handleMaximizeWindow={noop}
+          isFocused={isStaticWindow || isFocused}
         />
         <WindowFakeMenu type={type} />
         <WindowFakeSubmenu type={type} />

@@ -3,6 +3,7 @@ import { TDocPage } from './components/DocFile/components/DocPage/DocPage.types'
 import { TSlide } from './components/Slideshow/Slideshow.types';
 import { TranslationObject } from 'src/types';
 import { TFolderConfig } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
+import { WindowAnimation } from './components/WindowRenderer/WindowRenderer.utils';
 
 export type TWindowContent = {
   slides?: TSlide[];

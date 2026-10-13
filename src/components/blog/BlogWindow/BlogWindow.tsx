@@ -105,6 +105,7 @@ export const BlogWindow = (props: IBlogWindowProps) => {
           customIcon={<TypingMachineIcon useMini={true} />}
           windowStyles={windowStyles}
           title={title}
+          isFocused={isFocused || false}
           handleMinimizeWindow={handleMinimizeWindow}
           handleCloseWindow={() => closeWindow(EWindowRecord.BLOG_FOLDER)}
           handleMaximizeWindow={noop}

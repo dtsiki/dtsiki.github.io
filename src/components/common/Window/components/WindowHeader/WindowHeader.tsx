@@ -19,6 +19,7 @@ export const WindowHeader = (props: IWindowHeaderProps) => {
     customIcon,
     title,
     fileTitle,
+    isFocused,
     handleCloseWindow,
     handleMaximizeWindow,
     handleMinimizeWindow,
@@ -97,7 +98,7 @@ export const WindowHeader = (props: IWindowHeaderProps) => {
   }, [type]);
 
   return (
-    <div className={bind([styles.window_header, styles[type], windowStyles])}>
+    <div className={bind([styles.window_header, styles[type], windowStyles, { [styles.focused]: isFocused }])}>
       <div className={bind([styles.window_header__heading])}>
         {getHeaderDecoration()}
         <span className={styles.window_header__title_wrapper}>

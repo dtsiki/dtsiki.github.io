@@ -8,7 +8,8 @@ $HEADER_HEIGHT: 32px;
 
 .window {
   position: relative;
-  @include border1x1(2px, $color--grey);
+
+  @include border1x1(2px, rgba($color--violet-lighter, 0.3));
 
   &.focused {
     @include border1x1(2px, $color--violet);
@@ -18,14 +19,10 @@ $HEADER_HEIGHT: 32px;
     margin: 0 auto;
     background: $color--white-darker;
     overflow: hidden;
-    box-shadow: 5px 5px 0 0 $color--grey;
+    box-shadow: 5px 5px 0 0 rgba($color--violet-lighter, 0.3);
 
     &.focused {
       box-shadow: 5px 5px 0 0 $color--violet;
-    }
-
-    &.minimized {
-      // border: 5px solid red;
     }
   }
 
@@ -37,118 +34,13 @@ $HEADER_HEIGHT: 32px;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba($color--white-darker, 0.5);
+    background: rgba($color--white-violet, 0.4);
     z-index: 1;
     border-radius: $BORDER_RADIUS;
     z-index: 999;
 
     &.focused {
       display: none;
-    }
-  }
-
-  &__header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    //border-top-left-radius: $BORDER_RADIUS;
-    //border-top-right-radius: $BORDER_RADIUS;
-    //border: 2px solid $color--violet;
-    border-bottom: 2px solid $color--violet;
-
-    &.popUp {
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-    }
-
-    &.inverted {
-      border: 2px solid $color--white;
-      background: $color--violet;
-    }
-
-    &_icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      svg {
-        width: 24px;
-        height: 24px;
-        margin: 0 5px 0 0 !important;
-      }
-    }
-  }
-
-  &__header_decoration {
-    position: absolute;
-    left: $SPACER;
-    display: none;
-
-    &_icon {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 5px !important;
-
-      &:nth-child(1) {
-        //background: $color--violet;
-      }
-
-      &:nth-child(2) {
-        //background: rgba($color--violet, 0.6);
-      }
-
-      &:nth-child(3) {
-        //background: $color--white-violet;
-      }
-    }
-  }
-
-  &__heading {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    text-align: center;
-    color: $color--violet;
-    height: $HEADER_HEIGHT;
-    font-family: Pixelify;
-
-    &.inverted {
-      color: $color--white;
-
-      svg {
-        color: $color--white;
-      }
-    }
-  }
-
-  &__title {
-    //text-transform: uppercase;
-    font-size: 20px;
-    line-height: 16px;
-    //font-weight: 700;
-
-    &.hasFile {
-      &::after {
-        content: ' - ';
-      }
-    }
-  }
-
-  &__fileTitle {
-    margin-left: 5px;
-    font-size: 0.8rem;
-    font-weight: 700;
-
-    &::before {
-      content: '[';
-    }
-
-    &::after {
-      content: ']';
     }
   }
 
@@ -222,77 +114,6 @@ $HEADER_HEIGHT: 32px;
     }
   }
 
-  &__control {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    background-color: rgba($color--grey, 0.2);
-    border: 0;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    height: $HEADER_HEIGHT;
-    width: $HEADER_HEIGHT;
-    transition: 0.5s all;
-    font-family: Pixelify;
-
-    &_icon {
-      &.CLOSE {
-        //transform: rotate(45deg);
-        width: 14px;
-        height: 14px;
-      }
-
-      &.MAXIMIZE {
-        width: 14px;
-        height: 14px;
-      }
-
-      &.MINIMIZE {
-        //width: 16px;
-        //height: 16px;
-      }
-    }
-
-    &:first-child {
-      border-left: 2px solid $color--violet;
-    }
-
-    + .window__control {
-      border-left: 2px solid $color--violet;
-    }
-
-    svg {
-      color: $color--violet;
-      transition: 0.5s all;
-      width: 12px;
-      height: 12px;
-    }
-
-    &:hover {
-      svg {
-        color: $color--black;
-      }
-    }
-
-    &.inverted {
-      background-color: transparent;
-
-      &:first-child {
-        border-left: 2px solid $color--white;
-      }
-
-      + .window__control {
-        border-left: 2px solid $color--white;
-      }
-
-      svg {
-        color: $color--white;
-      }
-    }
-  }
-
   &__pattern {
     position: absolute;
     top: 0;
@@ -309,7 +130,6 @@ $HEADER_HEIGHT: 32px;
       background: url('./../../../../public/assets/patterns/cross.svg');
       background-repeat: repeat;
       background-position: -5px -5px;
-      //background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/><path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='1' stroke='hsla(271, 76%, 53%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
     }
 
     &.SMILEY {
@@ -349,125 +169,6 @@ $HEADER_HEIGHT: 32px;
 
     &.IMAGE {
       display: block;
-    }
-  }
-
-  &__submenu {
-    display: flex;
-    margin: 0;
-    padding: 7px 12px;
-    list-style: none;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: rgba($color--black, 0.4);
-    background: rgba($color--grey, 0.3);
-    //border-left: 2px solid $color--violet;
-    //border-right: 2px solid $color--violet;
-    border-top: 1px solid rgba($color--grey, 0.8);
-    font-family: Pixelify;
-
-    &_group {
-      display: inline-flex;
-      gap: 2px;
-      align-items: center;
-      padding: 0 $SPACER / 2;
-      border-left: 1px solid $color--grey;
-      border-right: 1px solid $color--grey;
-
-      &:first-child {
-        border-left: 0;
-      }
-
-      &:last-child {
-        border-right: 0;
-      }
-    }
-
-    &_item {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      //height: 24px;
-      padding: 2px;
-      border-radius: 2px;
-
-      &:hover {
-        cursor: pointer;
-        //border: 1px solid rgba($color--white-violet, 0.9);
-        outline: 1px solid rgba($color--violet, 0.2);
-        background: rgba($color--white, 0.4);
-      }
-
-      &.BOLD,
-      &.ITALIC,
-      &.UNDERLINE,
-      &.FONT {
-        width: 24px;
-        height: 24px;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      &.BOLD {
-        font-weight: 700;
-      }
-
-      &.ITALIC {
-        font-style: italic;
-      }
-
-      &.UNDERLINE {
-        text-decoration: underline;
-      }
-
-      &.FONT {
-        text-transform: none;
-      }
-    }
-
-    &_chevron {
-      width: 14px;
-    }
-
-    &_select {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      background: $color--white;
-      text-transform: none;
-      padding: 2px 5px 2px 10px;
-      border-radius: 2px;
-      margin: 0 5px;
-
-      &.FONT_FAMILY {
-        width: 200px;
-        font-family: Inter;
-      }
-
-      &.FONT_SIZE {
-        width: 100px;
-      }
-    }
-  }
-
-  &__footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 25px;
-    bottom: 0;
-    background: $color--grey-lighter;
-    font-family: Pixelify;
-
-    &_text {
-      color: $color--grey-dark;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
     }
   }
 }

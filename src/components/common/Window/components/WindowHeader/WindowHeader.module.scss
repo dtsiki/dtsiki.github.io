@@ -10,7 +10,11 @@ $HEADER_HEIGHT_MOBILE: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid $color--violet;
+  border-bottom: 2px solid rgba($color--violet-lighter, 0.3);
+
+  &.focused {
+    border-bottom: 2px solid $color--violet;
+  }
 
   &__icon {
     display: inline-flex;

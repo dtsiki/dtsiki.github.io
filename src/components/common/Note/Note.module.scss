@@ -1,11 +1,10 @@
 @import './../../../styles/colors';
 @import './../../../styles/vars';
+@import './../../../styles/theme';
 
 .note {
   padding: $SPACER * 2;
   background: rgba($color--white-violet, 0.5);
-  border-radius: $BORDER_RADIUS;
-  border: 1px solid $color--white-violet;
   margin-bottom: $SPACER;
 
   &__title {
@@ -22,7 +21,7 @@
 
   &.PRIMARY {
     background: rgba($color--white-violet, 0.5);
-    border: 1px solid $color--white-violet;
+    @include border1x1(2px, $color--white-violet);
 
     &__title {
       color: $color--black;
@@ -31,7 +30,7 @@
 
   &.SECONDARY {
     background: rgba($color--grey-lighter, 0.5);
-    border: 1px solid $color--grey;
+    @include border1x1(2px, $color--grey);
 
     &__title {
       color: $color--violet;
