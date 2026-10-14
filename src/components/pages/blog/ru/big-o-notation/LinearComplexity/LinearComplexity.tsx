@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { ENoteType, Note, NoteType } from 'src/components/common/Note';
+import { NOTE_TYPE, Note, NoteType } from 'src/components/common/Note';
 
 export const LinearComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   const forPrintAllCodeSnippet = `function printAll(array: number[]) {
@@ -87,7 +87,7 @@ const concat = arr.concat([1, 2, 3]); // O(n + m)`;
         <code className='code'>filter</code>, <code className='code'>find</code> и <code className='code'>reduce</code>{' '}
         тоже содержат скрытый перебор каждого элемента коллекции и будут иметь сложность O(n).
       </p>
-      <Note type={ENoteType.SECONDARY}>
+      <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
           <div className='tag'>Вопросик</div>
         </div>

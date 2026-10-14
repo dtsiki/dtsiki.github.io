@@ -16,7 +16,7 @@ import {
 } from '../../../utils';
 import { LONG_DASH } from 'src/constants';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 
 export const Executor = forwardRef<HTMLDivElement>((_, ref) => {
   const paymentPromiseSnippetCode = `paymentPromise.resolve({ status: 'SUCCESS' });`;
@@ -206,7 +206,7 @@ promise
       <p>Эти методы тоже добавляем в конструктор класса:</p>
       <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={initMyPromiseClassMethodsSnippetCode} name='MyPromise' />
       <br />
-      <Note type={ENoteType.SECONDARY}>
+      <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
           <div className='tag'>Вопросик</div>
         </div>

@@ -18,7 +18,7 @@ import {
 } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 import { getTextWithChevrons } from 'src/utils';
 
 export const CallbackReactions = forwardRef<HTMLDivElement>((_, ref) => {
@@ -66,7 +66,7 @@ fetch(url)
       <p>Разберём, как это работает под капотом, на примере, приближенном к реальности:</p>
       <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={fetchSnippetCode} />
       <br />
-      <Note type={ENoteType.SECONDARY}>
+      <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
           <div className='tag'>Обратите внимание</div>
         </div>
@@ -138,7 +138,7 @@ fetch(url)
               </p>
             </li>
           </ul>
-          <Note type={ENoteType.SECONDARY}>
+          <Note type={NOTE_TYPE.SECONDARY}>
             <p>
               У {thenInline} есть второй аргумент {onRejectedInline}. Если им воспользоваться, колбэк попадёт в
               {promiseRejectReactionsInline} {LONG_DASH} так же, как колбэк {catchInline}, который является

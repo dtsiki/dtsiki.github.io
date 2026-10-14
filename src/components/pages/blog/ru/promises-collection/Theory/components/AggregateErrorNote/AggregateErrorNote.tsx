@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { CODE_LANG } from '~components/common/Code';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
 
 export const AggregateErrorNote = forwardRef<HTMLDivElement>((_, ref) => {
@@ -40,7 +40,7 @@ export const AggregateErrorNote = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <aside ref={ref} className='section inner'>
-      <Note type={ENoteType.SECONDARY}>
+      <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
           <div className='tag TEXT-ONLY'>Дополнительная информация</div>
         </div>

@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { Accordion } from 'src/components/common/Accordion';
 import { CODE_LANG } from '~components/common/Code';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 
 export const Intro = forwardRef<HTMLDivElement>(({}, ref) => {
   const noopCodeExample = `function noop(): void {}`;
@@ -74,7 +74,7 @@ export const Intro = forwardRef<HTMLDivElement>(({}, ref) => {
         А теперь, собственно, и разберём какие бывают сложности и начнём, конечно же, с самой простой, где{' '}
         <strong>n</strong> равно 1.
       </p>
-      <Note type={ENoteType.SECONDARY}>
+      <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
           <div className='tag'>Вопросик</div>
           <div className='tag TEXT-ONLY'>Почему O(1), а не O(0)?</div>

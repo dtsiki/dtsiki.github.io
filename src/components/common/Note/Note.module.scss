@@ -5,7 +5,7 @@
 .note {
   padding: $SPACER * 2;
   background: rgba($color--white-violet, 0.5);
-  margin-bottom: $SPACER;
+  margin-bottom: $SPACER !important;
 
   &__title {
     font-weight: 600;
@@ -19,7 +19,7 @@
     margin-bottom: -5px;
   }
 
-  &.PRIMARY {
+  &.primary {
     background: rgba($color--white-violet, 0.5);
     @include border1x1(2px, $color--white-violet);
 
@@ -28,7 +28,7 @@
     }
   }
 
-  &.SECONDARY {
+  &.secondary {
     background: rgba($color--grey-lighter, 0.5);
     @include border1x1(2px, $color--grey);
 

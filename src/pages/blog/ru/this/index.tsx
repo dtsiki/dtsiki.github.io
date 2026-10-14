@@ -7,7 +7,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from 'src/utils/formatting';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 
 import pulpFictionGifImage from 'public/assets/blog/this/pulp-fiction.gif';
 
@@ -254,7 +254,7 @@ button.addEventListener("click", (event) => {
           Когда стрелочная функция пишется как свойство объекта, она создаётся в глобальном контексте (не внутри другой
           функции). При этом стрелочная функция не привязывается к объекту, в котором она лежит как свойство.
         </p>
-        <Note type={ENoteType.SECONDARY}>
+        <Note type={NOTE_TYPE.SECONDARY}>
           <p>
             Вместо <InlineCode>undefined</InlineCode> может выводится пустая строка в браузере, так как контекст может
             ссылаться на объект <InlineCode>window</InlineCode>, у которого есть поле <InlineCode>name</InlineCode> со

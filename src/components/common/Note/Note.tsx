@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import { ENoteType, INoteProps } from './Note.types';
+import { INoteProps, NOTE_TYPE } from './Note.types';
 
 import styles from './Note.module.scss';
 
-export const Note = ({ title, children, type = ENoteType.PRIMARY }: INoteProps) => {
+export const Note = ({ title, children, type = NOTE_TYPE.PRIMARY }: INoteProps) => {
   const bind = classNames.bind(styles);
 
   return (

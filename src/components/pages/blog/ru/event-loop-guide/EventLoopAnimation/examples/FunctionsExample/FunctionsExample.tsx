@@ -3,7 +3,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { getConsoleLog, getTextWithChevrons } from 'src/utils';
 import { LONG_DASH } from 'src/constants';
@@ -56,7 +56,7 @@ doSomething();`;
             вызовов. В консоли выведется текст {getTextWithChevrons('Сделать то')}, затем {getConsoleLog('Сделать то')}{' '}
             удалится из стека.
           </p>
-          <Note type={ENoteType.SECONDARY}>
+          <Note type={NOTE_TYPE.SECONDARY}>
             <p>
               Почему следом в стек не попадает <InlineCode>doSomethingElse()</InlineCode>? Потому что стек не
               планировщик и не умеет смотреть в будущее. Он не видит, что после одной функции есть другие.{' '}

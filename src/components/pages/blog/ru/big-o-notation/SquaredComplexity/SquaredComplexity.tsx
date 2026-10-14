@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 
 export const SquaredComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   const printAllPairsCodeExample = `function printAllPairs(array: number[]) {
@@ -111,7 +111,7 @@ printAllPairs([1, 2, 3]);`;
         быстро, моргнуть не успеешь. Но на большом количестве данных это уже выстрел себе в ногу, на очень большом — в
         обе.
       </p>
-      <Note type={ENoteType.SECONDARY}>
+      <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
           <div className='tag'>Вопросик</div>
         </div>

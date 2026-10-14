@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 
 export const OtherComplexities = forwardRef<HTMLDivElement>(({}, ref) => {
   const getPermutationsCodeExample = `function getPermutations(str: string) {
@@ -62,7 +62,7 @@ console.log(isPrime(1000003)); // true`;
             Самая медленная сложность, при которой количество операций растет катастрофически быстро из-за того, что
             количество операций будет равно произведению всех чисел от 1 до n т.е. <code>1 ⋅ 2 ⋅ 3 ⋅ ... ⋅ n</code>.
           </p>
-          <Note type={ENoteType.SECONDARY}>
+          <Note type={NOTE_TYPE.SECONDARY}>
             <p>
               Факториал — это произведение всех целых чисел от единицы до заданного числа. Обозначается факториал
               восклицательным знаком <strong>!</strong> после числа. Например, запись 5! читается как «пять факториал».
@@ -115,7 +115,7 @@ console.log(isPrime(1000003)); // true`;
         </p>
         <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={isPrimeCodeExample} name='isPrime' />
         <p>Например, для числа 1000003 будет выполнено всего ~1000 итераций т.к. √1000003 = ~1000.</p>
-        <Note type={ENoteType.SECONDARY}>
+        <Note type={NOTE_TYPE.SECONDARY}>
           <p>
             Простое число — это целое число больше единицы, которое делится без остатка только на единицу и на само
             себя.

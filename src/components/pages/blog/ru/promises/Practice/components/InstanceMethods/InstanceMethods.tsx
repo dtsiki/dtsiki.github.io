@@ -20,7 +20,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { getTextWithChevrons } from 'src/utils';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 import { Accordion } from 'src/components/common/Accordion';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 
@@ -368,7 +368,7 @@ static reject(error) {
       </p>
       <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={thenReturnPromiseSnippetCode} hideLines={true} />
       <br />
-      <Note type={ENoteType.PRIMARY}>
+      <Note type={NOTE_TYPE.PRIMARY}>
         <div className='tags'>
           <div className='tag PRIMARY'>Важно</div>
         </div>

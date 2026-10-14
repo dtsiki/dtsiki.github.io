@@ -3,7 +3,7 @@ import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { Note } from 'src/components/common/Note';
-import { ENoteType } from 'src/components/common/Note/Note.types';
+import { NOTE_TYPE } from 'src/components/common/Note/Note.types';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 
@@ -121,7 +121,7 @@ interface C = A | B; // Error!`;
         </p>
         <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={interfaceExampleCode} />
         <div className='spacer top medium'>
-          <Note type={ENoteType.SECONDARY}>
+          <Note type={NOTE_TYPE.SECONDARY}>
             <p>
               Интерфейсы в TypeScript можно называть с префиксом <em>I</em>, например, <em>IUser</em> вместо{' '}
               <em>User</em>. Это не обязательное правило TypeScript, а соглашение, пришедшее из других языков для

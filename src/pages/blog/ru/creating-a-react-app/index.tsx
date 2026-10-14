@@ -5,7 +5,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { Note } from 'src/components/common/Note/Note';
-import { ENoteType } from 'src/components/common/Note/Note.types';
+import { NOTE_TYPE } from 'src/components/common/Note/Note.types';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';

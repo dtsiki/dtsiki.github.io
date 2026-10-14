@@ -15,7 +15,7 @@ import {
   rejectedEm,
   thenInline,
 } from '../utils';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { Accordion } from 'src/components/common/Accordion';
 

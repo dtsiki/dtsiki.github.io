@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 
 export const LogComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   const binarySearchCodeSnippet = `function binarySearch(array: number[], target: number): number {
@@ -113,7 +113,7 @@ export const LogComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
         </ul>
         <p>Получается, что выбирая между O(log n) и O(n log n) отбрасывается именно O(log n).</p>
       </Note>
-      <Note type={ENoteType.SECONDARY}>
+      <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
           <div className='tag'>Обратите внимание</div>
           <div className='tag TEXT-ONLY'>Деление сложностей</div>

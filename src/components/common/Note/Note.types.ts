@@ -1,19 +1,14 @@
 import { ReactNode } from 'react';
 
-export enum ENoteType {
-  PRIMARY = 'PRIMARY',
-  SECONDARY = 'SECONDARY',
-}
+export const NOTE_TYPE = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+};
 
-export const NoteType = {
-  PRIMARY: 'PRIMARY',
-  SECONDARY: 'SECONDARY',
-} as const;
-
-export type NoteType = typeof NoteType[keyof typeof NoteType];
+export type TNoteType = typeof NOTE_TYPE[keyof typeof NOTE_TYPE];
 
 export interface INoteProps {
   children: ReactNode;
   title?: ReactNode;
-  type?: ENoteType | NoteType;
+  type?: TNoteType;
 }

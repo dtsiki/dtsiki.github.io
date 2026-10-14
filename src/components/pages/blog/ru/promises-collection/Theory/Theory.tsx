@@ -3,7 +3,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
-import { ENoteType, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
 import { getTextWithChevrons } from 'src/utils';
 import { allInline, raceInline, allSettledInline, anyInline, iterableInline, thenInline, catchInline } from '../utils';

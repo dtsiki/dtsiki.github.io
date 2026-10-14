@@ -26,7 +26,7 @@ import {
   SingleTimeoutWithoutDelayExample,
   SyncCodeExample,
 } from 'src/components/pages/blog/ru/event-loop-guide/EventLoopAnimation';
-import { ENoteType } from 'src/components/common/Note/Note.types';
+import { NOTE_TYPE } from 'src/components/common/Note/Note.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { EXAMPLES } from 'src/i18n';
 import { TableOfContentsVariant } from 'src/components/pages/blog/TableOfContents/TableOfContents.types';
@@ -374,7 +374,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
           (Task Queue), а в каких-то две
           {LONG_DASH} это не является ошибкой.
         </p>
-        <Note type={ENoteType.SECONDARY}>
+        <Note type={NOTE_TYPE.SECONDARY}>
           <p>
             <b>Для самых дотошных:</b> термин «макрозадача» {LONG_DASH} это народное название, которое прижилось в
             сообществе, но его нет в официальной спецификации ECMAScript.
@@ -404,7 +404,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
             от микрозадач. На практике это не меняет ровно ничего.
           </p>
         </Note>
-        <Note type={ENoteType.SECONDARY}>
+        <Note type={NOTE_TYPE.SECONDARY}>
           <p>
             <b>Для ещё более дотошных:</b> в спецификации HTML также говорится, что «task queues are sets, not queues»{' '}
             {LONG_DASH}
@@ -513,7 +513,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
               обратном порядке {LONG_DASH} с последней вызванной по принципу LIFO т.е. последним пришёл {LONG_DASH}{' '}
               первым ушел.
             </p>
-            <Note type={ENoteType.SECONDARY}>
+            <Note type={NOTE_TYPE.SECONDARY}>
               <p>
                 <b>LIFO (Last In, First Out)</b> {LONG_DASH} это принцип обработки данных, является основой для работы
                 такой структуры структуры данных как стек.
@@ -590,7 +590,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
             </p>
           </li>
         </ul>
-        <Note type={ENoteType.SECONDARY}>
+        <Note type={NOTE_TYPE.SECONDARY}>
           <p>
             Если стек вызовов работает по принципу <b>LIFO</b>, то очереди задач работают строго по принципу{' '}
             <b>FIFO (First In, First Out)</b> {LONG_DASH} кто первым пришёл, тот первым и ушёл. Пример из жизни: очередь
@@ -762,7 +762,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
           Web API не «склад для колбэков», а диспетчер, который берёт задачу («поставь таймер», «скачай данные», «жди
           клика»), выполняет её на фоне, а когда заканчивает {LONG_DASH} отправляет колбэк в очередь.
         </p>
-        <Note type={ENoteType.SECONDARY}>
+        <Note type={NOTE_TYPE.SECONDARY}>
           <p>
             Web API работает ни по принципу <b>LIFO</b>, ни по принципу <b>FIFO</b>. Это вообще не очередь, а набор
             независимых таймеров и обработчиков, которые живут своей жизнью.
@@ -807,7 +807,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
             <p>если Web API словил клик по кнопке, то колбэк отправится в очередь макрозадач</p>
           </li>
         </ul>
-        <Note type={ENoteType.SECONDARY}>
+        <Note type={NOTE_TYPE.SECONDARY}>
           <p>
             Если вы знакомы с JavaScript, вы должны знать, что объект <b>console</b> не является частью самого
             JavaScript, а является{' '}
