@@ -20,7 +20,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { getTextWithChevrons } from 'src/utils';
-import { NOTE_TYPE, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 import { Accordion } from 'src/components/common/Accordion';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 

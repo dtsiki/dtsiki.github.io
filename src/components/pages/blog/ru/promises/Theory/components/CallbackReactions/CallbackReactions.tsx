@@ -18,7 +18,7 @@ import {
 } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { NOTE_TYPE, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 import { getTextWithChevrons } from 'src/utils';
 
 export const CallbackReactions = forwardRef<HTMLDivElement>((_, ref) => {

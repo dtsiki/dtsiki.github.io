@@ -3,7 +3,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
-import { NOTE_TYPE, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { getConsoleLog, getTextWithChevrons } from 'src/utils';
 import { LONG_DASH } from 'src/constants';

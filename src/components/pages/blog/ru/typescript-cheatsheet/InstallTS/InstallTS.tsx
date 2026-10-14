@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import classNames from 'classnames';
-import { Note } from 'src/components/common/Note';
+import { Note } from '~components/common/Note';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { AlertMiniIcon } from 'src/components/common/icons/ui';

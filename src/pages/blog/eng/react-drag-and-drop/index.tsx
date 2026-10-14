@@ -6,7 +6,7 @@ import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleC
 import { CODE_LANG } from '~components/common/Code';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { DragAndDropDemo } from 'src/components/pages/blog/eng/react-drag-and-drop/DragAndDropDemo/DragAndDrop';
-import { Note } from 'src/components/common/Note/Note';
+import { Note } from '~components/common/Note/Note';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import styles from './index.module.scss';

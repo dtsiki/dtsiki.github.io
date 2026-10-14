@@ -3,7 +3,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
-import { Note } from 'src/components/common/Note';
+import { Note } from '~components/common/Note';
 import { LONG_DASH } from 'src/constants';
 import { allInline, iterableInline, pendingEm } from '../utils';
 import { MyPromiseAll, MyPromiseAllSettled, MyPromiseAny, MyPromiseRace } from './components';

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { NOTE_TYPE, Note, NoteType } from 'src/components/common/Note';
+import { NOTE_TYPE, Note, NoteType } from '~components/common/Note';
 
 export const LinearComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   const forPrintAllCodeSnippet = `function printAll(array: number[]) {

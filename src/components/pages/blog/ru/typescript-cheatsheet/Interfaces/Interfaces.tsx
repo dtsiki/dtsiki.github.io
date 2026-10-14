@@ -2,8 +2,8 @@ import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { Note } from 'src/components/common/Note';
-import { NOTE_TYPE } from 'src/components/common/Note/Note.types';
+import { Note } from '~components/common/Note';
+import { NOTE_TYPE } from '~components/common/Note/Note.types';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 

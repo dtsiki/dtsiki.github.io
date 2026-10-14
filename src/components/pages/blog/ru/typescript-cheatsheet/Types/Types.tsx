@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { Note, NoteType } from 'src/components/common/Note';
+import { Note, NoteType } from '~components/common/Note';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 

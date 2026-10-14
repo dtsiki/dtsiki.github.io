@@ -16,7 +16,7 @@ import {
 } from '../../../utils';
 import { LONG_DASH } from 'src/constants';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { NOTE_TYPE, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 
 export const Executor = forwardRef<HTMLDivElement>((_, ref) => {
   const paymentPromiseSnippetCode = `paymentPromise.resolve({ status: 'SUCCESS' });`;

@@ -5,7 +5,7 @@ import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { Note } from 'src/components/common/Note';
+import { Note } from '~components/common/Note';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
 import { IItemOfContent } from 'src/interfaces';
 import {
@@ -26,7 +26,7 @@ import {
   SingleTimeoutWithoutDelayExample,
   SyncCodeExample,
 } from 'src/components/pages/blog/ru/event-loop-guide/EventLoopAnimation';
-import { NOTE_TYPE } from 'src/components/common/Note/Note.types';
+import { NOTE_TYPE } from '~components/common/Note/Note.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { EXAMPLES } from 'src/i18n';
 import { TableOfContentsVariant } from 'src/components/pages/blog/TableOfContents/TableOfContents.types';

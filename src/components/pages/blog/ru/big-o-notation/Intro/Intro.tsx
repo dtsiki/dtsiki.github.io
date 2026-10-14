@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { Accordion } from 'src/components/common/Accordion';
 import { CODE_LANG } from '~components/common/Code';
-import { NOTE_TYPE, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 
 export const Intro = forwardRef<HTMLDivElement>(({}, ref) => {
   const noopCodeExample = `function noop(): void {}`;

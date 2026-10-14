@@ -7,7 +7,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from 'src/utils/formatting';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { NOTE_TYPE, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 
 import pulpFictionGifImage from 'public/assets/blog/this/pulp-fiction.gif';
 

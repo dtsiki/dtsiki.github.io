@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { NOTE_TYPE, Note } from 'src/components/common/Note';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 
 export const LogComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   const binarySearchCodeSnippet = `function binarySearch(array: number[], target: number): number {

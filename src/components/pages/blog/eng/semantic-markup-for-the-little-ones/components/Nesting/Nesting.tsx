@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { Note } from 'src/components/common/Note/Note';
+import { Note } from '~components/common/Note/Note';
 
 export const Nesting = forwardRef<HTMLDivElement>((_, ref) => {
   const exampleHTMLBlockInInline = `<span>
