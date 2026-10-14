@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { IItemOfContent } from 'src/interfaces';
@@ -348,14 +348,14 @@ export const LanguageSwitcher = () => {
           пусть будут всего лишь два языка — русский и английский. Раньше для перечисления языков часто использовали
           перечисления <em>enum</em>:
         </p>
-        <CodeSnippet code={langEnumSnippet} lang={ECodeLang.TYPESCRIPT} />
+        <CodeSnippet code={langEnumSnippet} lang={CODE_LANG.TYPESCRIPT} />
         <p>
           Однако в современных настройках TypeScript (особенно с <em>isolatedModules: true</em>) использование{' '}
           <em>enum</em> может вызывать ошибки. Поэтому будем использовать более современный подход: объект с{' '}
           <em>as const</em> и выводимый из него тип <em>type</em>. Это даст ту же строгую типизацию, но лучше совместимо
           со сборщиками нового поколения, например Vite. Будет выглядеть чуть длиннее:
         </p>
-        <CodeSnippet code={langConstObjectSnippet} name='src/i18n/language' lang={ECodeLang.TYPESCRIPT} />
+        <CodeSnippet code={langConstObjectSnippet} name='src/i18n/language' lang={CODE_LANG.TYPESCRIPT} />
 
         <p>
           Всё это надо, чтобы не заморачиваться с тем, как правильно потом прописывать названия языков, например может
@@ -364,7 +364,7 @@ export const LanguageSwitcher = () => {
           расширить этот список — просто добавим новые языки. Например, если решим добавить в приложение тарабарский
           язык:
         </p>
-        <CodeSnippet code={anotherLangConstSnippet} name='src/i18n/language' lang={ECodeLang.TYPESCRIPT} />
+        <CodeSnippet code={anotherLangConstSnippet} name='src/i18n/language' lang={CODE_LANG.TYPESCRIPT} />
       </section>
       <section ref={contextRef} className='section outer'>
         <h2>Создаём контекст</h2>
@@ -374,7 +374,7 @@ export const LanguageSwitcher = () => {
         </p>
         <CodeSnippet
           code={contextInterfaceSnippet}
-          lang={ECodeLang.TYPESCRIPT}
+          lang={CODE_LANG.TYPESCRIPT}
           name='src/LanguageContext/LanguageContext.types'
         />
         <p>
@@ -386,7 +386,7 @@ export const LanguageSwitcher = () => {
         <p>
           Контекст создаём с начальным значением <em>undefined</em>, потом провайдер всё равно перезапишет его:
         </p>
-        <CodeSnippet code={contextSnippet} lang={ECodeLang.REACT} name='src/LanguageContext/LanguageContext' />
+        <CodeSnippet code={contextSnippet} lang={CODE_LANG.REACT} name='src/LanguageContext/LanguageContext' />
         <p>Контекст готов!</p>
       </section>
       <section ref={providerRef} className='section outer'>
@@ -397,11 +397,11 @@ export const LanguageSwitcher = () => {
         </p>
         <CodeSnippet
           code={providerInterfaceSnippet}
-          lang={ECodeLang.TYPESCRIPT}
+          lang={CODE_LANG.TYPESCRIPT}
           name='src/LanguageContext/LanguageProvider.types'
         />
         <p>Сам провайдер будет очень простым:</p>
-        <CodeSnippet code={providerSnippet} lang={ECodeLang.REACT} name='src/LanguageContext/LanguageProvider' />
+        <CodeSnippet code={providerSnippet} lang={CODE_LANG.REACT} name='src/LanguageContext/LanguageProvider' />
         <p>Что происходит в провайдере:</p>
         <ul className='list markered'>
           <li className='list__item'>
@@ -415,7 +415,7 @@ export const LanguageSwitcher = () => {
           </li>
         </ul>
         <p>Далее нужно обернуть корневой компонент этим провайдером:</p>
-        <CodeSnippet code={rootWithProviderSnippet} lang={ECodeLang.REACT} customName='src/main.tsx' />
+        <CodeSnippet code={rootWithProviderSnippet} lang={CODE_LANG.REACT} customName='src/main.tsx' />
       </section>
       <section ref={hookRef} className='section outer'>
         <h2>Создаём хук</h2>
@@ -424,7 +424,7 @@ export const LanguageSwitcher = () => {
           на 
           <em>undefined</em> не очень удобно:
         </p>
-        <CodeSnippet code={helloWorldSnippet} lang={ECodeLang.REACT} name='HelloWorld' />
+        <CodeSnippet code={helloWorldSnippet} lang={CODE_LANG.REACT} name='HelloWorld' />
         <p className='explanation'>
           Так делать не будем: в этом примере всё выглядит невинно, но чем больше компонент и чем больше будет самих
           компонентов, то тем тяжелее будет таскать и поддерживать за собой кучу ненужного кода. Помните: DRY!
@@ -434,7 +434,7 @@ export const LanguageSwitcher = () => {
           программисты!) всю логику в одном месте и нам не нужно будет таскать во всех компоненты за собой одинаковый
           код.
         </p>
-        <CodeSnippet code={useTranslateHookSnippet} lang={ECodeLang.REACT} name='src/hooks/useTranslate' />
+        <CodeSnippet code={useTranslateHookSnippet} lang={CODE_LANG.REACT} name='src/hooks/useTranslate' />
         <p className='explanation'>
           А будем делать так: перенесём этот код в хук и будем вызывать этот хук там, где нам нужно что-то перевести
         </p>
@@ -459,7 +459,7 @@ export const LanguageSwitcher = () => {
           проекта.
         </p>
         <p>Для переводов нам потребуется специальный объект:</p>
-        <CodeSnippet code={translationObjectSnippet} name='src/types/i18n.types' lang={ECodeLang.TYPESCRIPT} />
+        <CodeSnippet code={translationObjectSnippet} name='src/types/i18n.types' lang={CODE_LANG.TYPESCRIPT} />
         <p>
           Этот объект поможет нам типизировать объекты перевода. Он будет говорить TypeScript&apos;у: «Любой объект,
           который хочет быть переводом, должен содержать поля English и Russian, и эти оба поля должны быть строками».
@@ -468,7 +468,7 @@ export const LanguageSwitcher = () => {
         <CodeSnippet
           code={translationObjectExampleSnippet}
           name='src/i18n/translations/common'
-          lang={ECodeLang.TYPESCRIPT}
+          lang={CODE_LANG.TYPESCRIPT}
         />
         <p className='explanation'>
           Пример дурацких ошибок при составлении объектов, благодаря <em>TranslationObject</em> эти ошибки будут
@@ -479,7 +479,7 @@ export const LanguageSwitcher = () => {
           Далее создадим дочернюю папку <em>translations</em> и будет складывать туда файлы c объектами с переводами в
           виде:
         </p>
-        <CodeSnippet code={i18nExampleSnippet} lang={ECodeLang.TYPESCRIPT} name='src/i18n/translations/common' />
+        <CodeSnippet code={i18nExampleSnippet} lang={CODE_LANG.TYPESCRIPT} name='src/i18n/translations/common' />
         <p>Названия объектов написаны капсом чтобы в компонентах было сразу понятно: «ага, это же перевод!».</p>
         <p>
           Внутри папки <em>i18n</em> переводы можно разделять по смыслу по файлами, например в файл <em>common.ts</em>{' '}
@@ -495,7 +495,7 @@ export const LanguageSwitcher = () => {
           <em>translate</em>. В неё нужно будет просто передать нужный объект с переводом из папки <em>i18n</em>.
           Например:
         </p>
-        <CodeSnippet code={translateExampleSnippet} lang={ECodeLang.REACT} name='src/components/HelloWorld' />
+        <CodeSnippet code={translateExampleSnippet} lang={CODE_LANG.REACT} name='src/components/HelloWorld' />
       </section>
       <section ref={langToggleRef} className='section outer'>
         <h2>Добавляем переключатель языка</h2>
@@ -505,7 +505,7 @@ export const LanguageSwitcher = () => {
         </p>
         <CodeSnippet
           code={languageSwitcherComponentSnippet}
-          lang={ECodeLang.REACT}
+          lang={CODE_LANG.REACT}
           name='src/components/LanguageSwitcher'
         />
         <p>

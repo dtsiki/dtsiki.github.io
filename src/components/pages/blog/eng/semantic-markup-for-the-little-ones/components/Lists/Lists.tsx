@@ -5,7 +5,7 @@ import HtmlTag from 'src/components/common/HtmlTag';
 import { Window } from 'src/components/common/Window/Window';
 import { EWindowType } from 'src/components/common/Window/Window.types';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 import styles from './List.module.scss';
 
@@ -133,7 +133,7 @@ export const Lists = forwardRef<HTMLDivElement>((_, ref) => {
           </div>
           <div className='col col--50 col--tablet-100'>
             <div className='spacer top small'>
-              <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLNavList} />
+              <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLNavList} />
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@ export const Lists = forwardRef<HTMLDivElement>((_, ref) => {
       <div className='flex h-centered'>
         <div className='row'>
           <div className='col col--50 col--tablet-100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLUl} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLUl} />
             <div className='spacer top medium'>
               <Window type={EWindowType.CUSTOM}>
                 <div className={styles.lists__demo}>
@@ -169,7 +169,7 @@ export const Lists = forwardRef<HTMLDivElement>((_, ref) => {
             </div>
           </div>
           <div className='col col--50 col--tablet-100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLOl} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLOl} />
             <div className='spacer top medium'>
               <Window type={EWindowType.CUSTOM}>
                 <div className={styles.lists__demo}>
@@ -201,7 +201,7 @@ export const Lists = forwardRef<HTMLDivElement>((_, ref) => {
       <div className='flex h-centered'>
         <div className='row'>
           <div className='col col--50 col--tablet-100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLDl} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLDl} />
           </div>
           <div className='col col--50 col--tablet-100'>
             <Window type={EWindowType.CUSTOM}>
@@ -234,7 +234,7 @@ export const Lists = forwardRef<HTMLDivElement>((_, ref) => {
       <div className='flex h-centered'>
         <div className='row'>
           <div className='col col--50 col--tablet-100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLNested} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLNested} />
           </div>
           <div className='col col--50 col--tablet-100'>
             <Window type={EWindowType.CUSTOM}>

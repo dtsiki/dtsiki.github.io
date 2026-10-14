@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const Headings = forwardRef<HTMLDivElement>((_, ref) => {
   const exampleHTMLNonHeadings = `<div>
@@ -45,7 +45,7 @@ export const Headings = forwardRef<HTMLDivElement>((_, ref) => {
         that&#39;s just a bunch of divs. In addition, search engines use headings to index structure and content of web
         pages.
       </p>
-      <DoubleCodeSnippet lang={[ECodeLang.HTML, ECodeLang.HTML]} code={[exampleHTMLNonHeadings, exampleHTMLHeadings]} />
+      <DoubleCodeSnippet lang={[CODE_LANG.HTML, CODE_LANG.HTML]} code={[exampleHTMLNonHeadings, exampleHTMLHeadings]} />
       <p className='spacer top large'>There are a few tips that will help you use headings like a pro:</p>
       <ol className='list ordered'>
         <li className='list__item'>

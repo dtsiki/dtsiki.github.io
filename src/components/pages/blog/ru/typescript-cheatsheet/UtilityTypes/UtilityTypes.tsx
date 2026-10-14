@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText, renderInlineList } from 'src/utils/formatting';
 
@@ -188,7 +188,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
         <p>
           Для примера возьмём тип <InlineCode>User</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={userTypeExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={userTypeExampleCode} />
         <p>На его основе создадим новые типы с помощью встроенных:</p>
         <ul className='list markered'>
           <li className='list__item'>
@@ -198,7 +198,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               </InlineCode>{' '}
               делает все свойства типа <InlineCode>Type</InlineCode> необязательными (опциональными):
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={partialUserTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={partialUserTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -208,7 +208,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               делает все свойства типа <InlineCode>Type</InlineCode> обязательными, даже если они были объявлены как
               опциональные:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={requiredUserTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={requiredUserTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -218,7 +218,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               делает все свойства типа <InlineCode>Type</InlineCode> доступными только для чтения, предотвращая
               последующие изменения:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={readonlyUserTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={readonlyUserTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -227,7 +227,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               </InlineCode>{' '}
               выбирает только указанные свойства <InlineCode>Keys</InlineCode> из типа <InlineCode>Type</InlineCode>:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={pickUserTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={pickUserTypeExampleCode} />
             <p>
               <InlineCode>
                 Pick<AngleBrackets>Type, Keys</AngleBrackets>
@@ -242,7 +242,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               </InlineCode>{' '}
               удаляет указанные свойства <InlineCode>Keys</InlineCode> из типа <InlineCode>Type</InlineCode>:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={omitUserTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={omitUserTypeExampleCode} />
             <p>
               <InlineCode>
                 Omit<AngleBrackets>Type, Keys</AngleBrackets>
@@ -256,7 +256,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
           Всё выше перечисленное будет работать и для интерфейсов т.к. для TypeScript типы и интерфейсы это одно и то же{' '}
           {LONG_DASH} объектный тип:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={userInterfaceExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={userInterfaceExampleCode} />
       </section>
       <section className='section inner'>
         <h3>
@@ -272,7 +272,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
           Чаще всего используется для создания словарей (хеш-таблиц), где ключом является строка, а значением{' '}
           {LONG_DASH} любой нужный тип:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={recordExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={recordExampleCode} />
       </section>
       <section className='section inner'>
         <h3>{renderInlineList(['Exclude<Type, U>', 'Extract<Type, U>', 'NonNullable<Type>'], 'code', 'code')}</h3>
@@ -286,7 +286,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               исключает из объединения <InlineCode>T</InlineCode> все типы, которые можно присвоить{' '}
               <InlineCode>U</InlineCode>:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={excludeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={excludeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -295,7 +295,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               </InlineCode>{' '}
               наоборот {LONG_DASH} оставляет только совпадающие:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extractExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={extractExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -305,7 +305,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               убирает из <InlineCode>T</InlineCode> все <InlineCode>null</InlineCode> и{' '}
               <InlineCode>undefined</InlineCode>:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={nonNullableExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={nonNullableExampleCode} />
           </li>
         </ul>
       </section>
@@ -326,7 +326,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               </InlineCode>{' '}
               позволяет получить типы аргументов функции <InlineCode>Type</InlineCode> в виде кортежа:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={parametersExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={parametersExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -335,7 +335,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               </InlineCode>{' '}
               позволяет получить тип возвращаемого значения из функции:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={returnTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={returnTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -344,7 +344,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               </InlineCode>{' '}
               позволяет извлечь типы параметров конструктора класса в виде кортежа:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={constructorParametersExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={constructorParametersExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -353,7 +353,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
               </InlineCode>{' '}
               позволяет извлечь тип, который возвращает конструктор класса:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={instanceTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={instanceTypeExampleCode} />
           </li>
         </ul>
       </section>
@@ -370,7 +370,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
           Самый частый сценарий использования {LONG_DASH} получение типа возвращаемого значения из асинхронных функций в
           сочетании с <InlineCode>ReturnType</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={awaitedExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={awaitedExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Комбинация встроенных типов</h3>
@@ -390,7 +390,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
             : частичный тип на основе выбранных полей
           </h4>
           <p>Если нужно взять только пару полей из типа и сделать их необязательными:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={pickPlusPartialTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={pickPlusPartialTypeExampleCode} />
         </section>
         <section className='section inner'>
           <h4>
@@ -407,7 +407,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
             Если нужно запретить менять какое-то системное поле, например <InlineCode>id</InlineCode>, а остальные поля
             сделать опциональными:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={omitPlusPartialTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={omitPlusPartialTypeExampleCode} />
         </section>
         <section>
           <h4>Частичное изменение конкретных свойств</h4>
@@ -422,7 +422,7 @@ type StrictPost = RequiredBy<Post, 'body'>;
             действуют сразу на весь объект. Чтобы сделать только некоторые поля опциональными или обязательными, их
             комбинируют через пересечение <InlineCode>&</InlineCode>:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={partialRequiredTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={partialRequiredTypeExampleCode} />
         </section>
       </section>
     </section>

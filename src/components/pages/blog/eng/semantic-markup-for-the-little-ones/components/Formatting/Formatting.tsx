@@ -7,7 +7,7 @@ import { Window } from 'src/components/common/Window/Window';
 import { EWindowType } from 'src/components/common/Window/Window.types';
 import { IFormattingProps } from './Formatting.types';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 import styles from './Formatting.module.scss';
 
@@ -191,7 +191,7 @@ export const Formatting = forwardRef<HTMLDivElement, IFormattingProps>((props, r
       <div className='flex h-centered'>
         <div className='row'>
           <div className='col col--100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLNonParagraphs} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLNonParagraphs} />
           </div>
           <div className='col col--100'>
             <div className='spacer top medium'>
@@ -225,7 +225,7 @@ export const Formatting = forwardRef<HTMLDivElement, IFormattingProps>((props, r
       <div className='flex h-centered'>
         <div className='row'>
           <div className='col col--100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLParagraphs} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLParagraphs} />
           </div>
           <div className='col col--100'>
             <div className='spacer top medium'>
@@ -259,14 +259,14 @@ export const Formatting = forwardRef<HTMLDivElement, IFormattingProps>((props, r
               There&#39;s nothing wrong with using <HtmlTag isSingle>br</HtmlTag> inside listed items, but never do the
               following if you need to create lists:
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLListWithLineBreaks} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLListWithLineBreaks} />
           </div>
           <div className='col col--50 col--tablet-50'>
             <p className='spacer bottom medium'>
               If you use special HTML lists tags, you don&#39;t need to break lines after listed items as it is
               automatically inserted:
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLList} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLList} />
           </div>
         </div>
       </div>
@@ -281,7 +281,7 @@ export const Formatting = forwardRef<HTMLDivElement, IFormattingProps>((props, r
               </i>
               .
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLListWithLineBreaksBetween} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLListWithLineBreaksBetween} />
           </div>
           <div className='col col--50 col--tablet-50'>
             <p className='spacer bottom medium'>
@@ -292,7 +292,7 @@ export const Formatting = forwardRef<HTMLDivElement, IFormattingProps>((props, r
               <code className='highlighted ghost'>:first-child</code>,{' '}
               <code className='highlighted ghost'>:last-child</code>, etc, to add additional gap some elements.
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLList} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLList} />
           </div>
         </div>
       </div>
@@ -318,7 +318,7 @@ export const Formatting = forwardRef<HTMLDivElement, IFormattingProps>((props, r
               It can be email addresses, addresses of web pages, physical addresses, geographic coordinates, phone
               numbers, social media links, etc.
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLAddress} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLAddress} />
             <div className='spacer top medium'>
               <div className={styles.formatting__address}>
                 <div className={styles.formatting__pin}>
@@ -346,7 +346,7 @@ export const Formatting = forwardRef<HTMLDivElement, IFormattingProps>((props, r
               Don&#39;t settle for this implementation. There are many ways for creating quotes, using{' '}
               <HtmlTag isSingle>blockquote</HtmlTag> is just one of them.
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLBlockquote} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLBlockquote} />
             <div className='spacer bottom medium'>
               <div className={styles.formatting__sticker}>
                 <div className={styles.formatting__pin}>

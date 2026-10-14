@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { Note, NoteType } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
@@ -67,19 +67,19 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
       <p>
         Типы записываются с помощью ключевого слова <InlineCode>type</InlineCode>.
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeExampleCode} />
 
       <p>Можно описывать не только объекты, можно и примитивы:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={basicDataTypeExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={basicDataTypeExampleCode} />
 
       <p>Функции:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionTypeExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={functionTypeExampleCode} />
 
       <p>Массивы:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrayTypeExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={arrayTypeExampleCode} />
 
       <p>Кортежи:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={tupleTypeExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={tupleTypeExampleCode} />
 
       <div className='spacer top bottom medium'>
         <Note type={NoteType.SECONDARY}>
@@ -102,7 +102,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
             Для объединения используется символ <InlineCode>|</InlineCode>. В результате объединения получается новый
             тип, который будет содержать всё, что есть в типах, участвующих в объединении:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionTypesExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={unionTypesExampleCode} />
         </section>
         <section className='section inner'>
           <h4>Пересечение типов</h4>
@@ -110,9 +110,9 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
             Для пересечения используется символ <InlineCode>&</InlineCode>. Новый тип будет содержать свойства{' '}
             <strong>всех</strong> указанных при пересечении типов:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={intersectionTypesExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={intersectionTypesExampleCode} />
           <p>Также с помощью пересечения можно расширять типы:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={extendsTypeExampleCode} />
         </section>
       </section>
       <section className='section inner'>
@@ -120,7 +120,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
         <ul className='list markered'>
           <li className='list__item'>
             <p>Типы нельзя переопределять:</p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeRedeclarationErrorExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeRedeclarationErrorExampleCode} />
           </li>
         </ul>
       </section>

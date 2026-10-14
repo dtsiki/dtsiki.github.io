@@ -3,7 +3,7 @@ import { InlineCode } from 'src/components/blog';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 
@@ -338,7 +338,7 @@ Button.displayName = 'Button';`;
           Для типизации пропсов обычно используется ключевое слово <InlineCode>type</InlineCode> или{' '}
           <InlineCode>interface</InlineCode> для создания отдельных типов для пропсов компонента:
         </p>
-        <CodeSnippet lang={ECodeLang.REACT} code={componentWithInterfaceExampleCode} name='Button' />
+        <CodeSnippet lang={CODE_LANG.REACT} code={componentWithInterfaceExampleCode} name='Button' />
         <p>
           Что выбрать: <InlineCode>interface</InlineCode> или <InlineCode>type</InlineCode>? Для пропсов они
           взаимозаменяемы, но часто выбирают <InlineCode>interface</InlineCode>.
@@ -348,18 +348,18 @@ Button.displayName = 'Button';`;
           <em>COMPONENT_NAME.types.ts</em> и перенести тип/интерфейс для пропса туда {LONG_DASH} это отличная практика
           для очистки кода компонентов:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typesInterfaceExampleCode} name='Button.types' />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typesInterfaceExampleCode} name='Button.types' />
         <div className='spacer top small'></div>
-        <CodeSnippet lang={ECodeLang.REACT} code={componentExampleCode} name='Button' />
+        <CodeSnippet lang={CODE_LANG.REACT} code={componentExampleCode} name='Button' />
       </section>
       <section className='section inner'>
         <h3>Типизация компонентов</h3>
         <p>
           Раньше надо было типизировать компоненты с <em>FC</em> (или <em>FunctionComponent</em>):
         </p>
-        <CodeSnippet lang={ECodeLang.REACT} code={FCTypeExampleCode} name='Button.types' />
+        <CodeSnippet lang={CODE_LANG.REACT} code={FCTypeExampleCode} name='Button.types' />
         <div className='spacer top small'></div>
-        <CodeSnippet lang={ECodeLang.REACT} code={FCComponentExampleCode} name='Button' />
+        <CodeSnippet lang={CODE_LANG.REACT} code={FCComponentExampleCode} name='Button' />
         <p className='explanation'>Внимание: это старый подход!</p>
         <p>
           В современном TypeScript это делать не обязательно и часто не рекомендуется {LONG_DASH} <em>FC</em>{' '}
@@ -368,9 +368,9 @@ Button.displayName = 'Button';`;
           должен принимать дочерние элементы, всё равно их принимает без ошибок со стороны TypeScript. Поэтому
           достаточно просто протипизировать пропсы без типизации самого компонента:
         </p>
-        <CodeSnippet lang={ECodeLang.REACT} code={withoutFCTypeExampleCode} name='Button.types' />
+        <CodeSnippet lang={CODE_LANG.REACT} code={withoutFCTypeExampleCode} name='Button.types' />
         <div className='spacer top small'></div>
-        <CodeSnippet lang={ECodeLang.REACT} code={withoutFCComponentExampleCode} name='Button' />
+        <CodeSnippet lang={CODE_LANG.REACT} code={withoutFCComponentExampleCode} name='Button' />
       </section>
       <section className='section inner'>
         <h3>
@@ -380,9 +380,9 @@ Button.displayName = 'Button';`;
           Если компонент должен оборачивать другие компоненты т.е. принимать <InlineCode>children</InlineCode>,
           используйте стандартный тип <strong>ReactNode</strong>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={childrenTypesExampleCode} name='Header.types' />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={childrenTypesExampleCode} name='Header.types' />
         <div className='spacer top small'></div>
-        <CodeSnippet lang={ECodeLang.REACT} code={childrenComponentExampleCode} name='Header' />
+        <CodeSnippet lang={CODE_LANG.REACT} code={childrenComponentExampleCode} name='Header' />
         <p>
           Этот тип настоящая палочка-выручалочка и представляет собой всё, что может быть отрендерено в React: элементы
           React (JSX), строки, числа, массивы, фрагменты, <InlineCode>null</InlineCode>,{' '}
@@ -409,7 +409,7 @@ Button.displayName = 'Button';`;
             обычно указывается HTML-тег элемента, с которого приходит событие, в данном случае это кнопка поэтому тип
             будет <strong>HTMLButtonElement</strong>:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={mouseEventExampleCode} name='Button' />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={mouseEventExampleCode} name='Button' />
         </section>
         <section className='section inner'>
           <h4>
@@ -420,7 +420,7 @@ Button.displayName = 'Button';`;
             Если нужно обработать изменение в поле ввода, селекторе или чекбоксе, используйте{' '}
             <strong>ChangeEvent</strong>. В качестве дженерика нужно передать элемент формы:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inputEventExampleCode} name='Input' />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={inputEventExampleCode} name='Input' />
         </section>
         <p>
           Остальные события работают аналогично. Если не понятно, какой тип следует присвоить, то в React с TypeScript
@@ -438,7 +438,7 @@ Button.displayName = 'Button';`;
               </strong>
               :
             </p>
-            <CodeSnippet lang={ECodeLang.REACT} code={clickEventHintExampleCode} name='Button' />
+            <CodeSnippet lang={CODE_LANG.REACT} code={clickEventHintExampleCode} name='Button' />
           </li>
           <li className='list__item'>
             <p>
@@ -446,7 +446,7 @@ Button.displayName = 'Button';`;
               события. Похоже на предыдущий способ: вынесите функцию, но не пишите тип сразу, наведите на{' '}
               <InlineCode>event</InlineCode>, IDE снова подскажет нужный тип:
             </p>
-            <CodeSnippet lang={ECodeLang.REACT} code={clickHandlerHintHintExampleCode} name='Button' />
+            <CodeSnippet lang={CODE_LANG.REACT} code={clickHandlerHintHintExampleCode} name='Button' />
           </li>
         </ul>
         <p>
@@ -473,7 +473,7 @@ Button.displayName = 'Button';`;
             Типизация <InlineCode>useState</InlineCode> для примитивов обычно выводится автоматически из начального
             значения. Тип можно указывать:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={awesomeComponentPrimitiveStatesExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={awesomeComponentPrimitiveStatesExampleCode} />
           <p>
             А можно и пропустить, как и в случае с переменными (см.{' '}
             <a href='#Type_Annotations' className='link PRIMARY'>
@@ -481,7 +481,7 @@ Button.displayName = 'Button';`;
             </a>
             ) {LONG_DASH} TypeScript сам может автоматически определить тип по начальному значению:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={awesomeComponentPrimitiveStatesSkippedExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={awesomeComponentPrimitiveStatesSkippedExampleCode} />
           <p>
             Если начальное значение может быть <InlineCode>null</InlineCode> или тип неочевиден, используйте дженерик в
             виде{' '}
@@ -490,9 +490,9 @@ Button.displayName = 'Button';`;
             </InlineCode>{' '}
             c объединением для явного указания:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsUseStateExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={genericsUseStateExampleCode} />
           <p>Если начальное состояние это массив объектов, который изначально пуст:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={emptyArrayUseStateExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={emptyArrayUseStateExampleCode} />
         </section>
         <section className='section inner'>
           <h4>
@@ -508,13 +508,13 @@ Button.displayName = 'Button';`;
               <p>
                 <InlineCode>useRef</InlineCode> хранит ссылку на DOM-элемент:
               </p>
-              <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useRefDOMRefExampleCode} />
+              <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={useRefDOMRefExampleCode} />
             </li>
             <li className='list__item'>
               <p>
                 <InlineCode>useRef</InlineCode> используется как переменная для сохранения данных:
               </p>
-              <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useRefVarRefExampleCode} />
+              <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={useRefVarRefExampleCode} />
             </li>
           </ul>
           <p>
@@ -525,9 +525,9 @@ Button.displayName = 'Button';`;
             </code>{' '}
             через запятую {LONG_DASH} типы HTML-элемента и тип для пропсов компонента:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={forwardRefTypesExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={forwardRefTypesExampleCode} />
           <div className='spacer top small'></div>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={forwardRefComponentExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={forwardRefComponentExampleCode} />
         </section>
         <section className='section inner'>
           <h4>Кастомные хуки</h4>
@@ -535,13 +535,13 @@ Button.displayName = 'Button';`;
             Для типизации кастомных хуков применяются те же правила типизации аргументов функций и возвращаемых
             значений. Возвращаемый результат часто типизируется как кортеж:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={customHookExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={customHookExampleCode} />
 
           <p>
             Если хук возвращает более 2-3 значений, лучше вернуть объект. Это сделает код при деструктуризации
             независимым от порядка следования переменных и самодокументируемым:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={customHookReturnObjectExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={customHookReturnObjectExampleCode} />
 
           <p>
             {' '}
@@ -564,7 +564,7 @@ Button.displayName = 'Button';`;
             Основное внимание нужно уделить аргументам функции, передаваемой в <InlineCode>useCallback</InlineCode>{' '}
             {LONG_DASH} их типы лучше прописывать явно, чтобы избежать ошибок типизации при передаче пропсов:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useCallbackExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={useCallbackExampleCode} />
           <p>
             Тип возвращемого значения, аналогично как и дл <InlineCode>useMemo</InlineCode>, указывать не надо.
           </p>
@@ -577,7 +577,7 @@ Button.displayName = 'Button';`;
             Чтобы типизировать хук <InlineCode>useContext</InlineCode>, нужно задать интерфейс для данных контекста на
             этапе создания через <InlineCode>createContext</InlineCode>:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useContextInterfaceExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={useContextInterfaceExampleCode} />
           <p>
             В качестве значения по умолчанию указывается <InlineCode>null</InlineCode> , чтобы избежать ложных
             срабатываний.
@@ -587,11 +587,11 @@ Button.displayName = 'Button';`;
             избежания проблем с <InlineCode>null</InlineCode> рекомендуется создавать кастомный хук-обертку, который
             будет проверять, что компонент находится внутри провайдера:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={useThemeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={useThemeExampleCode} />
           <div className='spacer top small'></div>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={providerExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={providerExampleCode} />
           <div className='spacer top small'></div>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={themeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={themeExampleCode} />
         </section>
       </section>
       <section className='section inner'>
@@ -601,9 +601,9 @@ Button.displayName = 'Button';`;
           сохраняя при этом строгую типизацию.{' '}
         </p>
         <p>Самый базовый пример такого компонента-дженерика это компонент-список:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsListTypesExampleCode} name='List.types' />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={genericsListTypesExampleCode} name='List.types' />
         <div className='spacer top small'></div>
-        <CodeSnippet lang={ECodeLang.REACT} code={genericsListComponentExampleCode} name='List' />
+        <CodeSnippet lang={CODE_LANG.REACT} code={genericsListComponentExampleCode} name='List' />
       </section>
       <section id='Generics_Custom_Hooks' className='section inner'>
         <h3>Дженерики-хуки</h3>
@@ -611,7 +611,7 @@ Button.displayName = 'Button';`;
           Дженерики также позволяют создавать переиспользуемые хуки, которые адаптируют свои типы под передаваемые
           данные. Например:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsHookExampleCode} name='useLocalStorage' />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={genericsHookExampleCode} name='useLocalStorage' />
         <p>
           При вызове{' '}
           <InlineCode>

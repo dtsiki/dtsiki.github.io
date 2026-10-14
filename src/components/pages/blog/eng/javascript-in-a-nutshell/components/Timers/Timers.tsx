@@ -2,7 +2,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { Accordion } from 'src/components/common/Accordion';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const Timers = () => {
   const exampleSetTimeout = `setTimeout(() => {
@@ -81,7 +81,7 @@ console.log('uou');`;
             <code>setTimeout(function, milliseconds)</code>
           </div>
           <div className='list__footer'>It executes a function after waiting a specified number of milliseconds</div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleSetTimeout} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleSetTimeout} />
 
           <p className='spacer top medium'>Wait 1 second and the following output will appear:</p>
           <ExampleSnippet code={resultSetTimeout} />
@@ -90,7 +90,7 @@ console.log('uou');`;
             Timeout timers can be cancelled using <code>clearTimeout()</code>:
           </p>
           <DoubleCodeSnippet
-            lang={[ECodeLang.HTML, ECodeLang.JAVASCRIPT]}
+            lang={[CODE_LANG.HTML, CODE_LANG.JAVASCRIPT]}
             name={['index', 'index']}
             code={[exampleClearTimeoutMarkup, exampleClearTimeout]}
           />
@@ -103,7 +103,7 @@ console.log('uou');`;
             It also executes a function after waiting a specified number of milliseconds, but repeats the execution
             continuously, e.g., every X milliseconds.
           </div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={examplSetInterval} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={examplSetInterval} />
 
           <p className='spacer top medium'>
             The example executes <code>console.log()</code> once every second:
@@ -114,7 +114,7 @@ console.log('uou');`;
             Interval timers can be cancelled using <code>clearInterval()</code>:
           </p>
           <DoubleCodeSnippet
-            lang={[ECodeLang.HTML, ECodeLang.JAVASCRIPT]}
+            lang={[CODE_LANG.HTML, CODE_LANG.JAVASCRIPT]}
             name={['index', 'index']}
             code={[exampleClearIntervalMarkup, exampleClearInterval]}
           />
@@ -124,7 +124,7 @@ console.log('uou');`;
         A delay set with a timer is not a guaranteed thing. Let&#39;s experiment! In what order will be{' '}
         <code>console.log()</code> displayed after the execution of the code below?
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleSetTimeoutOrder} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleSetTimeoutOrder} />
 
       <p>
         It&#39;s quite easy: <code>console.log(&#39;qeq&#39;)</code> is delayed for a second and will execute last:
@@ -135,7 +135,7 @@ console.log('uou');`;
         But what if we change the delay from <code>1 second</code> to <code>0</code>? Well, it&#39;s possible to set a
         zero-delay, so why not?
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleSetTimeoutOrderZeroDelay} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleSetTimeoutOrderZeroDelay} />
 
       <p>This time the result doesn&#39;t seem so obvious, huh?</p>
       <ExampleSnippet code={resultSetTimeoutOrderZeroDelay} />

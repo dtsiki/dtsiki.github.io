@@ -5,7 +5,7 @@ import { AnimatedStarDemo } from 'src/components/pages/blog/AnimatedStarDemo/Ani
 import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window/Window.types';
 import { Window } from 'src/components/common/Window/Window';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
@@ -390,7 +390,7 @@ export const AnimatedStar = () => {
           потолка, а размеры <code className='code'>.svg</code> файла звезды, который у меня получился в Figma.
         </p>
         <DoubleCodeSnippet
-          lang={[ECodeLang.HTML, ECodeLang.CSS]}
+          lang={[CODE_LANG.HTML, CODE_LANG.CSS]}
           name={['index', 'style']}
           code={[exampleHTML1, exampleCSS1]}
         />
@@ -415,7 +415,7 @@ export const AnimatedStar = () => {
           <code className='code'>.eye</code> мы добавили на прошлом шаге.
         </p>
         <DoubleCodeSnippet
-          lang={[ECodeLang.HTML, ECodeLang.CSS]}
+          lang={[CODE_LANG.HTML, CODE_LANG.CSS]}
           name={['index', 'style']}
           code={[exampleHTML1, exampleCSS2]}
         />
@@ -448,7 +448,7 @@ export const AnimatedStar = () => {
           По задумке глаза должны следить за курсором, поэтому нам нужно подписаться на движение мышкой (курсором).
           Делается это просто с помощью метода подписки на событие <code className='code'>addEventListener</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS1} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJS1} />
 
         <p className='spacer bottom medium'>
           В этом коде <code className='code'>mousemove</code> — событие, которое срабатывает при каждом движении мыши,{' '}
@@ -460,7 +460,7 @@ export const AnimatedStar = () => {
           делать всю магию движения глаз. Для начала нужно найти все глаза, которые мы хотим анимировать. Сделаем это
           так:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS2} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJS2} />
 
         <p className='spacer bottom medium'>
           Метод <code className='code'>querySelectorAll</code> в JavaScript используется для поиска и возврата списка
@@ -472,32 +472,32 @@ export const AnimatedStar = () => {
           А сделаем мы вот что — пройдёмся по всем элементам полученного списка с помощью метода перебора элементов
           массива <code className='code'>forEach</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS3} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJS3} />
 
         <p className='spacer top bottom medium'>
           Время освежить курс математики. Для каждого глаза надо вычислить координаты его центра{' '}
           <code className='code'>x, y</code> по несложной формуле:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS4} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJS4} />
 
         <p className='spacer top bottom medium'>Теперь вычислим угол между глазом и курсором:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS5} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJS5} />
 
         <p className='spacer top bottom medium'>Преобразуем и скорректируем угол:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS6} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJS6} />
 
         <p className='spacer top bottom medium'>
           Всё, с математикой закончили. Осталось с помощью CSS заставить глаза двигаться. Сделаем это с помощью CSS
           свойства <code className='code'>transform: rotate()</code>. Глаз будет поворачиваться так, чтобы смотреть на
           курсор:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS7} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJS7} />
 
         <p className='spacer top bottom medium'>Собираем код вместе:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJS8} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJS8} />
 
         <DoubleCodeSnippet
-          lang={[ECodeLang.HTML, ECodeLang.CSS]}
+          lang={[CODE_LANG.HTML, CODE_LANG.CSS]}
           name={['index', 'style']}
           code={[exampleHTML1, exampleCSS3]}
         />
@@ -517,7 +517,7 @@ export const AnimatedStar = () => {
           переноса на JSX будет выглядеть следующим образом:
         </p>
         <DoubleCodeSnippet
-          lang={[ECodeLang.REACT, ECodeLang.SCSS]}
+          lang={[CODE_LANG.REACT, CODE_LANG.SCSS]}
           name={['AnimatedStar', 'app.module']}
           code={[exampleJSX, exampleSCSS]}
         />
@@ -532,7 +532,7 @@ export const AnimatedStar = () => {
           DOM-элементы глаз. Делать это будем с помощью ссылок <code className='code'>ref</code> и хука{' '}
           <code className='code'>useRef</code>. Сперва проинициализируем ссылку:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact1} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} name='AnimatedStar' code={exampleReact1} />
 
         <p>
           Не пугайтесь, я использую React в связке с TypeScript. Если вы не знакомы с TypeScript, то небольшое
@@ -545,35 +545,35 @@ export const AnimatedStar = () => {
           Чуть попозже назначим ссылки на элементы, но пока что займёмся другим - напишем функцию добавления ссылки в
           созданный массив <code className='code'>eyesRef</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact2} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} name='AnimatedStar' code={exampleReact2} />
 
         <p className='spacer top medium'>
           Вот теперь можно назначать ссылки. Созданная только что выше функция <code className='code'>addToRefs</code>{' '}
           будет вызываться для каждого глаза через свойство <code className='code'>ref</code> следующим образом:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact3} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} name='AnimatedStar' code={exampleReact3} />
 
         <p className='spacer top medium'>
           Функция-обработчик движения глаз <code className='code'>moveEyesToCursor</code> при переносе на React остаётся
           почти без изменений, но нужно поддержать добавленные ссылки, добавив проверку{' '}
           <code className='code'>current</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact4} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} name='AnimatedStar' code={exampleReact4} />
 
         <p className='spacer top medium'>
           Чтобы использовать подписку на событие <code className='code'>mousemove</code> в React, как в нативном
           JavaScript выше, воспользуемся хуком <code className='code'>useEffect</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact5} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} name='AnimatedStar' code={exampleReact5} />
 
         <p className='spacer top medium'>
           Return-функция здесь выполняет роль очистки: удаляет обработчик при размонтировании компонента, предотвращая
           таким образом утечки памяти.
         </p>
         <p className='spacer top medium'>Ну вот и всё, собираем всё вместе:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} name='AnimatedStar' code={exampleReact6} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} name='AnimatedStar' code={exampleReact6} />
         <br />
-        <CodeSnippet lang={ECodeLang.SCSS} name='styles' code={exampleSCSS2} />
+        <CodeSnippet lang={CODE_LANG.SCSS} name='styles' code={exampleSCSS2} />
       </section>
     </PostWrapper>
   );

@@ -4,7 +4,7 @@ import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from 'src/utils/formatting';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { ENoteType, Note } from 'src/components/common/Note';
@@ -216,7 +216,7 @@ button.addEventListener("click", (event) => {
           Если написать {inlineCodeThis} не внутри чего-либо, то он будет глобальным. Например, если написать прямо в
           консоли браузера:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={devToolsThisExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={devToolsThisExampleCode} />
         <p>
           {inlineCodeThis} в этом случае ссылается на глобальный объект, в браузере это объект{' '}
           <InlineCode>window</InlineCode>, в Node.js это объект <InlineCode>global</InlineCode>. Независимо от строгого
@@ -228,7 +228,7 @@ button.addEventListener("click", (event) => {
         <p>
           В объектах {inlineCodeThis} указывает непосредственно на объект, который стоит перед точкой во время вызова:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={userThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={userThisExampleCode} name={EXAMPLE_NAME} />
         <p>
           Смотрим только на точку перед функцией в момент её запуска: {inlineCodeThis} указывает на объект{' '}
           <InlineCode>user</InlineCode>, функция видит <InlineCode>name</InlineCode>, всё работает.
@@ -240,7 +240,7 @@ button.addEventListener("click", (event) => {
           У функций, объявленых через ключевое слово <InlineCode>function</InlineCode>, {inlineCodeThis} в строгом
           режиме равен <InlineCode>undefined</InlineCode>, а в нестрогом — <InlineCode>window</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={functionsThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={functionsThisExampleCode} name={EXAMPLE_NAME} />
         <p>
           Потому что обычные функции не умеют ходить дальше своей функции и брать контекст из лексического окружения. Но
           есть кто-то, кто так умеет.
@@ -249,7 +249,7 @@ button.addEventListener("click", (event) => {
       <section className='section outer'>
         <h2>Стрелочные функции</h2>
         <p>У стрелочных функций тоже нет контекста:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={arrowFunctionThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={arrowFunctionThisExampleCode} name={EXAMPLE_NAME} />
         <p>
           Когда стрелочная функция пишется как свойство объекта, она создаётся в глобальном контексте (не внутри другой
           функции). При этом стрелочная функция не привязывается к объекту, в котором она лежит как свойство.
@@ -266,7 +266,7 @@ button.addEventListener("click", (event) => {
           Конечно же, зависит от того, где стрелочная функция написана. Как проявить суперспособность стрелочной
           функции:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={arrowFunctionsAnotherThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={arrowFunctionsAnotherThisExampleCode} name={EXAMPLE_NAME} />
         <ExampleSnippet code={arrowFunctionsAnotherThisExampleResult} />
         <p>
           Внутри <InlineCode>forEach</InlineCode> стрелочная функция, у которой нет контекста, но код тем не менее
@@ -280,12 +280,12 @@ button.addEventListener("click", (event) => {
           Функция-конструктор в JavaScript — это обычная функция, которая создает и настраивает новые объекты с помощью
           ключевого слова <InlineCode>new</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={functionConstructorExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={functionConstructorExampleCode} name={EXAMPLE_NAME} />
         <p>
           Если функция вызывается как конструктор через <InlineCode>new</InlineCode>, то будет создан пустой объект и
           привязыван к {inlineCodeThis}:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={functionConstructorThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={functionConstructorThisExampleCode} name={EXAMPLE_NAME} />
       </section>
       <section className='section outer'>
         <h2>Классы</h2>
@@ -293,7 +293,7 @@ button.addEventListener("click", (event) => {
           Классы в JavaScript это синтаксический сахар над функциями-конструкторами. Поэтому в классах контекст ведет
           себя аналогично функциям-конструкторам:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={classThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={classThisExampleCode} name={EXAMPLE_NAME} />
         <p>
           Разница лишь в том, что контекст ссылается не на объект как таковой, а на конкретный экземпляр объекта,
           который был создан с помощью оператора <InlineCode>new</InlineCode>. Те же яйца, только в профиль.
@@ -305,14 +305,14 @@ button.addEventListener("click", (event) => {
           В обработчиках событий {inlineCodeThis} ссылается на DOM-элемент, на который непосредственно привязан этот
           обработчик:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={eventListenerThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={eventListenerThisExampleCode} name={EXAMPLE_NAME} />
         <p>У стрелочных функций тут всё ещё контекста:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={eventListenerArrowFunctionThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={eventListenerArrowFunctionThisExampleCode} name={EXAMPLE_NAME} />
       </section>
       <section className='section outer'>
         <h2>Снова объекты</h2>
         <p>В JavaScript контекст легко потерять:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={undefinedObjThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={undefinedObjThisExampleCode} name={EXAMPLE_NAME} />
         <p>Куда делся контекст?</p>
         <div className='width-limiter medium centered spacer top bottom small'>
           <Image src={pulpFictionGifImage} layout='responsive' objectFit='cover' />
@@ -326,7 +326,7 @@ button.addEventListener("click", (event) => {
           глобального объекта нет свойства <InlineCode>name</InlineCode>. Вот и потеряли {inlineCodeThis}.
         </p>
         <p>Аналогичная ситуация произойдёт если метод объекта передать куда-то как колбэк. Например так:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={timeoutThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={timeoutThisExampleCode} name={EXAMPLE_NAME} />
         <p>
           Тут прописать <InlineCode>user.sayHello()</InlineCode> уже не прокатит — функция вызовется мгновенно.
         </p>
@@ -362,7 +362,7 @@ button.addEventListener("click", (event) => {
               через точку:
             </p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={timeoutWithArrowFunctionsThisExampleCode}
               name={EXAMPLE_NAME}
             />
@@ -375,7 +375,7 @@ button.addEventListener("click", (event) => {
       <section className='section outer'>
         <h2>Принудительная привязка контекста</h2>
         <p>Вспомним пример где контекст потерялся:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={undefinedObjThisExampleCode} name={EXAMPLE_NAME} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={undefinedObjThisExampleCode} name={EXAMPLE_NAME} />
         <p>
           Помимо вызова метода через точку <InlineCode>user.sayHello()</InlineCode>, этот код можно исправить тремя
           способами.
@@ -389,16 +389,16 @@ button.addEventListener("click", (event) => {
             <InlineCode>call</InlineCode> и <InlineCode>apply</InlineCode>
           </h3>
           <p>Принимают контекст первым аргументом::</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={callApplyExampleCode} name={EXAMPLE_NAME} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={callApplyExampleCode} name={EXAMPLE_NAME} />
           <p>Обе функции вызываются сразу</p>
           <p>
             Можно передать аргументы если они есть. Для <InlineCode>call</InlineCode> они передаются через запятую:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={callIntroduceExampleCode} name={EXAMPLE_NAME} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={callIntroduceExampleCode} name={EXAMPLE_NAME} />
           <p>
             Для <InlineCode>apply</InlineCode> в виде массива:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={applyIntroduceExampleCode} name={EXAMPLE_NAME} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={applyIntroduceExampleCode} name={EXAMPLE_NAME} />
         </section>
         <section className='section inner'>
           <h3>
@@ -408,13 +408,13 @@ button.addEventListener("click", (event) => {
             Метод <InlineCode>bind</InlineCode> не вызывает функцию сразу, а создает новую функцию-обёртку, которая
             будет <strong>всегда</strong> помнить на что {inlineCodeThis} теперь указывает:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={bindUserExampleCode} name={EXAMPLE_NAME} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={bindUserExampleCode} name={EXAMPLE_NAME} />
           <p>Аргументы тоже можно передать, если они есть. Передаются через запятую после будущего контекста:</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={bindIntroduceExampleCode} name={EXAMPLE_NAME} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={bindIntroduceExampleCode} name={EXAMPLE_NAME} />
           <p>
             Изменить контекст, который уже привязан с помощью <InlineCode>bind</InlineCode>, невозможно:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={bindForeverAndEverExampleCode} name={EXAMPLE_NAME} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={bindForeverAndEverExampleCode} name={EXAMPLE_NAME} />
           <p>
             Если нужно, чтобы у функции менялся контекст, просто не используйте <InlineCode>bind</InlineCode>.
           </p>

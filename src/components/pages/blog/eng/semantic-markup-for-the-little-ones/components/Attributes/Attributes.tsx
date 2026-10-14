@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
 import keshaImg from 'public/assets/blog/semantic-markup-for-the-little-ones/kesha.jpg';
@@ -39,7 +39,7 @@ export const Attributes = forwardRef<HTMLDivElement>((_, ref) => {
             corgi, smile, flowers, nature, lake, green&#39;. Instead of this try to describe an image as I did in the
             example below:
           </p>
-          <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLImage} />
+          <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLImage} />
         </div>
         <div style={{ width: 400, margin: '0 auto' }}>
           <PostImage

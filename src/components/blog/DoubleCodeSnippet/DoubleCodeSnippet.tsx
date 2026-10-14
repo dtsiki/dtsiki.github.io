@@ -1,5 +1,5 @@
 import { IDoubleCodeSnippetProps } from './DoubleCodeSnippet.types';
-import { Code } from 'src/components/common/Code/Code';
+import { Code } from '~components/common/Code';
 import { ExampleSnippet } from '../ExampleSnippet/ExampleSnippet';
 
 import styles from './DoubleCodeSnippet.module.scss';

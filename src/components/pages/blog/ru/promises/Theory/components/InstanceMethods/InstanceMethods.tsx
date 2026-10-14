@@ -17,7 +17,7 @@ import {
   thenInline,
 } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { getTextWithChevrons } from 'src/utils';
 
@@ -145,7 +145,7 @@ loadData()
       <h3>Обработка результата выполнения промиса</h3>
       <p>Если запустить пример, который рассматривали выше, в консоли выведется только одна строка:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={executorResolveSnippetCode}
         consoleLog='Этот код выполнится сразу'
       />
@@ -153,7 +153,7 @@ loadData()
         При этом если проверить промис {LONG_DASH} он выполнился и не остался в состоянии {pendingEm}:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseFulfilledSnippetCode}
         consoleLog={promiseFulfilledSnippetLog}
       />
@@ -162,7 +162,7 @@ loadData()
         Вернёмся к внутренним слотам промиса. {promiseStateInline} и {promiseResultInline} скрыты и прямого доступа к
         ним нет. Чтобы что-то сделать с результатом выполнения промиса, недостаточно написать что-то вроде:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={stateChangingSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={stateChangingSnippetCode} />
       <p>
         <strong>Обратите внимание:</strong> свойств <InlineCode>state</InlineCode> и <InlineCode>result</InlineCode> у
         промиса не существует. Это лишь иллюстрация того, что не сработает.
@@ -177,13 +177,13 @@ loadData()
           лежит в {promiseResultInline}. Для {onFulfilledInline} это результат, для {onRejectedInline} {LONG_DASH}{' '}
           причина отклонения:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={thenSyntaxSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={thenSyntaxSnippetCode} />
         <p>
           Часто думают, что {thenInline} работает только с успешным результатом, когда промис в состоянии {fulfilledEm}.
           Но это не так:
         </p>
         <DoubleCodeSnippet
-          lang={[ECodeLang.JAVASCRIPT, ECodeLang.JAVASCRIPT]}
+          lang={[CODE_LANG.JAVASCRIPT, CODE_LANG.JAVASCRIPT]}
           code={[thenResolveSyntaxSnippetCode, thenRejectSyntaxSnippetCode]}
           log={[thenResolveSyntaxSnippetLog, thenRejectSyntaxSnippetLog]}
           isEmbeddedLog={true}
@@ -192,7 +192,7 @@ loadData()
           Как видно из примеров выше, {thenInline} умеет работать и с ошибками. Для этого достаточно передать только{' '}
           {onRejectedInline}:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={thenOnlyRejectSyntaxSnippetCode} consoleLog='Ой-ой, ошибочка!' />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={thenOnlyRejectSyntaxSnippetCode} consoleLog='Ой-ой, ошибочка!' />
       </section>
       <section className='section inner'>
         <p>Поздравляю! Мы только что написали метод {catchInline}!</p>
@@ -202,12 +202,12 @@ loadData()
           <InlineCode>null</InlineCode>.
         </p>
         <p>Эти две записи делают одно и тоже:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={catchThenComparisonSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={catchThenComparisonSnippetCode} />
         <p>
           Хоть {catchInline} и является обёрткой над {thenInline}, принято для успешного результата использовать{' '}
           {thenInline}, а для ошибок {LONG_DASH} {catchInline}:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={catchSyntaxSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={catchSyntaxSnippetCode} />
       </section>
       <section className='section inner'>
         <p>
@@ -217,13 +217,13 @@ loadData()
         <p>
           {finallyInline} принято использовать для так называемой чистки. Например, чтобы скрыть индикатор загрузки:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={finallySyntaxSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={finallySyntaxSnippetCode} />
         <p>
           Технически {finallyInline} не является методом обработки результата: он ничего не делает с результатом, а
           просто передаёт его дальше. Возвращаемое из {finallyInline} значение игнорируется:
         </p>
         <CodeSnippet
-          lang={ECodeLang.JAVASCRIPT}
+          lang={CODE_LANG.JAVASCRIPT}
           code={finallyReturnIgnoreSnippetCode}
           consoleLog={finallyReturnIgnoreSnippetLog}
         />
@@ -234,7 +234,7 @@ loadData()
         </p>
         <p>Но есть исключение: из {finallyInline} можно выбросить ошибку:</p>
         <CodeSnippet
-          lang={ECodeLang.JAVASCRIPT}
+          lang={CODE_LANG.JAVASCRIPT}
           code={finallyThrowErrorSnippetCode}
           consoleLog={finallyThrowErrorSnippetLog}
         />

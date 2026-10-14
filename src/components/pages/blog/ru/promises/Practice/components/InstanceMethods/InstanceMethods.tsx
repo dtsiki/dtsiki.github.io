@@ -17,7 +17,7 @@ import {
   thenInline,
 } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { getTextWithChevrons } from 'src/utils';
 import { ENoteType, Note } from 'src/components/common/Note';
@@ -327,12 +327,12 @@ static reject(error) {
         доступны всем, кто ждёт результат промиса. Поэтому эти методы будут публичными методами класса. Также нам
         понадобятся <strong>статические</strong> методы {getResolveInline()} и {getRejectInline()}:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseMethodsTemplateSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseMethodsTemplateSnippetCode} />
       <p>
         Можно начать с метода {catchInline} {LONG_DASH} это просто обёртка для {thenInline} с аргументами{' '}
         <InlineCode>null</InlineCode> и <InlineCode>onRejected</InlineCode>, поэтому:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={catchMethodSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={catchMethodSnippetCode} />
       <p>А теперь займёмся методом {thenInline}.</p>
       <p>
         В него по спецификации JavaScript передаётся два аргумента для двух возможных исходов промиса — функции{' '}
@@ -361,12 +361,12 @@ static reject(error) {
       <p>
         Учтём это в методе {thenInline} в самом начале во избежание дальнейших ошибок, когда будем вызывать эти функции:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={functionCheckThenSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={functionCheckThenSnippetCode} hideLines={true} />
       <p>
         Главная особенность метода {thenInline} в том, что он всегда должен возвращать новый промис, на этом основана
         возможность строить цепочки промисов. Поэтому из метода {thenInline} должнен возвращаться промис:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={thenReturnPromiseSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={thenReturnPromiseSnippetCode} hideLines={true} />
       <br />
       <Note type={ENoteType.PRIMARY}>
         <div className='tags'>
@@ -382,7 +382,7 @@ static reject(error) {
         Внутри возвращаемого промисы и будем проверить состояние <strong>текущего</strong> промиса. Промис может быть
         только в одном из трёх состояний, поэтому будет всего три условия:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={statesCheckSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={statesCheckSnippetCode} hideLines={true} />
       <p>В зависимости от состояния промиса может выполнится одно из трёх условий:</p>
       <ol className='list ordered'>
         <li className='list__item'>
@@ -408,15 +408,15 @@ static reject(error) {
         <InlineCode>handleRejected</InlineCode> {LONG_DASH} они пригодятся для избежания повторения кода. Держа в голове
         список выше обновим условия:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={handlesResultSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={handlesResultSnippetCode} hideLines={true} />
       <p>Задержимся на условии проверки состояния {pendingEm}:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={pendingCallbacksSyncSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={pendingCallbacksSyncSnippetCode} hideLines={true} />
       <p>
         У такого кода есть огромная проблема: колбэки будут вызывать синхронно, а это полностью ломает весь смысл
         промисов. Как это исправить? С помощью функции <InlineCode>queueMicrotask</InlineCode>, которая добавляет
         переданную функцию в очередь микрозадач:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={queueMicrotaskSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={queueMicrotaskSnippetCode} hideLines={true} />
       <p>
         Оборачивание колбэков в <InlineCode>queueMicrotask</InlineCode> в момент регистрации гарантирует, что даже если
         промис меняет статус синхронно (например сразу после создания промиса вызываем {getResolveInline()} со
@@ -425,7 +425,7 @@ static reject(error) {
       <p>
         Аналогично нужно обернуть оставшимиеся состояния в <InlineCode>queueMicrotask</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={thenWhitoutHandlersCodeSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={thenWhitoutHandlersCodeSnippetCode} hideLines={true} />
       <p>
         Осталось разобраться со вспомогательными функциями <InlineCode>handleFulfilled</InlineCode> и{' '}
         <InlineCode>handleRejected</InlineCode>.
@@ -451,23 +451,23 @@ static reject(error) {
       <p>
         В коде <InlineCode>handleFulfilled</InlineCode> будет выглядеть следующим образом:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={handleFulfilledSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={handleFulfilledSnippetCode} hideLines={true} />
       <p>
         Функция <InlineCode>handleRejected</InlineCode> похожа на <InlineCode>handleFulfilled</InlineCode>, но с
         разницей в получении результата:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={handleRejectedSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={handleRejectedSnippetCode} />
       <p>
         Может показаться, что на (11) строчке затесалась ошибка и вместо {getResolveInline('result')} должно быть{' '}
         {getRejectInline('result')}, но это не так, всё написано верно. Давайте проведём небольшой эксперимент. Что
         выведет код ниже?
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={chainRecoveryExample1SnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={chainRecoveryExample1SnippetCode} hideLines={true} />
       <Accordion title='Правильный ответ'>
         <ExampleSnippet code='Всё хорошо' />
       </Accordion>
       <p>А здесь?</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={chainRecoveryExample2SnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={chainRecoveryExample2SnippetCode} hideLines={true} />
       <Accordion title='Правильный ответ'>
         <ExampleSnippet code='Ошибка 2' />
       </Accordion>
@@ -523,14 +523,14 @@ static reject(error) {
         <InlineCode>onRejected</InlineCode> (с аргументом <InlineCode>error</InlineCode>). В обоих колбэках нам
         необходимо выполнить <InlineCode>onFinally</InlineCode>, значение пробросить дальше, а ошибку выбросить:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={finallyMethodStep1SnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={finallyMethodStep1SnippetCode} hideLines={true} />
       <p>Первый вариант, который приходит в голову:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={finallyMethodStep2SnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={finallyMethodStep2SnippetCode} hideLines={true} />
       <p>
         Выглядит отлично, все условия выполняются: выполняем <InlineCode>onFinally</InlineCode>, значение передаём
         дальше, ошибку выбрасываем. Но у этой этой реализации есть проблема. Пример, где всё сломается:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={finallyErrorSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={finallyErrorSnippetCode} hideLines={true} />
       <p>
         В консоли выведется «Результат: 42», но важно здесь не то, что выведется, а когда. Промис с задержкой от таймера
         в 10000 ms был проигнорирован! Результатом выполнения промиса может быть что угодно: число, строку,{' '}
@@ -541,7 +541,7 @@ static reject(error) {
         Чтобы это исправить воспользуемся лайфхаком: если передать в <InlineCode>Promise.resolve()</InlineCode> другой
         промис, то метод вернет этот же самый переданный промис без изменений, новый объект создаваться не будет:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={promiseResolvePromiseSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={promiseResolvePromiseSnippetCode} hideLines={true} />
       <p>
         Внутри движок JavaScript проверяет тип аргумента и если это промис, то он возвращается как есть, полностью
         сохраняя состояние и значение, будь они хоть {fulfilledEm} с результатом или {rejectedEm} с ошибкой.
@@ -550,7 +550,7 @@ static reject(error) {
         У нас этот механизм пока не реализован. Добавим для этого два статических метода в класс {LONG_DASH}{' '}
         {getResolveInline()} и {getRejectInline()}:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={staticResolveRejectMethodsStep1SnippetCode} name='snippet' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={staticResolveRejectMethodsStep1SnippetCode} name='snippet' />
 
       <p> Они буду отличаться от своих тёзок в конструкторе:</p>
       <ul className='list markered'>
@@ -595,18 +595,18 @@ static reject(error) {
           </p>
         </li>
       </ul>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={staticResolveRejectMethodsSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={staticResolveRejectMethodsSnippetCode} />
       <p>Проверим:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseResolvePromiseSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseResolvePromiseSnippetCode} />
       <section id='custom_finally'>
         <p>Теперь надо подправить {finallyInline}. Добавляем возврат промиса из обоих колбэков:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={finallyMethodStep3SnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={finallyMethodStep3SnippetCode} />
         <p>
           Теперь у нас есть защита на все случаи: если вернётся обычное значение, если вернётся ошибка, если вернётся
           промис {LONG_DASH} мы готовы ко всему. Осталось понять, что написать внутри.
         </p>
         <p>Но теперь нельзя просто так написать внутри промиса:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={finallyMethodStep4SnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={finallyMethodStep4SnippetCode} />
         <p>
           В созданный статическим методом промис сейчас передаётся функция, а не результат её вызова.{' '}
           <InlineCode>onFinally</InlineCode> никогда не вызывается, <InlineCode>value</InlineCode> не возвращается,{' '}
@@ -618,13 +618,13 @@ static reject(error) {
             <p>
               Вызвать <InlineCode>onFinally</InlineCode>, получить результат:
             </p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={'const result = onFinally();'} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={'const result = onFinally();'} />
           </li>
           <li className='list__item'>
             <p>
               Передать <InlineCode>result</InlineCode> в статический метод <InlineCode>resolve</InlineCode>:
             </p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={'MyPromise.resolve(result)'} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={'MyPromise.resolve(result)'} />
             <p>Это тот промис, который потом будем возвращать из каждого колбэка {thenInline}.</p>
           </li>
           <li className='list__item'>
@@ -632,16 +632,16 @@ static reject(error) {
               Так как это промис, то мы можем вызвать у него {thenInline} и продолжить цепочку. В случае с {fulfilledEm}{' '}
               значение просто передаётся дальше:
             </p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={'return MyPromise.resolve(result).then(() => value);'} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={'return MyPromise.resolve(result).then(() => value);'} />
             <p>А в случае ошибки выбрасывается ошибка:</p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={'return MyPromise.resolve(result).then(() => { throw error; });'}
             />
           </li>
         </ol>
         <p>Вот и всё, {finallyInline} готов:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={finallyMethodSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={finallyMethodSnippetCode} />
       </section>
     </section>
   );

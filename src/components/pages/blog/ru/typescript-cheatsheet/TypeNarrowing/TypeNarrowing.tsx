@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText, renderInlineList } from 'src/utils/formatting';
 
@@ -91,9 +91,9 @@ function process(data: unknown) {
         <InlineCode>string</InlineCode> внутри блока кода. Без сужения в коде ниже будет ошибка {LONG_DASH} потому что
         значение может быть и строкой и числом, а у чисел нет метода <InlineCode>toUpperCase</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeNarrowingExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeNarrowingExampleCode} />
       <p>А с проверкой всё будет работать:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeofNarrowingExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeofNarrowingExampleCode} />
       <p>
         Это позволяет безопасно вызывать специфичные методы. В примере выше будет получена ошибка из-за того, что в
         случае, если будет передана переменная типа <InlineCode>number</InlineCode>, метод{' '}
@@ -108,7 +108,7 @@ function process(data: unknown) {
           С помощью <InlineCode>typeof</InlineCode>
         </h3>
         <p>Пример такого сужения был показан выше случай:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeofNarrowingExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeofNarrowingExampleCode} />
         <p>
           Сужение с помощью <InlineCode>typeof</InlineCode> отлично подходит для примитивов.
         </p>
@@ -118,19 +118,19 @@ function process(data: unknown) {
           С помощью <InlineCode>instanceof</InlineCode>
         </h3>
         <p>Подойдёт для классов:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={instanceofNarrowingExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={instanceofNarrowingExampleCode} />
       </section>
       <section className='section inner'>
         <h3>
           С помощью оператора <InlineCode>in</InlineCode>
         </h3>
         <p>Можно проверять на наличие свойства:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inNarrowingExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={inNarrowingExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Custom Type Guard</h3>
         <p>Когда нужно что-то сложнее, то можно написать свою функцию-проверку:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={customTypeGuardExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={customTypeGuardExampleCode} />
         <p>
           <InlineCode>obj is User</InlineCode> здесь <strong>предикат типа</strong> (type predicate). Это специальный
           синтаксис, который сообщает компилятору, что если функция возвращает <em>true</em>, то переданный аргумент
@@ -146,7 +146,7 @@ function process(data: unknown) {
           Это проверка, которая автоматически сужает тип переменной внутри условных конструкций, основываясь на том,
           является ли значение «истинным» (truthy) или «ложным» (falsy) в JavaScript:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={truthinessNarrowingExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={truthinessNarrowingExampleCode} />
         <p>
           Значения <InlineCode>null</InlineCode> и <InlineCode>undefined</InlineCode> здесь отфильтровались
           автоматически во время проверки значения <InlineCode>name</InlineCode>. Таким образом можно отсечь{' '}
@@ -163,7 +163,7 @@ function process(data: unknown) {
           <InlineCode>===</InlineCode>, <InlineCode>!==</InlineCode>, <InlineCode>==</InlineCode> или{' '}
           <InlineCode>!=</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={equalityNarrowingExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={equalityNarrowingExampleCode} />
       </section>
     </section>
   );

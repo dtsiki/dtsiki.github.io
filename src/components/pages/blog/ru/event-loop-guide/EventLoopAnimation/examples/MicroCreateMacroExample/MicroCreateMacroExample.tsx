@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { Accordion } from 'src/components/common/Accordion';
 import { getConsoleLog, getTextWithChevrons } from 'src/utils';
@@ -35,7 +35,7 @@ setTimeout внутри промиса (макрозадача)`;
       </div>
       <p>Начнём с более простого примера: микрозадача (промис) создаёт макрозадачу (таймер):</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={microCreateMacroExampleCode}
         hideLines={true}
         name={`example(${EXAMPLE_NUMBER})`}

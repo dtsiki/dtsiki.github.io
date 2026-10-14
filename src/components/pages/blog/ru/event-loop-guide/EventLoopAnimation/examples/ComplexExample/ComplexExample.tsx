@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { Accordion } from 'src/components/common/Accordion';
 import { getConsoleLog, getTextWithChevrons } from 'src/utils';
@@ -53,7 +53,7 @@ console.log('Восемь');`;
         <div className='tag TEXT-ONLY'>Всё и сразу: асинхронные функции, интервал, цепочка промисов</div>
       </div>
       <p>Разберём комплексный пример, в котором смешано всё и сразу:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={complexExampleCode} name={`example(${EXAMPLE_NUMBER})`} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={complexExampleCode} name={`example(${EXAMPLE_NUMBER})`} />
       <p>
         Здесь написать порядок вывода в косоль будет уже задачей со звёздочкой. Предлагаю сперва подумать, а потом уже
         открывать ответ. Готовы?

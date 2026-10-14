@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 
 export const OOP = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -237,7 +237,7 @@ user.age = 25; // сработал сеттер
           В TypeScript есть полноценная поддержка классов, унаследованная из стандарта ECMAScript, с добавлением мощных
           возможностей строгой типизации.
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={basicClassExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={basicClassExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Модификаторы доступа</h3>
@@ -273,12 +273,12 @@ user.age = 25; // сработал сеттер
             </p>
           </li>
         </ul>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={modifiersExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={modifiersExampleCode} />
         <p>
           TypeScript позволяет не объявлять свойства и не присваивать им значения вручную, а указать модификатор прямо в
           аргументах конструктора:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={shortSyntaxModifiersExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={shortSyntaxModifiersExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Наследование</h3>
@@ -287,7 +287,7 @@ user.age = 25; // сработал сеттер
           существующие. Наследование осуществляется с помощью ключевого слова <InlineCode>extends</InlineCode>, а в
           дочернем классе обязательно нужно вызывать метод <InlineCode>super()</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={extendsExampleCode} />
         <p>
           В TypeScript нет множественного наследования классов, но его поддерживают интерфейсы {LONG_DASH} можно
           унаследовать сразу несколько интерфейсов через запятую с помощью ключевого слова{' '}
@@ -301,7 +301,7 @@ user.age = 25; // сработал сеттер
       <section className='section inner'>
         <h3>Абстрактные классы</h3>
         <p>Абстрактные классы нельзя инстанциировать. Они нужны как шаблон для других классов.</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={abstractClassExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={abstractClassExampleCode} />
       </section>
       <section id='Interfaces_Implementation' className='section inner'>
         <h3>Реализация интерфейсов</h3>
@@ -310,7 +310,7 @@ user.age = 25; // сработал сеттер
           контракту, описанному в интерфейсе. Класс обязан реализовать все указанные свойства и методы; в противном
           случае компилятор выдаст ошибку:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={implementsExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={implementsExampleCode} />
         <p>
           В этом примере, если не будет реализован, например, метод <InlineCode>play()</InlineCode>, то будет получена
           ошибка компиляции, сообщающая о том, что необходимо реализовать этот метод потому что он является обязательным
@@ -341,7 +341,7 @@ user.age = 25; // сработал сеттер
           <InlineCode>static</InlineCode> помечает только свойства и методы, принадлежащие самому классу. Создать объект
           такого класса через <InlineCode></InlineCode> невозможно.
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={staticClassExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={staticClassExampleCode} />
 
         <p>
           Статические классы используются для создания глобальных утилит (математические операции, работа со строками
@@ -359,7 +359,7 @@ user.age = 25; // сработал сеттер
           Для их создания используются ключевые слова <InlineCode>get</InlineCode> и <InlineCode>set</InlineCode>, а при
           обращении к ним скобки не требуются:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={setterAndGetterExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={setterAndGetterExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Классы с дженериками</h3>
@@ -367,7 +367,7 @@ user.age = 25; // сработал сеттер
           И тут не обойдёмся без них: дженерики позволяют создавать классы, которые могут работать с разными типами
           данных, сохраняя при этом строгую типизацию.
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={stackClassExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={stackClassExampleCode} />
       </section>
     </section>
   );

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { Note } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
 import { allInline, catchInline, myAllInline, raceInline, resolveStaticInline, thenInline } from '../../../utils';
@@ -230,13 +230,13 @@ completedCount++;`;
         котором они были переданы:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseAllAllResolvedSnippetCode}
         consoleLog={promiseAllAllResolvedSnippetLog}
       />
       <p>Порядок результатов сохраняется, даже если промисы завершаются в разное время:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseAllAllResolvedWithDelaySnippetCode}
         consoleLog={promiseAllAllResolvedWithDelaySnippetLog}
       />
@@ -244,17 +244,17 @@ completedCount++;`;
         При ошибке остальные промисы не отменяются {LONG_DASH} они продолжают выполняться, но их результат игнорируется:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseAllOneRejectedSnippetCode}
         consoleLog={promiseAllOneRejectedSnippetLog}
       />
       <p>Пока есть только скелет реализации {myAllInline}:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={methodTemplateSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodTemplateSnippetCode} />
       <p>
         Теперь нужно пройтись по каждому элементу массива <InlineCode>items</InlineCode> и <em>что-то</em> с ним
         сделать:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={itemsForEachSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={itemsForEachSnippetCode} />
       <p>
         Что вообще может лежать в массиве <InlineCode>items</InlineCode>? В нём может оказаться что угодно: промис,
         число, строка, объект, функция, <InlineCode>Set</InlineCode>, вложенный массив, кастомные итерируемые объекты,
@@ -276,11 +276,11 @@ completedCount++;`;
         метод вернёт тот же самый промис, не создавая новый. Если передать не промис {LONG_DASH} будет создан уже
         выполненный промис с этим значением. Так все элементы в массиве будут сведены к одному типу {LONG_DASH} промису:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={itemsForEachPromiseResolveSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={itemsForEachPromiseResolveSnippetCode} />
       <p>
         А с промисом что можно сделать? Вызвать у него методы {thenInline} и {catchInline}:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={thenCatchSyntaxSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={thenCatchSyntaxSnippetCode} />
       <p>
         Такой перебор будем использовать во всех четырёх методах. Отличаться будет только содержимое {thenInline} и{' '}
         {catchInline}.
@@ -291,7 +291,7 @@ completedCount++;`;
         причём отклоняется с причиной первого отклонённого промиса. Поэтому если промис, который мы обрабатываем,
         отклоняется {LONG_DASH} сразу отклоняем и общий промис. Делается это добавление всего одной строки:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={rejectPromiseSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={rejectPromiseSnippetCode} />
       <br />
       <Note>
         <div className='tags'>
@@ -301,7 +301,7 @@ completedCount++;`;
           В нативном {allInline} использует второй аргумент {thenInline} {LONG_DASH} колбэк{' '}
           <InlineCode>onRejected</InlineCode>, а не {catchInline}:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={nativeAllThenSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={nativeAllThenSnippetCode} />
         <p>
           Если использовать {catchInline} после {thenInline}, то он поймает ошибки и из самого промиса, и из{' '}
           {thenInline}-колбэка. Для {allInline} это не нужно {LONG_DASH} нужно поймать только отклонение исходного
@@ -313,14 +313,14 @@ completedCount++;`;
         Заведём массив для результатов. Его длина должна равняться длине входящего массива {LONG_DASH} так мы сразу
         знаем, куда класть каждый результат:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resultsArraySnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resultsArraySnippetCode} />
       <p>
         Если сохранять результаты через <InlineCode>push</InlineCode>, они будут добавляться в порядке завершения
         промисов, а не в порядке их передачи. Порядок сломается:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resultsArrayPushItemSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resultsArrayPushItemSnippetCode} />
       <p>А нам важен исходный порядок. Поэтому сохраняем результат по индексу:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resultsArrayByIndexItemSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resultsArrayByIndexItemSnippetCode} />
       <p>
         Обратите внимание: <InlineCode>index</InlineCode> здесь {LONG_DASH} это позиция элемента во входном массиве.
         Именно по нему мы кладём результат, чтобы сохранить исходный порядок. Получаем этот индекс из{' '}
@@ -333,38 +333,38 @@ completedCount++;`;
         говорит о том, заполнены ли элементы. А ещё длина массива в JavaScript {LONG_DASH} ненадёжный показатель: если
         записать элемент по индексу больше длины, массив растянется:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={arrayLengthSnippetCode} consoleLog={arrayLengthSnippetLog} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={arrayLengthSnippetCode} consoleLog={arrayLengthSnippetLog} />
       <p>
         В этом примере <InlineCode>&lt;10 empty slots&gt;</InlineCode> {LONG_DASH} пустые слоты. Это не{' '}
         {undefinedInline}, а буквально дырки: массив знает свою длину, но элементов по этим индексам нет. Для нашей
         задачи это неважно {LONG_DASH} мы всегда заполняем все индексы. Но знать про эту разницу полезно.
       </p>
       <p>Заведём отдельный счётчик завершённых промисов:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code='let completedCount = 0;' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code='let completedCount = 0;' />
       <p>Счётчик будет увеличиваться после каждого сохранения результата:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={saveAndCountSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={saveAndCountSnippetCode} />
       <p>
         Когда счётчик станет равен <InlineCode>items.length</InlineCode>, можно вызывать{' '}
         <InlineCode>resolve(results)</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resolveResultsSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resolveResultsSnippetCode} />
       <p>Собственно, это всё, что нужно сделать в {thenInline}:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={thenSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={thenSnippetCode} />
       <p>
         Вот как выглядит <InlineCode>MyPromise.all()</InlineCode> целиком:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseAllSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseAllSnippetCode} />
       <p> Теперь протестируем его.</p>
       <h4>Тестируем</h4>
       <p>
         Возьмём примеры из разбора теории, заменив нативные промисы <InlineCode>Promise</InlineCode> на{' '}
         <InlineCode>MyPromise</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={testAllSuccessSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={testAllSuccessSnippetCode} />
       <p>В консоли появится:</p>
       <ExampleSnippet code={testAllSuccessSnippetLog} />
       <p>Проверим отклонение:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={testAllFailureSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={testAllFailureSnippetCode} />
       <p>В консоли появится:</p>
       <ExampleSnippet code={testAllFailureSnippetLog} />
       <p>
@@ -372,30 +372,30 @@ completedCount++;`;
         игнорируется.
       </p>
       <p>Теперь проверим, сохраняется ли порядок результатов, когда промисы завершаются в разное время:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={testAllWithDelaySnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={testAllWithDelaySnippetCode} />
       <p>В консоли появится:</p>
       <ExampleSnippet code={testAllWithDelaySnippetLog} />
       <p>И наконец {LONG_DASH} краевые случаи:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testAllEdgeCaseEmptyArraySnippetCode}
         consoleLog={testAllEdgeCaseEmptyArraySnippetLog}
       />
       <br />
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testAllEdgeCaseNullSnippetCode}
         consoleLog={testAllEdgeCaseNullSnippetLog}
       />
       <br />
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testAllEdgeCaseStringSnippetCode}
         consoleLog={testAllEdgeCaseStringSnippetLog}
       />
       <br />
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testAllEdgeCaseSetSnippetCode}
         consoleLog={testAllEdgeCaseSetSnippetLog}
       />

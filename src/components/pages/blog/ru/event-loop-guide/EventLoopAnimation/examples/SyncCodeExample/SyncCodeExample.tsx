@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
@@ -24,7 +24,7 @@ console.log('Сделать сё');`;
       </div>
       <p>Для разминки рассмотрим простой пример:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={syncExampleCode}
         customName={`example(${EXAMPLE_NUMBER}).js`}
         consoleLog={syncExampleLog}

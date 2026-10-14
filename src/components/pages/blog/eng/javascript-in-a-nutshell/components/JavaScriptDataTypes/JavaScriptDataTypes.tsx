@@ -1,12 +1,9 @@
-import Image from 'next/image';
 import { Accordion } from 'src/components/common/Accordion';
-import { Window } from 'src/components/common/Window/Window';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
-import { EWindowType } from 'src/components/common/Window/Window.types';
+import { CODE_LANG } from '~components/common/Code';
+import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
 import everythingIsObject from 'public/assets/blog/frontend-in-a-nutshell/javascript/everything-is-object.png';
-import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
 export const JavaScriptDataTypes = () => {
   const exampleTypeAssign = `let yay = 42;
@@ -63,7 +60,7 @@ console.log(typeof qeq); // "symbol";`;
         any type and can be assigned or reassigned at any moment. In the example below a variable <code>yay</code> was
         initialized with one type, then it was reassigned twice by modifying the value. What are these types?
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleTypeAssign} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleTypeAssign} />
       <p className='spacer top medium'>
         There are only two kind of data types in JavaScript: primitive and reference data types. Primitive types are
         pretty simple as the name suggests. They are so simple that they don&#39;t have methods. Wait, stop - you might
@@ -76,29 +73,29 @@ console.log(typeof qeq); // "symbol";`;
           We can use <code>typeof</code> operator to find the data type of JavaScript variables. If we use this operator
           along with each of primitive type, it will return a type of the same name:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleTypeof} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleTypeof} />
       </div>
       <p>There are 7 primitive types in JavaScript:</p>
       <ol className='list ordered'>
         <li className='list__item'>
           <div className='list__title'>string</div>
           <div className='list__footer spacer bottom medium'>represents any textual data</div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleString} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleString} />
         </li>
         <li className='list__item'>
           <div className='list__title'>number</div>
           <div className='list__footer spacer bottom medium'>represents an integer or a floating-point number</div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleNumber} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleNumber} />
         </li>
         <li className='list__item'>
           <div className='list__title'>bigInt</div>
           <div className='list__footer spacer bottom medium'>represents an integer with arbitrary precision</div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleBigInt} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleBigInt} />
         </li>
         <li className='list__item'>
           <div className='list__title'>boolean</div>
           <div className='list__footer spacer bottom medium'>represents one of two values: true or false</div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleBoolean} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleBoolean} />
         </li>
         <li className='list__item'>
           <div className='list__title'>symbol</div>
@@ -106,7 +103,7 @@ console.log(typeof qeq); // "symbol";`;
             represents a unique identifier. Every symbol has its own identity and will never be equal even if they have
             same name
           </div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleSymbol} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleSymbol} />
         </li>
         <li className='list__item'>
           <div className='list__title'>null</div>
@@ -130,7 +127,7 @@ console.log(typeof qeq); // "symbol";`;
         thing, objects are used to store collections of key-value pairs.
         <code>typeof object</code> command always returns <code>object</code>.
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleObject} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleObject} />
 
       <p className='spacer top bottom medium'>
         Arrays in JavaScript are a special type of objects. <code>typeof</code> operator in JavaScript also returns{' '}

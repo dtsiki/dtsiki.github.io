@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ENoteType, Note } from 'src/components/common/Note';
 
 export const OtherComplexities = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -73,7 +73,7 @@ console.log(isPrime(1000003)); // true`;
             <p>Например: 5! = 1 ⋅ 2 ⋅ 3 ⋅ 4 ⋅ 5 = 120</p>
           </Note>
           <p>Самый наглядный пример здесь — найти все перестановки букв в строке:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={getPermutationsCodeExample} name='getPermutations' />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={getPermutationsCodeExample} name='getPermutations' />
 
           <p>
             Для 3 букв перестановок будет всего 6 т.к. 3! = 6, а вот для 5 букв уже 120 (5! = 120). А дальше ещё больше.
@@ -85,7 +85,7 @@ console.log(isPrime(1000003)); // true`;
           <p>
             Здесь отличным примером послужат числа Фибоначчи — в этом алгоритме каждый шаг порождает 2 новых вызова:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={fibonacciCodeExample} name='fibonacci' />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={fibonacciCodeExample} name='fibonacci' />
         </section>
         <p>
           Факториальная и экспоненциальная сложности, как вы могли заметить, обычно реализуются с помощью рекурсии.
@@ -113,7 +113,7 @@ console.log(isPrime(1000003)); // true`;
           Такие алгоритмы встречаются редко, так сказать совсем нишевые. Самый просто пример алгоритма с такой
           сложностью — проверка числа на простоту:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={isPrimeCodeExample} name='isPrime' />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={isPrimeCodeExample} name='isPrime' />
         <p>Например, для числа 1000003 будет выполнено всего ~1000 итераций т.к. √1000003 = ~1000.</p>
         <Note type={ENoteType.SECONDARY}>
           <p>

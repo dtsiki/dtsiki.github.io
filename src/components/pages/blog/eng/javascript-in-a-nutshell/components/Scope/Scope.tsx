@@ -1,7 +1,7 @@
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { Accordion } from 'src/components/common/Accordion';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const Scope = () => {
   const exampleVarScope = `if (true) {
@@ -86,20 +86,20 @@ console.log(yay); // "yay"`;
         Mentioned above <code>var</code> declarations are globally scoped. This means that any variable that is declared
         with <code>var</code> outside a block is available for use in the whole window. Whoa!
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleVarScope} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleVarScope} />
       <p className='spacer top medium'>
         This occurs because <code>var</code> declarations, wherever they occur, are processed before any code is
         executed. This proccess is called hoisting and we&#39;ll explore it in detail later. This is how the example
         above looks like in reality in JavaScript:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleVarScopeReality} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleVarScopeReality} />
 
       <p className='spacer top medium'>
         There is a trick called <strong>function scope</strong>. When a variable is declared inside a function, it is
         only accessible within that function and cannot be used outside that function. The example above would look like
         this:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleFunctionScopeVar} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleFunctionScopeVar} />
 
       <p className='spacer top medium'>
         Variable <code>yay</code>, even though it is declared using <code>var</code>, is globally scoped because it
@@ -107,7 +107,7 @@ console.log(yay); // "yay"`;
         function, neither <code>const</code> or <code>let</code>:
       </p>
       <DoubleCodeSnippet
-        lang={[ECodeLang.JAVASCRIPT, ECodeLang.JAVASCRIPT]}
+        lang={[CODE_LANG.JAVASCRIPT, CODE_LANG.JAVASCRIPT]}
         name={['index', 'index']}
         code={[exampleFunctionScopeConst, exampleFunctionScopeLet]}
       />
@@ -115,17 +115,17 @@ console.log(yay); // "yay"`;
         <code>let</code> solves the problem with <code>var</code> that we covered above. It is block scoped. Any
         variable declared in a block with <code>let</code> is only available for use within that block:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleLetScope} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleLetScope} />
       <p>
         Like <code>let</code> declarations, <code>const</code> declarations can only be accessed within a block:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleConstScope} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleConstScope} />
 
       <p>There cannot be two variables with the same name in the same scope:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleTwoVarsInSameScope} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleTwoVarsInSameScope} />
 
       <p>But if one of the variables is in a different scope - it will work:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleTwoVarsWithSameName} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleTwoVarsWithSameName} />
 
       <p>
         Pay attention to the example above: the variable eventually has a value of <code>yay</code>. All of this because

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { Accordion } from 'src/components/common/Accordion';
 import { LONG_DASH } from 'src/constants';
@@ -38,7 +38,7 @@ Promise.resolve().then(() => console.log('Промис выполнился (м�
       </div>
       <p>Следующий пример: макрозадача (таймер) создаёт промис микрозадачу (промис):</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={macroCreateMicroExampleCode}
         hideLines={true}
         name={`example(${EXAMPLE_NUMBER})`}

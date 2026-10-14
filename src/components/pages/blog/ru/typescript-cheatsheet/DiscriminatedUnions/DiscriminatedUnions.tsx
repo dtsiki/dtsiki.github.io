@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from 'src/utils/formatting';
 
 export const DiscriminatedUnions = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -58,12 +58,12 @@ getArea({ type: 'circle', radius: 42 });`;
         <InlineCode>kind</InlineCode> или <InlineCode>status</InlineCode>. По этому полю TypeScript понимает какой
         именно тип будет нужен.
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={exampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={exampleCode} />
       <p>
         Теперь TypeScript знает: если <InlineCode>shape.type === 'circle'</InlineCode>, то нужным типом точно будет{' '}
         <InlineCode>Circle</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={exampleUsageCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={exampleUsageCode} />
     </section>
   );
 });

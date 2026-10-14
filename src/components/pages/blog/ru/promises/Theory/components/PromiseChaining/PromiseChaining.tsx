@@ -3,7 +3,7 @@ import { InlineCode } from 'src/components/blog/InlineCode';
 import { LONG_DASH } from 'src/constants';
 import { thenInline } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { undefinedInline } from 'src/components/blog/utils';
 
 export const PromiseChaining = forwardRef<HTMLDivElement>((_, ref) => {
@@ -64,7 +64,7 @@ export const PromiseChaining = forwardRef<HTMLDivElement>((_, ref) => {
       </p>
       <p>Как это будет выглядеть:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseChainingSnippetCode}
         consoleLog={promiseChainingSnippetLog}
       />

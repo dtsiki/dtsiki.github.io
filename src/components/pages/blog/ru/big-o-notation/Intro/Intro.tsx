@@ -2,7 +2,7 @@ import { noop } from 'lodash';
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { Accordion } from 'src/components/common/Accordion';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ENoteType, Note } from 'src/components/common/Note';
 
 export const Intro = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -90,7 +90,7 @@ export const Intro = forwardRef<HTMLDivElement>(({}, ref) => {
             Да, есть фунции, которые ничего не делают. Например функция <code className='code'>noop</code> — пустая
             функция, которая ничего не делает и возвращает <code className='code'>undefined</code>:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={noopCodeExample} name='noop' />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={noopCodeExample} name='noop' />
           <p>
             Функцию <code className='code'>noop</code> часто используют как безопасную заглушку для колбэков. В теории
             её сложность можно считать O(1), потому что операций в ней нет (или их ровно одна — вызов функции). Но мы не

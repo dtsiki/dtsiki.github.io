@@ -1,6 +1,6 @@
 import HtmlTag from 'src/components/common/HtmlTag';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { forwardRef } from 'react';
 
 export const Divs = forwardRef<HTMLDivElement>((_, ref) => {
@@ -85,7 +85,7 @@ export const Divs = forwardRef<HTMLDivElement>((_, ref) => {
         It may seem like too much tags so sometimes it seems easier to use divs for everything. Of course, it will work
         fine with using only divs, but you will drown in divs hell. Do you want it?
       </p>
-      <CodeSnippet lang={ECodeLang.HTML} name='Stairway to hell' code={exampleHTMLDivsHell} />
+      <CodeSnippet lang={CODE_LANG.HTML} name='Stairway to hell' code={exampleHTMLDivsHell} />
       <div className='flex h-centered'>
         <div className='row'>
           <div className='col col--50 col--tablet-100'>
@@ -94,7 +94,7 @@ export const Divs = forwardRef<HTMLDivElement>((_, ref) => {
               addition, you&#39;ll have to use unnecessary JavaScript code with this markup to make this fake links
               clickable.
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLNonSemanticMarkup} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLNonSemanticMarkup} />
           </div>
           <div className='col col--50 col--tablet-100'>
             <p>
@@ -102,7 +102,7 @@ export const Divs = forwardRef<HTMLDivElement>((_, ref) => {
               with a nav with links. There are no additional JavaScript because HTML tag <HtmlTag isSingle>a</HtmlTag>{' '}
               does all the work for us by creating all links.
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLSemanticMarkup} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLSemanticMarkup} />
           </div>
         </div>
       </div>

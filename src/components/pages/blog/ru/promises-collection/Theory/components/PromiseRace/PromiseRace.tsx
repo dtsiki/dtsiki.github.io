@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { allInline, myRaceInline, raceInline } from '../../../utils';
 
@@ -48,7 +48,7 @@ Promise.race([
         {raceInline} ждёт <strong>первый завершившийся</strong> промис, возвращает результат его выполнения:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseRaceAllResolvedSnippetCode}
         consoleLog={promiseRaceAllResolvedSnippetLog}
       />
@@ -57,13 +57,13 @@ Promise.race([
         результат выполнения этого промиса:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseRaceFirstRejectedSnippetCode}
         consoleLog={promiseRaceFirstRejectedSnippetLog}
       />
       <p>Остальные промисы, как и в случае с {allInline}, продолжают выполняться, а результаты их игнорируются:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseRaceRejectedOtherResultsSnippetCode}
         consoleLog={promiseRaceRejectedOtherResultsSnippetLog}
       />

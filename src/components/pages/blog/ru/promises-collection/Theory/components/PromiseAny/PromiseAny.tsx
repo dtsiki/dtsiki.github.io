@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { allInline, anyInline } from '../../../utils';
 
@@ -37,10 +37,10 @@ export const PromiseAny = forwardRef<HTMLDivElement>((_, ref) => {
       <p>
         {anyInline} возвращает результат <strong>первого успешно выполненного</strong> промиса:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={anyAllResolvedSnippetCode} consoleLog={anyAllResolvedSnippetLog} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={anyAllResolvedSnippetCode} consoleLog={anyAllResolvedSnippetLog} />
       <p>Если есть хотя бы один успешно выполненный промис, то все отклонённые промисы будут проигнорированы:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={anyOnlyOneResolvedSnippetCode}
         consoleLog={anyOnlyOneResolvedSnippetLog}
       />
@@ -48,7 +48,7 @@ export const PromiseAny = forwardRef<HTMLDivElement>((_, ref) => {
         Если все промисы отклонились, {anyInline} отклоняется со специальной ошибкой{' '}
         <InlineCode>AggregateError</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={anyAllRejectedSnippetCode} consoleLog={anyAllRejectedSnippetLog} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={anyAllRejectedSnippetCode} consoleLog={anyAllRejectedSnippetLog} />
       <p>
         {anyInline} {LONG_DASH} отзеркаленная версия {allInline}. Если {allInline} успешен только когда успешны все
         промисы, то {anyInline} успешен, когда успешен хотя бы один. И наоборот: {allInline} отклоняется при первой

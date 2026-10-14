@@ -1,6 +1,6 @@
 import { Accordion } from 'src/components/common/Accordion';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
@@ -103,19 +103,19 @@ doSomething();`;
             A function created with a function declaration is a <code>Function</code> object and has all its properties,
             methods and behavior of <code>Function</code> objects.
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleFunctionDeclaration} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleFunctionDeclaration} />
           <p>
             Functions declared with function declaration return <code>undefined</code> value by default. To return any
             other value, the function must have a return statement:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleFunctionDeclarationReturn} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleFunctionDeclarationReturn} />
 
           <ExampleSnippet code={exampleFunctionDeclarationReturnResult} />
           <p>
             Furthermore, function declarations in JavaScript are hoisted to the top of the enclosing function or global
             scope:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHoisting} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHoisting} />
 
           <p>
             In the terminal you will find the following output after executing this code snippet. As you can see, any
@@ -129,32 +129,32 @@ doSomething();`;
             A function expression is very similar to a function declaration. Here&#39;s the code snippet of an unnamed
             function declaration:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleFunctionExpression} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleFunctionExpression} />
           <ExampleSnippet code={exampleFunctionExpressionResult} />
 
           <p>
             The main difference between function expressions and function declarations is the function name: JavaScript
             allows to assign a function to a variable and then use that variable as a function:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleFunctionExpressionAssign} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleFunctionExpressionAssign} />
 
           <p>Function expressions, unlike function declarations, are not hoisted:</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHoistingFunctionExpression} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHoistingFunctionExpression} />
           <ExampleSnippet code={exampleHoistingFunctionExpressionResult} />
 
           <p className='spacer top medium'>
             A function expression can be used as an IIFE or Immediately Invoked Function Expression which runs as soon
             as it is defined.
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleFunctionExpressionIIFE} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleFunctionExpressionIIFE} />
         </li>
         <li className='list__item'>
           <div className='list__title'>arrow function expression</div>
           <p>An arrow function expression is a alternative to a regular function expression:</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleArrowExpression} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleArrowExpression} />
 
           <p className='spacer top medium'>Arrow functions can have a concise body:</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleArrowExpressionShort} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleArrowExpressionShort} />
 
           <p>
             Arrow functions don&#39;t have their own bindings to <code>this</code>, <code>arguments</code>, or{' '}
@@ -171,11 +171,11 @@ doSomething();`;
       />
 
       <p>Functions in JavaScript can be nested:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleNestedFunctions} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleNestedFunctions} />
       <ExampleSnippet code={exampleNestedFunctionsResult} />
 
       <p>This applies to all types of functions:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleNestedIIFEFunctions} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleNestedIIFEFunctions} />
       <ExampleSnippet code={exampleNestedIIFEFunctionsResult} />
     </Accordion>
   );

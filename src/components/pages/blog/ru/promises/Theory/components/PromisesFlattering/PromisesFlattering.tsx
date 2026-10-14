@@ -17,7 +17,7 @@ import {
   thenInline,
 } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { getTextWithChevrons } from 'src/utils';
 
@@ -44,7 +44,7 @@ console.log(promise1 === promise2);`;
         Если передать в <InlineCode>Promise.resolve()</InlineCode> другой промис, то метод вернёт переданный промис без
         изменений. Новый промис создаваться не будет:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={promiseResolvePromiseSnippetCode} consoleLog='true' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={promiseResolvePromiseSnippetCode} consoleLog='true' />
       <p>Этот механизм называется схлопыванием промисов.</p>
       <p>
         Противоположный схлопыванию механизм происходит в {thenInline}. Если колбэк внутри {thenInline} возвращает новый
@@ -52,7 +52,7 @@ console.log(promise1 === promise2);`;
         дождётся разрешения внутреннего промиса и передаст его результат в следующий {thenInline}. Это называется
         разворачиванием вложенных промисов: промисов
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={promisesFlatteringSnippetCode} consoleLog='4' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={promisesFlatteringSnippetCode} consoleLog='4' />
       <p>Что здесь происходит:</p>
       <ul className='list stepped'>
         <li className='list__item'>
@@ -82,7 +82,7 @@ console.log(promise1 === promise2);`;
         Без разворачивания пришлось бы каждый раз вручную вызывать {thenInline} на промисе, который вернул предыдущий
         колбэк:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={promisesWithoutFlatteringSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={promisesWithoutFlatteringSnippetCode} />
     </section>
   );
 });

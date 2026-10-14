@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { Note } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
@@ -266,7 +266,7 @@ console.log(promise);`;
         <ExternalLink href='https://dtsiki.github.io/blog/ru/promises' label='статью про промисы' />.
       </Note>
       <p> Добавим к нему 4 статических метода:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={methodsClassTemplateExampleCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodsClassTemplateExampleCode} />
       <section className='section inner'>
         <p>
           Прежде чем переходить к написанию отдельных методов, определим, что их объединяет. Для этого посмотрим, что
@@ -291,9 +291,9 @@ console.log(promise);`;
           Итак, в основе каждого метода лежит создание и возврат нового объекта <InlineCode>Promise</InlineCode>.
           Поэтому реализация каждого из методов будет начинаться со следующей конструкции:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resultTemplateSyntaxExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resultTemplateSyntaxExampleCode} />
         <p>Теперь перенесём эту конструкцию в структуру каждого метода:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={methodsStep1ExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodsStep1ExampleCode} />
         <p>С возвращаемым значением всё ясно, переходим к входным данным.</p>
       </section>
       <section id='iterable' className='section inner'>
@@ -305,13 +305,13 @@ console.log(promise);`;
         <p>
           Представим, что мы добавили в каждый метод проверку через <InlineCode>Array.isArray()</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={isArrayCheckExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={isArrayCheckExampleCode} />
         <p>Это упрощённый пример {LONG_DASH} просто намеренно отклоняем всё, что не массив.</p>
         <p>
           Тогда <InlineCode>Set</InlineCode> или строка вызовут ошибку:
         </p>
         <CodeSnippet
-          lang={ECodeLang.JAVASCRIPT}
+          lang={CODE_LANG.JAVASCRIPT}
           code={customPromiseSetStringExampleCode}
           consoleLog={customPromiseSetStringExampleLog}
         />
@@ -320,7 +320,7 @@ console.log(promise);`;
           {LONG_DASH} хотя они не массивы {LONG_DASH} и успешно выполняется:
         </p>
         <CodeSnippet
-          lang={ECodeLang.JAVASCRIPT}
+          lang={CODE_LANG.JAVASCRIPT}
           code={nativePromiseSetStringExampleCode}
           consoleLog={nativePromiseSetStringExampleLog}
         />
@@ -361,25 +361,25 @@ console.log(promise);`;
           обязательно сломается.
         </p>
         <p>Добавим такую проверку:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={typeofSymbolIteratorStep1ExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={typeofSymbolIteratorStep1ExampleCode} />
         <p>
           Следует также отсечь {nullInline} и {undefinedInline}: без этого обращение к{' '}
           <InlineCode>iterable[Symbol.iterator]</InlineCode> выбросит ошибку прямо в момент проверки. Добавим
           дополнительную проверку на {nullInline} и {undefinedInline}:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={typeofSymbolIteratorStep2ExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={typeofSymbolIteratorStep2ExampleCode} />
         <p>
           Если условие истинно, значит, у объекта нет итератора {LONG_DASH} передавать его дальше нельзя. Эту проверку
           добавляем внутрь возвращаемого промиса к каждому методу:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={methodsStep2ExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodsStep2ExampleCode} />
         <p>
           Помимо проверки итератора {iterableInline}, преобразуем итерируемый объект в массив {LONG_DASH} с ним удобнее
           работать:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code='const items = Array.from(iterable);' />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code='const items = Array.from(iterable);' />
         <p>Эта строка кода будет одинаковой для каждого метода:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={methodsStep3ExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodsStep3ExampleCode} />
 
         <p>
           {iterableInline} может быть <InlineCode>Set</InlineCode>, <InlineCode>Map</InlineCode> или другим итерируемым
@@ -403,19 +403,19 @@ console.log(promise);`;
         <p>
           <InlineCode>Promise.all([])</InlineCode> выполняется с пустым массивом <InlineCode>[]</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={allEdgeCaseExampleCode} consoleLog={allEdgeCaseExampleLog} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={allEdgeCaseExampleCode} consoleLog={allEdgeCaseExampleLog} />
         <p>
           Это логично: все промисы из пустого набора уже выполнены {LONG_DASH} их просто нет. Добавляем проверку: если
           массив пуст, сразу выполняем промис с пустым массивом:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={emptyArrayEdgeCaseExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={emptyArrayEdgeCaseExampleCode} />
         <p>Это условие добавляем после приведения {iterableInline} к массиву:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={allMethodStep1ExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={allMethodStep1ExampleCode} />
         <p>
           <InlineCode>Promise.race([])</InlineCode> навсегда остаётся в состоянии ожидания {pendingEm}: никогда не
           выполняется и не отклоняется:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={raceEdgeCaseExampleCode} consoleLog={raceEdgeCaseExampleLog} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={raceEdgeCaseExampleCode} consoleLog={raceEdgeCaseExampleLog} />
         <p>
           Никакого условия здесь в <InlineCode>MyPromise.race()</InlineCode> не добавляем.
         </p>
@@ -423,7 +423,7 @@ console.log(promise);`;
           <InlineCode>Promise.allSettled([])</InlineCode> выполняется с пустым массивом <InlineCode>[]</InlineCode>:
         </p>
         <CodeSnippet
-          lang={ECodeLang.JAVASCRIPT}
+          lang={CODE_LANG.JAVASCRIPT}
           code={allSettledEdgeCaseExampleCode}
           consoleLog={allSettledEdgeCaseExampleLog}
         />
@@ -432,12 +432,12 @@ console.log(promise);`;
           их нет {LONG_DASH} завершать нечего. Добавляем такую же проверку как и у{' '}
           <InlineCode>MyPromise.all()</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={allSettledMethodStep1ExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={allSettledMethodStep1ExampleCode} />
 
         <p>
           <InlineCode>Promise.any([])</InlineCode> отклоняется с ошибкой <InlineCode>AggregateError</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={anyEdgeCaseExampleCode} consoleLog={anyEdgeCaseExampleLog} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={anyEdgeCaseExampleCode} consoleLog={anyEdgeCaseExampleLog} />
         <p>
           Логика такая: метод ищет хотя бы один выполненный промис, но в пустом наборе такого нет {LONG_DASH} значит, ни
           один промис не выполнен, и это ошибка.
@@ -446,9 +446,9 @@ console.log(promise);`;
           Добавляем в <InlineCode>MyPromise.any()</InlineCode> проверку: если массив пуст, отклоняем промис с{' '}
           <InlineCode>AggregateError</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={emptyArrayEdgeCaseAggregateErrorExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={emptyArrayEdgeCaseAggregateErrorExampleCode} />
         <p>Это условие добавляется после приведения {iterableInline} к массиву:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={anyMethodStep1ExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={anyMethodStep1ExampleCode} />
         <p>
           С входными и выходными данными разобрались. Теперь приступим к реализации каждого метода {LONG_DASH} начнём с
           {allInline}. На его примере удобно разобрать основные приёмы, которые потом пригодятся и в остальных методах.

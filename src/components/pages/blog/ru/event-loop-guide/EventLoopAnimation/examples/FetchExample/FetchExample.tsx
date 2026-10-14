@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
@@ -29,7 +29,7 @@ console.log('Конец');`;
       </div>
       <p>Начнём с простого примера с один запросом:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={fetchExampleCode}
         name={`example(${EXAMPLE_NUMBER})`}
         consoleLog={fetchExampleLog}

@@ -6,7 +6,7 @@ import { DragAndDropDemo } from 'src/components/pages/blog/ru/javascript-drag-an
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { Window } from 'src/components/common/Window/Window';
 import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window/Window.types';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
@@ -367,7 +367,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           Как сделать элемент перетаскиваемым? Всё просто — добавить HTML-элементу флаг{' '}
           <code className='code'>draggable</code> со значением <em>true</em>:
         </p>
-        <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleDraggableElementMarkup} />
+        <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleDraggableElementMarkup} />
 
         <p className='spacer top medium'>
           Теперь при попытке взять и перетащить такой элемент будет отображаться встроенный в ваш браузер стиль
@@ -390,7 +390,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           С перетаскиваемыми элементами разобрались, чтобы сделать элемент сбрасываемым никаких флагов вообще не надо
           добавлять, все элементы по умолчанию позволяют сбрасывать на себя перетаскиваемые элементы:
         </p>
-        <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleDroppableElementMarkup} />
+        <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleDroppableElementMarkup} />
 
         <p className='spacer top medium'>
           К сожалению, по умолчанию у сбрасываемых элементов нет никакого выделения во время драг-н-дропа — это нужно
@@ -511,7 +511,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
         <p>
           С помощью <code className='code'>onDragStart</code> будем иницилизировать процесс перетаскивания:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHandlerDragStartJavaScript1} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHandlerDragStartJavaScript1} />
 
         <p className='spacer top medium'>
           О том, что же именно нужно делать в этой инициализации будет рассказано чуть ниже.
@@ -529,7 +529,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           <code className='code'>onDragOver</code> с отменой стандартного поведения браузера, то обработчик{' '}
           <code className='code'>onDrop</code> не будет работать.
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHandlerDragOverJavaScript} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHandlerDragOverJavaScript} />
 
         <p className='spacer top medium'>
           Передаваемый объект в обработчики <code className='code'>event</code> будет объектом типа{' '}
@@ -545,14 +545,14 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           будет три колонки со статусом задач - «Сделать», «В процессе» и «Готово». Эти три колонки будут зонами сброса
           или droppable элементами:
         </p>
-        <DoubleCodeSnippet code={[exampleMarkUp1Html, example1CSS]} lang={[ECodeLang.HTML, ECodeLang.CSS]} />
+        <DoubleCodeSnippet code={[exampleMarkUp1Html, example1CSS]} lang={[CODE_LANG.HTML, CODE_LANG.CSS]} />
 
         <p className='spacer top medium'>
           Под колонками со статусами разместим область с задачами - это будут наши перетаскиваемые или draggable
           элементы. Для них тоже нужен будет какой-то контейнер - эта область тоже будет зоной сброса, если мы захотим
           убрать задачу из любой колонки:
         </p>
-        <DoubleCodeSnippet code={[exampleMarkUp2Html, example2CSS]} lang={[ECodeLang.HTML, ECodeLang.CSS]} />
+        <DoubleCodeSnippet code={[exampleMarkUp2Html, example2CSS]} lang={[CODE_LANG.HTML, CODE_LANG.CSS]} />
         <p className='spacer top bottom medium'>CSS-стили здесь и ниже могут быть какими ваша душа пожелает.</p>
         <p className='spacer bottom medium'>
           Обратите внимание, что список задач и колонки находятся в разных контейнерах - не обязательно, чтобы
@@ -560,7 +560,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           на совершенно разных уровнях вложенности в DOM-дереве.
         </p>
         <p>В итоге HTML-разметка и CSS-стили будет выглядеть так:</p>
-        <DoubleCodeSnippet code={[exampleMarkUpHtml, exampleCSS]} lang={[ECodeLang.HTML, ECodeLang.CSS]} />
+        <DoubleCodeSnippet code={[exampleMarkUpHtml, exampleCSS]} lang={[CODE_LANG.HTML, CODE_LANG.CSS]} />
       </section>
       <section className='section outer'>
         <h2>Пишем JavaScript</h2>
@@ -583,7 +583,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           <code className='code'>event.target</code>, подойдёт <code className='code'>textContent</code> или{' '}
           <code className='code'>innerHTML</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHandlerDragStartJavaScript2} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHandlerDragStartJavaScript2} />
 
         <p className='spacer top medium'>
           Помимо передачи данных, тут же изменим прозрачность перетаскиваемой задачи, чтобы визуально было видно какая
@@ -595,7 +595,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           Раз уже мы меняем прозрачность перетаскиваемого элемента, надо где-то возвращать её назад, верно? А когда её
           возвращать назад? Правильно, когда мы сбрасываем задачу:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHandlerDragEndJavaScript} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHandlerDragEndJavaScript} />
 
         <p className='spacer top bottom medium'>
           Теперь займёмся обработчиком сброса <code className='code'>handleDrop</code>. В{' '}
@@ -608,7 +608,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           доработаем его под наши нужды. Вот что у нас получается:
         </p>
 
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHandlersDropDragOverJavaScript} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHandlersDropDragOverJavaScript} />
 
         <p className='spacer top medium'>
           Пока что драг-н-дроп не будет работать. Мы просто записываем задачу когда начинаем перетаскивать её и читаем,
@@ -634,10 +634,10 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           <code className='code'>opacity = `0.4`</code> задаче, которую начали перетаскивать. Теперь мы можем
           воспользоваться этим свойством и быстро найти перетаскивемую задачу следующим образом:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleDraggedElementJavaScript} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleDraggedElementJavaScript} />
 
         <p className='spacer top medium'>Обновим наш обработчик сброса, держа в голове ТЗ выше:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHandlerDropJavaScript} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHandlerDropJavaScript} />
 
         <p className='spacer top medium'>
           Пока что у нас есть только обработчики. Нужно подписаться на них. Сделаем это классическим способом - с
@@ -645,25 +645,25 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           пройдёмся по этим массивам методом перебора <code className='code'>forEach</code> и подпишемся на нужные
           обработчики задач и колонок:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleEventListeners1JavaScript} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleEventListeners1JavaScript} />
 
         <p className='spacer top medium'>
           Забыли про возврат задач в область задач! Сейчас быстренько исправим. Аналогичным образом получим контейнер
           области задач и подпишем его на такие же обработчики, как и у колонок, но чуть-чуть модернизируем
           <code>handleDragOver</code>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleEventListeners2JavaScript} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleEventListeners2JavaScript} />
 
         <p className='spacer top medium'>
           Собираем всё вместе. Разметка будет выглядеть так (тут ничего не изменилось с самого начала):
         </p>
-        <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleMarkUpHtml} />
+        <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleMarkUpHtml} />
 
         <p className='spacer top medium'>
           Разметку CSS здесь не буду прикладывать т.к. она совершенно не влияет на работоспособность кода и вы можете
           стилизовать список задач как ваша душа захочет. И, наконец-то, JavaScript:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleJavaScript} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleJavaScript} />
 
         <p className='spacer top bottom large'>
           Вы можете перейти по{' '}

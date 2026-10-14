@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
@@ -66,7 +66,7 @@ console.log('Ставки сделаны');`;
         других промисов будут уже проигнорированы.
       </p>
       <p>Итак, дамы и господа, делаем ставки:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={promiseRaceExampleCode} name={`example(${EXAMPLE_NUMBER})`} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={promiseRaceExampleCode} name={`example(${EXAMPLE_NUMBER})`} />
       <p>Одним из вариантов вывода в консоль здесь может быть:</p>
       <ExampleSnippet code={promiseRaceExampleLog} />
       <p>
@@ -154,7 +154,7 @@ console.log('Ставки сделаны');`;
         Что изменилось, если бы в примере выше использовали не <InlineCode>Promise.race()</InlineCode>, а, например,{' '}
         <InlineCode>Promise.all()</InlineCode>?
       </p>
-      <CodeSnippet code={promiseAllExampleCode} lang={ECodeLang.JAVASCRIPT} />
+      <CodeSnippet code={promiseAllExampleCode} lang={CODE_LANG.JAVASCRIPT} />
       <p>
         Этот метод ожидает выполнения <em>всех</em> промисов. Поэтому в этом случае вывод был бы таким (если оба запроса
         выполнились бы без ошибок):

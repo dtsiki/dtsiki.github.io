@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { fulfilledEm, pendingEm, promiseResultInline, rejectedEm } from '../../../utils';
 import { LONG_DASH } from 'src/constants';
 
@@ -46,7 +46,7 @@ class MyPromise {
         Класс можно начать с написания конструктора и инициализации. У промиса всего два свойства {LONG_DASH} состояние
         и результат. Статусы промиса можно сразу вынести в отдельный объект:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={statusObjectSnippetCode} name='MyPromise' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={statusObjectSnippetCode} name='MyPromise' />
       <p>
         Константы защищают от опечаток. Например если писать {pendingEm} вручную, можно случайно написать{' '}
         <em style={{ color: 'red' }}>pendig</em> и получить баг. С константами такого не будет, константы нам бро.
@@ -55,7 +55,7 @@ class MyPromise {
         При создании промис всегда в состоянии {pendingEm}, а значение неизвестно. Поэтому инициализация этих свойств
         будет выглядеть следующим образом:{' '}
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={initMyPromiseClassSnippetCode} name='MyPromise' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={initMyPromiseClassSnippetCode} name='MyPromise' />
       <p>
         Повторение мать учения: у промисов {promiseResultInline} хранит и результат выполнения промиса и ошибку. Это
         очень удобно благодаря тому, что у промиса может быть только три состояния: когда промис в состоянии {pendingEm}{' '}
@@ -64,7 +64,7 @@ class MyPromise {
         состояние меняется только один раз. Но если очень хочется, то можно всегда завести отдельное состояние для
         ошибки:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseClassWithErrorFieldSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseClassWithErrorFieldSnippetCode} />
     </section>
   );
 });

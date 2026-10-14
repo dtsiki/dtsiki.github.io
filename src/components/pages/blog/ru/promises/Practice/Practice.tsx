@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { Executor, InstanceMethods, StateAndResult } from './components';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { LONG_DASH } from 'src/constants';
 import {
@@ -170,7 +170,7 @@ export const Practice = forwardRef<HTMLDivElement>((_, ref) => {
       <h2>Практика: пишем свой промис</h2>
       <p>Теорию разобрали, приступаем к написанию собственного класса промиса. Опираться будем на следующий пример:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={exampleForPracticeSnippetCode}
         consoleLog={exampleForPracticeSnippetLog}
       />
@@ -209,11 +209,11 @@ export const Practice = forwardRef<HTMLDivElement>((_, ref) => {
       <InstanceMethods />
       <section>
         <p>Вот и всё, {finallyInline} готов:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={finallyMethodSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={finallyMethodSnippetCode} />
         <p>
           Класс <InlineCode>MyPromise</InlineCode> тоже:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseSnippetCode} name='MyPromise' />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseSnippetCode} name='MyPromise' />
       </section>
     </section>
   );

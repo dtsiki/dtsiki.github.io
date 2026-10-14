@@ -1,7 +1,7 @@
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { Accordion } from 'src/components/common/Accordion';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const Hoisting = () => {
   const exampleHoisting = `doSomething();
@@ -40,7 +40,7 @@ var doSomething = undefined;`;
   return (
     <Accordion title='Hoisting'>
       <p>Below is an example of classical hoisting. Here you can see calling a function before defining it.</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHoisting} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHoisting} />
       <p>
         In the terminal you will find the following output after executing this code snippet. Everything works fine. But
         how?
@@ -55,7 +55,7 @@ var doSomething = undefined;`;
         still run in normal order. Unfortunately, it doesn&#39;t apply to anonymous functions or arrow functions because
         we cannot call them before initialization:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHoistingArrowFunction} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHoistingArrowFunction} />
 
       <p>
         In the terminal you will find the following output after executing the code snippet above. We will get exactly
@@ -65,7 +65,7 @@ var doSomething = undefined;`;
       <p className='spacer top medium'>
         But there is trick for <code>var</code> arrow function:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHoistingVarArrowFunction} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHoistingVarArrowFunction} />
       <ExampleSnippet code={exampleHoistingVarArrowFunctionResult} />
       <p className='spacer top medium'>
         Why that happened? Variable declarations using <code>var</code> keyword are also hoisted, are not? This occurs
@@ -73,7 +73,7 @@ var doSomething = undefined;`;
         <code>undefined</code> until the line of code that does the assignment is executed. In other words, the code
         snipper below is equal the code snippet above:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleHoistingVarArrowFunctionReality} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleHoistingVarArrowFunctionReality} />
       <ExampleSnippet code={exampleHoistingVarArrowFunctionRealityResult} />
     </Accordion>
   );

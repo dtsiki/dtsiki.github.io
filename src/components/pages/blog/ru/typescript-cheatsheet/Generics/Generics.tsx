@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText } from 'src/utils/formatting';
 
@@ -230,12 +230,12 @@ const postEntity: Entity<TPost> = {
           Например есть функция, которая возвращает то, что получила. Без дженериков придётся использовать{' '}
           <InlineCode>any</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={anyPrintFunctionExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={anyPrintFunctionExampleCode} />
         <p>
           Из-за использования <InlineCode>any</InlineCode> тип переменной будет утерян.
         </p>
         <p>Эту же функцию можно переписать с помощью дженерика, а тип переменной при этом будет сохранён:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={genericsPrintFunction} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={genericsPrintFunction} />
         <p>Что здесь происходит:</p>
         <ul className='list markered'>
           <li className='list__item'>
@@ -272,7 +272,7 @@ const postEntity: Entity<TPost> = {
           </InlineCode>{' '}
           через запятую. Для второго параметра принято использовать букву <em>U</em>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={pairExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={pairExampleCode} />
         <p>
           Для третьего параметра принято использовать букву <em>V</em> (следующая по алфавиту за <em>T</em> и <em>U</em>
           ).
@@ -281,15 +281,15 @@ const postEntity: Entity<TPost> = {
           Три параметра часто нужны в сложных структурах данных. Например, для хранения текущего значения, предыдущего
           значения и метаданных:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={historyStateExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={historyStateExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Обобщённые интерфейсы и типы</h3>
         <p>Используются когда структура данных должна оставаться гибкой.</p>
         <p>При использовании с интерфейсами они работают как параметры функций:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={interfaceExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={interfaceExampleCode} />
         <p>Объявления типов работают с дженериками точно так же, как и интерфейсы:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeExampleCode} />
       </section>
       <section className='section inner'>
         <h3>
@@ -302,9 +302,9 @@ const postEntity: Entity<TPost> = {
           внутри функции или класса. Делается с помощью ключевого слова <InlineCode>extends</InlineCode>.
         </p>
         <p>Например, без ограничения получим ошибку:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={lengthErrorExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={lengthErrorExampleCode} />
         <p>Если сузить круг возможных типов, передаваемых в дженерик, ошибки больше не будет:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={extendsExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Обобщённые классы</h3>
@@ -319,12 +319,12 @@ const postEntity: Entity<TPost> = {
           </code>{' '}
           передаётся тип при создании экземпляра и затем TypeScript сам подставит нужный тип:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={classExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={classExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Значения по умолчанию</h3>
         <p>Можно задать значение по умолчанию:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={defaultValueExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={defaultValueExampleCode} />
       </section>
       <section className='section inner'>
         <h3>
@@ -337,9 +337,9 @@ const postEntity: Entity<TPost> = {
           поля.
         </p>
         <p>Например, с бэка приходят данные о пользователе:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={userDataExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={userDataExampleCode} />
         <p>Или данные о посте:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={postDataExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={postDataExampleCode} />
         <p>
           Для фронта нужно, чтобы у пользователей и постах были дополнительные общие поля, например{' '}
           <InlineCode>id</InlineCode> с другим типом данных, флаг <InlineCode>isLoading</InlineCode>, дата создания{' '}
@@ -349,7 +349,7 @@ const postEntity: Entity<TPost> = {
           </InlineCode>{' '}
           пришлось бы вручную переписывать поля заново для каждого объекта:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={newTypesExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={newTypesExampleCode} />
         <p>
           Но{' '}
           <InlineCode>
@@ -358,13 +358,13 @@ const postEntity: Entity<TPost> = {
           позволяет избежать добавления новых полей вручную и создания излишных типов. Просто создаётся в данном случае
           всего один дженерик-тип:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={entityExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={entityExampleCode} />
         <p>
           Оригинальные данные при этом сохраняются внутри поля <InlineCode>data</InlineCode>, чтобы не потерять их
           собственный идентификатор или другие поля.
         </p>
         <p>Затем дженерик-тип можно применять к нужны типам:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={entityUsageExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={entityUsageExampleCode} />
       </section>
     </section>
   );

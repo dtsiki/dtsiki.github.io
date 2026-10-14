@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 
 export const DeprecatedHTML = forwardRef<HTMLDivElement>((_, ref) => {
@@ -58,7 +58,7 @@ export const DeprecatedHTML = forwardRef<HTMLDivElement>((_, ref) => {
             </p>
           </div>
           <div className='col col--50 col--tablet-100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLCenterTag} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLCenterTag} />
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@ export const DeprecatedHTML = forwardRef<HTMLDivElement>((_, ref) => {
       </p>
       <DoubleCodeSnippet
         code={[exampleHTMLCenteredDiv, exampleCSSCenteredDiv]}
-        lang={[ECodeLang.HTML, ECodeLang.HTML]}
+        lang={[CODE_LANG.HTML, CODE_LANG.HTML]}
       />
       <p>Here is the list of deprecated tags:</p>
       <ul className='list inline'>{renderDepricatedTags}</ul>

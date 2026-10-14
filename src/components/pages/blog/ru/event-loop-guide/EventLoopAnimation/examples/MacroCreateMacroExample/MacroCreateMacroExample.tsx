@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { LONG_DASH } from 'src/constants';
 import { getConsoleLog, getTextWithChevrons } from 'src/utils';
@@ -39,7 +39,7 @@ console.log('Конец');`;
       </div>
       <p>Последний, но не по сложности, пример:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={macroCreateMacroExampleCode}
         hideLines={true}
         name={`example(${EXAMPLE_NUMBER})`}

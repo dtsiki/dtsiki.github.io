@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ENoteType, Note } from 'src/components/common/Note';
 
 export const SquaredComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -46,7 +46,7 @@ printAllPairs([1, 2, 3]);`;
         Теперь пройдёмся по каждому элементу дважды, например, выведем пары — каждый элементы + каждый элемент:
       </p>
       <CodeSnippet
-        lang={ECodeLang.TYPESCRIPT}
+        lang={CODE_LANG.TYPESCRIPT}
         code={printAllPairsCodeExample}
         name='printAllPairs'
         consoleLog={printAllPairsSnippetLog}
@@ -84,7 +84,7 @@ printAllPairs([1, 2, 3]);`;
         </p>
       </Note>
       <p>А что если у вложенных циклов будут разные размеры? Например:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={printArraysCodeExample} name='printArrays' />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={printArraysCodeExample} name='printArrays' />
       <p>
         Допустим здесь у первого массива размер n, а у второго m, т.е. размеры массивов разные. Общее количество
         операций будет n * m. Сложность здесь так и записывается — O(n*m), в этот раз ничего не отбрасывается, констант
@@ -100,7 +100,7 @@ printAllPairs([1, 2, 3]);`;
         Иногда можно создать O(n²) случайно, используя встроенные методы массивов внутри циклов. Например, классическая
         ловушка со скрытым внутренним вторым циклом:
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={hiddenInnerForCodeExample} name='' />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={hiddenInnerForCodeExample} name='' />
       <p>
         Здесь у цикла <code className='code'>for</code> уже сложность O(n), а метод{' '}
         <code className='code'>includes()</code> тоже проходит весь массив и имеет O(n), в итоге и получаем O(n²). Если

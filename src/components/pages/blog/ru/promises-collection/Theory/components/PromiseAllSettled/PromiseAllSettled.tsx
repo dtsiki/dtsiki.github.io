@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { allSettledInline, catchInline, thenInline } from '../../../utils';
 
@@ -57,13 +57,13 @@ export const PromiseAllSettled = forwardRef<HTMLDivElement>((_, ref) => {
       </ul>
       <p>Результат {LONG_DASH} массив таких объектов:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={allSettledExampleSnippetCode}
         consoleLog={allSettledExampleSnippetLog}
       />
       <p>{allSettledInline} никогда не отклоняется, даже когда отклоняются все промисы:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={allSettledAllRejectedSnippetCode}
         consoleLog={allSettledAllRejectedSnippetLog}
       />

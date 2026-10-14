@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { myAllInline, myRaceInline, pendingEm, raceInline } from '../../../utils';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
@@ -113,27 +113,27 @@ setTimeout(() => console.log(promise), 5000);`;
       <p>
         {raceInline} ждёт <strong>первый завершившийся</strong> промис и возвращает результат его выполнения:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={raceSuccessSnippetCode} consoleLog={raceSuccessSnippetLog} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={raceSuccessSnippetCode} consoleLog={raceSuccessSnippetLog} />
       <p>
         Не важно, как завершился этот промис {LONG_DASH} успешно или с отклонением. Главное {LONG_DASH} чтобы он
         завершился раньше остальных. Если первый завершившийся промис был отклонён, результатом будет его ошибка:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={raceRejectedSnippetCode} consoleLog={raceRejectedSnippetLog} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={raceRejectedSnippetCode} consoleLog={raceRejectedSnippetLog} />
       <p>Результаты остальных промисов игнорируются:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={raceRejectedOtherResultsSnippetCode}
         consoleLog={raceRejectedOtherResultsSnippetLog}
       />
       <p>Начнём со скелета:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={methodTemplateSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodTemplateSnippetCode} />
       <p>
         <p>
           Здесь используется тот же перебор, что и в {myAllInline} {LONG_DASH} <InlineCode>forEach</InlineCode>.
           Поменяется только содержимое колбэков:
         </p>
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={itemsForEachSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={itemsForEachSnippetCode} />
       <p>
         В отличие от <InlineCode>MyPromise.all()</InlineCode>, здесь не нужен ни массив результатов, ни счётчик{' '}
         {LONG_DASH} только первый завершившийся промис. Индекс нам не понадобится, поэтому его убрали из{' '}
@@ -144,7 +144,7 @@ setTimeout(() => console.log(promise), 5000);`;
         можно сразу вызывать
         <InlineCode>resolve</InlineCode> или <InlineCode>reject</InlineCode> с этим значением:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resolveRejectItemSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resolveRejectItemSnippetCode} />
       <p>
         Первый завершившийся промис вызовет либо <InlineCode>resolve</InlineCode>, либо <InlineCode>reject</InlineCode>.
         Остальные вызовы проигнорируются: состояние промиса, который возвращает метод, уже изменилось {LONG_DASH} а
@@ -154,20 +154,20 @@ setTimeout(() => console.log(promise), 5000);`;
       <p>
         Вот как выглядит <InlineCode>MyPromise.race()</InlineCode> целиком:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseRaceSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseRaceSnippetCode} />
       <h4>Тестируем</h4>
       <p>Запустим пример из теории, но уже с нашим методом:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseRaceSuccessSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseRaceSuccessSnippetCode} />
       <p>В консоли появится:</p>
       <ExampleSnippet code={raceSuccessSnippetLog} />
       <p>Теперь проверим случай с ошибкой:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseRaceRejectedSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseRaceRejectedSnippetCode} />
       <p>
         Здесь второй промис отклоняется раньше, чем первый успевает выполниться {LONG_DASH} поэтому race отклоняется:
       </p>
       <ExampleSnippet code={raceRejectedSnippetLog} />
       <p>И краевой случай {LONG_DASH} пустой массив:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseEdgeCaseEmptyArraySnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseEdgeCaseEmptyArraySnippetCode} />
       <p>Промис так и не завершится:</p>
       <ExampleSnippet code={myPromiseEdgeCaseEmptyArraySnippetLog} />
     </section>

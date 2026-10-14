@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 import styles from './ClickableNonclickable.module.scss';
 
@@ -40,7 +40,7 @@ export const ClickableNonclickable = forwardRef<HTMLDivElement, IClickableNoncli
       <div className={styles.post__snippet}>
         <div className='row'>
           <div className='col col--50 col--tablet-100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLClickableUnclickable} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLClickableUnclickable} />
             <div className={bind([styles.clickable_nonclickable__example, 'spacer top medium'])}>
               <div
                 className={styles.clickable_nonclickable__button}
@@ -53,7 +53,7 @@ export const ClickableNonclickable = forwardRef<HTMLDivElement, IClickableNoncli
             </div>
           </div>
           <div className='col col--50 col--tablet-100'>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLClickableClickable} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLClickableClickable} />
             <div className={bind([styles.clickable_nonclickable__example, 'spacer top medium'])}>
               <button
                 className={styles.clickable_nonclickable__button}

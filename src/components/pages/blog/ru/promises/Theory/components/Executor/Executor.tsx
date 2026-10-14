@@ -14,7 +14,7 @@ import {
   thenInline,
 } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const Executor = forwardRef<HTMLDivElement>((_, ref) => {
   const newPromiseConstructorSnippetCode = `const promise = new Promise(executor);
@@ -89,7 +89,7 @@ console.log(promise);`;
         Промис создается через конструктор <InlineCode>new Promise</InlineCode>, внутрь которого передаётся
         функция-исполнитель <em>executor</em>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={newPromiseConstructorSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={newPromiseConstructorSnippetCode} />
       <p>
         Функция-исполнитель запускается синхронно, сразу же в момент создания промиса (см.{' '}
         <a href='https://dtsiki.github.io/blog/ru/event-loop-guide' className='link'>
@@ -116,26 +116,26 @@ console.log(promise);`;
         Чтобы обработать результат вложенной операции, когда она выполнится, в функцию-исполнитель передаётся два
         колбэка для управления состоянием промиса {LONG_DASH} {getResolveInline()} и {getRejectInline()}:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={newPromiseConstructor2SnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={newPromiseConstructor2SnippetCode} />
       <section className='section inner'>
         <p>
           Колбэк {getResolveInline('value')} переводит промис в состояние {fulfilledEm} со значением{' '}
           <InlineCode>value</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={executorResolveSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={executorResolveSnippetCode} />
 
         <p>
           Колбэк {getRejectInline('error')} переводит промис в состояние {rejectedEm} с причиной:
           <InlineCode>error</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={executorRejectSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={executorRejectSnippetCode} />
 
         <p>
           {getResolveInline()} и {getRejectInline()} могут вызываться в любом месте функции-исполнителя в зависимости от
           логики. При этом в {getResolveInline()} можно передать любое значение: <InlineCode>undefined</InlineCode>,
           число, строку, булево значение, функцию, объект, массив и даже другой промис:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resolveValuesSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resolveValuesSnippetCode} />
         <p>
           Что именно происходит, когда в {getResolveInline()} передают другой промис, разберём в подразделе про{' '}
           <a href='#promises_collapsing' className='link'>
@@ -148,19 +148,19 @@ console.log(promise);`;
           {LONG_DASH} оно станет причиной отклонения. Но JavaScript не превращает его в объект{' '}
           <InlineCode>Error</InlineCode>: если передали строку, причиной будет строка; если число {LONG_DASH} число:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={rejectValuesBadPracticeSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={rejectValuesBadPracticeSnippetCode} />
         <p>
           Поэтому хорошей практикой считается передавать экземпляр класса <InlineCode>Error</InlineCode> {LONG_DASH} он
           содержит стек вызовов, что упрощает отладку:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={rejectValuesSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={rejectValuesSnippetCode} />
         <p>
           <strong>Сработает</strong> внутри функции-исполнителя {LONG_DASH} только один колбэк: либо{' '}
           {getResolveInline()}, либо {getRejectInline()}. Более того: сработает может только первый вызов одной из этих
           функций. Любые последующие вызовы {getResolveInline()} или {getRejectInline()} внутри одного промиса
           игнорируются:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={executorResolveRejectSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={executorResolveRejectSnippetCode} />
       </section>
       <section className='section outer'>
         <p>
@@ -168,7 +168,7 @@ console.log(promise);`;
           {pendingEm}:
         </p>
         <CodeSnippet
-          lang={ECodeLang.JAVASCRIPT}
+          lang={CODE_LANG.JAVASCRIPT}
           code={executorWithoutRejectResolveSnippetCode}
           consoleLog='Promise {<pending>}'
         />
@@ -177,7 +177,7 @@ console.log(promise);`;
           Если {getResolveInline()} и {getRejectInline()} вызываются только при определённом условии, промис тоже может
           зависнуть:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={executorShouldResolveSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={executorShouldResolveSnippetCode} />
         <p>
           Такие промисы называют <strong>висячими</strong>. С ними стоит быть осторожными: если на висячий промис
           остаются ссылки, он может привести к утечке памяти. А ещё {LONG_DASH} код, который ждёт результата, может так

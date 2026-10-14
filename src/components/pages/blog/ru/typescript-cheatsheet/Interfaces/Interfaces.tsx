@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { Note } from 'src/components/common/Note';
 import { ENoteType } from 'src/components/common/Note/Note.types';
 import { LONG_DASH } from 'src/constants';
@@ -119,7 +119,7 @@ interface C = A | B; // Error!`;
         <p>
           Интерфейсы записываются с помощью ключевого слова <InlineCode>interface</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={interfaceExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={interfaceExampleCode} />
         <div className='spacer top medium'>
           <Note type={ENoteType.SECONDARY}>
             <p>
@@ -131,7 +131,7 @@ interface C = A | B; // Error!`;
           </Note>
         </div>
         <p>Интерфейсы могут описывать функции:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={functionExampleCode} />
       </section>
       <section className='section inner'>
         <h3>
@@ -142,7 +142,7 @@ interface C = A | B; // Error!`;
           Интерфейсы могут быть объединены, но если они имеют одно и то же имя. TypeScript автоматически сам слияет
           интерфейсы. Это позволяет добавлять новые свойства к существующим интерфейсам:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={unionExampleCode} />
         <p></p>
       </section>
       <section className='section inner'>
@@ -150,9 +150,9 @@ interface C = A | B; // Error!`;
         <p>
           Интерфейсы могут расширять другие интерфейсы с помощью ключевого слова <InlineCode>extends</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={extendsExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={extendsExampleCode} />
         <p>Можно расширять несколько интерфейсов сразу:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={multipleExtendsExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={multipleExtendsExampleCode} />
         <p>
           В отличии от автоматического слияния, расширение с помошью <InlineCode>extends</InlineCode> {LONG_DASH} это
           явное наследование одного интерфейса от другого.
@@ -164,9 +164,9 @@ interface C = A | B; // Error!`;
           Класс может реализовать интерфейс. С помощью ключевого слова <InlineCode>implements</InlineCode> TypeScript
           заставляет класс строго соответствовать определенному интерфейсу:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={classExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={classExampleCode} />
         <p>Если чего-то не хватит {LONG_DASH} TypeScript покажет ошибку:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={classErrorExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={classErrorExampleCode} />
         <p>
           В отличии от <InlineCode>extends</InlineCode>, который наследует код (свойства, методы, конструктор),
           <InlineCode>implements</InlineCode> только проверяет соответствие формы.
@@ -177,11 +177,11 @@ interface C = A | B; // Error!`;
         <ul className='list markered'>
           <li className='list__item'>
             <p>Нельзя использовать объединение (Union):</p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={unionExampleCode} />
           </li>
           <li className='list__item'>
             <p>С помощью интерфейсов нельзя описывать примитивы:</p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={interfacePrimitivesErrorExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={interfacePrimitivesErrorExampleCode} />
           </li>
         </ul>
       </section>

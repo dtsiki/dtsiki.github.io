@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { Note } from 'src/components/common/Note';
@@ -31,7 +31,7 @@ console.log('Три');`;
       </div>
       <p>Рассмотрим следующий пример:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={simpleTimeoutExampleCode}
         name={`example(${EXAMPLE_NUMBER})`}
         consoleLog={simpleTimeoutExampleLog}

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
@@ -65,7 +65,7 @@ Error: Ошибка // Через какое-то время`;
       </div>
       <p>Рассмотрим простой пример с промисом:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={singlePromiseExampleCode}
         name={`example(${EXAMPLE_NUMBER})`}
         consoleLog={singlePromiseExampleLog}
@@ -130,7 +130,7 @@ Error: Ошибка // Через какое-то время`;
         микрозадач? Например:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseWithDelayExampleCode}
         consoleLog={promiseWithDelayExampleLog}
       />
@@ -150,7 +150,7 @@ Error: Ошибка // Через какое-то время`;
         <InlineCode>catch</InlineCode>:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseRejectedExampleCode}
         consoleLog={promiseRejectedExampleLog}
       />

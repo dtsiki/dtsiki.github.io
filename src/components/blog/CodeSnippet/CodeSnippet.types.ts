@@ -1,7 +1,7 @@
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { TCodeLang } from '~components/common/Code';
 
 export interface ICodeSnippetProps {
-  lang: ECodeLang;
+  lang: TCodeLang;
   code: string;
   name?: string;
   customName?: string;

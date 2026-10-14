@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ENoteType, Note } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
 
@@ -54,13 +54,13 @@ export const AggregateErrorNote = forwardRef<HTMLDivElement>((_, ref) => {
         <ul className='list markered'>
           <li className='list__item'>
             <p className='list__title'>Конструктор выглядит так:</p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={aggregateErrorSyntaxExampleCode} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={aggregateErrorSyntaxExampleCode} />
             <p className='list__footer'>
               Здесь <InlineCode>errors</InlineCode> это итерируемый объект (массив, коллекция) с ошибками, а{' '}
               <InlineCode>message</InlineCode> {LONG_DASH} необязательно человекочитаемое описание.
             </p>
             <p>Например:</p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={aggregateErrorExampleCode} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={aggregateErrorExampleCode} />
           </li>
           <li className='list__item'>
             <p className='list__title'>
@@ -68,7 +68,7 @@ export const AggregateErrorNote = forwardRef<HTMLDivElement>((_, ref) => {
             </p>
             <p className='list__footer'>Через это свойство можно получить список ошибок:</p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={aggregateErrorErrorsPropExampleCode}
               consoleLog={aggregateErrorErrorsPropExampleLog}
             />
@@ -81,7 +81,7 @@ export const AggregateErrorNote = forwardRef<HTMLDivElement>((_, ref) => {
               Через это свойство можно получить, соответственно, человекочитаемое описание:
             </p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={aggregateMessagePropExampleCode}
               consoleLog={aggregateMessagePropExampleLog}
             />

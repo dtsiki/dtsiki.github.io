@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText, renderInlineList } from 'src/utils/formatting';
 
@@ -111,9 +111,9 @@ let strLength: number = (someValue as string).length;`;
           TypeScript она задается с помощью двоеточия <strong>:</strong> и названия типа, который идет сразу после имени
           переменной или функции:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeAnnotationExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeAnnotationExampleCode} />
         <p>В скомпилированном JavaScript аннотации удаляются, оставляя код чистым JavaScript:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={typeAnnotationCompliedJSSnipped} name='bundle' />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={typeAnnotationCompliedJSSnipped} name='bundle' />
       </section>
       <section className='section inner'>
         <h3>
@@ -124,7 +124,7 @@ let strLength: number = (someValue as string).length;`;
           TypeScript может сам автоматически определять типы переменных у примитивов и такую аннотацию можно не
           прописывать:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeAnnotationSkippedExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeAnnotationSkippedExampleCode} />
         <p>
           Это способность TypeScript автоматически определять тип переменной называется{' '}
           <strong>выводимость типов</strong>. Также TypeScript справляется сам и может определять тип возвращаемого
@@ -141,7 +141,7 @@ let strLength: number = (someValue as string).length;`;
           Это способ, позволяющий явно указать компилятору точный тип переменной, когда он не может определить его
           самостоятельно:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeAssertionsExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeAssertionsExampleCode} />
         <p>
           <strong>Важно понимать:</strong> это не преобразование, а лишь подсказка компилятору.
         </p>
@@ -154,7 +154,7 @@ let strLength: number = (someValue as string).length;`;
           В TypeScript переехали из JavaScript все примитивные типы данных:{' '}
           {renderInlineList(['number', 'string', 'boolean', 'null', 'undefined', 'bigint', 'symbol'], 'code', 'code')}.
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={basicTypesExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={basicTypesExampleCode} />
         <p>
           TypeScript их не меняет, а просто добавляет к ним соответствующие аннотации типов. Как уже было написано чуть
           выше {LONG_DASH} такие анотации можно не писать, TypeScript может сам определить их тип.
@@ -172,7 +172,7 @@ let strLength: number = (someValue as string).length;`;
             <InlineCode>any</InlineCode>
           </h4>
           <p>Тип данных, который представляет любое значение:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={anyTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={anyTypeExampleCode} />
           <p>
             Хотя кажется, что использование <InlineCode>any</InlineCode> даёт гибкость, лучше избегать его, поскольку
             это может снизить надежность и читаемость кода. Лучше использовать явные типы данных.
@@ -186,7 +186,7 @@ let strLength: number = (someValue as string).length;`;
             Безопасная версия <InlineCode>any</InlineCode>: тоже можно присвоить что угодно, но перед использованием тип
             нужно проверить:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unknownTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={unknownTypeExampleCode} />
           <p>
             Может показаться, что <InlineCode>unknown</InlineCode> работает так же, как <InlineCode>any</InlineCode>, но
             между ними есть различие. Тип <InlineCode>any</InlineCode> по сути отключает проверку типов и позволяет
@@ -202,14 +202,14 @@ let strLength: number = (someValue as string).length;`;
             Используется для обозначения значений, которые никогда не происходят. Можно использовать для функций,
             которые выбрасывают ошибку или для бесконечных циклов:
           </p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={neverTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={neverTypeExampleCode} />
         </section>
         <section className='section inner'>
           <h4>
             <InlineCode>void</InlineCode>
           </h4>
           <p>Обозначает отсутствие значения. Обычно используется для функций, которые ничего не возвращают:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={voidTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={voidTypeExampleCode} />
         </section>
       </section>
       <section className='section inner'>
@@ -223,7 +223,7 @@ let strLength: number = (someValue as string).length;`;
             <p>
               С помощью синтаксиса <InlineCode>T[]</InlineCode>:
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrayTypeAnnotation1ExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={arrayTypeAnnotation1ExampleCode} />
           </li>
           <li className='list__item'>
             <p>
@@ -233,7 +233,7 @@ let strLength: number = (someValue as string).length;`;
               </a>
               ):
             </p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrayTypeAnnotation2ExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={arrayTypeAnnotation2ExampleCode} />
           </li>
         </ol>
         <p>
@@ -244,7 +244,7 @@ let strLength: number = (someValue as string).length;`;
           будущем он сможет работать только со строками. Если попытаться добавить в такой массив число, то будет
           получена ошибка:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrayTypeErrorExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={arrayTypeErrorExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Кортежи {getGhostText('Tuples')}</h3>
@@ -253,7 +253,7 @@ let strLength: number = (someValue as string).length;`;
           элемента, даже если они разные. В отличие от обычных массивов, порядок элементов в кортеже имеет значение:
         </p>
         <p>Типизируются указанием типа для каждого элемента:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={tupleExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={tupleExampleCode} />
         <p>После компиляции в JavaScript кортежи превращаются в обычные массивы.</p>
       </section>
       <section className='section inner'>
@@ -263,12 +263,12 @@ let strLength: number = (someValue as string).length;`;
           числе массивов и примитивных данных. Объекты тоже типизируются в TypeScript: c помощью определения структуры
           явно описывается какие свойства и типы значений должен содержать объект:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={objectTypeExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={objectTypeExampleCode} />
         <p>
           TypeScript позволяет делать какие-то свойства необязательными. Для этого после названия свойства указывается
           знак вопроса <strong>?</strong>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={optionalObjectTypeExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={optionalObjectTypeExampleCode} />
         <p className='spacer top medium'>
           Такое определение структуры объектов в TypeScript используется редко. Для определения структуры объектов
           следует использовать{' '}

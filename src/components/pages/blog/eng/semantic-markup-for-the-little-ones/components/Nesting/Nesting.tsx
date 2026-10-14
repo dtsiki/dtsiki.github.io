@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { Note } from 'src/components/common/Note/Note';
 
 export const Nesting = forwardRef<HTMLDivElement>((_, ref) => {
@@ -73,14 +73,14 @@ export const Nesting = forwardRef<HTMLDivElement>((_, ref) => {
               If you&#39;ll use block elements inside inline you&#39;ll end up with validation errors like{' '}
               <i>Element div not allowed as child of element span in this context</i>
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLBlockInInline} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLBlockInInline} />
           </div>
           <div className='col col--50 col--tablet-100'>
             <p className='spacer bottom medium'>
               In the example below the inline element <HtmlTag isSingle>span</HtmlTag> is located inside the block
               element <HtmlTag isSingle>div</HtmlTag>. There are no errors, there no problems, how wonderful!
             </p>
-            <CodeSnippet lang={ECodeLang.HTML} name='index' code={exampleHTMLInlineInBlock} />
+            <CodeSnippet lang={CODE_LANG.HTML} name='index' code={exampleHTMLInlineInBlock} />
           </div>
         </div>
       </div>

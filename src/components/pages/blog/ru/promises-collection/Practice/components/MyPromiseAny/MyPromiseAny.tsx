@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { allInline, anyInline, catchInline, myAllInline, myAnyInline, thenInline } from '../../../utils';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
@@ -139,12 +139,12 @@ rejectedCount++;`;
       <p>
         {anyInline} возвращает результат <strong>первого успешно выполненного</strong> промиса:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={anyAllResolvedSnippetCode} consoleLog={anyAllResolvedSnippetLog} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={anyAllResolvedSnippetCode} consoleLog={anyAllResolvedSnippetLog} />
       <p>
         Если все промисы отклонились, {anyInline} отклоняется со специальной ошибкой{' '}
         <InlineCode>AggregateError</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={anyAllRejectedSnippetCode} consoleLog={anyAllRejectedSnippetLog} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={anyAllRejectedSnippetCode} consoleLog={anyAllRejectedSnippetLog} />
       <p>
         {anyInline} {LONG_DASH} отзеркаленная версия {allInline}. Если {allInline} успешен только когда успешны все
         промисы, то {anyInline} успешен, когда успешен хотя бы один. И наоборот: {allInline} отклоняется при первой
@@ -152,53 +152,53 @@ rejectedCount++;`;
         котором были переданы промисы. Это нам пригодится далее.
       </p>
       <p>Возьмём скелет реализации:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={anyTemplateSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={anyTemplateSnippetCode} />
       <p>
         Раз нативный {anyInline} {LONG_DASH} отзеркаленная версия {allInline}, заведём массив {LONG_DASH} но не для
         результатов, а для ошибок, {LONG_DASH}и счётчик отклонённых промисов:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={errorsArrayAndCounterSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={errorsArrayAndCounterSnippetCode} />
       <p>Как и в других методах, запускаем перебор:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={itemsForEachSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={itemsForEachSnippetCode} />
       <p>Осталось выяснить, что писать в колбэках.</p>
       <p>
         Начнём с {thenInline}. Нужно вернуть результат первого успешно выполненного промиса {LONG_DASH} это просто:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resolveCallbackSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resolveCallbackSnippetCode} />
       <p>
         Теперь {catchInline}. Логика здесь зеркальна {myAllInline}: там мы сохраняли результаты в {thenInline}, а здесь
         сохраняем ошибки {LONG_DASH} в {catchInline}. Записываем ошибку по индексу и увеличиваем счётчик:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={saveAndCountSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={saveAndCountSnippetCode} />
       <p>
         Когда счётчик сравняется с количеством промисов, отклоняем общий промис с{' '}
         <InlineCode>AggregateError</InlineCode>, внутри которого {LONG_DASH} массив всех ошибок:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={rejectResultsSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={rejectResultsSnippetCode} />
       <p>Получаем в итоге:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={rejectResultsSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={rejectResultsSnippetCode} />
       <p>Всё!</p>
       <p>Финальный метод будет выглядеть следующим образом:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseAnySnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseAnySnippetCode} />
       <h4>Тестируем</h4>
       <p>
         Снова возьмём примеры из теории. Главное {LONG_DASH} не забыть поменять <InlineCode>Promise</InlineCode> на{' '}
         <InlineCode>MyPromise</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={testMyAnyOnlyOneResolvedSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={testMyAnyOnlyOneResolvedSnippetCode} />
       <p>В консоли появится:</p>
       <ExampleSnippet code={testMyAnyOnlyOneResolvedSnippetLog} />
       <p>Проверим случай, когда все промисы отклонены:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAnyAllRejectedSnippetCode}
         consoleLog={testMyAnyAllRejectedSnippetLog}
       />
       <p>Первый выполненный промис побеждает, даже если остальные промисы ещё не завершились:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={testFasterSnippetCode} consoleLog='Быстрый выполнился' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={testFasterSnippetCode} consoleLog='Быстрый выполнился' />
       <p>И проверим краевые случаи. Пустой массив:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAnyEdgeCaseEmptyArraySnippetCode}
         consoleLog={testMyAnyEdgeCaseEmptyArraySnippetLog}
       />
@@ -206,7 +206,7 @@ rejectedCount++;`;
         Значение <InlineCode>null</InlineCode>:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAnyEdgeCaseNullSnippetCode}
         consoleLog={testMyAnyEdgeCaseNullSnippetLog}
       />
@@ -214,13 +214,13 @@ rejectedCount++;`;
         Коллекция значений <InlineCode>Set</InlineCode>:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAnyEdgeCaseSetSnippetCode}
         consoleLog={testMyAnyEdgeCaseSetSnippetLog}
       />
       <p>И строка:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAnyEdgeCaseStringSnippetCode}
         consoleLog={testMyAnyEdgeCaseStringSnippetLog}
       />

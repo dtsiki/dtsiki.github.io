@@ -1,6 +1,6 @@
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { Accordion } from 'src/components/common/Accordion';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const StrictMode = () => {
   const exampleUseStrictModeGlobal = `"use strict";
@@ -34,13 +34,13 @@ export const StrictMode = () => {
         Along with this, strict mode doesn`&#39;t work with block statements enclosed in curly braces.
       </p>
       <p>To invoke strict mode for an entire script just put the following statement before any other statements:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleUseStrictModeGlobal} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleUseStrictModeGlobal} />
 
       <p>
         To invoke strict mode for a function put the exact statement in the body of function before any other
         statements:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleUseStrictModeFunction} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleUseStrictModeFunction} />
       <p>
         Pay attention: the entire contents of JavaScript modules are automatically in strict mode. Also all parts of a
         class&#39;s body are strict mode code too.

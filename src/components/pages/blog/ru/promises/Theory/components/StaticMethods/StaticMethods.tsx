@@ -21,7 +21,7 @@ import {
   thenInline,
 } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { getTextWithChevrons } from 'src/utils';
 import { ExternalLink } from 'src/components/common/ExternalLink';
@@ -109,22 +109,22 @@ export const StaticMethods = forwardRef<HTMLDivElement>((_, ref) => {
             <p className='list__title'>
               {getResolveInline()} создает успешно выполненный промис с переданным значением:
             </p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={"const promise = Promise.resolve('Готово');"} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={"const promise = Promise.resolve('Готово');"} />
             <p>Такая запись будет эквивалента:</p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={"const promise = new Promise((resolve) => resolve('Готово'));"}
             />
           </li>
           <li className='list__item'>
             <p className='list__title'>{getRejectInline()} создает отклоненный промис с указанной ошибкой:</p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={"const promise = Promise.reject(new Error('Ошибка доступа'));"}
             />
             <p>Такая запись будет эквивалента:</p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={"const promise = new Promise((_, reject)) => reject(new Error('Ошибка доступа')));"}
             />
           </li>
@@ -157,7 +157,7 @@ export const StaticMethods = forwardRef<HTMLDivElement>((_, ref) => {
               массив результатов:
             </p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={promiseAllFulfilledSnippetCode}
               consoleLog="['Раз', 'Два', 'Три']"
             />
@@ -167,7 +167,7 @@ export const StaticMethods = forwardRef<HTMLDivElement>((_, ref) => {
               ошибка первого отклонённого промиса:
             </p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={promiseAllRejectedSnippetCode}
               consoleLog='Ой-ой, ошибочка'
             />
@@ -180,13 +180,13 @@ export const StaticMethods = forwardRef<HTMLDivElement>((_, ref) => {
               Возвращаемый промис будет {fulfilledEm} когда самый быстрый промис завершится успешно, результат{' '}
               {LONG_DASH} результат выполнения этого промиса:
             </p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={promiseRaceFulfilledSnippetCode} consoleLog='Раз' />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={promiseRaceFulfilledSnippetCode} consoleLog='Раз' />
             <p>
               Возвращаемый промис будет {rejectedEm} если самый быстрый промис завершился с ошибкой, результат{' '}
               {LONG_DASH} снова результат выполнения этого промиса:
             </p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={promiseRaceRejectedSnippetCode}
               consoleLog='Ой-ой, ошибочка'
             />
@@ -215,13 +215,13 @@ export const StaticMethods = forwardRef<HTMLDivElement>((_, ref) => {
               </li>
             </ul>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={promiseAllSettledSnippetCode}
               consoleLog={promiseAllSettledSnippetLog}
             />
             <p>Возвращаемый промис никогда не будет {rejectedEm}, даже если все промисы будут отклонены:</p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={promiseAllSettledRejectedSnippetCode}
               consoleLog={promiseAllSettledRejectedSnippetLog}
             />
@@ -229,7 +229,7 @@ export const StaticMethods = forwardRef<HTMLDivElement>((_, ref) => {
           <li className='list__item'>
             <p className='list__title'>{anyInline} ждёт первый успешный, но падает если все упали</p>
             <p>Возвращаемый промис будет {fulfilledEm} когда самый быстрый промис завершился успешно:</p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={promiseAnyFulfilledSnippetCode} consoleLog='Успех' />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={promiseAnyFulfilledSnippetCode} consoleLog='Успех' />
             <p>
               Возвращаемый промис будет {rejectedEm} если все промисы завершились ошибкой. Результат {LONG_DASH}{' '}
               специальный объект{' '}
@@ -240,7 +240,7 @@ export const StaticMethods = forwardRef<HTMLDivElement>((_, ref) => {
               , у которого можно получить список ошибок:
             </p>
             <CodeSnippet
-              lang={ECodeLang.JAVASCRIPT}
+              lang={CODE_LANG.JAVASCRIPT}
               code={promiseAnyRejectedSnippetCode}
               consoleLog={promiseAnyRejectedSnippetLog}
             />
@@ -254,7 +254,7 @@ export const StaticMethods = forwardRef<HTMLDivElement>((_, ref) => {
           возвращает объект, содержащий новый промис и колбэки для управления состоянием этого промиса{' '}
           {getResolveInline()} и {getRejectInline()} (не статические методы):
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={withResolversSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={withResolversSnippetCode} />
       </section>
     </section>
   );

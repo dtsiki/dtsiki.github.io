@@ -5,7 +5,7 @@ import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
@@ -151,7 +151,7 @@ export const ProgressScroll = () => {
 
         <p>The code below is an example of an empty component. Next we will add some ✨code✨ to this file.</p>
 
-        <CodeSnippet code={emptyComponent} lang={ECodeLang.REACT} name='ProgressScroll' />
+        <CodeSnippet code={emptyComponent} lang={CODE_LANG.REACT} name='ProgressScroll' />
       </section>
       <section className='section outer'>
         <h2>Step 2: Add a progress state</h2>
@@ -161,7 +161,7 @@ export const ProgressScroll = () => {
           <code>useState</code>.
         </p>
 
-        <CodeSnippet code={progressState} lang={ECodeLang.TYPESCRIPT} name='ProgressScroll' />
+        <CodeSnippet code={progressState} lang={CODE_LANG.TYPESCRIPT} name='ProgressScroll' />
         <p>
           The first value, <code>progress</code>, is our scroll progress value or how many percent did we scroll down
           the page. The second value, <code>setProgress</code>, is the function that is used to update our state.
@@ -173,11 +173,11 @@ export const ProgressScroll = () => {
           Before we add magic let&#39;s style our scroll progress bar. Check the code below, there are updated markup:
         </p>
 
-        <CodeSnippet code={markup} lang={ECodeLang.TYPESCRIPT} name='ProgressScroll' />
+        <CodeSnippet code={markup} lang={CODE_LANG.TYPESCRIPT} name='ProgressScroll' />
 
         <p>Of course we need to add some style:</p>
 
-        <CodeSnippet code={styleFile} lang={ECodeLang.SCSS} name='progress-scroll.module' />
+        <CodeSnippet code={styleFile} lang={CODE_LANG.SCSS} name='progress-scroll.module' />
         <p>
           A few notes on the style. <code>z-index</code> should be such that the scroll progress bar appears on top of
           all elements on your page. <code>height</code>, <code>background</code> and <code>background-color</code> can
@@ -198,7 +198,7 @@ export const ProgressScroll = () => {
           <ExternalLink href='https://react.dev/learn/reusing-logic-with-custom-hooks' label='here' />.
         </p>
 
-        <CodeSnippet code={result} lang={ECodeLang.TYPESCRIPT} name='ProgressScroll' />
+        <CodeSnippet code={result} lang={CODE_LANG.TYPESCRIPT} name='ProgressScroll' />
 
         <p className='spacer bottom large top'>
           We will receive via <code>DOM Event Listener</code> in <code>handleScroll()</code> an information about scroll

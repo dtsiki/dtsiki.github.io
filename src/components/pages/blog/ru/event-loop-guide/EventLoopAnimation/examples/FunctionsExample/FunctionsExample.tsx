@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { ENoteType, Note } from 'src/components/common/Note';
@@ -33,7 +33,7 @@ doSomething();`;
       </div>
       <p>Рассмотрим пример с двумя функциями:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={functionsExampleCode}
         customName={`example(${EXAMPLE_NUMBER}).js`}
         consoleLog={functionsExampleLog}

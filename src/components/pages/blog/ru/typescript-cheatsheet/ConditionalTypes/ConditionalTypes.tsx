@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from 'src/utils/formatting';
 
 export const ConditionalTypes = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -47,11 +47,11 @@ type FuncArgs = MyParams<typeof doSomething>; // [abc: string, num: number, flag
         Позволяют создавать типы, которые меняются в зависимости от условий. Это <InlineCode>if/else</InlineCode>, но
         для типов:
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={syntaxExample} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={syntaxExample} />
       <p>Например:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={isStringTypeExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={isStringTypeExampleCode} />
       <p>Как использовать этот тип:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={isStringTypeUsageExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={isStringTypeUsageExampleCode} />
       <p>Что можно сделать с помощью условных типов:</p>
       <ul className='list markered'>
         <li className='list__item'>
@@ -59,11 +59,11 @@ type FuncArgs = MyParams<typeof doSomething>; // [abc: string, num: number, flag
         </li>
         <li className='list__item'>
           <p>Комбинировать с дженериками для возврата разных типов данных в зависимости от типа входных данных:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={wrapperExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={wrapperExampleCode} />
         </li>
         <li className='list__item'>
           <p>Фильтровать типы:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={unionFilterExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={unionFilterExampleCode} />
           <p>
             Тип <InlineCode>never</InlineCode> в объединениях ведет себя как пустое множество: он просто исчезает из
             объединения, никак не влияя на итоговый тип.
@@ -80,15 +80,15 @@ type FuncArgs = MyParams<typeof doSomething>; // [abc: string, num: number, flag
         <ul className='list markered'>
           <li className='list__item'>
             <p>Вывести и сохранить в переменную часть другого типа:</p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inferReturnTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={inferReturnTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>Узнать тип элемента, который лежит внутри массива: тип:</p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inferArrayTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={inferArrayTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>Получить аргументы функции</p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={inferFuncArgsExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={inferFuncArgsExampleCode} />
           </li>
         </ul>
       </section>

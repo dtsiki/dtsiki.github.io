@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { getConsoleLog, getTextWithChevrons } from 'src/utils';
 
@@ -41,7 +41,7 @@ console.log('Ставки сделаны');`;
       </p>
       <CodeSnippet
         code={promiseAllCatchErrorExampleCode}
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         name={`example(${EXAMPLE_NUMBER})`}
       />
       <p className='spacer top medium'>

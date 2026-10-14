@@ -1,6 +1,6 @@
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { Accordion } from 'src/components/common/Accordion';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const AsyncAwait = () => {
   const exampleAsyncFunction = `async function doSomethingAsync() {
@@ -20,10 +20,10 @@ export const AsyncAwait = () => {
       <p>
         To define an async function just add <code>async</code> keyword:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleAsyncFunction} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleAsyncFunction} />
 
       <p className='spacer top medium'>Async functions may also be defined as expressions:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleAsyncExpression} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleAsyncExpression} />
 
       <p>
         Async functions can contain zero or more <code>await</code> expressions. The <code>await</code> keyword make

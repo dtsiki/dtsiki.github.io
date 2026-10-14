@@ -1,7 +1,7 @@
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { TCodeLang } from '~components/common/Code/Code.types';
 
 export interface IDoubleCodeSnippetProps {
-  lang: [ECodeLang, ECodeLang];
+  lang: [TCodeLang, TCodeLang];
   code: [string, string];
   name?: [string, string];
   log?: [string, string];

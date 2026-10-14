@@ -17,7 +17,7 @@ import {
   thenInline,
 } from '../../../utils';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ENoteType, Note } from 'src/components/common/Note';
 import { getTextWithChevrons } from 'src/utils';
 
@@ -64,7 +64,7 @@ fetch(url)
         ).
       </p>
       <p>Разберём, как это работает под капотом, на примере, приближенном к реальности:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={fetchSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={fetchSnippetCode} />
       <br />
       <Note type={ENoteType.SECONDARY}>
         <div className='tags'>
@@ -95,7 +95,7 @@ fetch(url)
             Изначальное состояние этого промиса {pendingEm}.
           </p>
           <p>Каждый колбэк в цепочке будет тоже возвращать новый промис:</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={fetchWithPromisesLabelsSnippetCode} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={fetchWithPromisesLabelsSnippetCode} />
         </li>
         <li className='list__item'>
           <p>

@@ -1,6 +1,6 @@
 import { Accordion } from 'src/components/common/Accordion';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
@@ -34,7 +34,7 @@ function doSomething() {
   return (
     <Accordion title='Asynchronous JavaScript'>
       <p>Synchronous programming is a programming model where operations take place sequentially step by step:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleSynchronousCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleSynchronousCode} />
       <p className='spacer top medium'>
         This code above declares a string called <code>yay</code>, then declares a string called <code>qeq</code> and
         then declares another string called <code>yayQeq</code>, which uses <code>yay</code> and <code>qeq</code>. In
@@ -61,7 +61,7 @@ function doSomething() {
       <DoubleCodeSnippet
         name={['index', 'index']}
         code={[exampleAsyncMarkup, exampleAsync]}
-        lang={[ECodeLang.HTML, ECodeLang.JAVASCRIPT]}
+        lang={[CODE_LANG.HTML, CODE_LANG.JAVASCRIPT]}
       />
       <p>
         But the asynchronous function <code>setInterval()</code> is used here and we can see the following output if we

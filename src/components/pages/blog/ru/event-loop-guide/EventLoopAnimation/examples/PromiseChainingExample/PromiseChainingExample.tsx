@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
@@ -43,7 +43,7 @@ console.log('Конец');`;
         промис, а промис с цепочкой и разберёмся как работают все компоненты Event Loop вместе:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseAndTimeoutExampleCode}
         name={`example(${EXAMPLE_NUMBER})`}
         consoleLog={promiseAndTimeoutExampleLog}

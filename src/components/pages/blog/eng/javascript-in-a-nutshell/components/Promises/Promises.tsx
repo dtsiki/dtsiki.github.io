@@ -1,6 +1,6 @@
 import { Accordion } from 'src/components/common/Accordion';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 
 export const Promises = () => {
@@ -103,7 +103,7 @@ promise
         called.
       </p>
       <p>The constructor syntax for a promise object is:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={examplePromiseConstructor} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={examplePromiseConstructor} />
 
       <p className='spacer top medium'>
         The function passed to new promise is called the executor. The executor performs a job, usually it is something
@@ -114,17 +114,17 @@ promise
         executor obtains the result, it should call one of these callbacks. Callback <code>resolve(value)</code> will
         call if the job is finished successfully with result value:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleResolvedPromise} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleResolvedPromise} />
       <ExampleSnippet code={resultResolvedPromise} />
 
       <p>
         Callback <code>reject(error)</code> will call if an error has occurred, where error is the error object:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleRejectedPromise} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleRejectedPromise} />
       <ExampleSnippet code={resultRejectedPromise} />
 
       <p>There can be only a single result: a value or an error. Here&#39;s the example:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={examplePromise} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={examplePromise} />
 
       <p className='spacer top medium'>
         Promises can be chained as we touched above. JavaScript provide a couple of methods to do that:{' '}
@@ -133,7 +133,7 @@ promise
         <code>catch</code> at the end and optionally followed by <code>finally</code>. Promises chaining looks like
         this:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={examplePromisesChaining} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={examplePromisesChaining} />
       <ExampleSnippet code={resultPromisesChaining} />
 
       <p>

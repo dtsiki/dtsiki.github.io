@@ -4,7 +4,7 @@ import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { Note } from 'src/components/common/Note';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
 import { IItemOfContent } from 'src/interfaces';
@@ -248,7 +248,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
                 смотрите на чайник.
               </p>
               <p className='list__footer'>В коде это можно оформить так:</p>
-              <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={syncCoffeeExample} hideLines={true} />
+              <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={syncCoffeeExample} hideLines={true} />
             </li>
             <li className='list__item'>
               <h4 className='list__title spacer bottom small'>асинхронно:</h4>
@@ -270,7 +270,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
                 количество дел, но вы ни секунды не стояли без дела. Чайник кипятился параллельно с вашими действиями.
               </p>
               <p className='list__footer'>В коде это можно оформить так:</p>
-              <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={asyncCoffeeExample} hideLines={true} />
+              <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={asyncCoffeeExample} hideLines={true} />
             </li>
           </ul>
         </section>
@@ -545,7 +545,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
               Код ниже убьёт Event Loop: стек вызовов никогда не опустеет т.к. будет бесконечно занят одной операцией,
               из-за этого зависнет браузер, кнопки перестанутся нажимаются и так далее. Никакие очереди тут не помогут.
             </p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={whileTrueExampleCode} customName='DO_NOT_DO_THIS(1).js' />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={whileTrueExampleCode} customName='DO_NOT_DO_THIS(1).js' />
 
             <li className='list__item'>
               <p>
@@ -559,7 +559,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
                 что с этим тоже нужно быть аккуратнее.
               </p>
               <CodeSnippet
-                lang={ECodeLang.JAVASCRIPT}
+                lang={CODE_LANG.JAVASCRIPT}
                 code={infiniteRecursionExampleCode}
                 customName='DO_NOT_DO_THIS(2).js'
               />
@@ -694,7 +694,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
               Например, вывод в консоль {LONG_DASH} это, вообще-то, синхронная операция, но с помощью функции{' '}
               <InlineCode>queueMicrotask()</InlineCode> мы можем лёгким движением руки сделать её асинхронной:
             </p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={queueMicrotaskExampleCode} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={queueMicrotaskExampleCode} />
             <p>
               Сильно этой функцией злоупотрепблять тоже не надо: есть риск забить очередь микрозадач и тогда ничего
               кроме микрозадач не будет выполняться.
@@ -864,7 +864,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
           <li className='list__item'>
             <p>микрозадача может создать микрозадачу</p>
             <p className='list__footer'>Например, внутри промиса можно создать промис и так до бесконечности:</p>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={promiseLoopExampleCode} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={promiseLoopExampleCode} />
             <p>
               В этом случае стоит быть осторжными: бесконечная генерация микрозадач приведет к зависанию вкладки
               браузера из-за того, что Event Loop будет бесконечно обрабатывать только очередь микрозадач.

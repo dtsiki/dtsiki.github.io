@@ -3,7 +3,7 @@ import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { DragAndDropDemo } from 'src/components/pages/blog/eng/react-drag-and-drop/DragAndDropDemo/DragAndDrop';
 import { Note } from 'src/components/common/Note/Note';
@@ -136,7 +136,7 @@ const handleDragEnd = () => {
         <DoubleCodeSnippet
           name={['index', 'component']}
           code={[exampleHTML1, exampleReact1]}
-          lang={[ECodeLang.HTML, ECodeLang.JAVASCRIPT]}
+          lang={[CODE_LANG.HTML, CODE_LANG.JAVASCRIPT]}
         />
         <p>
           How to make elements droppable? No additional attributes like aboves{' '}
@@ -197,7 +197,7 @@ const handleDragEnd = () => {
         <DoubleCodeSnippet
           name={['index', 'index']}
           code={[exampleHTML2, exampleReact2]}
-          lang={[ECodeLang.HTML, ECodeLang.JAVASCRIPT]}
+          lang={[CODE_LANG.HTML, CODE_LANG.JAVASCRIPT]}
         />
         <p>
           You could notice <code className='highlighted secondary'>e.preventDefault()</code> method is using in the
@@ -222,13 +222,13 @@ const handleDragEnd = () => {
             </p>
           </div>
           <div className='col col--50 col--tablet-100'>
-            <CodeSnippet lang={ECodeLang.CSS} name='style' code={exampleCSS3} />
+            <CodeSnippet lang={CODE_LANG.CSS} name='style' code={exampleCSS3} />
           </div>
         </div>
         <DoubleCodeSnippet
           name={['index', 'component']}
           code={[exampleHTML3, exampleReact3]}
-          lang={[ECodeLang.HTML, ECodeLang.JAVASCRIPT]}
+          lang={[CODE_LANG.HTML, CODE_LANG.JAVASCRIPT]}
         />
       </section>
       <section className='section outer'>

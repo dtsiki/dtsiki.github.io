@@ -1,6 +1,6 @@
 import { Accordion } from 'src/components/common/Accordion';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
 import callbackHell from 'public/assets/blog/frontend-in-a-nutshell/javascript/callback-hell.jpg';
@@ -16,7 +16,7 @@ export const Callbacks = () => {
         A callback is a function that is passed inside another function, and then called in that function to perform a
         task. You&#39;ve already faced with callbacks.
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleSetTimeout} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleSetTimeout} />
 
       <p className='spacer top medium'>
         The <code>setTimeout()</code> is a JavaScript function that takes two parameters: an another function and time

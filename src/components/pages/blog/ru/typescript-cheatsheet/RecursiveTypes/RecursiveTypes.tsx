@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from 'src/utils/formatting';
 
 export const RecursiveTypes = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -85,19 +85,19 @@ const comment: Comment = {
       <ul className='list markered'>
         <li className='list__item'>
           <p>Деревья:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={treeNodeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={treeNodeExampleCode} />
         </li>
         <li className='list__item'>
           <p>JSON-объекты:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={jsonExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={jsonExampleCode} />
         </li>
         <li className='list__item'>
           <p>Любые сложные вложенные объекты:</p>
-          <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={commentTypeExampleCode} />
+          <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={commentTypeExampleCode} />
         </li>
       </ul>
       <p>В рекурсивных типах должен быть способ остановиться, иначе тип станет бесконечным:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={breakpointExampleCode} />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={breakpointExampleCode} />
     </section>
   );
 });

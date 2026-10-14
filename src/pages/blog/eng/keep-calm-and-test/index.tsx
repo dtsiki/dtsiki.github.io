@@ -10,7 +10,7 @@ import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.t
 import { nanoid } from 'nanoid';
 import { EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
@@ -550,7 +550,7 @@ describe('Button', () => {
           We install the <code>@types/jest</code> package to provide types for Jest globals without a need to import
           them. Without this package you have to import globals as in the example below in all test files:
         </p>
-        <CodeSnippet customName='Component.test.tsx' lang={ECodeLang.TYPESCRIPT} code={importJestGlobals} />
+        <CodeSnippet customName='Component.test.tsx' lang={CODE_LANG.TYPESCRIPT} code={importJestGlobals} />
         <p className='spacer top large'>
           After installing required packages, add a new npm script to your{' '}
           <span className='highlighted ghost'>package.json</span> to make tests runnable:
@@ -606,12 +606,12 @@ describe('Button', () => {
           <code>describe()</code> is not necessarily. The describe block may contain other different blocks that will be
           mentioned below.
         </p>
-        <CodeSnippet customName='Component.test.tsx' lang={ECodeLang.TYPESCRIPT} code={describeExample} />
+        <CodeSnippet customName='Component.test.tsx' lang={CODE_LANG.TYPESCRIPT} code={describeExample} />
         <p className='spacer top large'>
           You can nest <code>describe()</code> blocks into each other to further break down your tests and improve
           readability if needed. Meanwhile, nested blocks do not depend on each other to run.
         </p>
-        <CodeSnippet customName='Component.test.tsx' lang={ECodeLang.TYPESCRIPT} code={nestedDescribeExample} />
+        <CodeSnippet customName='Component.test.tsx' lang={CODE_LANG.TYPESCRIPT} code={nestedDescribeExample} />
 
         <p className='spacer top large'>
           Method <code>test()</code>, as you can guess, runs a test, and method <code>it()</code>is just an alias of{' '}
@@ -619,7 +619,7 @@ describe('Button', () => {
           interchangeable according to the official API of Jest. You can use either of these.
         </p>
 
-        <CodeSnippet customName='Component.test.tsx' lang={ECodeLang.TYPESCRIPT} code={testExample} />
+        <CodeSnippet customName='Component.test.tsx' lang={CODE_LANG.TYPESCRIPT} code={testExample} />
 
         <p className='spacer top large'>
           To run only one test with Jest, add <code className='accented primary'>only()</code> after block name. This
@@ -627,7 +627,7 @@ describe('Button', () => {
           will be the only test that runs, and the second test will not run:
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Component.test.tsx' code={onlyExample} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='Component.test.tsx' code={onlyExample} />
 
         <p className='spacer top large'>
           Another way to focus on some tests is replacing <code>it()</code> with <code>xit()</code> to temporarily
@@ -662,7 +662,7 @@ describe('Button', () => {
           things immediately after, you can do this with following:
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Component.test.tsx' code={beforeAfterEachExample} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='Component.test.tsx' code={beforeAfterEachExample} />
 
         <p>
           In the example above, initializing will be called before each of these two tests, and reset method will be
@@ -678,7 +678,7 @@ describe('Button', () => {
           {' '}
           <div className='row'>
             <div className='col col--100 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Component.test.tsx' code={beforeAfterAllExample} />
+              <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='Component.test.tsx' code={beforeAfterAllExample} />
             </div>
           </div>
         </div>
@@ -687,7 +687,7 @@ describe('Button', () => {
           variants of a component property.
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Button.test.tsx' code={withoutEachExample} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='Button.test.tsx' code={withoutEachExample} />
 
         <p>
           The only difference between the two tests below are the variant of button. To avoid repetition, you can use{' '}
@@ -695,7 +695,7 @@ describe('Button', () => {
           could be rewritten like this:
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Button.test.tsx' code={eachExample} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='Button.test.tsx' code={eachExample} />
 
         <p className='spacer top arge'>
           At last, but not least, writing tests is impossible without <code>expect()</code>. This method in most cases
@@ -734,7 +734,7 @@ describe('Button', () => {
           <code>__tests__</code> folder and with the following code:
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='App.test.tsx' code={testAppExample} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='App.test.tsx' code={testAppExample} />
 
         <p>
           If you are using JSX in your Jest test files, you&#39;ll need to add the following import line to the top of
@@ -779,7 +779,7 @@ describe('Button', () => {
           changed component template and added a new <HtmlTag isSingle>h1</HtmlTag> element:
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='App.jsx' code={testAppHeadingExample} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='App.jsx' code={testAppHeadingExample} />
 
         <p>Now Jest will print this output:</p>
 
@@ -798,7 +798,7 @@ describe('Button', () => {
           and create a new component <HtmlTag isSingle>Button /</HtmlTag>:
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Button.jsx' code={buttonComponentExample} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='Button.jsx' code={buttonComponentExample} />
 
         <p>
           You may have noticed, there&#39;s a property <code>variant</code>, that may have one of a certain value:{' '}
@@ -809,7 +809,7 @@ describe('Button', () => {
           . To test all of this button variants we can write the following test in a file <code>Button.test.tsx</code>:
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Button.test.tsx' code={buttonWithoutEach} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='Button.test.tsx' code={buttonWithoutEach} />
 
         <p>
           Well, so far it doesn&#39;t look that bad, but if you add a new property, that may have one of an another
@@ -819,7 +819,7 @@ describe('Button', () => {
           amazing test looks after refactoring:
         </p>
 
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} customName='Button.test.tsx' code={buttonWithEach} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} customName='Button.test.tsx' code={buttonWithEach} />
 
         <p>It looks much better!</p>
         <p ref={noteRef} className='note spacer top medium'>

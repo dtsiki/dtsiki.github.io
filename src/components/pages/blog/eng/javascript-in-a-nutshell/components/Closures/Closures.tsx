@@ -1,7 +1,7 @@
 import { Accordion } from 'src/components/common/Accordion';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 
 import closures from 'public/assets/blog/frontend-in-a-nutshell/javascript/closures.jpg';
@@ -50,12 +50,12 @@ do();`;
       />
 
       <p>An example of simple closure is demonstrated in the example below:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleSimpleClosure} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleSimpleClosure} />
 
       <p className='spacer top medium'>
         What result will output the code above: <em>Hey, yay</em> or <em>Hey, qeq</em>?
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={resultSimpleClosure} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={resultSimpleClosure} />
 
       <p className='spacer top medium'>
         The <code>doSomething</code> function uses an external variable <code>name</code>. A function uses only the most
@@ -68,7 +68,7 @@ do();`;
         Let&#39;s look at another example of closure. The function <code>doSomething</code> create another function and
         returns it. Then this new function can be called. What result will output the code snippet below?
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleTrickyClosure} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleTrickyClosure} />
 
       <p className='spacer top medium'>
         The answer is <code>yay</code>!

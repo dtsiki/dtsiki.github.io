@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { InlineCode } from 'src/components/blog/InlineCode';
 
 const EXAMPLE_NUMBER = 15;
@@ -62,7 +62,7 @@ infiniteMicrotaskLoop();`;
         Это классическая ошибка при работе с промисами и/или <InlineCode>queueMicrotask()</InlineCode>:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={infiniteMicrotaskLoopExampleCode}
         customName='DO_NOT_DO_THIS(3).js'
       />
@@ -73,14 +73,14 @@ infiniteMicrotaskLoop();`;
             использовать макрозадачи для разрыва цепочки микрозадач. Отлично подойдут таймеры с нулевой задержкой{' '}
             <InlineCode>setTimeout(callback, 0)</InlineCode>:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={safeMicrotaskLoopExampleCode} customName='DO_THIS(1).js' />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={safeMicrotaskLoopExampleCode} customName='DO_THIS(1).js' />
         </li>
         <li className='list__item'>
           <p>
             использовать <InlineCode>requestAnimationFrame</InlineCode> для разрыва цепочки, чтобы дать браузеру
             возможность обновить экран:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={safeAnimationLoop} customName='DO_THIS(2).js' />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={safeAnimationLoop} customName='DO_THIS(2).js' />
         </li>
         <li className='list__item'>
           <p>Следить за количеством микрозадач и не допускать застревания Event Loop в очереди микрозадач.</p>

@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from 'src/utils/formatting';
 
 export const MappedTypes = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -89,11 +89,11 @@ type OnlyStrings = StringKeys<User>; `;
         <ul className='list markered'>
           <li className='list__item'>
             <p>Применяем маппинг сразу к конкретному типу:</p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={syntaxTypeExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={syntaxTypeExampleCode} />
           </li>
           <li className='list__item'>
             <p>Используем дженерик:</p>
-            <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={syntaxGenericExampleCode} />
+            <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={syntaxGenericExampleCode} />
           </li>
         </ul>
         <p>
@@ -106,15 +106,15 @@ type OnlyStrings = StringKeys<User>; `;
           (по умолчанию) и <strong>-</strong>.
         </p>
         <p>Например, с помощью маппинга типа сделаем все поля объекта необязательнымы:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={optionalUserExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={optionalUserExampleCode} />
         <p>В результате получится такой тип:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={optionalUserResultExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={optionalUserResultExampleCode} />
         <p>Можно сделать все поля доступными только для чтения:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={readonlyExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={readonlyExampleCode} />
         <p>
           Также доступна фильтрация через ключевое слово <InlineCode>as</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={asExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={asExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Встроенные типы</h3>
@@ -133,7 +133,7 @@ type OnlyStrings = StringKeys<User>; `;
           </InlineCode>{' '}
           и т.д. Всё это дженерик-версии маппинг-типов. Именно поэтому они работают с любым типом. Например:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={partialUtilityTypeExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={partialUtilityTypeExampleCode} />
         <p>
           Встроенным типам посвящён отдельный раздел (см.{' '}
           <a href='#Utility Types' className='link PRIMARY'>

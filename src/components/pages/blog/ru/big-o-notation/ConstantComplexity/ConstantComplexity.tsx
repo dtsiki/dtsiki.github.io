@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const ConstantComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   const arrayCodeSnippet = `function getFirstElement(array: number[]) {
@@ -51,20 +51,20 @@ export const ConstantComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
       </p>
       <p>Что же это за алгоритмы такие?</p>
       <p>Например, получение первого элемента массива:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrayCodeSnippet} name='getFirstElement' />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={arrayCodeSnippet} name='getFirstElement' />
       <p>
         Без разницы какого размера будет массив <code className='code'>array</code>: хоть будет состоять из одного
         элемента, хоть из миллиона, всё равно — операция получения элемента по индексу занимает ровно одно действие и
         тратится на это всегда одинаковое количество времени.
       </p>
       <p>Арифметические операции тоже имеют О(1):</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={sumCodeSnippet} name='sum' />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={sumCodeSnippet} name='sum' />
       <p>
         Операция сложения в примере выше выполняется за постоянное время и независимо от значений a и b (конечно если не
         говорим об очень больших числах, выходящих за рамки стандартных типов).
       </p>
       <p>Так, а если будет несколько действий подряд, например сперва сложим что-то, потом получим элемент массива:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={doStrangeThingsCodeSnippet} name='doStrangeThings' />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={doStrangeThingsCodeSnippet} name='doStrangeThings' />
       <p>
         По логике, каждая строка будет иметь сложность О(1), тогда получается весь алгоритм будет иметь сложность
         О(1)+О(1)+О(1)+О(1)+О(1)=О(5)? Нет, это работает не так. Тут тоже будет сложность O(1) потому что{' '}
@@ -83,13 +83,13 @@ export const ConstantComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
         Но важно помнить нюанс про циклы: даже если в алгоритме есть цикл, это не означает, что алгоритм не может не
         иметь О(1) сложность. Например:
       </p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={checkFirstCodeSnippet} name='checkFirst' />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={checkFirstCodeSnippet} name='checkFirst' />
       <p>
         Здесь хоть и есть цикл, но алгоритм тоже имеет сложность O(1). Алгоритм тут всегда делает ровно одну итерацию
         благодаря <code className='code'>break</code>, а время не зависит от n.
       </p>
       <p>Если цикл ограничен константой, то у алгоритма тоже будет сложность О(1). Например:</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={validatePasswordCodeSnippet} name='validatePassword' />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={validatePasswordCodeSnippet} name='validatePassword' />
       <p>
         Длина строки тут ограничена 100 символами. Даже если цикл есть, он никогда не пройдёт больше 100 итераций, это
         константа отсюда и О(1).

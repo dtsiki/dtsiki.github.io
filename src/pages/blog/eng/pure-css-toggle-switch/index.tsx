@@ -8,7 +8,7 @@ import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window/Window.types';
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { Window } from 'src/components/common/Window/Window';
 import HtmlTag from 'src/components/common/HtmlTag';
@@ -321,7 +321,7 @@ $gap: 4px;`;
         <div className='flex h-centered'>
           <div className='row'>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.CSS} name='index' code={exampleHTMLMarkup} />
+              <CodeSnippet lang={CODE_LANG.CSS} name='index' code={exampleHTMLMarkup} />
             </div>
             <div className='col col--50 col--tablet-100'>
               <Window type={EWindowType.CUSTOM} title='[toggle-switch-draft]'>
@@ -355,7 +355,7 @@ $gap: 4px;`;
         <div className='flex h-centered'>
           <div className='row'>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.CSS} customName='index.scss' code={exampleCSSToggleInput} />
+              <CodeSnippet lang={CODE_LANG.CSS} customName='index.scss' code={exampleCSSToggleInput} />
             </div>
             <div className='col col--50 col--tablet-100'>
               <Window type={EWindowType.CUSTOM} title='[toggle-switch-draft(1)]'>
@@ -390,7 +390,7 @@ $gap: 4px;`;
               </p>
             </div>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.CSS} customName='index.scss' code={exampleCSSToggle} />
+              <CodeSnippet lang={CODE_LANG.CSS} customName='index.scss' code={exampleCSSToggle} />
             </div>
           </div>
         </div>
@@ -398,7 +398,7 @@ $gap: 4px;`;
         <div className='flex h-centered'>
           <div className='row'>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.CSS} customName='index.scss' code={exampleCSSToggleLabel} />
+              <CodeSnippet lang={CODE_LANG.CSS} customName='index.scss' code={exampleCSSToggleLabel} />
             </div>
             <div className='col col--50 col--tablet-100'>
               <p>You can do whatever you want with this element. All to your taste!</p>
@@ -424,7 +424,7 @@ $gap: 4px;`;
         <div className='flex h-centered'>
           <div className='row'>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.CSS} customName='index.scss' code={exampleCSSToggleSwitchMagicNumbers} />
+              <CodeSnippet lang={CODE_LANG.CSS} customName='index.scss' code={exampleCSSToggleSwitchMagicNumbers} />
             </div>
             <div className='col col--50 col--tablet-100'>
               <Window type={EWindowType.CUSTOM} title='[toggle-switch-draft(2)]'>
@@ -463,7 +463,7 @@ $gap: 4px;`;
               </p>
             </div>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.JAVASCRIPT} customName='index.scss' code={exampleCSSVariables} />
+              <CodeSnippet lang={CODE_LANG.JAVASCRIPT} customName='index.scss' code={exampleCSSVariables} />
             </div>
           </div>
         </div>
@@ -503,7 +503,7 @@ $gap: 4px;`;
               </p>
             </div>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.JAVASCRIPT} customName='index.scss' code={exampleCSSToggleSwitchVariables} />
+              <CodeSnippet lang={CODE_LANG.JAVASCRIPT} customName='index.scss' code={exampleCSSToggleSwitchVariables} />
             </div>
           </div>
         </div>
@@ -532,7 +532,7 @@ $gap: 4px;`;
               </Window>
             </div>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.CSS} customName='index.scss' code={exampleCSSToggleSwitchBefore} />
+              <CodeSnippet lang={CODE_LANG.CSS} customName='index.scss' code={exampleCSSToggleSwitchBefore} />
             </div>
           </div>
         </div>
@@ -556,7 +556,7 @@ $gap: 4px;`;
         <div className='flex h-centered'>
           <div className='row'>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.CSS} customName='index.scss' code={exampleCSSToggleChecked} />
+              <CodeSnippet lang={CODE_LANG.CSS} customName='index.scss' code={exampleCSSToggleChecked} />
             </div>
             <div className='col col--50 col--tablet-100'>
               <Window type={EWindowType.CUSTOM} title='[toggle-switch-draft(4)]'>
@@ -585,10 +585,10 @@ $gap: 4px;`;
           <div className='row'>
             <div className='col col--50 col--tablet-100'>
               <p className='spacer botton medium'>Here are the finished markup and styles:</p>
-              <CodeSnippet lang={ECodeLang.CSS} customName='index.html' code={exampleHTMLMarkup} />
+              <CodeSnippet lang={CODE_LANG.CSS} customName='index.html' code={exampleHTMLMarkup} />
             </div>
             <div className='col col--50 col--tablet-100'>
-              <CodeSnippet lang={ECodeLang.CSS} customName='index.scss' code={exampleCSS} />
+              <CodeSnippet lang={CODE_LANG.CSS} customName='index.scss' code={exampleCSS} />
             </div>
           </div>
         </div>

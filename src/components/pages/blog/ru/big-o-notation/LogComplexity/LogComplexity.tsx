@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ENoteType, Note } from 'src/components/common/Note';
 
 export const LogComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -41,7 +41,7 @@ export const LogComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
         2. Благодаря ему на каждом шаге алгоритма объём работы уменьшается в два раза.
       </p>
       <p>Бинарный поиск — самый известный алгоритм с O(log n):</p>
-      <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={binarySearchCodeSnippet} name='binarySearch' />
+      <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={binarySearchCodeSnippet} name='binarySearch' />
       <p>Как работает бинарный поиск:</p>
       <p>
         <ol className='list ordered'>

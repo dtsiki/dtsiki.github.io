@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { allInline, allSettledInline, catchInline, myAllInline, myAllSettledInline, thenInline } from '../../../utils';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
@@ -175,45 +175,45 @@ if (completedCount === items.length) resolve(results);`;
       </ul>
       <p>Результат {LONG_DASH} массив таких объектов.</p>
       <p>Возьмём скелет реализации:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={methodTemplateSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodTemplateSnippetCode} />
       <p>
         {allSettledInline} {LONG_DASH} {allInline}, который никогда не отклоняется: он так же ждёт завершения всех
         промисов, но не прерывается при первой ошибке, а собирает результаты всех и идёт до конца. Поэтому структура
         здесь будет такая же как и {myAllInline}: понадобится массив и счётчик для промисов:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resultsCounterSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resultsCounterSnippetCode} />
       <p>И снова пройдёмся по всем элементам:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={itemsForEachSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={itemsForEachSnippetCode} />
       <p>
         Колбэки в {thenInline} и {catchInline} здесь будут, очевидно, отличаться. В {thenInline} формируем объект для
         успешно выполненного промиса и сохраняем его по индексу:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={thenCallbackSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={thenCallbackSnippetCode} />
       <p>
         В {catchInline} поступим аналогично, но с ключом <InlineCode>reason</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={catchCallbackSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={catchCallbackSnippetCode} />
       <p>Затем нужно увеличить счётчик и проверить, равен ли он длине входящего массива:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={countAndCheckSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={countAndCheckSnippetCode} />
       <p>
         Этот код можно добавить и в {thenInline}, и в {catchInline} {LONG_DASH} но тогда он продублируется:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={callbacksSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={callbacksSnippetCode} />
       <p>А можно вынести счётчик в отдельный {thenInline} далее по цепочке:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={additionalThenSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={additionalThenSnippetCode} />
       <p>Всё!</p>
       <p>Собираем метод:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseAllSettledSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseAllSettledSnippetCode} />
       <h4>Тестируем</h4>
       <p>
         Берём примеры из теории и заменяем нативные промисы на <InlineCode>MyPromise</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={testMyAllSettledSuccessSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={testMyAllSettledSuccessSnippetCode} />
       <p>В консоли появится массив с объектами:</p>
       <ExampleSnippet code={testMyAllSettledSuccessSnippetLog} />
       <p>Даже если все промисы упадут {LONG_DASH} результат всё равно будет:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAllSettledFailureSnippetCode}
         consoleLog={testMyAllSettledFailureSnippetLog}
       />
@@ -223,17 +223,17 @@ if (completedCount === items.length) resolve(results);`;
       </p>
       <p>Проверим краевые случаи:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAllSettledEdgeCaseEmptyArraySnippetCode}
         consoleLog={testMyAllSettledEdgeCaseEmptyArraySnippetLog}
       />
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAllSettledEdgeCaseNullSnippetCode}
         consoleLog={testMyAllSettledEdgeCaseNullSnippetLog}
       />
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={testMyAllSettledEdgeCaseSetSnippetCode}
         consoleLog={testMyAllSettledEdgeCaseSetSnippetLog}
       />

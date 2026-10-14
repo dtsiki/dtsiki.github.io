@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import {
   fulfilledEm,
   pendingEm,
@@ -202,9 +202,9 @@ promise
           </p>
         </li>
       </ol>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resolveRejectMethodsSnippetCode} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resolveRejectMethodsSnippetCode} />
       <p>Эти методы тоже добавляем в конструктор класса:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={initMyPromiseClassMethodsSnippetCode} name='MyPromise' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={initMyPromiseClassMethodsSnippetCode} name='MyPromise' />
       <br />
       <Note type={ENoteType.SECONDARY}>
         <div className='tags'>
@@ -217,7 +217,7 @@ promise
           Если бы они были доступны снаружи, любой сторонний кусок кода мог бы вклиниться в работу промиса и
           принудительно завершить его, когда ему вздумается. Например:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={paymentPromiseSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={paymentPromiseSnippetCode} />
         <p>
           В этом примере внутри <InlineCode>paymentPromise</InlineCode> делается запрос к банку. Если бы{' '}
           {getRejectInline()} был бы доступен снаружи, злоумышленник или просто плохой код могли бы сфабриковать
@@ -234,9 +234,9 @@ promise
         как аргумент, осталось просто запустить её. Для безопастности нужно обернуть её в{' '}
         <InlineCode>try…catch</InlineCode>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={executorSnippetCode} hideLines={true} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={executorSnippetCode} hideLines={true} />
       <p>Получаем на данном этапе следующий конструктор:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseConstructorSnippetCode} name='MyPromise' />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseConstructorSnippetCode} name='MyPromise' />
       <section>
         <h3>Очереди колбэков</h3>
         <p>
@@ -245,7 +245,7 @@ promise
           если промис находится статусе {pendingEm}.
         </p>
         <p>При создании промиса они инициализируются как пустые списки поэтому:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={emptyCallbacksLists} hideLines={true} name='MyPromise' />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={emptyCallbacksLists} hideLines={true} name='MyPromise' />
         <p>
           Нужно учесть эти массивы в методах {getResolveInline()} и {getRejectInline()}:
         </p>
@@ -261,15 +261,15 @@ promise
             </p>
           </li>
         </ul>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={resolveRejectMethodsUpdatedSnippetCode} hideLines={true} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={resolveRejectMethodsUpdatedSnippetCode} hideLines={true} />
         <p>Собираем конструктор и получаем:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={myPromiseConstructorFinalSnippetCode} name='MyPromise' />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={myPromiseConstructorFinalSnippetCode} name='MyPromise' />
         <p>С конструктором закончили. Можно протестировать, что промис создаётся и даже запускается.</p>
         <p>
           Вернёмся к примеру, который анализировали в самом начале этого раздела и запустим его, но уже с{' '}
           <InlineCode>MyPromise</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={exampleForPracticeSnippetCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={exampleForPracticeSnippetCode} />
         <p>В консоли сейчас выведется:</p>
         <ExampleSnippet code={testMyPromiseSnippetLog} />
         <p>

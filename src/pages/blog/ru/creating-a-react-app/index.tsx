@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { Note } from 'src/components/common/Note/Note';
 import { ENoteType } from 'src/components/common/Note/Note.types';
@@ -220,7 +220,7 @@ export default defineConfig({
                 Это среда, в которой живёт React. Если есть сомнение есть ли такое у вас — откройте терминал (командную
                 строку) и напишите:
               </p>
-              <CodeSnippet code={nodeInstallBashSnippet} lang={ECodeLang.BASH} hideLines={true} />
+              <CodeSnippet code={nodeInstallBashSnippet} lang={CODE_LANG.BASH} hideLines={true} />
               <p>
                 Если появились цифры типа <em>v20.20.2</em> и <em>10.8.2</em> - то всё ок. Если нет - идём на{' '}
                 <ExternalLink label='nodejs.org' href='https://nodejs.org/en' />, качаем LTS-версию, устанавливаем. Это
@@ -330,11 +330,11 @@ export default defineConfig({
           maxWidth={600}
         />
         <p>Эту ссылку нужно будет подставить в команду клонирования и выполнить её в терминале:</p>
-        <CodeSnippet code={cloneRepoTemplateSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={cloneRepoTemplateSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>
           Для моего созданного выше репозитория <em>hello-react</em> команда клонирования будет выглядеть вот так:
         </p>
-        <CodeSnippet code={cloneRepoExampleSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={cloneRepoExampleSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>
           После выполнения команды клонирования будет создана папка с названием вашего удалённого репозитория. Пока что
           эта папка будет пуста. А заполнять её будет уже на следующем шаге.
@@ -357,11 +357,11 @@ export default defineConfig({
           нужно учесть, что инструмент больше не поддерживается.
         </Note>
         <p>При использовании этой утилиты шаблонный React-проект создаётся с помощью всего одной команды:</p>
-        <CodeSnippet code={createReactAppTemplateSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={createReactAppTemplateSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>
           На примере репозитория <em>hello-react</em>:
         </p>
-        <CodeSnippet code={createReactAppExampleSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={createReactAppExampleSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>
           Указанный флаг <code className='code'>--template</code> со значением <em>typescript</em> нужен для того, чтобы
           в шаблоне был сразу предустановлен TypeScript.{' '}
@@ -374,11 +374,11 @@ export default defineConfig({
           Установка <em>create-react-app</em> может занять какое-то время, это нормально.
         </p>
         <p>После установки можно будет перейти в папку:</p>
-        <CodeSnippet code={cdTemplateSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={cdTemplateSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>Например:</p>
-        <CodeSnippet code={cdExampleSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={cdExampleSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>Чтобы запустить созданное React-приложение и проверить что всё в порядке нужно выполнить команду запуска:</p>
-        <CodeSnippet code={npmStartSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={npmStartSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>
           Созданное приложение должно будет автоматически открыться в браузере по адресу{' '}
           <ExternalLink label='http://localhost:3000/' href='http://localhost:3000/' />. Спойлер: там уже что-то будет!
@@ -403,17 +403,17 @@ export default defineConfig({
           Для создания шаблона приложения через Vite вам нужно убедиться, что у вас стоит node не ниже 20 версии. Если
           не уверены какая у вас версия node, то проверить её можно командой:
         </p>
-        <CodeSnippet code={`node -v`} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={`node -v`} lang={CODE_LANG.BASH} hideLines={true} />
         <p>
           Если версия ниже <em>20.хх.х</em>, то сперва устаналиваем 20 версию:
         </p>
-        <CodeSnippet code={`nvm install 20`} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={`nvm install 20`} lang={CODE_LANG.BASH} hideLines={true} />
         <p>А затем переключаемся на неё командой:</p>
-        <CodeSnippet code={`nvm use 20`} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={`nvm use 20`} lang={CODE_LANG.BASH} hideLines={true} />
         <p>Теперь когда убедились, что node нужной версии запускаем команду:</p>
         <CodeSnippet
           code={`npm create vite@latest <название-репозитория> -- --template react-ts`}
-          lang={ECodeLang.BASH}
+          lang={CODE_LANG.BASH}
           hideLines={true}
         />
         <p>
@@ -431,11 +431,11 @@ export default defineConfig({
         </p>
         <ExampleSnippet code={viteInstallLogSnippet} />
         <p>После установки можно будет перейти в папку:</p>
-        <CodeSnippet code={cdTemplateSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={cdTemplateSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>Например:</p>
-        <CodeSnippet code={cdExampleSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={cdExampleSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <p>Чтобы запустить созданное React-приложение и проверить что всё в порядке нужно выполнить команду запуска:</p>
-        <CodeSnippet code={`npm run dev`} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={`npm run dev`} lang={CODE_LANG.BASH} hideLines={true} />
         <p>
           Созданное приложение можно будет открыть в браузере по адресу указанному в терминале, скорее всего это будет{' '}
           <ExternalLink label='http://localhost:5173/' href='http://localhost:5173/' />:
@@ -491,9 +491,9 @@ export default defineConfig({
           Попробуем что-нибудь изменить в приложении. Откройте файл <em>src/App.tsx</em> и найдите параграф со следующим
           текстом:
         </p>
-        <CodeSnippet code={appTextBeforeSnippet} lang={ECodeLang.REACT} customName='App.tsx' hideLines={true} />
+        <CodeSnippet code={appTextBeforeSnippet} lang={CODE_LANG.REACT} customName='App.tsx' hideLines={true} />
         <p>Измените текст, например:</p>
-        <CodeSnippet code={appTextAfterSnippet} lang={ECodeLang.REACT} customName='App.tsx' hideLines={true} />
+        <CodeSnippet code={appTextAfterSnippet} lang={CODE_LANG.REACT} customName='App.tsx' hideLines={true} />
         <p>Сохраните файл, затем браузер сам обновит страницу с приложением и там появится новый текст:</p>
         <PostImage
           src={reactTemplateEditImage}
@@ -541,9 +541,9 @@ export default defineConfig({
         <p>
           Попробуем что-нибудь изменить в приложении. Откройте файл src/App.tsx и найдите параграф со следующим текстом:
         </p>
-        <CodeSnippet code={viteAppTextBeforeSnippet} lang={ECodeLang.REACT} customName='App.tsx' hideLines={true} />
+        <CodeSnippet code={viteAppTextBeforeSnippet} lang={CODE_LANG.REACT} customName='App.tsx' hideLines={true} />
         <p>Измените текст, например:</p>
-        <CodeSnippet code={viteAppTextAfterSnippet} lang={ECodeLang.REACT} customName='App.tsx' hideLines={true} />
+        <CodeSnippet code={viteAppTextAfterSnippet} lang={CODE_LANG.REACT} customName='App.tsx' hideLines={true} />
         <p>Сохраните файл, обновите страницу с приложением и там появится новый текст:</p>
         <PostImage
           src={viteReactTemplateEditImage}
@@ -559,7 +559,7 @@ export default defineConfig({
           опубликовать приложение. Это можно сделать с помощью Github Pages - сервиса для хостинга статических сайтов из
           репозиториев. Для этого нужно установить сам пакет <em>gh-pages</em> в проект. Команда для установки:
         </p>
-        <CodeSnippet code={npmInstallGhPagesSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={npmInstallGhPagesSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <Note>
           <AlertMiniIcon className={styles.alert_icon} />
           Выполнять команду установки GitHub Pages следует в директории вашего проекта.
@@ -572,7 +572,7 @@ export default defineConfig({
           <li className='list__item'>
             <p className='list__title'>Добавьте homepage будущего GitHub Pages</p>
             <p>Это должна быть ссылка в формате:</p>
-            <CodeSnippet code={ghPagesURLTemplateSnippet} lang={ECodeLang.JSON} name='package' hideLines={true} />
+            <CodeSnippet code={ghPagesURLTemplateSnippet} lang={CODE_LANG.JSON} name='package' hideLines={true} />
             <Note title='Обратите внимание'>
               проект с URL <strong>https://&lt;ваше-имя-пользователя&gt;.github.io</strong> собирается и билдится в
               отдельном репозитории, название у этого репозитория будет{' '}
@@ -586,7 +586,7 @@ export default defineConfig({
               Для проекта <em>hello-react</em> <strong>homepage</strong> будет выглядеть следующим образом, можно
               добавить это после сразу после названия проекта:
             </p>
-            <CodeSnippet code={homepageHelloReactSnippet} lang={ECodeLang.JSON} name='package' hideLines={true} />
+            <CodeSnippet code={homepageHelloReactSnippet} lang={CODE_LANG.JSON} name='package' hideLines={true} />
           </li>
           <li className='list__item'>
             <p className='list__title'>Добавьте скрипты для деплоя в раздел "scripts"</p>
@@ -596,11 +596,11 @@ export default defineConfig({
                 <p className='list__title'>Вариант 1. Если вы создавали приложение с помощью Create React App</p>
 
                 <p>Нужно добавить в следующие две команды:</p>
-                <CodeSnippet code={buildDeployScriptsSnippet} lang={ECodeLang.JSON} name='package' hideLines={true} />
+                <CodeSnippet code={buildDeployScriptsSnippet} lang={CODE_LANG.JSON} name='package' hideLines={true} />
                 <p>
                   Скоре всего в разделе <em>"scripts"</em> уже будут следующие команды:
                 </p>
-                <CodeSnippet code={defaultScriptsSnippet} lang={ECodeLang.JSON} name='package' hideLines={true} />
+                <CodeSnippet code={defaultScriptsSnippet} lang={CODE_LANG.JSON} name='package' hideLines={true} />
                 <p>
                   Ничего страшного, нужно просто добавить к ним ниже команды <em>predeploy</em> и <em>deploy</em>.
                 </p>
@@ -613,14 +613,14 @@ export default defineConfig({
                 </p>
                 <CodeSnippet
                   code={viteBuildDeployScriptsSnippet}
-                  lang={ECodeLang.JSON}
+                  lang={CODE_LANG.JSON}
                   name='package'
                   hideLines={true}
                 />
                 <p>
                   Скоре всего в разделе <em>"scripts"</em> уже будут следующие команды:
                 </p>
-                <CodeSnippet code={viteDefaultScriptsSnippet} lang={ECodeLang.JSON} name='package' hideLines={true} />
+                <CodeSnippet code={viteDefaultScriptsSnippet} lang={CODE_LANG.JSON} name='package' hideLines={true} />
                 <p>
                   Ничего страшного, нужно просто добавить к ним ниже команды <em>predeploy</em> и <em>deploy</em>.
                 </p>
@@ -637,9 +637,9 @@ export default defineConfig({
           Помимо этого если вы настраивали проект с помощью Vite нужно добавить в файл конфигурации самого Vite{' '}
           <em>vite.config.ts</em> поле <strong>base</strong>:
         </p>
-        <CodeSnippet code={`base: "/<название-репозитория>/"`} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={`base: "/<название-репозитория>/"`} lang={CODE_LANG.BASH} hideLines={true} />
         <p>Например:</p>
-        <CodeSnippet code={viteBaseConfigSnippet} lang={ECodeLang.TYPESCRIPT} name='vite.config' hideLines={false} />
+        <CodeSnippet code={viteBaseConfigSnippet} lang={CODE_LANG.TYPESCRIPT} name='vite.config' hideLines={false} />
         <p>Теперь осталось только собрать проект и опубликовать его.</p>
       </section>
       <section ref={buildDeployRef} className='section outer'>
@@ -650,7 +650,7 @@ export default defineConfig({
           <li className='list__item'>
             <p className='list__title'>Собрать проект с помощью команды сборки:</p>
             <div className='spacer top medium'>
-              <CodeSnippet code={npmBuildCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+              <CodeSnippet code={npmBuildCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
               <p>
                 Эта команда создаст в директории проекта папку <em>build</em>.
               </p>
@@ -659,7 +659,7 @@ export default defineConfig({
           <li className='list__item'>
             <p className='list__title'>Опубликовать проект на GitHub Pages с помощью команды деплоя:</p>
             <div className='spacer top medium'>
-              <CodeSnippet code={npmDeployCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+              <CodeSnippet code={npmDeployCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
               <p>
                 Эта команда создаст ветку <em>gh-pages</em> в репозитории и загрузит туда собранные файлы из папки 
                 <em>build</em>.
@@ -688,14 +688,14 @@ export default defineConfig({
           Теперь, каждый раз когда в проект будут вноситься изменения, чтобы обновить приложение нужно просто выполнить
           последовательно две команды, собрать проект и задеплоить изменения:
         </p>
-        <CodeSnippet code={npmDeployCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={npmDeployCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
         <br />
-        <CodeSnippet code={npmBuildCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={npmBuildCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
 
         <h3 className='spacer top large'>Вариант 2. Если вы создавали приложение с помощью Vite</h3>
 
         <p>Для того, чтобы можно было увидеть проект вживую в интернете нужно будет выполнить всего одну команду:</p>
-        <CodeSnippet code={`npm run deploy`} lang={ECodeLang.BASH} hideLines={true} />
+        <CodeSnippet code={`npm run deploy`} lang={CODE_LANG.BASH} hideLines={true} />
         <p>
           Сборщик сам соберёт проект в папку <em>dist</em>, создаст ветку <em>gh-pages</em> в репозитории и загрузит
           туда собранные файлы из <em>папки dist</em>.
@@ -741,23 +741,23 @@ export default defineConfig({
             <p className='list__title'>Сохраните изменения локально:</p>
             <div className='spacer top medium'>
               <p>Можно сохранить все изменения: </p>
-              <CodeSnippet code={addAllCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+              <CodeSnippet code={addAllCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
               <p>Сохранить изменения в конкретной папке: </p>
-              <CodeSnippet code={addFolderCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+              <CodeSnippet code={addFolderCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
               <p>Сохранить изменения в конкретном файле: </p>
-              <CodeSnippet code={addFileCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+              <CodeSnippet code={addFileCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
             </div>
           </li>
           <li className='list__item'>
             <p className='list__title'>Закоммитить изменения:</p>
             <div className='spacer top medium'>
-              <CodeSnippet code={commitCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+              <CodeSnippet code={commitCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
             </div>
           </li>
           <li className='list__item'>
             <p className='list__title'>Опубликовать их в ветку:</p>
             <div className='spacer top medium'>
-              <CodeSnippet code={pushCommandSnippet} lang={ECodeLang.BASH} hideLines={true} />
+              <CodeSnippet code={pushCommandSnippet} lang={CODE_LANG.BASH} hideLines={true} />
               <p>
                 Если спросит логин и пароль — вводим. Для пароля теперь нужно использовать токен, а не обычный пароль.
                 Но если вы не настраивали SSH, GitHub сам предложит залогиниться через браузер - нужно согласиться.

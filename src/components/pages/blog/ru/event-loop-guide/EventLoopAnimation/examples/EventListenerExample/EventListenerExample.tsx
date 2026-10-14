@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleCodeSnippet';
@@ -33,7 +33,7 @@ console.log('Конец');`;
       </div>
       <p>Разберём пример с подпиской на событие {LONG_DASH} клик по кнопке:</p>
       <DoubleCodeSnippet
-        lang={[ECodeLang.JAVASCRIPT, ECodeLang.HTML]}
+        lang={[CODE_LANG.JAVASCRIPT, CODE_LANG.HTML]}
         code={[eventListenerClickExampleCode, eventListenerClickExampleMarkup]}
         name={[`example(${EXAMPLE_NUMBER})`, `example(${EXAMPLE_NUMBER})`]}
       />

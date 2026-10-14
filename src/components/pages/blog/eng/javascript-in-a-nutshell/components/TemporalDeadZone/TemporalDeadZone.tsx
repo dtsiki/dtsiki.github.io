@@ -1,6 +1,6 @@
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { Accordion } from 'src/components/common/Accordion';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const TemporalDeadZone = () => {
   const exampleTDZLetFailed = `{// TDZ starts here
@@ -38,7 +38,7 @@ export const TemporalDeadZone = () => {
         temporal dead zone starts at the beginning of the block&#39;s local scope. It ends when variable is fully
         initialized with a value. Here&#39;s the example of TDZ of variables declared with <code>let</code> keyword:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleTDZLetFailed} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleTDZLetFailed} />
 
       <p>
         In the example above TDZ of the <code>yay</code> variable starts from the opening curly bracket and ends once
@@ -46,13 +46,13 @@ export const TemporalDeadZone = () => {
         is why JavaScript will return a ReferenceError.
       </p>
       <p>Here is the example how we can access a variable successfully after its complete initialization:</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleTDZLetSuccess} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleTDZLetSuccess} />
 
       <p>
         Another difference between <code>var</code>, <code>let</code> and <code>const</code> variables is when their TDZ
         ends. Let&#39;s look at an example of TDZ of <code>var</code>:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleTDZVar} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleTDZVar} />
       <p>
         In contrast to <code>let</code> or <code>const</code>, JavaScript automatically initializes <code>var</code>{' '}
         variables with <code>undefined</code> value.

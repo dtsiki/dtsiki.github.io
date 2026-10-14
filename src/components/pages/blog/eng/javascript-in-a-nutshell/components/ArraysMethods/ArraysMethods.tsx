@@ -1,7 +1,7 @@
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { Accordion } from 'src/components/common/Accordion';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 export const ArraysMethods = () => {
   const exampleIsArray = `const something = ['yay', 'qeq', 'uou'];
@@ -110,7 +110,7 @@ console.log(somethingElse);`;
             <code>isArray()</code>
           </div>
           <p>It tests if the given array is an array:</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleIsArray} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleIsArray} />
           <ExampleSnippet code={resultIsArray} />
         </li>
         <li className='list__item'>
@@ -118,7 +118,7 @@ console.log(somethingElse);`;
             <code>includes()</code>
           </div>
           <p>It checks whether the given array contains the specified element:</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleIncludes} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleIncludes} />
           <ExampleSnippet code={resultIncludes} />
         </li>
         <li className='list__item'>
@@ -126,7 +126,7 @@ console.log(somethingElse);`;
             <code>indexOf()</code>
           </div>
           <p>It searches the specified element in the given array and returns the index of the first match:</p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleIndexOf} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleIndexOf} />
           <p className='spacer top medium'>
             It returns <code>-1</code> value if the given element not present in the array.
           </p>
@@ -140,7 +140,7 @@ console.log(somethingElse);`;
             It&#39;s similar to <code>indexOf</code>, but it searches the specified element in the given array and
             returns the index of the last match:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleLastIndexOf} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleLastIndexOf} />
           <ExampleSnippet code={resultLastIndexOf} />
         </li>
         <li className='list__item'>
@@ -151,7 +151,7 @@ console.log(somethingElse);`;
             It&#39;s probably one of the most popular methods in JavaScript - the <code>map()</code> method. It calls
             the specified function for every array element and returns the new array:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleMap} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleMap} />
           <p>
             In the code snippet above every element of the array converted to uppercase. This method is a copying
             method: the original array remains the same.
@@ -160,7 +160,7 @@ console.log(somethingElse);`;
           <p>
             If nothing is returned in an callback function it will automatically return <code>undefined</code> value:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleMapUndefined} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleMapUndefined} />
           <ExampleSnippet code={resultMapUndefined} />
         </li>
         <li className='list__item'>
@@ -172,7 +172,7 @@ console.log(somethingElse);`;
             It&#39;s similar to the <code>map()</code> method mentioned above. It returns the new array containing the
             elements that pass the provided <strong>condition</strong>.
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleFilter} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleFilter} />
           <p>
             In the code snippet above every element of the array converted to uppercase. This method is also a copying
             method: the original array remains the same.
@@ -188,7 +188,7 @@ console.log(somethingElse);`;
             It&#39;s similar to the <code>map()</code> method mentioned above. The difference between these two methods
             is that the <code>map()</code> creates a new array:
           </p>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleForEach} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleForEach} />
           <ExampleSnippet code={resultForEach} />
         </li>
       </ul>

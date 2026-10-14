@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { allInline } from '../../../utils';
 
@@ -75,19 +75,19 @@ Error: Второй упал
         {LONG_DASH} результатом будет массив значений в <strong>исходном порядке</strong>:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseAllAllResolvedSnippetCode}
         consoleLog={promiseAllAllResolvedSnippetLog}
       />
       <p>Порядок результатов сохраняется, даже если промисы завершаются в разное время:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseAllAllResolvedWithDelaySnippetCode}
         consoleLog={promiseAllAllResolvedWithDelaySnippetLog}
       />
       <p>Если хотя бы один промис будет отклонён, результатом будет ошибка первого отклонённого промиса:</p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseAllOneRejectedSnippetCode}
         consoleLog={promiseAllOneRejectedSnippetLog}
       />
@@ -96,7 +96,7 @@ Error: Второй упал
         игнорируются:
       </p>
       <CodeSnippet
-        lang={ECodeLang.JAVASCRIPT}
+        lang={CODE_LANG.JAVASCRIPT}
         code={promiseAllAllRejectedSnippetCode}
         consoleLog={promiseAllAllRejectedSnippetLog}
       />

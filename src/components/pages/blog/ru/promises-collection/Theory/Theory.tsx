@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { ENoteType, Note } from 'src/components/common/Note';
 import { LONG_DASH } from 'src/constants';
@@ -48,7 +48,7 @@ Promise.allSettled(iterable);`;
           Для этих целей и нужны методы {allInline}, {raceInline}, {allSettledInline} и {anyInline}.
         </p>
         <p>У них простой синтаксис:</p>
-        <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={methodsSyntaxExampleCode} />
+        <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodsSyntaxExampleCode} />
         <p>Все четыре метода:</p>
         <ul className='list markered'>
           <li className='list__item'>

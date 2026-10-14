@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { useState } from 'react';
 import { CheckMiniIcon } from '../icons/ui/mini/Check';
 import { xcode } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import { ECodeExt, ECodeLang, ICodeProps } from './Code.types';
+import { CODE_LANG, ICodeProps, CODE_EXT } from './Code.types';
 import { useTranslate } from '~hooks/useTranslate';
 import { COPY_TO_CLIPBOARD } from 'src/i18n';
 import { CodingIcon, TextFileIcon, ClipboardMiniIcon } from '../icons/ui';
@@ -67,8 +67,8 @@ export const Code = (props: ICodeProps) => {
               ) : (
                 <TextFileIcon useMini={true} className={styles.code__icon} />
               )}
-              {(language !== ECodeLang.BASH && customName) ||
-                (language && name && `${name}.${ECodeExt[language].toLocaleLowerCase()}`)}
+              {(language !== CODE_LANG.BASH && customName) ||
+                (language && name && `${name}.${CODE_EXT[language].toLocaleLowerCase()}`)}
             </div>
             <div className={styles.code__actions}>
               <button

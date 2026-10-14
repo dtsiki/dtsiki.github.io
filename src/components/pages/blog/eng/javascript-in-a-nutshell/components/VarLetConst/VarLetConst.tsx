@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import { Accordion } from 'src/components/common/Accordion';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 
 import constLetVar from 'public/assets/blog/frontend-in-a-nutshell/javascript/const-let-var.png';
 import letOrVar from 'public/assets/blog/frontend-in-a-nutshell/javascript/let-or-var.png';
@@ -97,7 +97,7 @@ console.log(yay.id, yay.name, yay.isAwesome); // 42 "yay" true`;
               </li>
             </ul>
           </div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleVar} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleVar} />
         </li>
         <li className='list__item'>
           <div className='list__title'>
@@ -112,7 +112,7 @@ console.log(yay.id, yay.name, yay.isAwesome); // 42 "yay" true`;
               </li>
             </ul>
           </div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleLet} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleLet} />
         </li>
         <li className='list__item'>
           <div className='list__title'>
@@ -128,19 +128,19 @@ console.log(yay.id, yay.name, yay.isAwesome); // 42 "yay" true`;
             </ul>
           </div>
           <div className='spacer bottom medium'>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleConstUpdating} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleConstUpdating} />
           </div>
           <div className='spacer bottom medium'>
-            <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleConst} />
+            <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleConst} />
           </div>
-          <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleConstScope} />
+          <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleConstScope} />
         </li>
       </ol>
       <p>
         But not so strict with <code>const</code> variables. Actually we can update them! The key-value pairs of an
         object declared using <code>const</code> can be updated directly, but the variable cannot be reassigned:
       </p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} name='index' code={exampleConstObject} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleConstObject} />
 
       <PostImage
         src={letOrVar}

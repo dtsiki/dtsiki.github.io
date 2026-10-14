@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { Accordion } from 'src/components/common/Accordion';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { LONG_DASH } from 'src/constants';
@@ -29,7 +29,7 @@ console.log("Три");`;
         <div className='tag TEXT-ONLY'>Таймер с нулевой задержкой</div>
       </div>
       <p>Что будет если в примере выше поменять задержку таймера с 5000 миллисекунд на 0?</p>
-      <CodeSnippet lang={ECodeLang.JAVASCRIPT} code={zeroDelayTimeoutExampleCode} name={`example(${EXAMPLE_NUMBER})`} />
+      <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={zeroDelayTimeoutExampleCode} name={`example(${EXAMPLE_NUMBER})`} />
       <p className='spacer top medium'>
         Предлагаю подумать над ответом, прежде чем читать дальше. Если готовы {LONG_DASH} раскрывайте правильный ответ
         ниже.{' '}

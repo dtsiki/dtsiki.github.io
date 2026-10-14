@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from 'src/utils/formatting';
 
 export const Functions = forwardRef<HTMLDivElement>(({}, ref) => {
@@ -54,35 +54,35 @@ function format(value: string | number): string {
       <section className='section inner'>
         <h3>Типизация входных параметров</h3>
         <p>В TypeScript можно типизировать аргументы функций:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionWithArgsExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={functionWithArgsExampleCode} />
         <p>Теперь, когда аргументы протипизированы, TypeScript будет проверять их при вызове функции:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={usageExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={usageExampleCode} />
         <p>Стрелочные функции тоже типизируются:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={arrowFunctionExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={arrowFunctionExampleCode} />
         <p>
           Можно создать тип для функции, чтобы использовать его повторно в переменных или параметрах других функций:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={typeFunctionExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={typeFunctionExampleCode} />
         <p>
           Аргументы функций могут быть необязательными. Для того, чтобы сделать параметр необязательным, после его
           названия указывается знак вопроса <strong>?</strong>. В примере ниже таким образом аргумент{' '}
           <InlineCode>name</InlineCode> может принимать значение как <InlineCode>string</InlineCode>, так и{' '}
           <InlineCode>undefined</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionWithOptionalAgrExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={functionWithOptionalAgrExampleCode} />
         <p>Параметрам можно задать значение по умолчанию:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={functionWithDefaultArgExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={functionWithDefaultArgExampleCode} />
         <p>Важно помнить, что необязательные параметры должны идти после обязательных. </p>
       </section>
 
       <section className='section inner'>
         <h3>Типизация возвращаемого значения</h3>
         <p>Также можно типизировать возвращаемое из функции значение:</p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={returnValueTypeExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={returnValueTypeExampleCode} />
         <p>
           Если функция ничего не возвращает, то для этого используем специальный тип <InlineCode>void</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={voidExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={voidExampleCode} />
         <p>
           TypeScript определяет тип возвращаемого значения функции на основе оператора <InlineCode>return</InlineCode>,
           поэтому писать тип возвращаемого значения необязательно.
@@ -94,7 +94,7 @@ function format(value: string | number): string {
           Можно заставить функцию вести себя по-разному в зависимости от аргументов. Для этого используются
           перезагрузки:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={overloadsExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={overloadsExampleCode} />
       </section>
     </section>
   );

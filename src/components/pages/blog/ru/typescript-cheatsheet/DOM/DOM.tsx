@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
-import { ECodeLang } from 'src/components/common/Code/Code.types';
+import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
 import { getGhostText, renderInlineList } from 'src/utils/formatting';
 
@@ -46,7 +46,7 @@ if (element instanceof HTMLImageElement) {
           массив <em>"lib"</em>. Если вы используете среду браузера, в настройках должен быть включен параметр{' '}
           <em>"dom"</em>. Например:
         </p>
-        <CodeSnippet lang={ECodeLang.JSON} code={jsonTsConfig} name='tsconfig' />
+        <CodeSnippet lang={CODE_LANG.JSON} code={jsonTsConfig} name='tsconfig' />
       </section>
       <section className='section inner'>
         <h3>Проверка типов перед использованием</h3>
@@ -54,7 +54,7 @@ if (element instanceof HTMLImageElement) {
           Методы вроде <InlineCode>getElementById</InlineCode> могут вернуть <InlineCode>null</InlineCode>, если
           элемента нет, поэтому TypeScript требует проверку:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={nullButtonExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={nullButtonExampleCode} />
       </section>
       <section className='section inner'>
         <h3>
@@ -65,7 +65,7 @@ if (element instanceof HTMLImageElement) {
           Иногда TypeScript не может точно определить элемент, например, при поиске по классу. Можно явно указать тип с
           помощью конструкции <InlineCode>as</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={asExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={asExampleCode} />
         <p>
           <strong>Важно понимать:</strong> это не преобразование, а лишь подсказка компилятору. При сборке в JavaScript
           эти конструкции будут удалены.
@@ -77,7 +77,7 @@ if (element instanceof HTMLImageElement) {
           Альтренатива <InlineCode>as</InlineCode> {LONG_DASH} проверка класса объекта через{' '}
           <InlineCode>instanceof</InlineCode>:
         </p>
-        <CodeSnippet lang={ECodeLang.TYPESCRIPT} code={instanceofExampleCode} />
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={instanceofExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Полезные типы DOM</h3>
