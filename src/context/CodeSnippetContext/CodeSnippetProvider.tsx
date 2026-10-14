@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { ICodeSnippetProviderProps } from './CodeSnippetProvider.types';
+import type { ICodeSnippetProviderProps } from './CodeSnippetProvider.types';
 import { CodeSnippetContext } from './CodeSnippetContext';
 
 export const CodeSnippetProvider = ({ children }: ICodeSnippetProviderProps) => {

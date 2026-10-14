@@ -1,4 +1,3 @@
-import React, { ReactElement } from 'react';
 import classNames from 'classnames/bind';
 import { Window } from 'src/components/common/Window/Window';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +7,7 @@ import { EWindowType } from 'src/components/common/Window/Window.types';
 
 import styles from './chat.module.scss';
 
-const Chat = (): ReactElement => {
+const Chat = () => {
   const bind = classNames.bind(styles);
 
   const currentDate = moment().format('MMM D YYYY');

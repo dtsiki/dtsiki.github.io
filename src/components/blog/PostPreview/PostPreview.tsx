@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import classNames from 'classnames';
-import { IPostPreviewProps } from './PostPreview.types';
+import type { IPostPreviewProps } from './PostPreview.types';
 import { translate } from 'src/utils/translate';
 import { useTranslate } from '~hooks/useTranslate';
 import { CATEGORY_LOC } from 'src/components/blog/PostContent/PostContent.utils';

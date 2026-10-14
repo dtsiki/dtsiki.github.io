@@ -35,8 +35,8 @@ console.log('Конец');`;
   return (
     <section ref={ref} id='promise_chaining' className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Цепочка промисов и таймер</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Цепочка промисов и таймер</div>
       </div>
       <p>
         Пришло время разобраться и с промисами и с очередью макрозадач. Добавим в пример выше с таймером не просто

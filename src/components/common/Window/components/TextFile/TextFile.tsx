@@ -1,4 +1,4 @@
-import { ITextFileProps } from './TextFile.types';
+import type { ITextFileProps } from './TextFile.types';
 import { CustomScrollbar } from '../../../CustomScrollbar';
 
 import styles from './TextFile.module.scss';

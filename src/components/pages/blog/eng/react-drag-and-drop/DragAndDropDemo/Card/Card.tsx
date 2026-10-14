@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import { ECardType, ICardProps } from './Card.types';
+import { ECardType, type ICardProps } from './Card.types';
 
 import styles from './Card.module.scss';
 

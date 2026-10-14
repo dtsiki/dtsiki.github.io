@@ -1,4 +1,3 @@
-import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolder } from '@fortawesome/free-solid-svg-icons';
 import { Window } from 'src/components/common/Window/Window';
@@ -7,7 +6,7 @@ import DragAndDropBox from './_box';
 
 import styles from './drag-and-drop.module.scss';
 
-const DragAndDrop = (): ReactElement => {
+const DragAndDrop = () => {
   return (
     <Window>
       <div className={styles.dragAndDrop}>

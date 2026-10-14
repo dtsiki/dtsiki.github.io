@@ -1,7 +1,5 @@
 import type { FC, SVGProps } from 'react';
 
-//      <rect x='11' y='6' width='2' height='7' fill='currentColor' />
-
 export const ClockMiniIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>

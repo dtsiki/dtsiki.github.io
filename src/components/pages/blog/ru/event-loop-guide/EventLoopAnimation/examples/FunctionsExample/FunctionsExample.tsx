@@ -28,8 +28,8 @@ doSomething();`;
   return (
     <section ref={ref} id='sync_functions' className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Функции</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Функции</div>
       </div>
       <p>Рассмотрим пример с двумя функциями:</p>
       <CodeSnippet

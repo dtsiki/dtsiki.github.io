@@ -1,5 +1,5 @@
 import { BACHELOR, MASTER } from 'src/i18n';
-import { TranslationObject } from 'src/types';
+import type { TranslationObject } from '~types/language';
 
 export type TEducationConfig = {
   speciality: TranslationObject;

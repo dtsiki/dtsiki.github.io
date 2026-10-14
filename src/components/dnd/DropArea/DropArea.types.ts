@@ -1,4 +1,4 @@
-import { TDragItemComponent } from 'src/types';
+import type { TDragItemComponent } from '~types/dnd';
 
 export interface IDropAreaProps {
   initialItems: TDragItemComponent[];

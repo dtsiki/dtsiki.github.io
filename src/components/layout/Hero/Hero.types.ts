@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactNode } from 'react';
+import type { MutableRefObject, ReactNode } from 'react';
 
 export enum EHeroVariant {
   PRIMARY = 'primary',

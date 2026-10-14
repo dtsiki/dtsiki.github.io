@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { NOTE_TYPE, Note, NoteType } from '~components/common/Note';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 
 export const LinearComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
   const forPrintAllCodeSnippet = `function printAll(array: number[]) {
@@ -89,7 +89,7 @@ const concat = arr.concat([1, 2, 3]); // O(n + m)`;
       </p>
       <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
-          <div className='tag'>Вопросик</div>
+          <div className='tag secondary'>Вопросик</div>
         </div>
         <p>
           <b>Вопрос с подвохом: что будет, если в массиве, по которому проходит цикл, будет всего 1 элемент?</b>

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { ControlPanel } from '../ControlPanel/ControlPanel';
 import { WindowRenderer } from 'src/components/common/Window/components/WindowRenderer/WindowRenderer';
 import { Loader } from '../Loader/Loader';
-import { ILayoutProps } from './Layout.types';
+import type { ILayoutProps } from './Layout.types';
 
 import styles from './Layout.module.scss';
 

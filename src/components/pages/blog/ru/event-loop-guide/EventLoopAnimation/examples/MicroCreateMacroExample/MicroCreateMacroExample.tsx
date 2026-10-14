@@ -30,8 +30,8 @@ setTimeout внутри промиса (макрозадача)`;
   return (
     <section ref={ref} className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Микрозадачи, создающие макрозадачи</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Микрозадачи, создающие макрозадачи</div>
       </div>
       <p>Начнём с более простого примера: микрозадача (промис) создаёт макрозадачу (таймер):</p>
       <CodeSnippet

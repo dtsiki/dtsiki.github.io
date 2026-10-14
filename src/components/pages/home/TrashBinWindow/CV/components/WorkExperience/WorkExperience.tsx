@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import { TCompanyType } from 'src/data/workExperienceConfig';
+import { nanoid } from 'nanoid';
+import { type IWorkExperienceProps, WorkExperiencePage } from './WorkExperience.types';
+import { type TCompanyType } from 'src/data/workExperienceConfig';
 import { useTranslate } from '~hooks/useTranslate';
 import { PRESENT, SELF_EMPLOYED, WORK_EXPERIENCE } from 'src/i18n';
 
 import styles from './WorkExperience.module.scss';
-import { nanoid } from 'nanoid';
-import { IWorkExperienceProps, WorkExperiencePage } from './WorkExperience.types';
 
 export const WorkExperience = ({ page }: IWorkExperienceProps) => {
   const bind = classNames.bind(styles);

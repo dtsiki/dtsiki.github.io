@@ -56,8 +56,8 @@ doSomethingAsync();`;
       </ul>
       <p>На примере будет понятнее.</p>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Асинхронные функции</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Асинхронные функции</div>
       </div>
       <p>
         Не забыли пример из начала статьи с{' '}

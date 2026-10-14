@@ -1,26 +1,21 @@
-import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './select-user.module.scss';
 
 interface Props {
-  handleSelect:  () => void;
+  handleSelect: () => void;
 }
 
-const SelectUser = ({ handleSelect }: Props): ReactElement => {
+const SelectUser = ({ handleSelect }: Props) => {
   return (
     <div className={styles.selectUser}>
       <div className={styles.selectUser__wrapper}>
         <div className={styles.selectUser__icon}>
           <FontAwesomeIcon icon={faUser} />
         </div>
-        <div className={styles.selectUser__username}>
-          dtsiki
-        </div>
-        <button
-          onClick={handleSelect}
-          className={styles.selectUser__button}>
+        <div className={styles.selectUser__username}>dtsiki</div>
+        <button onClick={handleSelect} className={styles.selectUser__button}>
           <span className='visually-hidden'>Select</span>
         </button>
       </div>

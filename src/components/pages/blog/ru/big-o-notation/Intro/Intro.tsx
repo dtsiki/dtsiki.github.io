@@ -1,4 +1,3 @@
-import { noop } from 'lodash';
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { Accordion } from 'src/components/common/Accordion';
@@ -30,8 +29,8 @@ export const Intro = forwardRef<HTMLDivElement>(({}, ref) => {
       </p>
       <Note>
         <div className='tags'>
-          <div className='tag'>Вопросик</div>
-          <div className='tag TEXT-ONLY'>Почему оценивается худший сценарий?</div>
+          <div className='tag primary'>Вопросик</div>
+          <div className='tag text-only'>Почему оценивается худший сценарий?</div>
         </div>
         <p>
           Можно взять практически любой алгоритм, передать ему специально подобранные данные и получить идеальное
@@ -76,8 +75,8 @@ export const Intro = forwardRef<HTMLDivElement>(({}, ref) => {
       </p>
       <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
-          <div className='tag'>Вопросик</div>
-          <div className='tag TEXT-ONLY'>Почему O(1), а не O(0)?</div>
+          <div className='tag secondary'>Вопросик</div>
+          <div className='tag text-only'>Почему O(1), а не O(0)?</div>
         </div>
         <p>
           Сложности O(0) не существует. Это математически бессмысленно. O(0) означало бы, что алгоритм выполняет ноль

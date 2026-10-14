@@ -1,5 +1,5 @@
 import type { FC, SVGProps } from 'react';
-import { ICustomIconProps } from 'src/types';
+import type { ICustomIconProps } from '~types/icons';
 
 export const BinIcon: FC<SVGProps<SVGSVGElement> & ICustomIconProps> = (props) => {
   if (props.useMini) {

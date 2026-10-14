@@ -1,5 +1,5 @@
-import { CSSProperties } from 'react';
-import { TWindow } from 'src/types';
+import type { CSSProperties } from 'react';
+import type { TWindow } from '~types/window';
 
 export const getWindowStyle = (window: TWindow, windowIndex: number, isMobile: boolean): CSSProperties => {
   const commonStyle = {

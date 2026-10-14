@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBook,
@@ -19,7 +19,7 @@ interface Props {
   pronunciation: string;
 }
 
-const Dictionary = ({ word, type, definition, pronunciation }: Props): ReactElement => {
+const Dictionary = ({ word, type, definition, pronunciation }: Props) => {
   return (
     <div className={styles.dictionary}>
       <div className={styles.dictionary__header}>

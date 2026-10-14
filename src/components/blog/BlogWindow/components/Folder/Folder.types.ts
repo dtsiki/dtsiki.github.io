@@ -1,5 +1,5 @@
-import { TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
-import { TranslationObject } from 'src/types';
+import type { TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
+import type { TranslationObject } from '~types/language';
 
 export enum EFolderView {
   GRID = 'GRID',

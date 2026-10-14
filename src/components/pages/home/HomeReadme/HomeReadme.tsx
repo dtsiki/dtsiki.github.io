@@ -1,12 +1,12 @@
 import { useTranslate } from '~hooks/useTranslate';
-import { Language } from 'src/types';
+import { LANGUAGE } from '~types/language';
 
 const VERSION = '2.0.3';
 
 export const HomeReadme = () => {
   const { language } = useTranslate();
 
-  if (language === Language.RU) {
+  if (language === LANGUAGE.RU) {
     return (
       <div>
         <section>

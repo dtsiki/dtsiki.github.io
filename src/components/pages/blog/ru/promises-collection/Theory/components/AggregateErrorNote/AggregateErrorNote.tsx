@@ -42,7 +42,7 @@ export const AggregateErrorNote = forwardRef<HTMLDivElement>((_, ref) => {
     <aside ref={ref} className='section inner'>
       <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
-          <div className='tag TEXT-ONLY'>Дополнительная информация</div>
+          <div className='tag text-only'>Дополнительная информация</div>
         </div>
         <p>
           <InlineCode>AggregateError</InlineCode> {LONG_DASH} это подкласс класс ошибки <InlineCode>Error</InlineCode>,

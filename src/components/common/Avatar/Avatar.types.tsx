@@ -1,5 +1,5 @@
-import { MutableRefObject } from 'react';
-import { StaticImageData } from 'next/image';
+import type { MutableRefObject } from 'react';
+import type { StaticImageData } from 'next/image';
 
 export interface IAvatarProps {
   image: StaticImageData;

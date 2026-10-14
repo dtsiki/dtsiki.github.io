@@ -1,6 +1,6 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { AppProps } from 'next/app';
+import { type AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { YMInitializer } from 'react-yandex-metrika';
 import { StoreContext } from 'storeon/react';
@@ -14,7 +14,7 @@ import { store } from 'src/store';
 
 import '../styles/index.scss';
 
-const App = ({ Component, pageProps }: AppProps): ReactElement => {
+const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   const [title, setTitle] = useState('');
 

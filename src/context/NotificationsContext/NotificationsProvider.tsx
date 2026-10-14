@@ -1,9 +1,9 @@
 import { useState, useCallback } from 'react';
 import { nanoid } from 'nanoid';
 import { NotificationsContext } from './NotificationsContext';
-import { INotificationsProviderProps } from './NotificationsProvider.types';
-import { TNotification } from 'src/types/notifications';
-import { TNotificationsContextData } from './NotificationsContext.types';
+import type { INotificationsProviderProps } from './NotificationsProvider.types';
+import type { TNotification } from '~types/notifications';
+import type { TNotificationsContextData } from './NotificationsContext.types';
 
 const MAX_NOTIFICATIONS = 1;
 

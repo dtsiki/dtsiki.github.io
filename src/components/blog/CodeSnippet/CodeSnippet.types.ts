@@ -1,4 +1,4 @@
-import { TCodeLang } from '~components/common/Code';
+import type { TCodeLang } from '~components/common/Code';
 
 export interface ICodeSnippetProps {
   lang: TCodeLang;

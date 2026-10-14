@@ -1,13 +1,11 @@
-import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBattery, faCaretDown, faVolumeXmark, faWifi } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 
 import styles from './top-panel.module.scss';
 
-const TopPanel = (): ReactElement => {
-  const currentDate = moment()
-    .format('MMM D HH:mm');
+const TopPanel = () => {
+  const currentDate = moment().format('MMM D HH:mm');
 
   return (
     <div className={styles.topPanel}>

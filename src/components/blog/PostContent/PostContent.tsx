@@ -3,7 +3,7 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import { NextSeo } from 'next-seo';
 import { useTranslate } from '~hooks/useTranslate';
-import { IPostContentProps } from './PostContent.types';
+import type { IPostContentProps } from './PostContent.types';
 import { translate } from 'src/utils/translate';
 import { BLOG, NEXT_POST } from 'src/i18n';
 import { CATEGORY_LOC } from './PostContent.utils';

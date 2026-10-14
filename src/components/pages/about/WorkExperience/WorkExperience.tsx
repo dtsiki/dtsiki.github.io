@@ -1,6 +1,4 @@
-import { ReactElement } from 'react';
-
-const AboutWorkExperience = (): ReactElement => {
+const AboutWorkExperience = () => {
   const workExperiences = [
     {
       company: 'Infomaximum',

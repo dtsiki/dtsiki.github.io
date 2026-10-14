@@ -1,4 +1,4 @@
-import { ElementType, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 import { InlineCode } from 'src/components/blog/InlineCode';
 
 export const getGhostText = (text: ReactNode) => {

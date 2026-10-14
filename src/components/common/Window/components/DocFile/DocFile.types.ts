@@ -1,4 +1,4 @@
-import { TDocPage } from './components/DocPage/DocPage.types';
+import { type TDocPage } from './components/DocPage/DocPage.types';
 
 export interface IDocFileProps {
   pages?: Array<TDocPage>;

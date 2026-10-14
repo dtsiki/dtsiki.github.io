@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useDrop, XYCoord } from 'react-dnd';
+import { useDrop, type XYCoord } from 'react-dnd';
 import { convertPercentageToPixels, convertPixelsToPercentage } from 'src/utils';
-import { IDropAreaProps } from './DropArea.types';
+import type { IDropAreaProps } from './DropArea.types';
 import { DragItem } from '../DragItem';
-import { TDragItemComponent, TDragItemPositionUnit, TDragItemType } from 'src/types';
+import { type TDragItemComponent, TDragItemPositionUnit, TDragItemType } from '~types/dnd';
 import { useWindowSize } from '~hooks/useWindowSize';
 
 import styles from './DropArea.module.scss';

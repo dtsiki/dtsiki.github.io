@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { INoteProps, NOTE_TYPE } from './Note.types';
+import { type INoteProps, NOTE_TYPE } from './Note.types';
 
 import styles from './Note.module.scss';
 

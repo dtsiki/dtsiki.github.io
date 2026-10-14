@@ -19,8 +19,8 @@ console.log('Сделать сё');`;
   return (
     <section ref={ref} id='call_stack' className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Синхронный код</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Синхронный код</div>
       </div>
       <p>Для разминки рассмотрим простой пример:</p>
       <CodeSnippet

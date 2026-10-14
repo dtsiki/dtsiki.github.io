@@ -1,6 +1,6 @@
-import { Language } from 'src/types';
+import { TLanguage } from '~types/language';
 
 export interface ILanguageContextData {
-  language: Language;
+  language: TLanguage;
   toggleLanguage?: () => void;
 }

@@ -1,7 +1,7 @@
-import { EWindowType, TWindowContent } from 'src/components/common/Window/Window.types';
-import { TranslationObject } from './language';
-import { ReactNode } from 'react';
-import { TFolderItem } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
+import { EWindowType, type TWindowContent } from 'src/components/common/Window/Window.types';
+import type { TranslationObject } from './language';
+import type { ReactNode } from 'react';
+import type { TFolderItem } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
 
 export type TWindowPosition = {
   top?: string;

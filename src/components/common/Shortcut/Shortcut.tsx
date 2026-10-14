@@ -1,8 +1,8 @@
-import React, { ReactElement, ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import Image, { StaticImageData } from 'next/image';
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
+import Image, { type StaticImageData } from 'next/image';
 
 import styles from './shortcut.module.scss';
 
@@ -32,7 +32,7 @@ const Shortcut = ({
   tooltip,
   customIcon,
   iconSize = 60,
-}: Props): ReactElement => {
+}: Props) => {
   const bind = classNames.bind(styles);
 
   return (

@@ -1,18 +1,18 @@
-import React, { ReactElement, ReactNode, useRef } from 'react';
+import React, { type ReactNode, useRef } from 'react';
 
 import styles from './drag-and-drop.module.scss';
 
 export enum DragAndDropCardVariant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
-  TERTIARY = 'tertiary'
+  TERTIARY = 'tertiary',
 }
 
 interface Props {
   children?: ReactNode;
 }
 
-const DragAndDropBox = ({ children }: Props): ReactElement => {
+const DragAndDropBox = ({ children }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const allowDrop = (e: React.DragEvent<HTMLDivElement>): void => {

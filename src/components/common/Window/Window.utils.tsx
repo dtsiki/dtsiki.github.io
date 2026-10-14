@@ -1,5 +1,5 @@
 import { EWindowType } from './Window.types';
-import { TWindowConfig } from 'src/types';
+import type { TWindowConfig } from '~types/window';
 
 export const isBaseWindow = (config?: TWindowConfig) => {
   if (config && config.type && config.type in EWindowType) {

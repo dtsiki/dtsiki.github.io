@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import classNames from 'classnames/bind';
-import { EWindowBodyBackground, EWindowType, IWindowProps } from './Window.types';
+import { EWindowBodyBackground, EWindowType, type IWindowProps } from './Window.types';
 import { useWindowManager } from 'src/hooks/useWindowManager';
 import { TextFile } from './components/TextFile/TextFile';
 import { DocFile } from './components/DocFile';

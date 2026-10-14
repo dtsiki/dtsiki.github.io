@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import classNames from 'classnames';
-import { IAvatarProps } from './Avatar.types';
+import type { IAvatarProps } from './Avatar.types';
 
 import styles from './Avatar.module.scss';
 

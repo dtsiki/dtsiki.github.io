@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
 import { isString, noop } from 'lodash';
-import { IBlogWindowProps } from './BlogWindow.types';
+import type { IBlogWindowProps } from './BlogWindow.types';
 import { useWindowManager } from '~hooks/useWindowManager';
 import { useFolderNavigation } from '~hooks/useFolderNavigation';
 import { useTranslate } from '~hooks/useTranslate';
 import { EBlogRecord } from './BlogWindow.utils';
-import { TFolderItem, TFolderItemType } from './components/Folder/Folder.types';
+import { type TFolderItem, TFolderItemType } from './components/Folder/Folder.types';
 import { Folder } from './components/Folder';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
 import { useRouter } from 'next/router';

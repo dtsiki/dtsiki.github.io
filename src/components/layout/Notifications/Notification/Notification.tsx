@@ -1,4 +1,4 @@
-import { INotificationProps } from './Notification.types';
+import type { INotificationProps } from './Notification.types';
 import { useTranslate } from '~hooks/useTranslate';
 import { useNotifications } from '~hooks/useNotifications';
 import { CLOSE_THE_NOTIFICATION } from 'src/i18n';

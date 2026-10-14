@@ -1,6 +1,6 @@
-import { TranslationObject } from 'src/types';
+import type { TranslationObject } from '~types/language';
 import { EWindowType } from '../../Window.types';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export interface IWindowHeaderProps {
   type: EWindowType;

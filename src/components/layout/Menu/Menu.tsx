@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +9,7 @@ import Help from '../Help';
 
 import styles from './menu.module.scss';
 
-const Menu = (): ReactElement => {
+const Menu = () => {
   const { topColor, bottomColor } = useStoreon('topColor', 'bottomColor');
   const [isPageScrolled, setPageScrolled] = useState<boolean>(false);
   const [isBackButtonShown, setIsBackButtonShown] = useState<boolean>(false);

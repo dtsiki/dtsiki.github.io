@@ -1,4 +1,3 @@
-import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,7 +7,7 @@ interface Props {
   word: string;
 }
 
-const Search = ({ word }: Props): ReactElement => {
+const Search = ({ word }: Props) => {
   return (
     <div className={styles.search}>
       <span>

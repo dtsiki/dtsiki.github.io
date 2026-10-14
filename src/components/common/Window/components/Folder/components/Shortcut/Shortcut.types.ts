@@ -1,9 +1,9 @@
 import {
   EFolderView,
-  TFolderItem,
+  type TFolderItem,
   TFolderItemType,
 } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
-import { TranslationObject } from 'src/types';
+import type { TranslationObject } from '~types/language';
 
 export interface IShortcutProps {
   title: string | TranslationObject;

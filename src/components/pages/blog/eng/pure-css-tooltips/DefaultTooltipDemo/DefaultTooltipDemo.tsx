@@ -3,7 +3,7 @@ import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { Window } from 'src/components/common/Window/Window';
 import DemoTooltip from 'src/components/pages/blog/DemoTooltip';
 import { DemoTooltipVariant } from 'src/components/pages/blog/DemoTooltip/DemoTooltip';
-import { IDefaultTooltipDemoProps } from './DefaultTooltipDemo.types';
+import type { IDefaultTooltipDemoProps } from './DefaultTooltipDemo.types';
 
 import styles from './DefaultTooltipDemo.module.scss';
 import { EWindowType } from 'src/components/common/Window/Window.types';

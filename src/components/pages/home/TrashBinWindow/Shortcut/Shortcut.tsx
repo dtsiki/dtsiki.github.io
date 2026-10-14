@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import classNames from 'classnames';
-import { IShortcutProps } from './Shortcut.types';
+import type { IShortcutProps } from './Shortcut.types';
 import { useWindowManager } from '~hooks/useWindowManager';
 import { useTranslate } from '~hooks/useTranslate';
 import { translateTitle } from 'src/utils/translate';

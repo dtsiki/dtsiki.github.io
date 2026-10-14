@@ -1,5 +1,5 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { StaticImageData } from 'next/image';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { StaticImageData } from 'next/image';
 
 export interface IShortcut {
   id: string;

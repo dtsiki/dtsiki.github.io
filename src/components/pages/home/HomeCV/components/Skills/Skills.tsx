@@ -1,7 +1,7 @@
 import { SKILLS } from 'src/i18n';
 import { SKILLS_CONFIG } from 'src/data/skillsConfig';
 import { useTranslate } from '~hooks/useTranslate';
-import { ISkillsProps, SkillsPage } from './Skills.types';
+import { type ISkillsProps, SkillsPage } from './Skills.types';
 
 import styles from './Skills.module.scss';
 

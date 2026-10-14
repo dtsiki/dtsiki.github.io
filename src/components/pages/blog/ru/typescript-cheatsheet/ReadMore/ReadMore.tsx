@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { nanoid } from 'nanoid';
 import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
-import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
+import type { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 
 export const ReadMore = forwardRef<HTMLDivElement>(({}, ref) => {

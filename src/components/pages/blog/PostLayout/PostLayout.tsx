@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, useMemo } from 'react';
+import { type ReactNode, useMemo } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong, faPersonDigging, faPlay, faRightLong } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +33,7 @@ const PostLayout = ({
   nextLinkLabel,
   tags,
   isWorkInProgress,
-}: Props): ReactElement => {
+}: Props) => {
   const bind = classNames.bind(styles);
 
   const renderTags = useMemo(() => {

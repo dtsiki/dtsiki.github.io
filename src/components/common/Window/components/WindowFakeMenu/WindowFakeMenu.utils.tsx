@@ -1,22 +1,22 @@
-import { Language } from 'src/types';
+import { LANGUAGE } from '~types/language';
 import { EWindowType } from '../../Window.types';
 
 export const FAKE_MENU_ITEMS = {
   [EWindowType.SLIDESHOW]: {
-    [Language.ENG]: ['File', 'Edit', 'View', 'Insert', 'Format', 'Help'],
-    [Language.RU]: ['Файл', 'Редактор', 'Вид', 'Вставка', 'Анимация', 'Помощь'],
+    [LANGUAGE.ENG]: ['File', 'Edit', 'View', 'Insert', 'Format', 'Help'],
+    [LANGUAGE.RU]: ['Файл', 'Редактор', 'Вид', 'Вставка', 'Анимация', 'Помощь'],
   },
   [EWindowType.FOLDER]: {
-    [Language.ENG]: ['File', 'Edit', 'View', 'Favourites', 'Tools', 'Help'],
-    [Language.RU]: ['Файл', 'Изменить', 'Просмотр', 'Избранное', 'Инструменты', 'Помощь'],
+    [LANGUAGE.ENG]: ['File', 'Edit', 'View', 'Favourites', 'Tools', 'Help'],
+    [LANGUAGE.RU]: ['Файл', 'Изменить', 'Просмотр', 'Избранное', 'Инструменты', 'Помощь'],
   },
   [EWindowType.DOC_FILE]: {
-    [Language.ENG]: ['File', 'Edit', 'Print', 'Tools', 'Help'],
-    [Language.RU]: ['Файл', 'Изменить', 'Напечатать', 'Инструменты', 'Помощь'],
+    [LANGUAGE.ENG]: ['File', 'Edit', 'Print', 'Tools', 'Help'],
+    [LANGUAGE.RU]: ['Файл', 'Изменить', 'Напечатать', 'Инструменты', 'Помощь'],
   },
   [EWindowType.TXT_FILE]: {
-    [Language.ENG]: ['File', 'Edit', 'Search', 'Help'],
-    [Language.RU]: ['Файл', 'Изменить', 'Поиск', 'Помощь'],
+    [LANGUAGE.ENG]: ['File', 'Edit', 'Search', 'Help'],
+    [LANGUAGE.RU]: ['Файл', 'Изменить', 'Поиск', 'Помощь'],
   },
 };
 

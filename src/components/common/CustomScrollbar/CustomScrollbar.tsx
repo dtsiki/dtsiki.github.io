@@ -1,6 +1,6 @@
-import { useRef, UIEvent, forwardRef, useImperativeHandle } from 'react';
+import { useRef, type UIEvent, forwardRef, useImperativeHandle } from 'react';
 import SimpleBar from 'simplebar-react';
-import { ICustomScrollbarProps, ICustomScrollbarRef } from './CustomScrollbar.types';
+import type { ICustomScrollbarProps, ICustomScrollbarRef } from './CustomScrollbar.types';
 
 import 'simplebar/dist/simplebar.min.css';
 

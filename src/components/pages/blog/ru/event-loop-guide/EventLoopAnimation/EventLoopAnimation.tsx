@@ -1,15 +1,15 @@
 import { nanoid } from 'nanoid';
 import classNames from 'classnames';
-import { CSSProperties, ReactNode, RefObject, useLayoutEffect, useRef, useState } from 'react';
+import { type CSSProperties, type RefObject, useLayoutEffect, useRef, useState } from 'react';
 import { useAnimationQueue } from './useAnimationQueue';
 import { ChevronRightMiniIcon } from 'src/components/common/icons/ui';
 import {
   Animation,
-  TAnimationItem,
+  type TAnimationItem,
   AnimationDemo,
-  IEventLoopAnimationProps,
-  TAnimationSpot,
-  TPreparedItem,
+  type IEventLoopAnimationProps,
+  type TAnimationSpot,
+  type TPreparedItem,
   Target,
 } from './EventLoopAnimation.types';
 import { Window } from 'src/components/common/Window';

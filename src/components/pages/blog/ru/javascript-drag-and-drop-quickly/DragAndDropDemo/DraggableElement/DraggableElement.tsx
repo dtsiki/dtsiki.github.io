@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { IDraggableElementProps } from './DraggableElement.types';
+import type { IDraggableElementProps } from './DraggableElement.types';
 
 import styles from './DraggableElement.module.scss';
 

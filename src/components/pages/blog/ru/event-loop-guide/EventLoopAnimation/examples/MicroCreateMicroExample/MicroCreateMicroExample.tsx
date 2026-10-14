@@ -46,8 +46,8 @@ infiniteMicrotaskLoop();`;
   return (
     <section ref={ref} className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Микрозадачи, создающие микрозадачи</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Микрозадачи, создающие микрозадачи</div>
       </div>
       <p>
         Повышаем уровень сложности: рассмотрим пример, в котором микрозадачи (промисы), которые создают другие

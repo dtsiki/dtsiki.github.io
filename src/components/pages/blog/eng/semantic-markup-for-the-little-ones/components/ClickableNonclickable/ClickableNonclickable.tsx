@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { IClickableNonclickableProps } from './ClickableNonclickable.types';
+import type { IClickableNonclickableProps } from './ClickableNonclickable.types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';

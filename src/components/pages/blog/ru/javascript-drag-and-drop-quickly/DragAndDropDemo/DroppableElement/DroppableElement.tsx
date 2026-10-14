@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { IDroppableElementProps } from './DroppableElement.types';
+import type { IDroppableElementProps } from './DroppableElement.types';
 
 export const DroppableElement = ({ children, className }: IDroppableElementProps) => {
   const ref = useRef<HTMLDivElement>(null);

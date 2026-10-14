@@ -4,7 +4,7 @@ import { HOME_SLIDES_CONFIG } from 'src/components/pages/home/HomeSlides/HomeSli
 import { HomeReadme } from 'src/components/pages/home/HomeReadme/HomeReadme';
 import { EWindowType } from 'src/components/common/Window/Window.types';
 import { BlogWindow } from 'src/components/blog/BlogWindow';
-import { TWindow } from 'src/types';
+import { type TWindow } from '~types/window';
 import { TrashBinWindow } from 'src/components/pages/home/TrashBinWindow/TrashBinWindow';
 import { BLOG_FOLDER_CONFIG } from 'src/components/blog/BlogWindow/BlogWindow.utils';
 import { TRASH_BIN_CV_CONFIG } from 'src/components/pages/home/TrashBinWindow/CV/HomeCV.utils';

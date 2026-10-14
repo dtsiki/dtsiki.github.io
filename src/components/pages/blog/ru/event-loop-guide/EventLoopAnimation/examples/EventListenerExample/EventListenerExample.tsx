@@ -28,8 +28,8 @@ console.log('Конец');`;
   return (
     <section ref={ref} id='event_listener' className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Слушатели событий</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Слушатели событий</div>
       </div>
       <p>Разберём пример с подпиской на событие {LONG_DASH} клик по кнопке:</p>
       <DoubleCodeSnippet

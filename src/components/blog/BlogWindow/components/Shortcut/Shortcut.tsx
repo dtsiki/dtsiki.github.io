@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import classNames from 'classnames';
-import { IShortcutProps } from './Shortcut.types';
+import type { IShortcutProps } from './Shortcut.types';
 import { SHORTCUT_FORMAT, SHORTCUT_ICON, isFileType } from './Shortcut.utils';
 import { EFolderView, TFolderItemType } from '../Folder/Folder.types';
 import { useTranslate } from '~hooks/useTranslate';

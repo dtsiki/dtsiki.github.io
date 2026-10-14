@@ -50,8 +50,8 @@ console.log('Ставки сделаны');`;
   return (
     <section ref={ref} id='promise_race' className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Гонка запросов</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Гонка запросов</div>
       </div>
       <p>
         Методы работа с коллекциями промисов <InlineCode>Promise.race()</InlineCode>,{' '}

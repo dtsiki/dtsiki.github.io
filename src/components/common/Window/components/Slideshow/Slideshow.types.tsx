@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
-import { Language } from 'src/types';
+import type { ReactNode } from 'react';
+import { LANGUAGE } from '~types/language';
 
 export type TThumbnail = {
-  [Language.ENG]: ReactNode;
-  [Language.RU]: ReactNode;
+  [LANGUAGE.ENG]: ReactNode;
+  [LANGUAGE.RU]: ReactNode;
 };
 
 export type TSlide = {

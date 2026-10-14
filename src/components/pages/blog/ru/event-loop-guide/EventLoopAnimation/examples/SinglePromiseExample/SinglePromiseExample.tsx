@@ -60,8 +60,8 @@ Error: Ошибка // Через какое-то время`;
   return (
     <section ref={ref} id='promise' className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Промисы</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Промисы</div>
       </div>
       <p>Рассмотрим простой пример с промисом:</p>
       <CodeSnippet

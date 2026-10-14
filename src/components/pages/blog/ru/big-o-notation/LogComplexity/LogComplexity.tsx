@@ -73,8 +73,8 @@ export const LogComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
       </ul>
       <Note>
         <div className='tags'>
-          <div className='tag'>Обратите внимание</div>
-          <div className='tag TEXT-ONLY'>Сложение сложностей</div>
+          <div className='tag primary'>Обратите внимание</div>
+          <div className='tag text-only'>Сложение сложностей</div>
         </div>
         <p>
           Бинарный поиск работает только для отсортированных массивов. Если массив не отсортирован — нужно его сперва
@@ -115,8 +115,8 @@ export const LogComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
       </Note>
       <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
-          <div className='tag'>Обратите внимание</div>
-          <div className='tag TEXT-ONLY'>Деление сложностей</div>
+          <div className='tag secondary'>Обратите внимание</div>
+          <div className='tag text-only'>Деление сложностей</div>
         </div>
         <p>
           <p>

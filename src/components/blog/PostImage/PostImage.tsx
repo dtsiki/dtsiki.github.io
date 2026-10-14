@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IPostImageProps } from './PostImage.types';
+import type { IPostImageProps } from './PostImage.types';
 import { Window } from 'src/components/common/Window/Window';
 import { EWindowType } from 'src/components/common/Window/Window.types';
 

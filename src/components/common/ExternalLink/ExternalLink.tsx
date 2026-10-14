@@ -1,11 +1,10 @@
-import React, { ReactElement } from 'react';
 import classNames from 'classnames';
-import { IExternalLinkProps } from './ExternalLink.types';
+import type { IExternalLinkProps } from './ExternalLink.types';
 import { ShareIcon } from '../icons/ui';
 
 import styles from './ExternalLink.module.scss';
 
-export const ExternalLink = ({ href, label }: IExternalLinkProps): ReactElement => {
+export const ExternalLink = ({ href, label }: IExternalLinkProps) => {
   const bind = classNames.bind(styles);
 
   return (

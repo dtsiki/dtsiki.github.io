@@ -70,8 +70,8 @@ printAllPairs([1, 2, 3]);`;
       </p>
       <Note>
         <div className='tags'>
-          <div className='tag'>Обратите внимание</div>
-          <div className='tag TEXT-ONLY'>Умножение сложностей</div>
+          <div className='tag primary'>Обратите внимание</div>
+          <div className='tag text-only'>Умножение сложностей</div>
         </div>
         <p>
           Почему квадратичную сложность имеют алгоритмы с двумя вложенными циклами? Связано это с умножением сложностей.
@@ -113,7 +113,7 @@ printAllPairs([1, 2, 3]);`;
       </p>
       <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
-          <div className='tag'>Вопросик</div>
+          <div className='tag secondary'>Вопросик</div>
         </div>
         <p>
           <b>Есть ли что-то хуже O(n²)?</b> Конечно же нет предела совершеннству. С лихвой можно сделать и O(n³), и

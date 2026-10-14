@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { DSP_ENGINEER, FRONTEND_DEVELOPER_TEAMLEAD, WEB_DEVELOPER, CDBA, FRONTEND_DEVELOPER } from 'src/i18n';
-import { TranslationObject } from 'src/types';
+import type { TranslationObject } from '~types/language';
 
 export type TCompanyType = string | TranslationObject | undefined;
 

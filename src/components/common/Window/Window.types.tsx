@@ -1,9 +1,8 @@
-import { ReactNode } from 'react';
-import { TDocPage } from './components/DocFile/components/DocPage/DocPage.types';
-import { TSlide } from './components/Slideshow/Slideshow.types';
-import { TranslationObject } from 'src/types';
-import { TFolderConfig } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
-import { WindowAnimation } from './components/WindowRenderer/WindowRenderer.utils';
+import type { ReactNode } from 'react';
+import type { TDocPage } from './components/DocFile/components/DocPage/DocPage.types';
+import type { TSlide } from './components/Slideshow/Slideshow.types';
+import type { TranslationObject } from '~types/language';
+import type { TFolderConfig } from 'src/components/blog/BlogWindow/components/Folder/Folder.types';
 
 export type TWindowContent = {
   slides?: TSlide[];

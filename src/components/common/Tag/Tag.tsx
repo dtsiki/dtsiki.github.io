@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './tag.module.scss';
@@ -8,7 +8,7 @@ export enum TagVariant {
   DARK = 'dark',
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
-  GHOST = 'ghost'
+  GHOST = 'ghost',
 }
 
 export enum TagHoverVariant {
@@ -16,7 +16,7 @@ export enum TagHoverVariant {
   DARK = 'dark',
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
-  GHOST = 'ghost'
+  GHOST = 'ghost',
 }
 
 export enum TagElement {
@@ -24,45 +24,48 @@ export enum TagElement {
   SPAN = 'span',
   LIST_ITEM = 'li',
   LINK = 'a',
-  BUTTON = 'button'
+  BUTTON = 'button',
 }
 
 interface Props {
   children: ReactNode;
-  element?:  TagElement;
+  element?: TagElement;
   variant?: TagVariant;
   hoverVariant?: TagHoverVariant;
   linkPath?: string;
   isOutlined?: boolean;
-  onClick?: () => void
+  onClick?: () => void;
 }
 
-const Tag = ({ element = TagElement.SPAN, children, variant = TagVariant.PRIMARY, linkPath, isOutlined = false, onClick }: Props): ReactElement => {
+const Tag = ({
+  element = TagElement.SPAN,
+  children,
+  variant = TagVariant.PRIMARY,
+  linkPath,
+  isOutlined = false,
+  onClick,
+}: Props) => {
   const Element = element;
 
   const bind = classNames.bind(styles);
-  const className = bind([styles.tag, variant, { [styles.outlined]: isOutlined, [styles.button]: element === TagElement.BUTTON }]);
+  const className = bind([
+    styles.tag,
+    variant,
+    { [styles.outlined]: isOutlined, [styles.button]: element === TagElement.BUTTON },
+  ]);
 
   return (
     <>
       {element === TagElement.LINK ? (
-        <a
-          className={className}
-          href={linkPath}
-          target='_blank'
-          rel='noopener noreferrer'>
+        <a className={className} href={linkPath} target='_blank' rel='noopener noreferrer'>
           {children}
         </a>
       ) : element === TagElement.BUTTON ? (
-        <button
-          onClick={onClick}
-          className={className}>
+        <button onClick={onClick} className={className}>
           {children}
         </button>
       ) : (
-        <Element className={className}>
-          {children}
-        </Element>
+        <Element className={className}>{children}</Element>
       )}
     </>
   );

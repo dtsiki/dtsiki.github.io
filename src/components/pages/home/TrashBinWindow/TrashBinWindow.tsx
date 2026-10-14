@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames/bind';
-import { ITrashBinWindowProps } from './TrashBinWindow.types';
+import type { ITrashBinWindowProps } from './TrashBinWindow.types';
 import { BACK, OBJECTS, OLD_CV_FILE_NAME, TRASH_BIN } from 'src/i18n';
 import { useWindowManager } from '~hooks/useWindowManager';
 import { useTranslate } from '~hooks/useTranslate';
@@ -9,7 +9,7 @@ import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
 import { GridMiniIcon, ArrowLeftIcon, BinIcon, ListMiniIcon } from 'src/components/common/icons/ui';
 import { WindowHeader } from 'src/components/common/Window/components/WindowHeader/WindowHeader';
 import { EWindowType } from 'src/components/common/Window/Window.types';
-import { Language, TranslationObject } from 'src/types';
+import { LANGUAGE, type TranslationObject } from '~types/language';
 import { TrashBinShortcut } from './Shortcut/Shortcut';
 import { WindowFooter } from 'src/components/common/Window/components/WindowFooter';
 import { WindowFakeMenu } from 'src/components/common/Window/components/WindowFakeMenu';
@@ -69,7 +69,7 @@ export const TrashBinWindow = (props: ITrashBinWindowProps) => {
 
   const renderFooter = useMemo(() => {
     const footerContent =
-      language === Language.ENG
+      language === LANGUAGE.ENG
         ? `${TRASH_BIN_ITEMS?.length} ${translate(OBJECTS)}`
         : `${translate(OBJECTS)}: ${TRASH_BIN_ITEMS?.length}`;
 

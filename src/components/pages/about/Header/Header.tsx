@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactElement, useState } from 'react';
+import { type MutableRefObject, useState } from 'react';
 import { faFilePdf, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { Hero } from 'src/components/layout/Hero/Hero';
@@ -22,7 +22,7 @@ interface Props {
   showButton: boolean;
 }
 
-const AboutHeader = ({ targetRef, showButton }: Props): ReactElement => {
+const AboutHeader = ({ targetRef, showButton }: Props) => {
   const [view, setView] = useState<ScreenView>(ScreenView.SELECT_USER);
 
   const scrollDown = (): void => {

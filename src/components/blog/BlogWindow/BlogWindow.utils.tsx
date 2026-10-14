@@ -6,7 +6,7 @@ import {
   RUSSIAN_POSTS_FOLDER_NAME,
   RUSSIAN_POSTS_FOLDER_PATH,
 } from 'src/i18n';
-import { TFolderConfig, TFolderItemType } from './components/Folder/Folder.types';
+import { type TFolderConfig, TFolderItemType } from './components/Folder/Folder.types';
 
 export enum EBlogRecord {
   BLOG_FOLDER = 'BLOG_FOLDER',

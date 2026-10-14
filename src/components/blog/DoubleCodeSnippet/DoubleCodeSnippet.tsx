@@ -1,4 +1,4 @@
-import { IDoubleCodeSnippetProps } from './DoubleCodeSnippet.types';
+import type { IDoubleCodeSnippetProps } from './DoubleCodeSnippet.types';
 import { Code } from '~components/common/Code';
 import { ExampleSnippet } from '../ExampleSnippet/ExampleSnippet';
 

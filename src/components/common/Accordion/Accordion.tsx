@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import { IAccordionProps } from './Accordion.types';
+import type { IAccordionProps } from './Accordion.types';
+import { ArrowDownIcon } from '../icons/ui';
 
 import styles from './Accordion.module.scss';
-import { ArrowDownIcon, ArrowUpIcon, ChevronDownMiniIcon } from '../icons/ui';
 
 export const Accordion = ({ title, children }: IAccordionProps) => {
   const bind = classNames.bind(styles);

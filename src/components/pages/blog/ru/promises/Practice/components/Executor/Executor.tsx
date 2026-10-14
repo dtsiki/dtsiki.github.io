@@ -208,7 +208,7 @@ promise
       <br />
       <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
-          <div className='tag'>Вопросик</div>
+          <div className='tag secondary'>Вопросик</div>
         </div>
         <p>
           <b>

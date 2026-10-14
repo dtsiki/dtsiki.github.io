@@ -1,5 +1,5 @@
 import YouTube from 'react-youtube';
-import { IPostVideoProps } from './PostVideo.types';
+import type { IPostVideoProps } from './PostVideo.types';
 import { Window } from 'src/components/common/Window/Window';
 import { EWindowType } from 'src/components/common/Window/Window.types';
 

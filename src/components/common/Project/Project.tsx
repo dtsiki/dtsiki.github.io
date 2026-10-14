@@ -1,4 +1,3 @@
-import React, { ReactElement } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
@@ -9,12 +8,12 @@ import styles from './project.module.scss';
 
 interface Props {
   title: string;
-  description:  string;
+  description: string;
   variant: string;
   col?: string;
 }
 
-const Project = ({ title, description, variant, col }: Props): ReactElement => {
+const Project = ({ title, description, variant, col }: Props) => {
   const bind = classNames.bind(styles);
 
   return (
@@ -22,9 +21,7 @@ const Project = ({ title, description, variant, col }: Props): ReactElement => {
       <div className={bind([styles.project, styles[variant]])}>
         <div className={styles.project__overlay}>
           <h2 className={styles.project__title}>{title}</h2>
-          <p className={styles.project__description}>
-            {description}
-          </p>
+          <p className={styles.project__description}>{description}</p>
           <Link href='/projects'>
             <a className={styles.project__link}>
               Read more

@@ -1,4 +1,4 @@
-import { IWindowFakeMenuProps } from './WindowFakeMenu.types';
+import type { IWindowFakeMenuProps } from './WindowFakeMenu.types';
 import { useTranslate } from '~hooks/useTranslate';
 import { FAKE_MENU_ITEMS, hasFakeMenu } from './WindowFakeMenu.utils';
 

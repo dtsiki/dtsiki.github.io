@@ -1,5 +1,5 @@
-import { TranslationObject } from 'src/types';
-import { EFolderView, TFolderItem, TFolderItemType } from '../Folder/Folder.types';
+import type { TranslationObject } from '~types/language';
+import { EFolderView, type TFolderItem, TFolderItemType } from '../Folder/Folder.types';
 
 export interface IShortcutProps {
   title: string | TranslationObject;

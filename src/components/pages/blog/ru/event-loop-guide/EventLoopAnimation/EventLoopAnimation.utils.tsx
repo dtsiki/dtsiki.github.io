@@ -1,6 +1,6 @@
 import { AnimationDemo } from './EventLoopAnimation.types';
 import styles from './EventLoopAnimation.module.scss';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import classNames from 'classnames';
 import { Clock } from './Clock';
 import { Loading } from './Loading';

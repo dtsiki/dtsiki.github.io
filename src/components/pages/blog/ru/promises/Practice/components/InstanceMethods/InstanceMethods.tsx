@@ -370,7 +370,7 @@ static reject(error) {
       <br />
       <Note type={NOTE_TYPE.PRIMARY}>
         <div className='tags'>
-          <div className='tag PRIMARY'>Важно</div>
+          <div className='tag primary'>Важно</div>
         </div>
         <p>
           У возвращаемого промиса {getResolveInline()} и {getRejectInline()} {LONG_DASH} это не те {getResolveInline()}{' '}

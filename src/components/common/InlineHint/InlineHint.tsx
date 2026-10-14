@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classNames from 'classnames';
 import { CircleIcon } from '../icons/ui';
-import { IInlineHintProps } from './InlineHint.types';
+import type { IInlineHintProps } from './InlineHint.types';
 
 import styles from './InlineHint.module.scss';
 

@@ -1,13 +1,13 @@
-export const Language = {
+export const LANGUAGE = {
   ENG: 'ENG',
   RU: 'RU',
 } as const;
 
-export type Language = typeof Language[keyof typeof Language];
+export type TLanguage = typeof LANGUAGE[keyof typeof LANGUAGE];
 
 export interface TranslationObject {
-  [Language.ENG]: string;
-  [Language.RU]: string;
+  [LANGUAGE.ENG]: string;
+  [LANGUAGE.RU]: string;
 }
 
-export type LanguageKey = typeof Language.ENG | typeof Language.RU;
+export type TLanguageKey = typeof LANGUAGE.ENG | typeof LANGUAGE.RU;

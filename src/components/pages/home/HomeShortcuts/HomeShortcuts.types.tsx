@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
-import { TWindow, TranslationObject } from 'src/types';
+import type { ReactNode } from 'react';
+import type { TranslationObject } from '~types/language';
+import type { TWindow } from '~types/window';
 
 export const HomeItem = {
   CV: 'CV',

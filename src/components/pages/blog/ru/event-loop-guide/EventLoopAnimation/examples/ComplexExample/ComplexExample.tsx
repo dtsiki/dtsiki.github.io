@@ -49,8 +49,8 @@ console.log('Восемь');`;
   return (
     <section ref={ref} id='async_functions' className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Всё и сразу: асинхронные функции, интервал, цепочка промисов</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Всё и сразу: асинхронные функции, интервал, цепочка промисов</div>
       </div>
       <p>Разберём комплексный пример, в котором смешано всё и сразу:</p>
       <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={complexExampleCode} name={`example(${EXAMPLE_NUMBER})`} />

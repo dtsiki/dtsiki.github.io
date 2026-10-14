@@ -1,6 +1,6 @@
-import { Language } from 'src/types';
+import { LANGUAGE } from '~types/language';
 
 export const MENU_ITEMS = {
-  [Language.ENG]: ['File', 'Edit', 'View', 'Favourites', 'Tools', 'Help'],
-  [Language.RU]: ['Файл', 'Изменить', 'Просмотр', 'Избранное', 'Инструменты', 'Помощь'],
+  [LANGUAGE.ENG]: ['File', 'Edit', 'View', 'Favourites', 'Tools', 'Help'],
+  [LANGUAGE.RU]: ['Файл', 'Изменить', 'Просмотр', 'Избранное', 'Инструменты', 'Помощь'],
 };

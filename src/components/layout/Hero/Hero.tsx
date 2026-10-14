@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react';
 import classNames from 'classnames/bind';
-import { EHeroAlign, EHeroSize, IHeroProps } from './Hero.types';
+import { EHeroAlign, EHeroSize, type IHeroProps } from './Hero.types';
 
 import styles from './Hero.module.scss';
 
@@ -14,7 +13,7 @@ export const Hero = ({
   pattern,
   height,
   hasOverlay = false,
-}: IHeroProps): ReactElement => {
+}: IHeroProps) => {
   const bind = classNames.bind(styles);
 
   return (

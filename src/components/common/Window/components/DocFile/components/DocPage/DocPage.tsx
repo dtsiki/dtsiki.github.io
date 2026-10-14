@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { IDocPageProps } from './DocPage.types';
+import type { IDocPageProps } from './DocPage.types';
 
 import styles from './DocPage.module.scss';
 

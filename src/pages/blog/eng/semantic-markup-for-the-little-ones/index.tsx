@@ -1,10 +1,10 @@
-import { MutableRefObject, useRef } from 'react';
+import { type MutableRefObject, useRef } from 'react';
 import { nanoid } from 'nanoid';
-import { IItemOfContent } from 'src/interfaces';
+import { type IItemOfContent } from 'src/interfaces';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
-import { ReadMoreList, TReadMoreSource } from 'src/components/blog/ReadMoreList';
+import { ReadMoreList, type TReadMoreSource } from 'src/components/blog/ReadMoreList';
 import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 import {
   Attributes,

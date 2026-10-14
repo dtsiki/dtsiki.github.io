@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { Window } from 'src/components/common/Window/Window';
 import { EWindowType } from 'src/components/common/Window/Window.types';
-import { IFormattingProps } from './Formatting.types';
+import type { IFormattingProps } from './Formatting.types';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 

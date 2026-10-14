@@ -1,4 +1,3 @@
-import { ReactElement } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
@@ -36,7 +35,7 @@ const ShortcutPreview = ({
   viewType = ShortcutPreviewViewType.GRID,
   type = EShortcutPreviewType.TXT_FILE,
   action,
-}: Props): ReactElement => {
+}: Props) => {
   const bind = classNames.bind(styles);
 
   const formattedTitle = type === EShortcutPreviewType.TXT_FILE ? title.replace(/\s/g, '_') + '.txt' : title;

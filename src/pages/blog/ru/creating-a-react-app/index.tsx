@@ -5,11 +5,10 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { Note } from '~components/common/Note/Note';
-import { NOTE_TYPE } from '~components/common/Note/Note.types';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
-import { IItemOfContent } from 'src/interfaces';
+import type { IItemOfContent } from 'src/interfaces';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import newRepoButtonImage from 'public/assets/blog/creating-a-react-app/new-repo-button.png';

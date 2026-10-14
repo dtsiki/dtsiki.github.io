@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import styles from './drag-and-drop.module.scss';
@@ -6,7 +6,7 @@ import styles from './drag-and-drop.module.scss';
 export enum DragAndDropCardVariant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
-  TERTIARY = 'tertiary'
+  TERTIARY = 'tertiary',
 }
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
   variant?: DragAndDropCardVariant;
 }
 
-const DragAndDropCard = ({ title, variant = DragAndDropCardVariant.PRIMARY }: Props): ReactElement => {
+const DragAndDropCard = ({ title, variant = DragAndDropCardVariant.PRIMARY }: Props) => {
   const bind = classNames.bind(styles);
   const [isGrabbing, setIsGrabbing] = useState<boolean>(false);
 

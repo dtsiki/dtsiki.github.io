@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { Hero } from 'src/components/layout/Hero/Hero';
-import { IPostProps } from './PostWrapper.types';
+import { type IPostProps } from './PostWrapper.types';
 import { TopScrollBar } from 'src/components/common/TopScrollBar';
 import { PostContent } from '../PostContent/PostContent';
 import { useNotifications } from '~hooks/useNotifications';
 import { useTranslate } from '~hooks/useTranslate';
-import { Language, NotificationType } from 'src/types';
+import { LANGUAGE } from '~types/language';
+import { NotificationType } from '~types/notifications';
 import { ENGLISH_POST_NOTIFICATION, TAKE_A_NOTE } from 'src/i18n';
 import { CodeSnippetProvider } from 'src/context/CodeSnippetContext/CodeSnippetProvider';
 
@@ -17,7 +18,7 @@ export const PostWrapper = ({ postConfig, heroConfig, children }: IPostProps) =>
   const { language } = useTranslate();
 
   useEffect(() => {
-    if (postConfig.strictLanguage && postConfig.language === Language.ENG && language === Language.RU) {
+    if (postConfig.strictLanguage && postConfig.language === LANGUAGE.ENG && language === LANGUAGE.RU) {
       showNotification({
         type: NotificationType.INFO,
         title: TAKE_A_NOTE,

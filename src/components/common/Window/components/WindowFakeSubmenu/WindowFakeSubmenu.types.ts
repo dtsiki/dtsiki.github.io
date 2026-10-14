@@ -1,4 +1,4 @@
-import { FC, ReactNode, SVGProps } from 'react';
+import { type ReactNode } from 'react';
 import { EWindowType } from '../../Window.types';
 
 export interface IWindowFakeSubmenuProps {

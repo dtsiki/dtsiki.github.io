@@ -1,4 +1,4 @@
-import { TranslationObject } from 'src/types';
+import type { TranslationObject } from '~types/language';
 
 export const NotificationType = {
   INFO: 'INFO',

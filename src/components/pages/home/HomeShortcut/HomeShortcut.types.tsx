@@ -1,6 +1,4 @@
-import { ReactNode } from 'react';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { StaticImageData } from 'next/image';
+import type { ReactNode } from 'react';
 
 export enum EHomeShortcutVariant {
   PRIMARY = 'primary',

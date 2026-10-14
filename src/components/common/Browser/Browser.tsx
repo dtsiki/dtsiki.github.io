@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowMaximize, faWindowMinimize, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faFirefox } from '@fortawesome/free-brands-svg-icons';
@@ -13,7 +13,7 @@ interface Props {
   hasScroll?: boolean;
 }
 
-const Browser = ({ name, children, hasScroll = true }: Props): ReactElement => {
+const Browser = ({ name, children, hasScroll = true }: Props) => {
   return (
     <div className={styles.browser}>
       <div className={styles.browser__header}>

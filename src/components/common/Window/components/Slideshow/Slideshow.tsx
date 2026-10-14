@@ -3,7 +3,7 @@ import { isNumber } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
-import { ISlideshowProps } from './Slideshow.types';
+import type { ISlideshowProps } from './Slideshow.types';
 import { CustomScrollbar } from '../../../CustomScrollbar';
 import { EmptySlide } from './components/EmptySlide/EmptySlide';
 import { OF, SELECT_SLIDE, SLIDE } from 'src/i18n';

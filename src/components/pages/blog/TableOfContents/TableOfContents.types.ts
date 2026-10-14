@@ -1,5 +1,5 @@
-import { MutableRefObject } from 'react';
-import { Language, TranslationObject } from 'src/types';
+import type { MutableRefObject } from 'react';
+import type { TLanguage, TranslationObject } from '~types/language';
 
 export const TableOfContentsVariant = {
   PRIMARY: 'PRIMARY',
@@ -16,7 +16,7 @@ export type TItemOfContent = {
 export interface ITableOfContentsProps {
   customTitle?: TranslationObject;
   items: TItemOfContent[];
-  strictLanguage?: Language;
+  strictLanguage?: TLanguage;
   hideNumbers?: boolean;
   showOnScroll?: boolean;
   variant?: TableOfContentsVariant;

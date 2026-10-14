@@ -1,4 +1,4 @@
-import { TCustomWindowConfig, TWindow } from 'src/types';
+import type { TCustomWindowConfig, TWindow } from '~types/window';
 
 export interface IWindowManagerContextData {
   windows: TWindow[];

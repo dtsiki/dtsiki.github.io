@@ -1,4 +1,4 @@
-import { IBaseSlideProps } from './BaseSlide.types';
+import type { IBaseSlideProps } from './BaseSlide.types';
 import { CLICK_TO_ADD_TEXT, CLICK_TO_ADD_TITLE } from 'src/i18n';
 import { useTranslate } from '~hooks/useTranslate';
 

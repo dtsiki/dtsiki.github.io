@@ -1,4 +1,4 @@
-import { TCodeLang } from '~components/common/Code/Code.types';
+import { type TCodeLang } from '~components/common/Code/Code.types';
 
 export interface IDoubleCodeSnippetProps {
   lang: [TCodeLang, TCodeLang];

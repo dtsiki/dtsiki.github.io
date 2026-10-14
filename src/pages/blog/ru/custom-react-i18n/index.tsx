@@ -5,7 +5,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
-import { IItemOfContent } from 'src/interfaces';
+import type { IItemOfContent } from 'src/interfaces';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import { Hero } from 'src/components/pages/blog/ru/custom-react-i18n/Hero/Hero';
@@ -127,8 +127,8 @@ export type Language = (typeof Language)[keyof typeof Language];`;
   const translationObjectSnippet = `import type { Language } from "../i18n/language";
 
 export interface TranslationObject {
-  [Language.ENG]: string;
-  [Language.RU]: string;
+  [LANGUAGE.ENG]: string;
+  [LANGUAGE.RU]: string;
 }`;
 
   const contextInterfaceSnippet = `import type { Language } from "../../i18n/language";
@@ -157,10 +157,10 @@ import { LanguageContext } from "./LanguageContext";
 import { Language } from "../../i18n/language";
 
 export const LanguageProvider = ({ children }: ILanguageProviderProps) => {
-  const [language, setLanguage] = useState<Language>(Language.ENG);
+  const [language, setLanguage] = useState<Language>(LANGUAGE.ENG);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === Language.ENG ? Language.RU : Language.ENG));
+    setLanguage((prev) => (prev === LANGUAGE.ENG ? LANGUAGE.RU : LANGUAGE.ENG));
   };
 
   return (
@@ -237,21 +237,21 @@ export const useTranslate = () => {
 
   const translationObjectExampleSnippet = `// ❌ Ошибка: нет перевода на русский
 const HELLO_WORLD: TranslationObject = {
-  [Language.ENG]: "Hello, world!",
+  [LANGUAGE.ENG]: "Hello, world!",
 };
 
 // ❌ Ошибка: значение не строка
 const HELLO_WORLD: TranslationObject = {
-  [Language.ENG]: 42,
-  [Language.RU]: "Привет, мир!",
+  [LANGUAGE.ENG]: 42,
+  [LANGUAGE.RU]: "Привет, мир!",
 };`;
 
   const i18nExampleSnippet = `import type { TranslationObject } from "../../types/i18n.types";
 import { Language } from "../language";
 
 export const HELLO_WORLD: TranslationObject = {
-  [Language.ENG]: "Hello, world!",
-  [Language.RU]: "Привет, мир!",
+  [LANGUAGE.ENG]: "Hello, world!",
+  [LANGUAGE.RU]: "Привет, мир!",
 };`;
 
   const translateExampleSnippet = `import { useTranslate } from "../../../hooks/useTranslate";
@@ -271,7 +271,7 @@ export const LanguageSwitcher = () => {
 
   return (
     <button className="button" onClick={toggleLanguage}>
-      {language === Language.ENG ? Language.RU : Language.ENG}
+      {language === LANGUAGE.ENG ? LANGUAGE.RU : LANGUAGE.ENG}
     </button>
   );
 };`;
@@ -459,7 +459,7 @@ export const LanguageSwitcher = () => {
           проекта.
         </p>
         <p>Для переводов нам потребуется специальный объект:</p>
-        <CodeSnippet code={translationObjectSnippet} name='src/types/i18n.types' lang={CODE_LANG.TYPESCRIPT} />
+        <CodeSnippet code={translationObjectSnippet} name='~types/i18n.types' lang={CODE_LANG.TYPESCRIPT} />
         <p>
           Этот объект поможет нам типизировать объекты перевода. Он будет говорить TypeScript&apos;у: «Любой объект,
           который хочет быть переводом, должен содержать поля English и Russian, и эти оба поля должны быть строками».

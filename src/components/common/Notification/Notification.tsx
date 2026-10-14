@@ -1,4 +1,4 @@
-import { INotificationProps } from './Notification.types';
+import type { INotificationProps } from './Notification.types';
 
 import styles from './Notification.module.scss';
 

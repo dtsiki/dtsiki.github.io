@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react';
 import classNames from 'classnames';
-import { EHomeShortcutVariant, IHomeShortcutProps } from './HomeShortcut.types';
+import { EHomeShortcutVariant, type IHomeShortcutProps } from './HomeShortcut.types';
 
 import styles from './HomeShortcut.module.scss';
 
@@ -11,7 +10,7 @@ export const HomeShortcut = ({
   handleAction,
   tooltip,
   iconSize = 48,
-}: IHomeShortcutProps): ReactElement => {
+}: IHomeShortcutProps) => {
   const bind = classNames.bind(styles);
 
   return (

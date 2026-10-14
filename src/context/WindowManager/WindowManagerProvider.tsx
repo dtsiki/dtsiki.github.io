@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { WindowManagerContext } from './WindowManagerContext';
 import { WINDOW_REGISTRY } from './WindowManager.utils';
-import { IWindowManagerProviderProps } from './WindowManagerProvider.types';
-import { TCustomWindowConfig, TWindow } from 'src/types';
+import type { IWindowManagerProviderProps } from './WindowManagerProvider.types';
+import type { TCustomWindowConfig, TWindow } from '~types/window';
 
 export const WindowManagerProvider = ({ children }: IWindowManagerProviderProps) => {
   const [windows, setWindows] = useState<TWindow[]>([]);

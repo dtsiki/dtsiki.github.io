@@ -1,83 +1,84 @@
-import { Language, TranslationObject } from 'src/types';
+import { LANGUAGE } from '~types/language';
+import type { TranslationObject } from '~types/language';
 
 export const BLOG_DESCRIPTION: TranslationObject = {
-  [Language.ENG]: "A place for things I've been thinking about — sometimes about code, sometimes not.",
-  [Language.RU]: 'Пишу здесь о том и о сём, о пятом и десятом  — иногда о коде, иногда нет.',
+  [LANGUAGE.ENG]: "A place for things I've been thinking about — sometimes about code, sometimes not.",
+  [LANGUAGE.RU]: 'Пишу здесь о том и о сём, о пятом и десятом  — иногда о коде, иногда нет.',
 };
 
 export const TUTORIAL: TranslationObject = {
-  [Language.ENG]: 'Tutorial',
-  [Language.RU]: 'Пошаговый урок',
+  [LANGUAGE.ENG]: 'Tutorial',
+  [LANGUAGE.RU]: 'Сделай сам',
 };
 
 export const GUIDE: TranslationObject = {
-  [Language.ENG]: 'Guide',
-  [Language.RU]: 'Путеводитель',
+  [LANGUAGE.ENG]: 'Guide',
+  [LANGUAGE.RU]: 'Ликбез',
 };
 
 export const ENGLISH: TranslationObject = {
-  [Language.ENG]: 'English',
-  [Language.RU]: 'Лёрнинг инглиш',
+  [LANGUAGE.ENG]: 'English',
+  [LANGUAGE.RU]: 'Инглиш',
 };
 
 export const NEXT_POST: TranslationObject = {
-  [Language.ENG]: 'Next post',
-  [Language.RU]: 'Следующий пост',
+  [LANGUAGE.ENG]: 'Next post',
+  [LANGUAGE.RU]: 'Следующий пост',
 };
 
 export const PREV_POST: TranslationObject = {
-  [Language.ENG]: 'Previous post',
-  [Language.RU]: 'Предыдущий пост',
+  [LANGUAGE.ENG]: 'Previous post',
+  [LANGUAGE.RU]: 'Предыдущий пост',
 };
 
 export const THOUGHTS: TranslationObject = {
-  [Language.ENG]: 'Thoughts',
-  [Language.RU]: 'Мыслишки',
+  [LANGUAGE.ENG]: 'Thoughts',
+  [LANGUAGE.RU]: 'Заметки',
 };
 
 export const READING: TranslationObject = {
-  [Language.ENG]: 'Reading',
-  [Language.RU]: 'О книгах',
+  [LANGUAGE.ENG]: 'Reading',
+  [LANGUAGE.RU]: 'О книгах',
 };
 
 export const ENGLISH_POST_NOTIFICATION: TranslationObject = {
-  [Language.ENG]:
-    "This post was originally written in English, so it's only available in its original language. The site's language switcher won't affect it.",
-  [Language.RU]:
+  [LANGUAGE.ENG]:
+    "This post was originally written in English, so it's only available in its original LANGUAGE. The site's LANGUAGE.switcher won't affect it.",
+  [LANGUAGE.RU]:
     'Этот пост написан изначально на английском, поэтому доступен только в оригинале. Переключатель языка на сайте здесь беспомощен.',
 };
 
 export const TAKE_A_NOTE: TranslationObject = {
-  [Language.ENG]: 'Take a note!',
-  [Language.RU]: 'Пссс, обратите внимание...',
+  [LANGUAGE.ENG]: 'Take a note!',
+  [LANGUAGE.RU]: 'Пссс, обратите внимание...',
 };
 
 export const BLOG_FOLDER_NAME: TranslationObject = {
-  [Language.ENG]: 'D:/Blog',
-  [Language.RU]: 'D:/Блог',
+  [LANGUAGE.ENG]: 'D:/Blog',
+  [LANGUAGE.RU]: 'D:/Блог',
 };
 
 export const ENGLISH_POSTS_FOLDER_NAME: TranslationObject = {
-  [Language.ENG]: 'English posts',
-  [Language.RU]: 'Пишу всякое на английском',
+  [LANGUAGE.ENG]: 'English posts',
+  [LANGUAGE.RU]: 'Пишу всякое на английском',
 };
 
 export const RUSSIAN_POSTS_FOLDER_NAME: TranslationObject = {
-  [Language.ENG]: 'Russian posts',
-  [Language.RU]: 'Пишу всякое на русском',
+  [LANGUAGE.ENG]: 'Russian posts',
+  [LANGUAGE.RU]: 'Пишу всякое на русском',
 };
 
 export const ENGLISH_POSTS_FOLDER_PATH: TranslationObject = {
-  [Language.ENG]: 'D:/Blog/English posts',
-  [Language.RU]: 'D:/Блог/Пишу всякое на английском',
+  [LANGUAGE.ENG]: 'D:/Blog/English posts',
+  [LANGUAGE.RU]: 'D:/Блог/Пишу всякое на английском',
 };
 
 export const RUSSIAN_POSTS_FOLDER_PATH: TranslationObject = {
-  [Language.ENG]: 'D:/Blog/Russian posts',
-  [Language.RU]: 'D:/Блог/Пишу всякое на русском',
+  [LANGUAGE.ENG]: 'D:/Blog/Russian posts',
+  [LANGUAGE.RU]: 'D:/Блог/Пишу всякое на русском',
 };
 
 export const EXAMPLES: TranslationObject = {
-  [Language.ENG]: 'Examples',
-  [Language.RU]: 'Примеры',
+  [LANGUAGE.ENG]: 'Examples',
+  [LANGUAGE.RU]: 'Примеры',
 };

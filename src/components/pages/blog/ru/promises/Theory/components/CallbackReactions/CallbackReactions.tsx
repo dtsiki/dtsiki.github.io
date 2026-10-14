@@ -68,7 +68,7 @@ fetch(url)
       <br />
       <Note type={NOTE_TYPE.SECONDARY}>
         <div className='tags'>
-          <div className='tag'>Обратите внимание</div>
+          <div className='tag secondary'>Обратите внимание</div>
         </div>
         <p>
           Функция <InlineCode>fetch(url)</InlineCode> сразу возвращает промис в состоянии {pendingEm}. Когда сервер

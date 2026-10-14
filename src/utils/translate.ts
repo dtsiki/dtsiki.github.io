@@ -1,16 +1,17 @@
-import { Language, LanguageKey, TranslationObject } from 'src/types';
+import type { TLanguage, TLanguageKey, TranslationObject } from '~types/language';
+import { LANGUAGE } from '~types/language';
 
 export const translate = (
-  language: Language,
+  language: TLanguage,
   translation: TranslationObject,
   fallback: string = 'Перевод не найден...'
 ): string => {
-  const languageKey: LanguageKey = Language[language];
+  const languageKey: TLanguageKey = LANGUAGE[language];
 
   return translation[languageKey] || fallback;
 };
 
-export const translateTitle = (language: LanguageKey, title?: string | TranslationObject) => {
+export const translateTitle = (language: TLanguageKey, title?: string | TranslationObject) => {
   if (typeof title === 'string') {
     return title;
   }

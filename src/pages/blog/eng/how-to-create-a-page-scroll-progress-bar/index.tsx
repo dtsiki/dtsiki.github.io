@@ -9,7 +9,7 @@ import { CODE_LANG } from '~components/common/Code';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import HtmlTag from 'src/components/common/HtmlTag';
 import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
-import { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
+import type { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
 
 import heights from 'public/assets/blog/how-to-create-a-page-scroll-progress-bar/heights.svg';
 
@@ -58,7 +58,7 @@ const Post = () => {
 
   const progressState = `import { useState } from 'react';
 
-export const ProgressScroll = (): ReactElement => {
+export const ProgressScroll = () => {
   const [progress, setProgress] = useState<number>(0);
 
   return (

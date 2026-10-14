@@ -295,7 +295,7 @@ completedCount++;`;
       <br />
       <Note>
         <div className='tags'>
-          <div className='tag PRIMARY'>Обратите внимание</div>
+          <div className='tag primary'>Обратите внимание</div>
         </div>
         <p>
           В нативном {allInline} использует второй аргумент {thenInline} {LONG_DASH} колбэк{' '}

@@ -1,4 +1,4 @@
-import { MouseEvent, forwardRef } from 'react';
+import { type MouseEvent, forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
@@ -40,7 +40,7 @@ export const Button = ({ label, onClick, disabled = false }: IButtonProps) => {
   );
 };`;
 
-  const childrenTypesExampleCode = `import { ReactNode } from 'react';
+  const childrenTypesExampleCode = `import type { ReactNode } from 'react';
 
 export interface IHeaderProps = {
   children: ReactNode;
@@ -84,7 +84,7 @@ const Input = () => {
   console.log(event.currentTarget);
 };`;
 
-  const genericsListTypesExampleCode = `import { ReactNode } from 'react';
+  const genericsListTypesExampleCode = `import type { ReactNode } from 'react';
 
 export interface IListProps<T> {
   items: T[];
@@ -264,7 +264,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   );
 };`;
 
-  const forwardRefTypesExampleCode = `import { ReactNode } from 'react';
+  const forwardRefTypesExampleCode = `import type { ReactNode } from 'react';
 
 export interface IButtonProps = {
   children: ReactNode;

@@ -1,5 +1,5 @@
 import { useDrag } from 'react-dnd';
-import { IDragItemProps } from './DragItem.types';
+import type { IDragItemProps } from './DragItem.types';
 import { getPositionStyle, getPosition } from './DragItem.utils';
 import { useWindowSize } from '~hooks/useWindowSize';
 

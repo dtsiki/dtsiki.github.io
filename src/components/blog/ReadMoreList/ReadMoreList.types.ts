@@ -1,4 +1,4 @@
-import { Language } from 'src/types';
+import type { TLanguage } from '~types/language';
 
 export type TReadMoreSource = {
   id: string;
@@ -8,5 +8,5 @@ export type TReadMoreSource = {
 
 export interface IReadMoreListProps {
   items: Array<TReadMoreSource>;
-  language?: Language;
+  language?: TLanguage;
 }

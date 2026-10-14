@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 import classNames from 'classnames';
 
@@ -9,7 +9,7 @@ export enum PatternVariant {
   CROSS = 'cross',
   TRIANGLES = 'triangles',
   ANGLES = 'angles',
-  HERRINGBONE = 'herringbone'
+  HERRINGBONE = 'herringbone',
 }
 
 interface Props {
@@ -17,14 +17,10 @@ interface Props {
   children: ReactNode;
 }
 
-const Pattern = ({ children, variant }: Props): ReactElement => {
+const Pattern = ({ children, variant }: Props) => {
   const bind = classNames.bind(styles);
 
-  return (
-    <div className={bind([styles.pattern, styles[variant]])}>
-      {children}
-    </div>
-  );
+  return <div className={bind([styles.pattern, styles[variant]])}>{children}</div>;
 };
 
 export default Pattern;

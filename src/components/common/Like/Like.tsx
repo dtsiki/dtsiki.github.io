@@ -1,14 +1,14 @@
-import React, { ReactElement, ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import styles from './like.module.scss';
 
 export enum LikeVariant {
   PRIMARY = 'primary',
-  LIGHT = 'light'
+  LIGHT = 'light',
 }
 
 interface Props {
@@ -18,14 +18,12 @@ interface Props {
   clickHandle?: () => void;
 }
 
-const Like = ({ children, variant = LikeVariant.PRIMARY, icon = faHeart, clickHandle }: Props): ReactElement => {
+const Like = ({ children, variant = LikeVariant.PRIMARY, icon = faHeart, clickHandle }: Props) => {
   const bind = classNames.bind(styles);
 
   if (clickHandle) {
     return (
-      <button
-        onClick={clickHandle}
-        className={bind([styles.like, styles.button, styles[variant]])}>
+      <button onClick={clickHandle} className={bind([styles.like, styles.button, styles[variant]])}>
         <FontAwesomeIcon icon={icon} />
         {children}
       </button>

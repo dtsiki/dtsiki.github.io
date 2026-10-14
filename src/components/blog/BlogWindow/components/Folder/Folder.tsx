@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
-import { EFolderView, IFolderProps, TFolderItem, TFolderItemType } from './Folder.types';
+import { EFolderView, type IFolderProps, type TFolderItem, TFolderItemType } from './Folder.types';
 import { BACK, FOLDER_IS_EMPTY, OBJECTS, TOGGLE_VIEW } from 'src/i18n';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderMinus } from '@fortawesome/free-solid-svg-icons';
 import { ArrowLeftIcon, ListMiniIcon, GridMiniIcon } from 'src/components/common/icons/ui';
 import { WindowFooter } from 'src/components/common/Window/components/WindowFooter';
-import { Language } from 'src/types';
+import { LANGUAGE } from '~types/language';
 import { useTranslate } from '~hooks/useTranslate';
 import { CustomScrollbar } from 'src/components/common/CustomScrollbar';
 import { Shortcut } from '../Shortcut';
@@ -55,7 +55,7 @@ export const Folder = ({ content, handleItemClick, isRoot, navigateBack }: IFold
 
   const renderFooter = useMemo(() => {
     const footerContent =
-      language === Language.ENG
+      language === LANGUAGE.ENG
         ? `${content?.length} ${translate(OBJECTS)}`
         : `${translate(OBJECTS)}: ${content?.length}`;
 

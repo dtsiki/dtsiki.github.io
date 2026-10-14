@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode, RefObject } from 'react';
+import type { CSSProperties, ReactNode, RefObject } from 'react';
 
 export type TAnimationItem = Record<
   string,

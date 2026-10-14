@@ -1,5 +1,5 @@
-import { MutableRefObject } from 'react';
-import { TWindowSize } from 'src/hooks';
+import type { MutableRefObject } from 'react';
+import type { TWindowSize } from '~hooks/useWindowSize';
 
 export const isElementVisible = (
   ref: MutableRefObject<HTMLElement | null>,

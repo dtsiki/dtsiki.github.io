@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { TReadingListItem } from 'src/types';
+import type { TReadingListItem } from '~types/books';
 
 export const renderBookLayout = (book: TReadingListItem) => {
   const { id, cover, title } = book;
@@ -42,12 +42,12 @@ const renderTags = (category: string[], tags?: string[]) => {
   return (
     <div className='tags spacer top bottom small'>
       {category.map((item) => (
-        <div className='tag PRIMARY' key={nanoid()}>
+        <div className='tag primary' key={nanoid()}>
           {item}
         </div>
       ))}
       {tags?.map((item) => (
-        <div className='tag SECONDARY' key={nanoid()}>
+        <div className='tag secondary' key={nanoid()}>
           {item}
         </div>
       ))}

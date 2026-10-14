@@ -19,7 +19,7 @@ Promise.allSettled(iterable);`;
     <section ref={ref} className='section outer'>
       <Note>
         <div className='tags'>
-          <div className='tag PRIMARY'>Важно</div>
+          <div className='tag primary'>Важно</div>
         </div>
         <p>
           Статья опирается на{' '}

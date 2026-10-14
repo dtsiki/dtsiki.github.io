@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ISpoilerProps } from './Spoiler.types';
+import type { ISpoilerProps } from './Spoiler.types';
 import classNames from 'classnames';
 
 import styles from './Spoiler.module.scss';

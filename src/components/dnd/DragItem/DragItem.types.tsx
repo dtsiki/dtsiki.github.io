@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { TDragItem, TDragItemPositionUnit } from 'src/types';
+import type { ReactNode } from 'react';
+import type { TDragItem } from '~types/dnd';
 
 export interface IDragItemProps {
   config: TDragItem;

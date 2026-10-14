@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 import { EBlogPostRecord } from 'src/data/postsConfig';
-import { Language } from 'src/types';
+import type { TLanguage } from '~types/language';
 
 export enum EPostType {
   GUIDE = 'GUIDE',
@@ -30,7 +30,7 @@ export type TPostConfig = {
   tags?: string[];
   createdAt: string;
   meta: TPostMeta;
-  language: Language;
+  language: TLanguage;
   strictLanguage?: boolean;
   pagination?: TPostPagination;
   thumbnail?: string;

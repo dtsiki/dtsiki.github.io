@@ -1,4 +1,4 @@
-import { ICodeSnippetProps } from './CodeSnippet.types';
+import type { ICodeSnippetProps } from './CodeSnippet.types';
 import { Code } from '~components/common/Code';
 import { useCodeSnippetNumber } from '~hooks/useCodeSnippetNumber';
 import { isUndefined } from 'lodash';

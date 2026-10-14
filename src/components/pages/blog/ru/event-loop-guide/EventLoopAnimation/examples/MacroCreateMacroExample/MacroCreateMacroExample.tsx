@@ -34,8 +34,8 @@ console.log('Конец');`;
   return (
     <section ref={ref} className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Макрозадачи, создающие макрозадачи</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Макрозадачи, создающие макрозадачи</div>
       </div>
       <p>Последний, но не по сложности, пример:</p>
       <CodeSnippet

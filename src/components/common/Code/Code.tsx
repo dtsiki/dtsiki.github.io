@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { useState } from 'react';
 import { CheckMiniIcon } from '../icons/ui/mini/Check';
 import { xcode } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import { CODE_LANG, ICodeProps, CODE_EXT } from './Code.types';
+import { CODE_LANG, type ICodeProps, CODE_EXT } from './Code.types';
 import { useTranslate } from '~hooks/useTranslate';
 import { COPY_TO_CLIPBOARD } from 'src/i18n';
 import { CodingIcon, TextFileIcon, ClipboardMiniIcon } from '../icons/ui';

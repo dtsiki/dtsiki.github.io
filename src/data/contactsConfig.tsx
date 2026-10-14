@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import type { ReactNode } from 'react';
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { ShareIcon, GitHubIcon, PlaneMiniIcon, MailIcon } from 'src/components/common/icons/ui';
 
 export enum EContactType {

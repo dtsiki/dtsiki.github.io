@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { IBoxProps } from './Box.types';
+import type { IBoxProps } from './Box.types';
 
 import styles from './Box.module.scss';
 

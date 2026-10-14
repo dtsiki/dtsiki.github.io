@@ -3,7 +3,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { useTranslate } from '~hooks/useTranslate';
 import { COPY_TO_CLIPBOARD } from 'src/i18n';
 import { CheckMiniIcon, ClipboardMiniIcon, TerminalMiniIcon } from '../icons/ui';
-import { IExampleProps } from './Example.types';
+import type { IExampleProps } from './Example.types';
 import classNames from 'classnames';
 import { xcode } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { IWindowHeaderProps } from './WindowHeader.types';
+import type { IWindowHeaderProps } from './WindowHeader.types';
 import { useMemo } from 'react';
 import { useTranslate } from '~hooks/useTranslate';
 import { EWindowType } from '../../Window.types';

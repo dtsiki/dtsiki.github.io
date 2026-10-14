@@ -1,4 +1,4 @@
-import { IWindowFooterProps } from './WindowFooter.types';
+import type { IWindowFooterProps } from './WindowFooter.types';
 
 import styles from './WindowFooter.module.scss';
 

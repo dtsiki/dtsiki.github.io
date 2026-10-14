@@ -1,12 +1,12 @@
 import { forwardRef, useMemo } from 'react';
 import { READ_MORE } from 'src/i18n';
-import { IReadMoreListProps } from './ReadMoreList.types';
+import type { IReadMoreListProps } from './ReadMoreList.types';
 import { translate } from 'src/utils/translate';
-import { Language } from 'src/types';
+import { LANGUAGE } from '~types/language';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 
 export const ReadMoreList = forwardRef<HTMLDivElement, IReadMoreListProps>(
-  ({ items, language = Language.RU }: IReadMoreListProps, ref) => {
+  ({ items, language = LANGUAGE.RU }: IReadMoreListProps, ref) => {
     const renderItems = useMemo(() => {
       return items.map(({ id, link, label }) => {
         return (

@@ -25,8 +25,8 @@ console.log("Три");`;
   return (
     <section ref={ref} id='timeout_wiithout_delay' className='section inner'>
       <div className='tags'>
-        <div className='tag PRIMARY'>Пример #{EXAMPLE_NUMBER}</div>
-        <div className='tag TEXT-ONLY'>Таймер с нулевой задержкой</div>
+        <div className='tag primary'>Пример #{EXAMPLE_NUMBER}</div>
+        <div className='tag text-only'>Таймер с нулевой задержкой</div>
       </div>
       <p>Что будет если в примере выше поменять задержку таймера с 5000 миллисекунд на 0?</p>
       <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={zeroDelayTimeoutExampleCode} name={`example(${EXAMPLE_NUMBER})`} />

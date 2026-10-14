@@ -1,5 +1,4 @@
-import { ReactNode } from 'react';
-import { TPostConfig } from '../PostWrapper/PostWrapper.types';
+import type { TPostConfig } from '../PostWrapper/PostWrapper.types';
 
 export interface IPostPreviewProps {
   /*title: string;

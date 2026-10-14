@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { IClockProps } from './Clock.types';
+import type { IClockProps } from './Clock.types';
 
 import styles from './Clock.module.scss';
 

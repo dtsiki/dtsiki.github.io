@@ -1,7 +1,7 @@
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
-import { IItemOfContent } from 'src/interfaces';
+import type { IItemOfContent } from 'src/interfaces';
 import { useRef } from 'react';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents';
 import { Practice, Theory } from 'src/components/pages/blog/ru/promises-collection';

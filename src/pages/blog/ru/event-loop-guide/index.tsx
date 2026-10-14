@@ -7,7 +7,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { Note } from '~components/common/Note';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
-import { IItemOfContent } from 'src/interfaces';
+import type { IItemOfContent } from 'src/interfaces';
 import {
   AsyncFunctionsExample,
   ComplexExample,

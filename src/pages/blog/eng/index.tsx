@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { BLOG, BLOG_DESCRIPTION } from 'src/i18n/';
 import { getPostsByLang } from 'src/data/postsConfig';
 import { PostPreview } from 'src/components/blog/PostPreview/PostPreview';
-import { Language } from 'src/types';
+import { LANGUAGE } from '~types/language';
 import { useWindowManager } from 'src/hooks/useWindowManager';
 import { EWindowRecord, WINDOW_REGISTRY } from 'src/context/WindowManager/WindowManager.utils';
 
@@ -19,7 +19,7 @@ const BlogEng = () => {
   }, []);
 
   const renderPosts = useMemo(() => {
-    const posts = getPostsByLang(Language.ENG);
+    const posts = getPostsByLang(LANGUAGE.ENG);
 
     return posts.reverse().map((post) => {
       return (
@@ -40,8 +40,8 @@ const BlogEng = () => {
     <div className={styles.blog}>
       <div className='container'>
         <header className={styles.blog__heading}>
-          <h1 className={styles.blog__title}>{BLOG[Language.ENG]}</h1>
-          <p className={styles.blog__description}>{BLOG_DESCRIPTION[Language.ENG]}</p>
+          <h1 className={styles.blog__title}>{BLOG[LANGUAGE.ENG]}</h1>
+          <p className={styles.blog__description}>{BLOG_DESCRIPTION[LANGUAGE.ENG]}</p>
         </header>
         <main>
           <ul className={bind([styles.blog__posts, 'row'])}>{renderPosts}</ul>

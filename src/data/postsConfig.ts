@@ -1,6 +1,6 @@
-import { EPostType, TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
+import { EPostType, type TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
 import { LONG_DASH } from 'src/constants';
-import { Language } from 'src/types';
+import { type TLanguage, LANGUAGE } from '~types/language';
 
 export enum EBlogPostRecord {
   REACT_DRAG_AND_DROP = 'REACT_DRAG_AND_DROP',
@@ -40,7 +40,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '1 sep, 2022',
     tags: ['REACT'],
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     strictLanguage: true,
     pagination: {
       next: EBlogPostRecord.HOW_TO_IMPROVE_YOUR_SKILLS,
@@ -54,7 +54,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.THOUGHTS,
     createdAt: '2 sep, 2022',
     tags: ['skills'],
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     meta: {
       description: "How to Improve Your Skills: 10 Tips You've Heard Before (But Probably Ignored).",
     },
@@ -71,7 +71,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '23 sep, 2022',
     tags: ['HTML'],
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     meta: {
       description: 'A beginner-friendly guide to semantic HTML for writing meaningful markup.',
     },
@@ -89,7 +89,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.TUTORIAL,
     createdAt: '1 oct, 2022',
     tags: ['HTML', 'CSS'],
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     meta: {
       description:
         'A step-by-step tutorial to creating custom toggle switches with pure CSS and HTML. No JavaScript required — just clean code and smooth transitions.',
@@ -108,7 +108,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '16 dec, 2022',
     tags: ['REACT'],
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     meta: {
       description:
         'Learn how to test React components without crying. Covers unit tests, user events, async logic, and the art of testing one more time.',
@@ -125,7 +125,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     link: 'how-i-improved-my-english',
     category: EPostType.ENGLISH,
     createdAt: '28 dec, 2022',
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     meta: {
       description:
         'Real tips from a real journey. How I improved my English step by step — and how you can start today.',
@@ -148,7 +148,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
       description:
         'A quick and friendly guide to JavaScript basics. Learn core concepts like variables, scope, functions, loops, and hoisting in minutes. Perfect for beginners!',
     },
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     strictLanguage: true,
     pagination: {
       next: EBlogPostRecord.MY_FAVORITE_WEBSITES_TO_IMPROVE_ENGLISH,
@@ -162,7 +162,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     link: 'my-favorite-websites-to-improve-english',
     category: EPostType.ENGLISH,
     createdAt: '24 apr 2024',
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     meta: {
       description:
         'Here are the web tools that helped me level up my English — from vocab to pronunciation. All free, all actually useful.',
@@ -181,7 +181,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.TUTORIAL,
     createdAt: '29 apr, 2024',
     tags: ['React'],
-    language: Language.ENG,
+    language: LANGUAGE.ENG,
     meta: {
       description:
         'Learn how to build a simple scroll progress bar in React. Perfect for beginners — clear steps, minimal code, instant result.',
@@ -197,7 +197,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.TUTORIAL,
     createdAt: '10 oct 2025',
     tags: ['JavaScript', 'React'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description:
         'Делаем вместе пошагово анимированную звезду с помощью CSS и JavaScript,  а потом переносим код на React.',
@@ -215,7 +215,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.TUTORIAL,
     createdAt: '25 dec 2025',
     tags: ['JavaScript'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description:
         'Разбираемся в Drag-and-Drop\'e на JavaScript — быстро, без лишней воды, всяких библиотек и прочего."',
@@ -234,7 +234,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.TUTORIAL,
     createdAt: '3 march 2026',
     tags: ['React'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description:
         'Пошаговое руководство для тех, кто хочет создать своё первое React-приложение и сразу опубликовать его. Используем Create React App для быстрой сборки и GitHub Pages для бесплатного хостинга. В конце урока — рабочая ссылка на сайт!',
@@ -253,7 +253,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.TUTORIAL,
     createdAt: '13 march 2026',
     tags: ['React', 'TypeScript'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description:
         'В этой статье изобретём велосипед и создадим своими руками i18next в приложении на React.  Контекст, хук и никакой магии.',
@@ -271,7 +271,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.READING,
     createdAt: '14 may 2026',
     tags: ['Прочитанное'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description: 'Рассказываю какие книги прочитала или прослушала за прошлый месяц.',
     },
@@ -289,7 +289,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '25 june 2026',
     tags: ['JavaScript'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description:
         'Изучим работу событийного цикла на пальцах и перестанем его бояться. Спойлер: там нет ничего страшного!',
@@ -307,7 +307,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.READING,
     createdAt: '26 june 2026',
     tags: ['Прочитанное'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description: 'Книжные итоги последнего месяца весны: что я читала, что мне понравилось, а что нет',
     },
@@ -324,7 +324,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '12 july 2026',
     tags: ['TypeScript'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description:
         'Большая шпаргалка по синтаксису и основным возможностям TypeScript. Бесплатно, без регистрации и смс.',
@@ -342,7 +342,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '5 aug 2026',
     tags: ['Алгоритмы', 'JavaScript'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description:
         'Оценка сложности алгоритмов Big O Notation: что это такое, зачем нужно, какие бывают сложности, много примеров',
@@ -360,7 +360,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '10 sep 2026',
     tags: ['JavaScript'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description: 'Контекст выполнения и this в JavaScript: что такое, в чём разница, примеры',
     },
@@ -377,7 +377,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '16 sep 2026',
     tags: ['JavaScript'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description: 'Промисы в JavaScript: гайд по теории и практика - напишем свой класс промисов',
     },
@@ -395,7 +395,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.GUIDE,
     createdAt: '24 sep 2026',
     tags: ['JavaScript'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description:
         'Промисы в JavaScript: разбирём что делают функции Promise.all, Promise.race, Promise.allSettled и Promise.any и напишем собственные реализации',
@@ -410,7 +410,7 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     category: EPostType.READING,
     createdAt: '2 oct 2026',
     tags: ['Прочитанное'],
-    language: Language.RU,
+    language: LANGUAGE.RU,
     meta: {
       description: 'Книжные итоги лета — что я читала в июне, июле и августе',
     },
@@ -418,6 +418,6 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
   },
 };
 
-export const getPostsByLang = (language: Language) => {
+export const getPostsByLang = (language: TLanguage) => {
   return Object.values(POSTS_CONFIG_).filter((post) => post.language === language);
 };

@@ -4,7 +4,8 @@ import { WINDOW_ICON } from 'src/components/common/Window/components/WindowHeade
 import { BinIcon, FolderIcon } from 'src/components/common/icons/ui';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
 import { BIN } from 'src/i18n';
-import { Language, TWindowConfig, TranslationObject } from 'src/types';
+import type { TLanguage, TranslationObject } from '~types/language';
+import type { TWindowConfig } from '~types/window';
 import { translateTitle } from 'src/utils/translate';
 
 export const getCustomWindowIcon = (id: string) => {
@@ -20,7 +21,7 @@ export const getCustomWindowIcon = (id: string) => {
 export const getCustomWindowTitle = (
   id: string,
   config: {
-    language: Language;
+    language: TLanguage;
     currentTitle?: string | TranslationObject;
     translate?: (translations: TranslationObject) => string;
   }
@@ -53,7 +54,7 @@ export const getWindowIcon = (config?: TWindowConfig) => {
   }
 };
 
-export const getWindowTitle = (language: Language, config?: TWindowConfig) => {
+export const getWindowTitle = (language: TLanguage, config?: TWindowConfig) => {
   if (isUndefined(config)) {
     return;
   }

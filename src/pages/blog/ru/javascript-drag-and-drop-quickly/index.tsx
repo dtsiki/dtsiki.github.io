@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import { InlineHint } from 'src/components/common/InlineHint';
-import { ISource } from 'src/interfaces';
+import type { ISource } from 'src/interfaces';
 import { DragAndDropDemo } from 'src/components/pages/blog/ru/javascript-drag-and-drop-quickly/DragAndDropDemo/DragAndDropDemo';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
