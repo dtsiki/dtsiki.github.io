@@ -5,7 +5,7 @@ import { CODE_LANG } from '~components/common/Code';
 import { Note } from '~components/common/Note';
 import { NOTE_TYPE } from '~components/common/Note/Note.types';
 import { LONG_DASH } from 'src/constants';
-import { getGhostText } from 'src/utils/formatting';
+import { getGhostText } from '~utils/formatting';
 
 export const Interfaces = forwardRef<HTMLDivElement>(({}, ref) => {
   const interfaceExampleCode = `interface User {

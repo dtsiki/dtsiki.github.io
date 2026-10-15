@@ -1,4 +1,4 @@
-import { useState, useEffect, MutableRefObject } from 'react';
+import { useState, useEffect, type MutableRefObject } from 'react';
 
 export const useIntersectionObserver = (
   ref: MutableRefObject<HTMLElement | null>,

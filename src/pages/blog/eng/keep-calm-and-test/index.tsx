@@ -16,7 +16,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
 import styles from './index.module.scss';
-import meme from 'public/assets/blog/keep-calm-and-test/meme.jpeg';
+const meme = '/assets/blog/keep-calm-and-test/meme.jpeg';
 
 const Post = () => {
   const noteRef = useRef<HTMLParagraphElement>(null);

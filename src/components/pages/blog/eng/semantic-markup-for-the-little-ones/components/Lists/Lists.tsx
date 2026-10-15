@@ -108,22 +108,22 @@ export const Lists = forwardRef<HTMLDivElement>((_, ref) => {
                   <ul className='list inline'>
                     <li className='list__item'>
                       <Link href='/'>
-                        <a className='link'>Home</a>
+                        <span className='link'>Home</span>
                       </Link>
                     </li>
                     <li className='list__item'>
                       <Link href='/about'>
-                        <a className='link'>About</a>
+                        <span className='link'>About</span>
                       </Link>
                     </li>
                     <li className='list__item'>
                       <Link href='/projects'>
-                        <a className='link'>Projects</a>
+                        <span className='link'>Projects</span>
                       </Link>
                     </li>
                     <li className='list__item'>
                       <Link href='/blog'>
-                        <a className='link'>Blog</a>
+                        <span className='link'>Blog</span>
                       </Link>
                     </li>
                   </ul>

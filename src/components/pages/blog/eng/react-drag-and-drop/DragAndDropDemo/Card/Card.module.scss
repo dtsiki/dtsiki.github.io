@@ -1,21 +1,23 @@
 @import '../../../../../../../styles/colors';
 @import '../../../../../../../styles/vars';
+@import '../../../../../../../styles/theme';
 
 .card {
   position: relative;
   box-sizing: border-box;
   padding: $SPACER;
   margin: $SPACER / 2;
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   text-align: center;
   background: $color--violet;
   color: $color--white;
+  font-family: Pixelify;
   cursor: grab;
-  border-top: 20px solid $color--violet-darker;
-  border-radius: 5px;
-  box-shadow: 4px 4px 0 0 rgba($color--violet, 0.4);
+  @include border1x1(2px, $color--violet-dark);
+  transition: $COMMON_TRANSITION;
+
   width: 220px;
 
   &.grabbing {
@@ -32,5 +34,9 @@
 
   &.TERTIARY {
     background: rgba($color--violet, 0.6);
+  }
+
+  &:hover {
+    background: $color--violet-dark;
   }
 }

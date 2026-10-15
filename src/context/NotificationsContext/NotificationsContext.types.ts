@@ -1,4 +1,4 @@
-import { TNotification } from '~types/notifications';
+import type { TNotification } from '~types/notifications';
 
 export type TNotificationsContextData = {
   notifications: TNotification[];

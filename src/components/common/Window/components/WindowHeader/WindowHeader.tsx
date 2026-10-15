@@ -73,25 +73,25 @@ export const WindowHeader = (props: IWindowHeaderProps) => {
           onClick={handleMinimizeWindow}
           className={bind([styles.window_header__control, windowStyles])}
           aria-label={translate(MINIMIZE_THE_WINDOW)}>
-          <FontAwesomeIcon
-            icon={faWindowMinimize}
-            className={bind([styles.window_header__control_icon, styles.MINIMIZE])}
-          />
+          <span className={bind([styles.window_header__control_icon, styles.MINIMIZE])}>
+            <FontAwesomeIcon icon={faWindowMinimize} />
+          </span>
         </button>
         <button
           onClick={handleMaximizeWindow}
           className={bind([styles.window_header__control, windowStyles])}
           aria-label={translate(MAXIMIZE_THE_WINDOW)}>
-          <FontAwesomeIcon
-            icon={faWindowMaximize}
-            className={bind([styles.window_header__control_icon, styles.MAXIMIZE])}
-          />
+          <span className={bind([styles.window_header__control_icon, styles.MAXIMIZE])}>
+            <FontAwesomeIcon icon={faWindowMaximize} />
+          </span>
         </button>
         <button
           onClick={handleCloseWindow}
           className={bind([styles.window_header__control, windowStyles])}
           aria-label={translate(CLOSE_THE_WINDOW)}>
-          <FontAwesomeIcon icon={faXmark} className={bind([styles.window_header__control_icon, styles.CLOSE])} />
+          <span className={bind([styles.window_header__control_icon, styles.CLOSE])}>
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
         </button>
       </div>
     );

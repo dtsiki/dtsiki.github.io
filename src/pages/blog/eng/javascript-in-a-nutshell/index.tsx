@@ -24,7 +24,7 @@ import {
   Promises,
 } from 'src/components/pages/blog/eng/javascript-in-a-nutshell/components/';
 
-import book from './../../../../../public/assets/blog/frontend-in-a-nutshell/javascript/book.jpg';
+const book = '/assets/blog/frontend-in-a-nutshell/javascript/book.webp';
 
 const Post = () => {
   return (

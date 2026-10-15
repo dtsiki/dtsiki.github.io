@@ -3,7 +3,7 @@ import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import type { TReadingListItem } from '~types/books';
-import { renderBookLayout } from 'src/utils/books';
+import { renderBookLayout } from '~utils/books';
 
 const legionImage = '/assets/blog/may-reading-list/legion.webp';
 const tamGdeRakiPoyutImage = '/assets/blog/may-reading-list/tam-gde-raki-poyut.webp';

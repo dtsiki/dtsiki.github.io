@@ -4,14 +4,14 @@ import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 
-import quizletSet from 'public/assets/blog/my-favorite-websites-to-improve-english/quizlet-set.png';
-import quizletAchievements from 'public/assets/blog/my-favorite-websites-to-improve-english/quizlet-achievements.png';
-import quizletSearch from 'public/assets/blog/my-favorite-websites-to-improve-english/quizlet-search.png';
-import youglish from 'public/assets/blog/my-favorite-websites-to-improve-english/youglish.png';
-import contextReversoMain from 'public/assets/blog/my-favorite-websites-to-improve-english/context-reverso-main.png';
-import contextReversoSearch from 'public/assets/blog/my-favorite-websites-to-improve-english/context-reverso-search.png';
-import googleImagesSearch from 'public/assets/blog/my-favorite-websites-to-improve-english/google-images-search.png';
-import leetcode from 'public/assets/blog/my-favorite-websites-to-improve-english/leetcode.png';
+const quizletSet = '/assets/blog/my-favorite-websites-to-improve-english/quizlet-set.png';
+const quizletAchievements = '/assets/blog/my-favorite-websites-to-improve-english/quizlet-achievements.png';
+const quizletSearch = '/assets/blog/my-favorite-websites-to-improve-english/quizlet-search.png';
+const youglish = '/assets/blog/my-favorite-websites-to-improve-english/youglish.png';
+const contextReversoMain = '/assets/blog/my-favorite-websites-to-improve-english/context-reverso-main.png';
+const contextReversoSearch = '/assets/blog/my-favorite-websites-to-improve-english/context-reverso-search.png';
+const googleImagesSearch = '/assets/blog/my-favorite-websites-to-improve-english/google-images-search.png';
+const leetcode = '/assets/blog/my-favorite-websites-to-improve-english/leetcode.png';
 
 const Post = () => {
   return (

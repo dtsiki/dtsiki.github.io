@@ -52,7 +52,7 @@ export const Shortcut = ({
       {view === EFolderView.LIST && createdAt && <div className={styles.shortcut__aside}>{createdAt}</div>}
       {link && (
         <Link href={link}>
-          <a className={styles.shortcut__link}>{renderTitle}</a>
+          <span className={styles.shortcut__link}>{renderTitle}</span>
         </Link>
       )}
       <div className={bind([styles.shortcut__tooltip, styles[view]])}>

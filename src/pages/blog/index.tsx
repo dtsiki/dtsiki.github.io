@@ -5,7 +5,7 @@ import { getPostsByLang } from 'src/data/postsConfig';
 import { PostPreview } from 'src/components/blog/PostPreview/PostPreview';
 import { useTranslate } from '~hooks/useTranslate';
 import { useWindowManager } from '~hooks/useWindowManager';
-import { TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
+import type { TPostConfig } from 'src/components/blog/PostWrapper/PostWrapper.types';
 import { BLOG_THUMBNAIL_PATH } from 'src/constants';
 import { EWindowRecord, WINDOW_REGISTRY } from 'src/context/WindowManager/WindowManager.utils';
 

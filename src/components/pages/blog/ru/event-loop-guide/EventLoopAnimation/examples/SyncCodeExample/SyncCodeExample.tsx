@@ -4,7 +4,7 @@ import { CODE_LANG } from '~components/common/Code';
 import { EventLoopAnimation } from '../../EventLoopAnimation';
 import { AnimationDemo } from '../../EventLoopAnimation.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
-import { getConsoleLog, getTextWithChevrons } from 'src/utils/formatting';
+import { getConsoleLog, getTextWithChevrons } from '~utils/formatting';
 import { LONG_DASH } from 'src/constants';
 
 const EXAMPLE_NUMBER = 1;

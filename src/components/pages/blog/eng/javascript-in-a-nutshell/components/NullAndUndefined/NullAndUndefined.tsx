@@ -3,9 +3,9 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
-import confusedTravolta from 'public/assets/blog/frontend-in-a-nutshell/javascript/confused-travolta.gif';
-import toiletTissueHolder from 'public/assets/blog/frontend-in-a-nutshell/javascript/toilet-tissue-holder.png';
-import nullAndUndefined from 'public/assets/blog/frontend-in-a-nutshell/javascript/null-and-undefined.jpg';
+const confusedTravolta = '/assets/blog/frontend-in-a-nutshell/javascript/confused-travolta.gif';
+const toiletTissueHolder = '/assets/blog/frontend-in-a-nutshell/javascript/toilet-tissue-holder.png';
+const nullAndUndefined = '/assets/blog/frontend-in-a-nutshell/javascript/null-and-undefined.jpg';
 
 export const NullAndUndefined = () => {
   const exampleUndefined = `let yay;

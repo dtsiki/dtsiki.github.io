@@ -4,7 +4,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
-import keshaImg from 'public/assets/blog/semantic-markup-for-the-little-ones/kesha.jpg';
+const keshaImg = '/assets/blog/semantic-markup-for-the-little-ones/kesha.jpg';
 
 export const Attributes = forwardRef<HTMLDivElement>((_, ref) => {
   const exampleHTMLImage = `<img

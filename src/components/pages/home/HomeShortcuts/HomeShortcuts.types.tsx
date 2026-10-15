@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { JSX, ReactNode } from 'react';
 import type { TranslationObject } from '~types/language';
 import type { TWindow } from '~types/window';
 

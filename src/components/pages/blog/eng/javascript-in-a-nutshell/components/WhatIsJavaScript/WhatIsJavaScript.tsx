@@ -1,7 +1,7 @@
 import { Accordion } from 'src/components/common/Accordion';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
-import javaScript from 'public/assets/blog/frontend-in-a-nutshell/javascript/javascript.jpg';
+const javaScript = '/assets/blog/frontend-in-a-nutshell/javascript/javascript.jpg';
 
 export const WhatIsJavaScript = () => {
   return (

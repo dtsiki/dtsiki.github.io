@@ -1,4 +1,4 @@
-import { TLanguage } from '~types/language';
+import type { TLanguage } from '~types/language';
 
 export interface ILanguageContextData {
   language: TLanguage;

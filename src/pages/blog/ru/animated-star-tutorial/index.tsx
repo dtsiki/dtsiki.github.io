@@ -11,7 +11,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import styles from './index.module.scss';
-import figmaPreviewPng from 'public/assets/blog/animated-star-tutorial/figma-preview.png';
+const FIGMA_PREVIEW_IMAGE = '/assets/blog/animated-star-tutorial/figma-preview.png';
 
 const Post = () => {
   const exampleHTML1 = `<div class='container'>
@@ -355,16 +355,16 @@ export const AnimatedStar = () => {
         <p>
           Прежде чем приступать к созданию анимации нужно подготовить саму звезду. Это можно сделать разными способами,
           например:
-          <ul className='list markered spacer top medium'>
-            <li className='list__item'>Добавить звезду как фон элемента</li>
-            <li className='list__item'>
-              Вставить звезду как изображение через HTML-тег <code className='code'>img</code>
-            </li>
-            <li className='list__item'>
-              Вставить звезду как векторное изображение <code className='code'>svg</code>
-            </li>
-          </ul>
         </p>
+        <ul className='list markered spacer top medium'>
+          <li className='list__item'>Добавить звезду как фон элемента</li>
+          <li className='list__item'>
+            Вставить звезду как изображение через HTML-тег <code className='code'>img</code>
+          </li>
+          <li className='list__item'>
+            Вставить звезду как векторное изображение <code className='code'>svg</code>
+          </li>
+        </ul>
         <p>
           Я остановила свой выбор на первом варианте: расположить фигуру звездочки без глаз фоном в элементе-контейнере
           и затем добавить глаза и зрачки с помошью CSS.
@@ -373,12 +373,12 @@ export const AnimatedStar = () => {
           За основу будущей анимированной звёздочки я взяла иллюстрацию, найденную на просторах интернета<b>*</b>. Затем
           в Figma обрисовала исходник и экспортировала получившийся вектор в формате <code className='code'>.svg</code>
         </p>
-        <PostImage fileTitle='figma.jpeg' src={figmaPreviewPng} alt='Превью приложения Figma с созданием звезды' />
+        <PostImage fileTitle='figma.jpeg' src={FIGMA_PREVIEW_IMAGE} alt='Превью приложения Figma с созданием звезды' />
         <p className='note'>
-          <b>*</b> Если вы являетесь правообладателем этой прекрасной звёздочки, пожалуйста, не ругайтесь, что я
-          использовала её без указания авторских прав. У меня не было совершенно никакого умысла использовать ваш труд в
-          коммерческих или каких-либо других целях получения выгоды. Свяжитесь со мной чтобы решить вопросы
-          правообладания если таковые у вас есть.
+          <strong>Примечание:</strong> если вы являетесь правообладателем этой прекрасной звёздочки, пожалуйста, не
+          ругайтесь, что я использовала её без указания авторских прав. У меня не было совершенно никакого умысла
+          использовать ваш труд в коммерческих или каких-либо других целях получения выгоды. Свяжитесь со мной чтобы
+          решить вопросы правообладания если таковые у вас есть.
         </p>
         <p className='spacer top bottom medium'>
           HTML-разметка и CSS-стили на данном этапе будут совсем простыми. Нам нужен будет контейнер-обёртка с классом{' '}

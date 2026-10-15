@@ -3,7 +3,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
-import everythingIsObject from 'public/assets/blog/frontend-in-a-nutshell/javascript/everything-is-object.png';
+const EVERYTHING_IS_OBJECT_IMAGE = '/assets/blog/frontend-in-a-nutshell/javascript/everything-is-object.png';
 
 export const JavaScriptDataTypes = () => {
   const exampleTypeAssign = `let yay = 42;
@@ -140,7 +140,7 @@ console.log(typeof qeq); // "symbol";`;
       </p>
       <PostImage
         fileTitle='THIS-IS-AN-OBJECT!.jpg'
-        src={everythingIsObject}
+        src={EVERYTHING_IS_OBJECT_IMAGE}
         alt='Sparta meme but everything is an object in JavaScript'
         maxWidth={400}
       />

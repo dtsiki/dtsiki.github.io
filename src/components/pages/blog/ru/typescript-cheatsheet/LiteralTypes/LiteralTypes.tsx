@@ -5,7 +5,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
-import { getGhostText } from 'src/utils/formatting';
+import { getGhostText } from '~utils/formatting';
 
 export const LiteralTypes = forwardRef<HTMLDivElement>(({}, ref) => {
   const literalExampleCode = `const admin = "admin";

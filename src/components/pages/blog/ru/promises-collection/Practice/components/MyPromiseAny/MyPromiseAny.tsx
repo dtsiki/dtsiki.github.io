@@ -128,9 +128,9 @@ rejectedCount++;`;
 
   const testMyAnyEdgeCaseSetSnippetLog = `1`;
 
-  const testMyAnyEdgeCaseStringSnippetCode = `MyPromise.any('Hi').then((result) => console.log(result));`;
+  const testMyAnyEdgeCaseStringSnippetCode = `MyPromise.any('Приветик').then((result) => console.log(result));`;
 
-  const testMyAnyEdgeCaseStringSnippetLog = `H`;
+  const testMyAnyEdgeCaseStringSnippetLog = `Приветик`;
 
   return (
     <section ref={ref} className='section outer'>

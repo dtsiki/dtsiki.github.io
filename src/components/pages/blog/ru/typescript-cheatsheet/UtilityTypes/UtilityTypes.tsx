@@ -4,7 +4,7 @@ import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
-import { getGhostText, renderInlineList } from 'src/utils/formatting';
+import { getGhostText, renderInlineList } from '~utils/formatting';
 
 export const UtilityTypes = forwardRef<HTMLDivElement>(({}, ref) => {
   const userTypeExampleCode = `type User = {

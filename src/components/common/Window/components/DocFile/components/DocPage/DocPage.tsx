@@ -3,7 +3,7 @@ import type { IDocPageProps } from './DocPage.types';
 
 import styles from './DocPage.module.scss';
 
-export const DocPage = forwardRef<HTMLDivElement, IDocPageProps>(({ page, order }, ref) => {
+export const DocPage = forwardRef<HTMLDivElement | null, IDocPageProps>(({ page, order }, ref) => {
   return (
     <div ref={ref} className={styles.doc_page}>
       <div className={styles.doc_page__content}>{page?.content || ''}</div>

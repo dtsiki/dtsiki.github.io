@@ -207,12 +207,9 @@ const Menu = () => {
                 onClick={scrollToTop}
                 className={bind([styles.menu__action, styles.up, { [styles.visible]: isPageScrolled }])}>
                 <span className='visually-hidden'>Scroll to top</span>
-                <FontAwesomeIcon
-                  className={bind([styles.menu__icon, styles[bottomColor]])}
-                  icon={faAngleUp}
-                  color='#ffffff'
-                  size='2x'
-                />
+                <span className={bind([styles.menu__icon, styles[bottomColor]])}>
+                  <FontAwesomeIcon icon={faAngleUp} color='#ffffff' size='2x' />
+                </span>
               </button>
             </li>
             {isBackButtonShown && (
@@ -221,12 +218,9 @@ const Menu = () => {
                   onClick={goBack}
                   className={bind([styles.menu__action, styles.back, { [styles.visible]: isPageScrolled }])}>
                   <span className='visually-hidden'>Go back to previous page</span>
-                  <FontAwesomeIcon
-                    className={bind([styles.menu__icon, styles[bottomColor]])}
-                    icon={faAngleLeft}
-                    color='#ffffff'
-                    size='2x'
-                  />
+                  <span className={bind([styles.menu__icon, styles[bottomColor]])}>
+                    <FontAwesomeIcon icon={faAngleLeft} color='#ffffff' size='2x' />
+                  </span>
                 </button>
               </li>
             )}

@@ -76,7 +76,14 @@ export const DocFile = ({ pages }: IDocFileProps) => {
       <CustomScrollbar ref={scrollbarRef} fixedHeight={height}>
         <div className={styles.doc_file__pages}>
           {pages?.map((page, index) => (
-            <DocPage key={page.id} ref={(ref) => (pageRefs.current[index] = ref)} order={index + 1} page={page} />
+            <DocPage
+              key={page.id}
+              ref={(ref: HTMLDivElement | null): void => {
+                pageRefs.current[index] = ref;
+              }}
+              order={index + 1}
+              page={page}
+            />
           ))}
         </div>
       </CustomScrollbar>

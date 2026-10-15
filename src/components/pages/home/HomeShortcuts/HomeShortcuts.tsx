@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { HomeShortcut as Shortcut } from '../HomeShortcut/HomeShortcut';
 import { EHomeShortcutVariant } from '../HomeShortcut/HomeShortcut.types';
-import { THomeShortcut } from './HomeShortcuts.types';
+import type { THomeShortcut } from './HomeShortcuts.types';
 import { useTranslate } from '~hooks/useTranslate';
 import { useWindowManager } from '~hooks/useWindowManager';
 import { HOME_SHORTCUTS_CONFIG } from './HomeShortcuts.utils';

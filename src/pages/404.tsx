@@ -21,7 +21,7 @@ const Custom404 = () => {
             <h2 className={styles.custom404__text}>{translate(PAGE_NOT_FOUND)}</h2>
             <div className={styles.custom404__footer}>
               <Link href='/'>
-                <a className={styles.custom404__button}>{translate(GO_TO_HOME)}</a>
+                <span className={styles.custom404__button}>{translate(GO_TO_HOME)}</span>
               </Link>
             </div>
           </div>

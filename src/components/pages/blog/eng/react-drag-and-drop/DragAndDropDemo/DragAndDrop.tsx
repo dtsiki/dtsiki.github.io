@@ -3,14 +3,14 @@ import { faFolder } from '@fortawesome/free-solid-svg-icons';
 import { Window } from 'src/components/common/Window/Window';
 
 import styles from './DragAndDropDemo.module.scss';
-import { EWindowType } from 'src/components/common/Window/Window.types';
+import { EWindowPatternVariant, EWindowType } from 'src/components/common/Window/Window.types';
 import { Card } from './Card/Card';
 import { ECardType } from './Card/Card.types';
 import { Box } from './Box/Box';
 
 export const DragAndDropDemo = () => {
   return (
-    <Window type={EWindowType.CUSTOM} title='drag-and-drop-demo.exe'>
+    <Window type={EWindowType.CUSTOM} title='drag-and-drop-demo.exe' pattern={EWindowPatternVariant.CURSORS}>
       <div className={styles.drag_and_drop_demo}>
         <div className={styles.drag_and_drop_demo__row}>
           <div className={styles.drag_and_drop_demo__column}>

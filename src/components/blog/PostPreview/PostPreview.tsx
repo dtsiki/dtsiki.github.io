@@ -41,7 +41,7 @@ export const PostPreview = ({ postConfig }: IPostPreviewProps) => {
       )}
       <h2 className={styles.post_preview__title}>
         <Link href={`/blog/${link}`}>
-          <a className={bind(['link', styles.post_preview__link])}>{title}</a>
+          <span className={bind(['link', styles.post_preview__link])}>{title}</span>
         </Link>
       </h2>
       <p className={styles.post_preview__highlight}>{highlight}</p>

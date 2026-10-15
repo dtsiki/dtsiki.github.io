@@ -1,4 +1,4 @@
-import { ForwardRefExoticComponent, RefAttributes, RefObject, useMemo, useRef } from 'react';
+import { type ForwardRefExoticComponent, type RefAttributes, type RefObject, useMemo, useRef } from 'react';
 import { PostWrapper } from 'src/components/blog/PostWrapper/PostWrapper';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
@@ -26,7 +26,7 @@ import { TableOfContents } from 'src/components/pages/blog/TableOfContents/Table
 
 type TypeScriptSection = {
   title: string;
-  ref: RefObject<HTMLDivElement>;
+  ref: RefObject<HTMLDivElement | null>;
   component: ForwardRefExoticComponent<RefAttributes<HTMLDivElement>>;
 };
 

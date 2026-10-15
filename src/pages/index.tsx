@@ -5,7 +5,7 @@ import { HomeShortcuts } from 'src/components/pages/home/HomeShortcuts/HomeShort
 
 import styles from './index.module.scss';
 
-const Home = (): JSX.Element => {
+const Home = () => {
   const { openWindow } = useWindowManager();
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { getGhostText } from 'src/utils/formatting';
+import { getGhostText } from '~utils/formatting';
 
 export const RecursiveTypes = forwardRef<HTMLDivElement>(({}, ref) => {
   const treeNodeExampleCode = `type TreeNode = {

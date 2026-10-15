@@ -625,7 +625,6 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
     }
 
     animationQueue.addCallback(async () => {
-      setPreparedItems({});
       setPreparedItems(initialItems);
       setIsRunning(false);
     });
@@ -809,7 +808,7 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
   return (
     <div className='spacer top bottom medium'>
       <Window
-        id={nanoid()}
+        id={demo}
         type={EWindowType.CUSTOM}
         fileTitle={getWindowTitle(demo)}
         pattern={EWindowPatternVariant.MEMPHIS}>
@@ -836,7 +835,9 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
                   {getEmptyArray(10).map((_, index) => (
                     <div
                       className={styles.event_loop_animation__cell}
-                      ref={(element) => (callStackRef.current[index] = element)}></div>
+                      ref={(element: HTMLDivElement): void => {
+                        callStackRef.current[index] = element;
+                      }}></div>
                   ))}
                 </div>
               </div>
@@ -848,7 +849,9 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
                   {getEmptyArray(5).map((_, index) => (
                     <div
                       className={styles.event_loop_animation__cell}
-                      ref={(element) => (microQueueRef.current[index] = element)}></div>
+                      ref={(element: HTMLDivElement): void => {
+                        microQueueRef.current[index] = element;
+                      }}></div>
                   ))}
                 </div>
               </div>
@@ -858,7 +861,9 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
                   {getEmptyArray(5).map((_, index) => (
                     <div
                       className={styles.event_loop_animation__cell}
-                      ref={(element) => (macroQueueRef.current[index] = element)}></div>
+                      ref={(element: HTMLDivElement): void => {
+                        macroQueueRef.current[index] = element;
+                      }}></div>
                   ))}
                 </div>
               </div>
@@ -870,7 +875,9 @@ export const EventLoopAnimation = ({ demo }: IEventLoopAnimationProps) => {
                   {getEmptyArray(10).map((_, index) => (
                     <div
                       className={styles.event_loop_animation__cell}
-                      ref={(element) => (webAPIRef.current[index] = element)}></div>
+                      ref={(element: HTMLDivElement): void => {
+                        webAPIRef.current[index] = element;
+                      }}></div>
                   ))}
                 </div>
               </div>

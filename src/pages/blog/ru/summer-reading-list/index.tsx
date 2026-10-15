@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import type { TReadingListItem } from '~types/books';
-import { renderBookLayout } from 'src/utils/books';
+import { renderBookLayout } from '~utils/books';
 import { getTextWithChevrons } from 'src/utils';
 import { LONG_DASH } from 'src/constants';
 import { PostWrapper, Spoiler } from 'src/components/blog/';

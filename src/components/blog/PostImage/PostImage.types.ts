@@ -1,7 +1,5 @@
-import type { StaticImageData } from 'next/image';
-
 export interface IPostImageProps {
-  src: StaticImageData;
+  src: string;
   alt: string;
   fileTitle: string;
   maxWidth?: number;

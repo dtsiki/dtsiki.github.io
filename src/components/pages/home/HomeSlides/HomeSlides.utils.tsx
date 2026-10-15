@@ -7,26 +7,26 @@ import { GREETING } from 'src/i18n';
 import { LANGUAGE } from '~types/language';
 import { About } from './components/About';
 
-import thumbnailMainEng from 'public/assets/home/slides/thumbnail-main-eng.png';
-import thumbnailMainRu from 'public/assets/home/slides/thumbnail-main-ru.png';
-import thumbnailAboutEng from 'public/assets/home/slides/thumbnail-about-eng.png';
-import thumbnailAboutRu from 'public/assets/home/slides/thumbnail-about-ru.png';
+const THUMBNAIL_MAIN_ENG_IMAGE = '/assets/home/slides/thumbnail-main-eng.png';
+const THUMBNAIL_MAIN_RU_IMAGE = '/assets/home/slides/thumbnail-main-ru.png';
+const THUMBNAIL_ABOUT_ENG_IMAGE = '/assets/home/slides/thumbnail-about-eng.png';
+const THUMBNAIL_ABOUT_RU_IMAGE = '/assets/home/slides/thumbnail-about-ru.png';
 
 export const HOME_SLIDES_CONFIG: TSlide[] = [
   {
     id: nanoid(),
     content: <BaseSlide title={<Greeting />} />,
     thumbnail: {
-      [LANGUAGE.ENG]: <ImageThumbnail image={thumbnailMainEng} alt={GREETING} />,
-      [LANGUAGE.RU]: <ImageThumbnail image={thumbnailMainRu} alt={GREETING} />,
+      [LANGUAGE.ENG]: <ImageThumbnail src={THUMBNAIL_MAIN_ENG_IMAGE} alt={GREETING} />,
+      [LANGUAGE.RU]: <ImageThumbnail src={THUMBNAIL_MAIN_RU_IMAGE} alt={GREETING} />,
     },
   },
   {
     id: nanoid(),
     content: <BaseSlide title={<About />} />,
     thumbnail: {
-      [LANGUAGE.ENG]: <ImageThumbnail image={thumbnailAboutEng} alt={GREETING} />,
-      [LANGUAGE.RU]: <ImageThumbnail image={thumbnailAboutRu} alt={GREETING} />,
+      [LANGUAGE.ENG]: <ImageThumbnail src={THUMBNAIL_ABOUT_ENG_IMAGE} alt={GREETING} />,
+      [LANGUAGE.RU]: <ImageThumbnail src={THUMBNAIL_ABOUT_RU_IMAGE} alt={GREETING} />,
     },
   },
 ];

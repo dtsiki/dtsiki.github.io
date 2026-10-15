@@ -58,7 +58,7 @@ const ShortcutPreview = ({
       {viewType === ShortcutPreviewViewType.LIST && <div className={styles.shortcutPreview__aside}>{date}</div>}
       {link && (
         <Link href={link}>
-          <a className={styles.shortcutPreview__link}>{title}</a>
+          <span className={styles.shortcutPreview__link}>{title}</span>
         </Link>
       )}
       <div className={bind(['tooltip__message', styles.shortcutPreview__tooltip, styles[viewType]])}>

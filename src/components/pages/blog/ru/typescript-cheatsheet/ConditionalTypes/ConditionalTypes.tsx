@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { getGhostText } from 'src/utils/formatting';
+import { getGhostText } from '~utils/formatting';
 
 export const ConditionalTypes = forwardRef<HTMLDivElement>(({}, ref) => {
   const syntaxExample = `T extends U ? X : Y`;

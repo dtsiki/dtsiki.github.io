@@ -1,5 +1,5 @@
 import { EWindowRecord, WINDOW_REGISTRY } from 'src/context/WindowManager/WindowManager.utils';
-import { HomeItem, HomeShortcut, THomeShortcut } from './HomeShortcuts.types';
+import { HomeItem, HomeShortcut, type THomeShortcut } from './HomeShortcuts.types';
 import { BLOG, CV_FILE_NAME, README_FILE_NAME, SLIDES_FILE_NAME, TRASH_BIN } from 'src/i18n/';
 import { BinIcon, SlidesIcon, TypingMachineIcon, WordFileIcon } from 'src/components/common/icons/ui';
 import { NotepadIcon } from 'src/components/common/icons/ui';

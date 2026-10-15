@@ -3,7 +3,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
-import callbackHell from 'public/assets/blog/frontend-in-a-nutshell/javascript/callback-hell.jpg';
+const CALLBACK_HELL_IMAGE = '/assets/blog/frontend-in-a-nutshell/javascript/callback-hell.jpg';
 
 export const Callbacks = () => {
   const exampleSetTimeout = `setTimeout(() => {
@@ -30,7 +30,7 @@ export const Callbacks = () => {
         user experience. The phenomenon which happens when we nest multiple callbacks within a function is called a
         callback hell.
       </p>
-      <PostImage src={callbackHell} alt='Callback hell' fileTitle='callback-hell.jpg' maxWidth={500} />
+      <PostImage src={CALLBACK_HELL_IMAGE} alt='Callback hell' fileTitle='callback-hell.jpg' maxWidth={500} />
 
       <p className='spacer top large'>
         To fix this problem <em>promises</em> were introduced.

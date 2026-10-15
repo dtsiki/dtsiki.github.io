@@ -67,18 +67,18 @@ export const PostContent = ({ postConfig, children }: IPostContentProps) => {
               <ul className={styles.post_content__pagination_list}>
                 <li>
                   <Link href={blogLink}>
-                    <a className={bind(['link', styles.post_content__pagination_link, styles.BACK])}>
+                    <span className={bind(['link', styles.post_content__pagination_link, styles.BACK])}>
                       <span className={styles.post_content__pagination_wrapper}>
                         <ArrowLeftIcon />
                         {translate(strictLanguage ? postConfig.language : language, BLOG)}
                       </span>
-                    </a>
+                    </span>
                   </Link>
                 </li>
                 {pagination?.next && POSTS_CONFIG_[pagination.next] && (
                   <li>
                     <Link href={POSTS_CONFIG_[pagination.next].link}>
-                      <a className={bind(['link', styles.post_content__pagination_link, styles.NEXT])}>
+                      <span className={bind(['link', styles.post_content__pagination_link, styles.NEXT])}>
                         <span className={styles.post_content__pagination_wrapper}>
                           {translate(strictLanguage ? postConfig.language : language, NEXT_POST)}
                           <ArrowRightIcon />
@@ -86,7 +86,7 @@ export const PostContent = ({ postConfig, children }: IPostContentProps) => {
                         <span className={styles.post_content__pagination_title}>
                           {POSTS_CONFIG_[pagination.next].title}
                         </span>
-                      </a>
+                      </span>
                     </Link>
                   </li>
                 )}

@@ -179,67 +179,65 @@ fetch(url)
                 берётся колбэк первого {thenInline} из очереди {promiseFulfillReactionsInline} {LONG_DASH}{' '}
                 <InlineCode>response.json()</InlineCode>. Этот колбэк в свою очередь тоже создаёт промис {LONG_DASH}{' '}
                 <em>(B)</em>. Следующие колбэки ждут выполнения промиса <em>(B)</em>. Когда:
-                <ul className='list markered nested'>
-                  <li className='list__item'>
-                    <p>
-                      <strong>выполняется промис (B):</strong>
-                    </p>
-                    <p>
-                      <b>
-                        если <em>успешно</em>:
-                      </b>{' '}
-                      берётся колбэк второго {thenInline} из очереди {promiseFulfillReactionsInline}, {LONG_DASH}{' '}
-                      <InlineCode>renderResult(result)</InlineCode>. Здесь тоже колбэк вернёт промис, {LONG_DASH}{' '}
-                      <em>(C)</em>, даже если из функции нет явного возврата промиса. Когда:
-                      <ul className='list markered nested'>
-                        <li className='list__item'>
-                          <p>
-                            <strong>
-                              выполняется промис <em>(C)</em>:
-                            </strong>
-                          </p>
-                          <p>
-                            <b>
-                              если <em>успешно</em>:
-                            </b>{' '}
-                            берётся колбэк {finallyInline} из очереди {promiseFulfillReactionsInline}. Конец цепочки.
-                          </p>
-                          <p>
-                            <b>
-                              если <em>с ошибкой</em>:
-                            </b>{' '}
-                            выполняется колбэк из {catchInline} из очереди {promiseRejectReactionsInline}. Колбэк
-                            создаёт промис <em>(D)</em>. Когда:
-                            <ul className='list markered nested'>
-                              <li className='list__item'>
-                                <p>
-                                  <strong>
-                                    выполняется промис <em>(D)</em>:
-                                  </strong>
-                                </p>
-                                <p>
-                                  <b>
-                                    если <em>успешно</em>:
-                                  </b>{' '}
-                                  из очереди {promiseFulfillReactionsInline} берётся колбэк {finallyInline} и
-                                  выполняется.
-                                </p>
-                                <p>
-                                  <b>
-                                    если <em>c ошибкой</em>:
-                                  </b>{' '}
-                                  из очереди {promiseRejectReactionsInline} берётся колбэк {finallyInline} и
-                                  выполняется.
-                                </p>
-                              </li>
-                            </ul>
-                          </p>
-                        </li>
-                      </ul>
-                    </p>
-                  </li>
-                </ul>
               </p>
+              <ul className='list markered nested'>
+                <li className='list__item'>
+                  <p>
+                    <strong>выполняется промис (B):</strong>
+                  </p>
+                  <p>
+                    <b>
+                      если <em>успешно</em>:
+                    </b>{' '}
+                    берётся колбэк второго {thenInline} из очереди {promiseFulfillReactionsInline}, {LONG_DASH}{' '}
+                    <InlineCode>renderResult(result)</InlineCode>. Здесь тоже колбэк вернёт промис, {LONG_DASH}{' '}
+                    <em>(C)</em>, даже если из функции нет явного возврата промиса. Когда:
+                    <ul className='list markered nested'>
+                      <li className='list__item'>
+                        <p>
+                          <strong>
+                            выполняется промис <em>(C)</em>:
+                          </strong>
+                        </p>
+                        <p>
+                          <b>
+                            если <em>успешно</em>:
+                          </b>{' '}
+                          берётся колбэк {finallyInline} из очереди {promiseFulfillReactionsInline}. Конец цепочки.
+                        </p>
+                        <p>
+                          <b>
+                            если <em>с ошибкой</em>:
+                          </b>{' '}
+                          выполняется колбэк из {catchInline} из очереди {promiseRejectReactionsInline}. Колбэк создаёт
+                          промис <em>(D)</em>. Когда:
+                          <ul className='list markered nested'>
+                            <li className='list__item'>
+                              <p>
+                                <strong>
+                                  выполняется промис <em>(D)</em>:
+                                </strong>
+                              </p>
+                              <p>
+                                <b>
+                                  если <em>успешно</em>:
+                                </b>{' '}
+                                из очереди {promiseFulfillReactionsInline} берётся колбэк {finallyInline} и выполняется.
+                              </p>
+                              <p>
+                                <b>
+                                  если <em>c ошибкой</em>:
+                                </b>{' '}
+                                из очереди {promiseRejectReactionsInline} берётся колбэк {finallyInline} и выполняется.
+                              </p>
+                            </li>
+                          </ul>
+                        </p>
+                      </li>
+                    </ul>
+                  </p>
+                </li>
+              </ul>
               <p>
                 <b>
                   если <em>с ошибкой</em>:

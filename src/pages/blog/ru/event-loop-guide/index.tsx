@@ -318,10 +318,10 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
         </section>
         <section className='section inner'>
           <p>Эти две пары понятий часто путают потому что:</p>
-          <ol className='list markered'>
+          <ul className='list markered'>
             <li className='list__item'>Асинхронный код часто реализуется в однопоточной среде</li>
             <li className='list__item'>Многопоточный код часто бывает синхронным, но может быть и асинхронным </li>
-          </ol>
+          </ul>
           <p>К какому виду относится JavaScript?</p>
           <p id='js'>По умолчанию JavaScript является синхронным и однопоточным языком.</p>
           <p className='spacer bottom medium'>
@@ -344,7 +344,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
       <section ref={eventLoopAnatomyRef} id='' className='section outer'>
         <h2>Из чего состоит Event Loop</h2>
         <p>Event Loop в JavaScript состоит из:</p>
-        <ol className='list markered'>
+        <ul className='list markered'>
           <li className='list__item'>
             <p>
               <strong>Call Stack</strong>: стек вызовов
@@ -365,7 +365,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
               <strong>Web API</strong>: браузерное окружение
             </p>
           </li>
-        </ol>
+        </ul>
         <p className='spacer bottom medium'>
           Изначально в модели событийного цикла была только одна очередь задач {LONG_DASH} Task Queue, куда складывались
           абсолютно все задачи. Но, с выходом ES6 и появления промисов, была добавлена ещё одна очередь {LONG_DASH}{' '}
@@ -534,7 +534,7 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
         <FunctionsExample ref={syncFunctionsExampleRef} />
 
         <p className='spacer top large'>Ещё важные нюансы, которые необходимо понимать и помнить про стек вызовов:</p>
-        <ol className='list markered'>
+        <ul className='list markered'>
           <li className='list__item'>
             <p>
               JavaScript {LONG_DASH} однопоточный, поэтому стек вызовов один. Пока стек вызовов не опустеет, никакие
@@ -546,33 +546,31 @@ infiniteRecursion(); // RangeError: Maximum call stack size exceeded`;
               из-за этого зависнет браузер, кнопки перестанутся нажимаются и так далее. Никакие очереди тут не помогут.
             </p>
             <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={whileTrueExampleCode} customName='DO_NOT_DO_THIS(1).js' />
-
-            <li className='list__item'>
-              <p>
-                Предыдущий пункт можно дополнить тем, что стек не резиновый и имеет ограниченный размер. Каждый вызов
-                функции занимает память и если функций слишком много (например, вы решили побаловаться бесконечными
-                рекурсиями), стек переполнится:
-              </p>
-              <p>
-                Например, если функция будет бесконечно вызывать саму себя т.е. в стек будет добавляться каждый раз одна
-                и та же функция, рано или поздно, в зависимости от объёма памяти, стек закончится и всё, бадибум. Так
-                что с этим тоже нужно быть аккуратнее.
-              </p>
-              <CodeSnippet
-                lang={CODE_LANG.JAVASCRIPT}
-                code={infiniteRecursionExampleCode}
-                customName='DO_NOT_DO_THIS(2).js'
-              />
-            </li>
-            <li className='list__item'>
-              <p>
-                Стек вызовов только для синхронных операций, но колбэки асинхронных операций тоже попадают в стек
-                вызовов, но позже, когда Event Loop принесёт их специально из очереди задач: макро или микро. Это
-                разберём далее.
-              </p>
-            </li>
           </li>
-        </ol>
+          <li className='list__item'>
+            <p>
+              Предыдущий пункт можно дополнить тем, что стек не резиновый и имеет ограниченный размер. Каждый вызов
+              функции занимает память и если функций слишком много (например, вы решили побаловаться бесконечными
+              рекурсиями), стек переполнится:
+            </p>
+            <p>
+              Например, если функция будет бесконечно вызывать саму себя т.е. в стек будет добавляться каждый раз одна и
+              та же функция, рано или поздно, в зависимости от объёма памяти, стек закончится и всё, бадибум. Так что с
+              этим тоже нужно быть аккуратнее.
+            </p>
+            <CodeSnippet
+              lang={CODE_LANG.JAVASCRIPT}
+              code={infiniteRecursionExampleCode}
+              customName='DO_NOT_DO_THIS(2).js'
+            />
+          </li>
+          <li className='list__item'>
+            <p>
+              Стек вызовов только для синхронных операций, но колбэки асинхронных операций тоже попадают в стек вызовов,
+              но позже, когда Event Loop принесёт их специально из очереди задач: макро или микро. Это разберём далее.
+            </p>
+          </li>
+        </ul>
       </section>
       <section ref={tasksQueueRef} className='section outer'>
         <h2>Macrotask Queue, Microtask Queue</h2>

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import type { IImageThumbnailProps } from './ImageThumbnail.types';
 import { useTranslate } from '~hooks/useTranslate';
 
-export const ImageThumbnail = ({ image, alt }: IImageThumbnailProps) => {
+export const ImageThumbnail = ({ src, alt }: IImageThumbnailProps) => {
   const { translate } = useTranslate();
 
   const getAltText = () => {
@@ -13,11 +13,13 @@ export const ImageThumbnail = ({ image, alt }: IImageThumbnailProps) => {
     if (typeof alt === 'object') {
       return translate(alt);
     }
+
+    return '';
   };
 
   return (
     <div className='image-box'>
-      <Image className='image-box__wrapper' layout='fill' src={image} alt={getAltText()} />
+      <Image className='image-box__wrapper' layout='fill' src={src} alt={getAltText()} />
     </div>
   );
 };

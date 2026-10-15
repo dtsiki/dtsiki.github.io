@@ -128,10 +128,8 @@ setTimeout(() => console.log(promise), 5000);`;
       <p>Начнём со скелета:</p>
       <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={methodTemplateSnippetCode} />
       <p>
-        <p>
-          Здесь используется тот же перебор, что и в {myAllInline} {LONG_DASH} <InlineCode>forEach</InlineCode>.
-          Поменяется только содержимое колбэков:
-        </p>
+        Здесь используется тот же перебор, что и в {myAllInline} {LONG_DASH} <InlineCode>forEach</InlineCode>.
+        Поменяется только содержимое колбэков:
       </p>
       <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={itemsForEachSnippetCode} />
       <p>

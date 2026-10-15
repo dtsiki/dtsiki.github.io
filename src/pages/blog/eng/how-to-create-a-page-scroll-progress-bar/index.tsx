@@ -11,7 +11,7 @@ import HtmlTag from 'src/components/common/HtmlTag';
 import { EHeroPattern, EHeroSize, EHeroVariant } from 'src/components/layout/Hero/Hero.types';
 import type { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreList.types';
 
-import heights from 'public/assets/blog/how-to-create-a-page-scroll-progress-bar/heights.svg';
+const HEIGHTS_IMAGE = '/assets/blog/how-to-create-a-page-scroll-progress-bar/heights.svg';
 
 const Post = () => {
   const SOURCES_CONFIG: Array<TReadMoreSource> = [
@@ -204,7 +204,7 @@ export const ProgressScroll = () => {
           We will receive via <code>DOM Event Listener</code> in <code>handleScroll()</code> an information about scroll
           height and client height after each scroll. Here is difference between scroll height and client height:
         </p>
-        <Image src={heights} layout='responsive' objectFit='cover' />
+        <img src={HEIGHTS_IMAGE} width=' 100%' alt='' />
         <p className='explanation'>
           Here&apos;s an explanation of the difference between scroll height and client height
         </p>

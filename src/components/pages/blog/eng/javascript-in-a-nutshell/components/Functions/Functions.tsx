@@ -4,7 +4,7 @@ import { CODE_LANG } from '~components/common/Code';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 
-import functions from 'public/assets/blog/frontend-in-a-nutshell/javascript/functions.jpg';
+const FUNCTIONS_IMAGE = '/assets/blog/frontend-in-a-nutshell/javascript/functions.jpg';
 
 export const Functions = () => {
   const exampleFunctionDeclaration = `function doSomething() {
@@ -165,11 +165,10 @@ doSomething();`;
       </ol>
       <PostImage
         fileTitle='javascript-is-awesome.jpg'
-        src={functions}
+        src={FUNCTIONS_IMAGE}
         alt='Tuxedo Winnie The Pooh meme but JavaScript functions'
         maxWidth={600}
       />
-
       <p>Functions in JavaScript can be nested:</p>
       <CodeSnippet lang={CODE_LANG.JAVASCRIPT} name='index' code={exampleNestedFunctions} />
       <ExampleSnippet code={exampleNestedFunctionsResult} />

@@ -15,7 +15,7 @@ import { ReadMoreList } from 'src/components/blog/ReadMoreList/ReadMoreList';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 
 import styles from './index.module.scss';
-import dnd_ui from 'public/assets/blog/javascript-drag-and-drop-quickly/dnd-ui.png';
+const DND_UI_IMAGE = '/assets/blog/javascript-drag-and-drop-quickly/dnd-ui.png';
 
 const Post = () => {
   const exampleDraggableElementMarkup = `<div draggable="true">Меня можно перетаскивать</div>`;
@@ -384,7 +384,7 @@ tasksContainer.addEventListener("dragover", handleDragOver);`;
           Попробуйте взять текст и потащить куда-нибудь - появится курсор захвата. Никакие специальные стили для этого
           не были прописаны, это дефолтное поведение браузера
         </p>
-        <PostImage fileTitle='DND_UI.jpg' src={dnd_ui} alt='' />
+        <PostImage fileTitle='DND_UI.jpg' src={DND_UI_IMAGE} alt='' />
         <p className='explanation'>Вот так это выглядит в моём браузере на моём ноутбуке</p>
         <p className='spacer top medium'>
           С перетаскиваемыми элементами разобрались, чтобы сделать элемент сбрасываемым никаких флагов вообще не надо

@@ -82,18 +82,18 @@ const PostLayout = ({
           <div className={styles.post__content}>{children}</div>
           <div className={styles.post__footer}>
             <Link href='/blog'>
-              <a className={bind(['link', styles.post__link, styles.back])}>
+              <span className={bind(['link', styles.post__link, styles.back])}>
                 <FontAwesomeIcon icon={faLeftLong} />
                 Blog
-              </a>
+              </span>
             </Link>
             {nextLink && (
               <Link href={nextLink}>
-                <a className={bind(['link', styles.post__link, styles.next])}>
+                <span className={bind(['link', styles.post__link, styles.next])}>
                   Next
                   <FontAwesomeIcon icon={faRightLong} />
                   <span className={styles.post__next}>{nextLinkLabel}</span>
-                </a>
+                </span>
               </Link>
             )}
           </div>

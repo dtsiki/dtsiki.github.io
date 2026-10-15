@@ -29,7 +29,9 @@ export const Folder = ({ content, handleItemClick, isRoot, navigateBack }: IFold
     if (!content?.length) {
       return (
         <li className={styles.folder__empty_placeholder}>
-          <FontAwesomeIcon className={styles.folder__empty_placeholder_icon} icon={faFolderMinus} />
+          <span className={styles.folder__empty_placeholder_icon}>
+            <FontAwesomeIcon icon={faFolderMinus} />
+          </span>
           <div className={styles.folder__empty_placeholder_title}>{translate(FOLDER_IS_EMPTY)}</div>
         </li>
       );

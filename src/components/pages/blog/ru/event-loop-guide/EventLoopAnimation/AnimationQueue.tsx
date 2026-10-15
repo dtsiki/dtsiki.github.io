@@ -8,26 +8,29 @@ export class AnimationQueue {
    * @param animationClass - CSS-класс с animation
    * @param removeAfterEnd - удалить класс после анимации
    */
-  add(element: HTMLElement | null, animationClass: string, removeAfterEnd: boolean = false): this {
-    if (!element || this.isAborted) {
-      return this;
-    }
+  add(element: HTMLElement | null, animationClass: string, removeAfterEnd = false): this {
+    if (!element || this.isAborted) return this;
 
     this.promise = this.promise.then(
       () =>
         new Promise<void>((resolve) => {
           const onAnimationEnd = () => {
-            if (removeAfterEnd) {
-              element.classList.remove(animationClass);
-            }
-
+            if (removeAfterEnd) element.classList.remove(animationClass);
             resolve();
           };
 
+          // снять предыдущий анимационный класс, если он был
+          const prev = element.dataset.animationClass;
+          if (prev && prev !== animationClass) {
+            element.classList.remove(prev);
+          }
+          element.classList.remove(animationClass);
+
+          void element.offsetWidth;
+
+          element.dataset.animationClass = animationClass;
           element.classList.add(animationClass);
-          element.addEventListener('animationend', onAnimationEnd, {
-            once: true,
-          });
+          element.addEventListener('animationend', onAnimationEnd, { once: true });
         })
     );
 
@@ -48,10 +51,13 @@ export class AnimationQueue {
       () =>
         new Promise<void>((resolve) => {
           setTimeout(() => {
-            if (!element || this.isAborted) {
+            let done = false;
+            const finish = () => {
+              if (done) return;
+              done = true;
+              if (removeAfterEnd) element.classList.remove(animationClass);
               resolve();
-              return;
-            }
+            };
 
             const onAnimationEnd = () => {
               if (removeAfterEnd) {
@@ -61,10 +67,14 @@ export class AnimationQueue {
               resolve();
             };
 
+            element.classList.remove(animationClass);
+            void element.offsetWidth;
             element.classList.add(animationClass);
-            element.addEventListener('animationend', onAnimationEnd, {
-              once: true,
-            });
+
+            element.addEventListener('animationend', onAnimationEnd, { once: true });
+
+            const dur = parseFloat(getComputedStyle(element).animationDuration) || 1;
+            setTimeout(finish, dur * 1000 + 100);
           }, delayMs);
         })
     );

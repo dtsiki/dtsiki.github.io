@@ -10,20 +10,20 @@ import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { TableOfContents } from 'src/components/pages/blog/TableOfContents/TableOfContents';
 import type { IItemOfContent } from 'src/interfaces';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
-
-import newRepoButtonImage from 'public/assets/blog/creating-a-react-app/new-repo-button.png';
-import newRepoFormImage from 'public/assets/blog/creating-a-react-app/new-repo-form.png';
-import newRepoNameFieldImage from 'public/assets/blog/creating-a-react-app/repo-name-field.png';
-import repoLinkImage from 'public/assets/blog/creating-a-react-app/repo-link.png';
-import reactTemplateImage from 'public/assets/blog/creating-a-react-app/react-template.png';
-import reactTemplateFolderImage from 'public/assets/blog/creating-a-react-app/react-template-src.png';
-import reactTemplateEditImage from 'public/assets/blog/creating-a-react-app/react-template-edit.png';
-import githubSettingsPagesImage from 'public/assets/blog/creating-a-react-app/github-settings-pages.png';
-import githubActionsImage from 'public/assets/blog/creating-a-react-app/github-actions.png';
-import viteReactTemplateImage from 'public/assets/blog/creating-a-react-app/vite-react-template.png';
-import viteReactTemplateFolderImage from 'public/assets/blog/creating-a-react-app/vite-template.png';
-import viteReactTemplateEditImage from 'public/assets/blog/creating-a-react-app/vite-template-edit.png';
 import { AlertMiniIcon } from 'src/components/common/icons/ui';
+
+const newRepoButtonImage = '/assets/blog/creating-a-react-app/new-repo-button.png';
+const newRepoFormImage = '/assets/blog/creating-a-react-app/new-repo-form.png';
+const newRepoNameFieldImage = '/assets/blog/creating-a-react-app/repo-name-field.png';
+const repoLinkImage = '/assets/blog/creating-a-react-app/repo-link.png';
+const reactTemplateImage = '/assets/blog/creating-a-react-app/react-template.png';
+const reactTemplateFolderImage = '/assets/blog/creating-a-react-app/react-template-src.png';
+const reactTemplateEditImage = '/assets/blog/creating-a-react-app/react-template-edit.png';
+const githubSettingsPagesImage = '/assets/blog/creating-a-react-app/github-settings-pages.png';
+const githubActionsImage = '/assets/blog/creating-a-react-app/github-actions.png';
+const viteReactTemplateImage = '/assets/blog/creating-a-react-app/vite-react-template.png';
+const viteReactTemplateFolderImage = '/assets/blog/creating-a-react-app/vite-template.png';
+const viteReactTemplateEditImage = '/assets/blog/creating-a-react-app/vite-template-edit.png';
 
 import styles from './index.module.scss';
 

@@ -1,4 +1,3 @@
-import { StaticImageData } from 'next/image';
 import type { ReactNode } from 'react';
 
 export type TBookType = 'audiobook' | 'ebook' | 'paperbook';

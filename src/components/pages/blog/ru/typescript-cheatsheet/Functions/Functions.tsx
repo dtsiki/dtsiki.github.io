@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { getGhostText } from 'src/utils/formatting';
+import { getGhostText } from '~utils/formatting';
 
 export const Functions = forwardRef<HTMLDivElement>(({}, ref) => {
   const functionWithArgsExampleCode = `function sum(a: number, b: number) {

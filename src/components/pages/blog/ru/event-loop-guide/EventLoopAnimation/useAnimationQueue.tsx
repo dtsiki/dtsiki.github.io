@@ -4,9 +4,11 @@ import { AnimationQueue } from './AnimationQueue';
 export const useAnimationQueue = () => {
   const queueRef = useRef<AnimationQueue | null>(null);
 
-  useEffect(() => {
+  if (queueRef.current === null) {
     queueRef.current = new AnimationQueue();
+  }
 
+  useEffect(() => {
     return () => {
       queueRef.current?.abort();
     };

@@ -177,29 +177,29 @@ const Post = () => {
               alone. It will help to build English speaking confidence. Choose a short article, excerpt from a book or
               write a small essay on your favorite topic and then read aloud. Then you can check your pronunciation
               yourself in a variety ways:
-              <ol className='list ordered nested'>
-                <li className='list__item'>
-                  <p>
-                    Listen to the pronunciation in{' '}
-                    <ExternalLink label='Google translate' href='https://translate.google.com' /> and compare with your
-                    own pronunciation.
-                  </p>
-                </li>
-                <li className='list__item'>
-                  <p>
-                    Check the pronunciation in <ExternalLink label='Youglish' href='https://youglish.com' />. Youglish
-                    is a tool that provides the correct pronunciation of words in multiple languages via YouTube videos.
-                    And then compare with your own pronunciation.
-                  </p>
-                </li>
-                <li className='list__item'>
-                  <p>
-                    Record your speech on a voice recorder. Nobody likes to hear their own voice, but be brave. It will
-                    help you to identify your pronunciation problems.
-                  </p>
-                </li>
-              </ol>
             </p>
+            <ol className='list ordered nested'>
+              <li className='list__item'>
+                <p>
+                  Listen to the pronunciation in{' '}
+                  <ExternalLink label='Google translate' href='https://translate.google.com' /> and compare with your
+                  own pronunciation.
+                </p>
+              </li>
+              <li className='list__item'>
+                <p>
+                  Check the pronunciation in <ExternalLink label='Youglish' href='https://youglish.com' />. Youglish is
+                  a tool that provides the correct pronunciation of words in multiple languages via YouTube videos. And
+                  then compare with your own pronunciation.
+                </p>
+              </li>
+              <li className='list__item'>
+                <p>
+                  Record your speech on a voice recorder. Nobody likes to hear their own voice, but be brave. It will
+                  help you to identify your pronunciation problems.
+                </p>
+              </li>
+            </ol>
           </li>
           <li className='list__item'>
             <h3 className='list__title'>Try dictations</h3>

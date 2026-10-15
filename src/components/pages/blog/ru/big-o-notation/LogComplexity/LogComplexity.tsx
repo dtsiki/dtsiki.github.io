@@ -43,22 +43,20 @@ export const LogComplexity = forwardRef<HTMLDivElement>(({}, ref) => {
       <p>Бинарный поиск — самый известный алгоритм с O(log n):</p>
       <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={binarySearchCodeSnippet} name='binarySearch' />
       <p>Как работает бинарный поиск:</p>
-      <p>
-        <ol className='list ordered'>
-          <li className='list__item'>
-            <p>Берём массив и находим на его середину</p>
-          </li>
-          <li className='list__item'>
-            <p>Если искомое число меньше середины — отбрасываем правую половину</p>
-          </li>
-          <li className='list__item'>
-            <p>Если больше — отбрасываем левую половину</p>
-          </li>
-          <li className='list__item'>
-            <p>Повторяем, пока не найдём искомое чисто или не останется элементов</p>
-          </li>
-        </ol>
-      </p>
+      <ol className='list ordered'>
+        <li className='list__item'>
+          <p>Берём массив и находим на его середину</p>
+        </li>
+        <li className='list__item'>
+          <p>Если искомое число меньше середины — отбрасываем правую половину</p>
+        </li>
+        <li className='list__item'>
+          <p>Если больше — отбрасываем левую половину</p>
+        </li>
+        <li className='list__item'>
+          <p>Повторяем, пока не найдём искомое чисто или не останется элементов</p>
+        </li>
+      </ol>
       <p>
         У массива из 16 элементов будет максимум 4 шага потому что 2⁴ = 16. У массив из 1.000.000 элементов будет
         максимум 20 шагов потому что 2²⁰ ≈ 1 000 000.

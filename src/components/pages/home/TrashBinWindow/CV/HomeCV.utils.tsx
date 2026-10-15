@@ -3,7 +3,7 @@ import { Header } from './components/Header/Header';
 import { AboutMe } from './components/AboutMe/AboutMe';
 import { WorkExperience } from './components/WorkExperience/WorkExperience';
 import { Contacts } from './components/Contacts/Contacts';
-import { TDocPage } from 'src/components/common/Window/components/DocFile/components/DocPage/DocPage.types';
+import type { TDocPage } from 'src/components/common/Window/components/DocFile/components/DocPage/DocPage.types';
 import { Education } from './components/Education/Education';
 import { WorkExperiencePage } from './components/WorkExperience/WorkExperience.types';
 

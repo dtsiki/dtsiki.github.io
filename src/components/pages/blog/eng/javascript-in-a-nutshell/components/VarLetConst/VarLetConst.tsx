@@ -3,8 +3,8 @@ import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 
-import constLetVar from 'public/assets/blog/frontend-in-a-nutshell/javascript/const-let-var.png';
-import letOrVar from 'public/assets/blog/frontend-in-a-nutshell/javascript/let-or-var.png';
+const constLetVar = '/assets/blog/frontend-in-a-nutshell/javascript/const-let-var.png';
+const letOrVar = '/assets/blog/frontend-in-a-nutshell/javascript/let-or-var.png';
 
 export const VarLetConst = () => {
   const exampleVar = `var yay = 42; // declared

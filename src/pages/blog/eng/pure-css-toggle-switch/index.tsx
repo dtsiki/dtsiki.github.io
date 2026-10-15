@@ -17,12 +17,12 @@ import type { TReadMoreSource } from 'src/components/blog/ReadMoreList/ReadMoreL
 import { nanoid } from 'nanoid';
 
 import styles from './index.module.scss';
-import dimension1 from 'public/assets/blog/pure-css-toggle-switch/dimension1.svg';
-import dimension2 from 'public/assets/blog/pure-css-toggle-switch/dimension2.svg';
-import dimension3 from 'public/assets/blog/pure-css-toggle-switch/dimension3.svg';
-import electricalToggle from 'public/assets/blog/pure-css-toggle-switch/electrical-toggle.jpg';
-import lightSwitch from 'public/assets/blog/pure-css-toggle-switch/light-switch.jpg';
-import keyboardSwitch from 'public/assets/blog/pure-css-toggle-switch/keyboard-switch.png';
+const DIMENSION1_IMAGE = '/assets/blog/pure-css-toggle-switch/dimension1.svg';
+const DIMENSION2_IMAGE = '/assets/blog/pure-css-toggle-switch/dimension2.svg';
+const DIMENSION3_IMAGE = '/assets/blog/pure-css-toggle-switch/dimension3.svg';
+const ELECTRICAL_TOGGLE_IMAGE = '/assets/blog/pure-css-toggle-switch/electrical-toggle.jpg';
+const LIGHT_SWITCH_IMAGE = '/assets/blog/pure-css-toggle-switch/light-switch.jpg';
+const KEYBOARD_SWITCH_IMAGE = '/assets/blog/pure-css-toggle-switch/keyboard-switch.png';
 
 const Post = () => {
   const [isToggledDemo, setIsToggledDemo] = useState<boolean>(false);
@@ -231,21 +231,21 @@ $gap: 4px;`;
           <div className={styles.post__gallery}>
             <div className={bind([styles.post__image, styles.ELECTRICAL_TOGGLE])}>
               <Window type={EWindowType.IMAGE} title='GALLERY' fileTitle='electrical-toggle.jpg'>
-                <Image
-                  layout='responsive'
-                  src={electricalToggle}
+                <img
+                  src={ELECTRICAL_TOGGLE_IMAGE}
+                  width='100%'
                   alt='A electrical toggle switch with two signs: off and on'
                 />
               </Window>
             </div>
             <div className={bind([styles.post__image, styles.LIGHT_SWITCH])}>
               <Window type={EWindowType.IMAGE} title='GALLERY' fileTitle='light-switch.jpg'>
-                <Image layout='responsive' src={lightSwitch} alt='A white light switch' />
+                <img src={LIGHT_SWITCH_IMAGE} width='100%' alt='A white light switch' />
               </Window>
             </div>
             <div className={bind([styles.post__image, styles.KEYBOARD_SWITCH])}>
               <Window type={EWindowType.IMAGE} title='GALLERY' fileTitle='keyboard-switch.jpg'>
-                <Image layout='responsive' src={keyboardSwitch} alt='A purple keyboard switch' />
+                <img src={KEYBOARD_SWITCH_IMAGE} width='100%' alt='A purple keyboard switch' />
               </Window>
             </div>
           </div>
@@ -477,13 +477,13 @@ $gap: 4px;`;
         </p>
         <div className={bind(['row', styles.post__dimensions])}>
           <div className='col col--33 col--tablet-100'>
-            <Image src={dimension2} layout='responsive' objectFit='cover' />
+            <img src={DIMENSION1_IMAGE} alt='' width='100%' />
           </div>
           <div className='col col--33 col--tablet-100'>
-            <Image src={dimension3} layout='responsive' objectFit='cover' />
+            <img src={DIMENSION2_IMAGE} alt='' width='100%' />
           </div>
           <div className='col col--33 col--tablet-100'>
-            <Image src={dimension1} layout='responsive' objectFit='cover' />
+            <img src={DIMENSION3_IMAGE} alt='' width='100%' />
           </div>
         </div>
         <p className='explanation'>Explanation of toggle switch dimensions</p>

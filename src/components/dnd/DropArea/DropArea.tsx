@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrop, type XYCoord } from 'react-dnd';
 import { convertPercentageToPixels, convertPixelsToPercentage } from 'src/utils';
 import type { IDropAreaProps } from './DropArea.types';
@@ -9,6 +9,7 @@ import { useWindowSize } from '~hooks/useWindowSize';
 import styles from './DropArea.module.scss';
 
 export const DropArea = ({ initialItems }: IDropAreaProps) => {
+  const dropRef = useRef<HTMLDivElement>(null);
   const [items, setItems] = useState<TDragItemComponent[]>([...initialItems]);
   const { windowSize } = useWindowSize();
 
@@ -36,7 +37,7 @@ export const DropArea = ({ initialItems }: IDropAreaProps) => {
     [items, setItems, windowSize]
   );
 
-  const [, dropRef] = useDrop(
+  const [, drop] = useDrop(
     () => ({
       accept: Object.values(TDragItemType),
       drop(item: any, monitor) {
@@ -53,6 +54,8 @@ export const DropArea = ({ initialItems }: IDropAreaProps) => {
     }),
     [moveItem, windowSize]
   );
+
+  drop(dropRef);
 
   return (
     <div ref={dropRef} className={styles.drop_area}>

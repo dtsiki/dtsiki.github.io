@@ -4,7 +4,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 
-import closures from 'public/assets/blog/frontend-in-a-nutshell/javascript/closures.jpg';
+const CLOSURES_IMAGE = '/assets/blog/frontend-in-a-nutshell/javascript/closures.jpg';
 
 export const Closures = () => {
   const exampleSimpleClosure = `let name = "yay";
@@ -44,7 +44,7 @@ do();`;
       </p>
       <PostImage
         fileTitle='EVERYWHERE!.jpg'
-        src={closures}
+        src={CLOSURES_IMAGE}
         alt='A toy story meme: Buzz is saying to Woddy that closures everywhere'
         maxWidth={500}
       />

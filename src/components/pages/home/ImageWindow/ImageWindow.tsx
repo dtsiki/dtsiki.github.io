@@ -3,7 +3,7 @@ import { EWindowType } from 'src/components/common/Window/Window.types';
 import { Window } from 'src/components/common/Window';
 
 import styles from './ImageWindow.module.scss';
-import kesha from '../../../../../public/assets/blog/semantic-markup-for-the-little-ones/kesha.jpg';
+const kesha = '/assets/blog/semantic-markup-for-the-little-ones/kesha.jpg';
 
 export const HomeImageWindow = () => {
   return (

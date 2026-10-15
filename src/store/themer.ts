@@ -1,19 +1,19 @@
-import { StoreonModule } from 'storeon';
+import type { StoreonModule } from 'storeon';
 
 export enum ThemeColor {
   VIOLET = 'violet',
   BLACK = 'black',
-  WHITE = 'white'
+  WHITE = 'white',
 }
 
 export interface State {
-  topColor: ThemeColor,
-  bottomColor: ThemeColor
+  topColor: ThemeColor;
+  bottomColor: ThemeColor;
 }
 
 export interface Events {
-  'setTopColor': ThemeColor,
-  'setBottomColor': ThemeColor
+  setTopColor: ThemeColor;
+  setBottomColor: ThemeColor;
 }
 
 export enum ThemerEvent {
@@ -25,10 +25,10 @@ export const themer: StoreonModule<State, Events> = (store) => {
   store.on('@init', () => ({ topColor: ThemeColor.VIOLET, bottomColor: ThemeColor.VIOLET }));
 
   store.on(ThemerEvent.SET_TOP_COLOR, (_, event) => ({
-    topColor: event
+    topColor: event,
   }));
 
   store.on(ThemerEvent.SET_BOTTOM_COLOR, (_, event) => ({
-    bottomColor: event
+    bottomColor: event,
   }));
 };

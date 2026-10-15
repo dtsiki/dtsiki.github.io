@@ -23,10 +23,10 @@ const Project = ({ title, description, variant, col }: Props) => {
           <h2 className={styles.project__title}>{title}</h2>
           <p className={styles.project__description}>{description}</p>
           <Link href='/projects'>
-            <a className={styles.project__link}>
+            <span className={styles.project__link}>
               Read more
               <FontAwesomeIcon icon={faRightLong} />
-            </a>
+            </span>
           </Link>
         </div>
       </div>

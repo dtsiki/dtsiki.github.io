@@ -5,7 +5,7 @@ import { DoubleCodeSnippet } from 'src/components/blog/DoubleCodeSnippet/DoubleC
 import { PostImage } from 'src/components/blog/PostImage/PostImage';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 
-import async from 'public/assets/blog/frontend-in-a-nutshell/javascript/async.png';
+const ASYNC_IMAGE = '/assets/blog/frontend-in-a-nutshell/javascript/async.png';
 
 export const AsynchronousJavaScript = () => {
   const exampleSynchronousCode = `const yay = 'yay';
@@ -49,7 +49,12 @@ function doSomething() {
         With asynchronous programming, JavaScript programs can start long-running tasks and continue running other tasks
         in paralell.
       </p>
-      <PostImage fileTitle='async.jpg' src={async} alt='Knock knock. Race condition. Who is there?' maxWidth={500} />
+      <PostImage
+        fileTitle='async.jpg'
+        src={ASYNC_IMAGE}
+        alt='Knock knock. Race condition. Who is there?'
+        maxWidth={500}
+      />
       <p className='spacer top large'>
         Mentioned earlier <code>setTimeout()</code> and <code>setInterval()</code> methods are the only native functions
         of the JavaScript to execute code asynchronously. What does it mean? Asynchronous functions are not block the

@@ -4,7 +4,7 @@ import { EBlogPostRecord, POSTS_CONFIG_ } from 'src/data/postsConfig';
 import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import { ExternalLink } from 'src/components/common/ExternalLink';
 import type { TReadingListItem } from '~types/books';
-import { renderBookLayout } from 'src/utils/books';
+import { renderBookLayout } from '~utils/books';
 
 const artemidaImage = '/assets/blog/april-reading-list/artemida.webp';
 const hizhinaImage = '/assets/blog/april-reading-list/hizhina.webp';
@@ -144,7 +144,7 @@ const Post = () => {
       tags: ['Биография'],
       cover: hizhinaImage,
       content: (
-        <p>
+        <>
           <p>
             Неожиданно, но одна из самых интересных книг апреля. Я начинала её когда она только появилась в электронном
             виде, но быстро забросила, не пошло почему-то. Но недавно снова попалась и я решила дать ей второй шанс.
@@ -157,7 +157,7 @@ const Post = () => {
             А ещё у автора книги есть <ExternalLink href='https://patrick-hutchison.com/' label='сайт' /> где можно
             посмотреть на фотографиях как же выглядела та самая хижина.
           </p>
-        </p>
+        </>
       ),
     },
   ];

@@ -2,9 +2,9 @@ import { forwardRef } from 'react';
 import { InlineCode } from 'src/components/blog';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { Note, NoteType } from '~components/common/Note';
+import { Note, NOTE_TYPE } from '~components/common/Note';
 import { LONG_DASH } from 'src/constants';
-import { getGhostText } from 'src/utils/formatting';
+import { getGhostText } from '~utils/formatting';
 
 export const Types = forwardRef<HTMLDivElement>(({}, ref) => {
   const typeExampleCode = `type User = {
@@ -57,7 +57,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
         С помощью типов можно описывать любые структуры данных: примитивные типы, объекты, функций, массивов и т.д.
         Ключевое слово здесь {LONG_DASH} <strong>любые</strong>.
       </p>
-      <Note type={NoteType.SECONDARY}>
+      <Note type={NOTE_TYPE.SECONDARY}>
         Не следует путать с{' '}
         <a href='#Data_Types' className='link PRIMARY'>
           типами данных
@@ -82,7 +82,7 @@ type User = { age: number }; //  Error: Duplicate identifier 'User' `;
       <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={tupleTypeExampleCode} />
 
       <div className='spacer top bottom medium'>
-        <Note type={NoteType.SECONDARY}>
+        <Note type={NOTE_TYPE.SECONDARY}>
           <p>
             Типы в TypeScript можно называть с префиксом <em>T</em>, например, <em>TUser</em> вместо <em>User</em>. Это
             не обязательное правило TypeScript, а соглашение, пришедшее из других языков для улучшения читаемости кода.

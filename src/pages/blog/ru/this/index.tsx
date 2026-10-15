@@ -5,11 +5,11 @@ import { EHeroPattern, EHeroSize } from 'src/components/layout/Hero/Hero.types';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
-import { getGhostText } from 'src/utils/formatting';
+import { getGhostText } from '~utils/formatting';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { NOTE_TYPE, Note } from '~components/common/Note';
 
-import pulpFictionGifImage from 'public/assets/blog/this/pulp-fiction.gif';
+const PULP_FICTION_GIF_IMAGE = '/assets/blog/this/pulp-fiction.gif';
 
 const EXAMPLE_NAME = 'example';
 
@@ -315,7 +315,7 @@ button.addEventListener("click", (event) => {
         <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={undefinedObjThisExampleCode} name={EXAMPLE_NAME} />
         <p>Куда делся контекст?</p>
         <div className='width-limiter medium centered spacer top bottom small'>
-          <Image src={pulpFictionGifImage} layout='responsive' objectFit='cover' />
+          <Image src={PULP_FICTION_GIF_IMAGE} alt='' layout='responsive' objectFit='cover' width={350} height={350} />
         </div>
         <p>
           На (8) строчке в переменную <InlineCode>introduce</InlineCode> передаётся только ссылка на функцию{' '}

@@ -4,7 +4,7 @@ import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { InlineCode } from 'src/components/blog/InlineCode';
 import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
-import { getGhostText } from 'src/utils/formatting';
+import { getGhostText } from '~utils/formatting';
 
 export const Generics = forwardRef<HTMLDivElement>(({}, ref) => {
   const anyPrintFunctionExampleCode = `function print(value: any): any {
