@@ -8,6 +8,7 @@ import { CODE_LANG } from '~components/common/Code';
 import { getGhostText } from '~utils/formatting';
 import { ExampleSnippet } from 'src/components/blog/ExampleSnippet/ExampleSnippet';
 import { NOTE_TYPE, Note } from '~components/common/Note';
+import { LONG_DASH } from 'src/constants';
 
 const PULP_FICTION_GIF_IMAGE = '/assets/blog/this/pulp-fiction.gif';
 
@@ -201,14 +202,19 @@ button.addEventListener("click", (event) => {
         pattern: EHeroPattern.TRIANGLES,
       }}>
       <section className='section outer'>
-        <p>{inlineCodeThis} — это указатель.</p>
         <p>
-          {inlineCodeThis} — это указатель на объект, который функция получает при вызове. Через {inlineCodeThis}{' '}
-          функция может получить доступ к свойствам и методам этого объекта. Всё это происходит внутри контекста
-          выполнения функции, который включает в себя {inlineCodeThis}, переменные и ссылку на внешнюю область
-          видимости.
+          {inlineCodeThis} {LONG_DASH} это указатель.
         </p>
-        <p>{inlineCodeThis} — это не контекст выполнения, а просто указатель.</p>
+        <p>
+          Указатель должен на что-то указывать. {inlineCodeThis} указывает на объект, который функция получает при
+          вызове. Через {inlineCodeThis} функция может получить доступ к свойствам и методам этого объекта. Всё это
+          происходит внутри контекста выполнения функции, который включает в себя {inlineCodeThis}, переменные и ссылку
+          на внешнюю область видимости.
+        </p>
+        <p>
+          {inlineCodeThis} {LONG_DASH} это не контекст выполнения, а просто указатель. Указатель на контекст выполнения.
+          А вот уже контекст может меняться в зависимости от того, где вызывается функция.
+        </p>
       </section>
       <section className='section outer'>
         <h2>Глобальный контекст</h2>
@@ -238,7 +244,7 @@ button.addEventListener("click", (event) => {
         <h2>Обычные функции {getGhostText('все, которые не стрелочные')}</h2>
         <p>
           У функций, объявленых через ключевое слово <InlineCode>function</InlineCode>, {inlineCodeThis} в строгом
-          режиме равен <InlineCode>undefined</InlineCode>, а в нестрогом — <InlineCode>window</InlineCode>:
+          режиме равен <InlineCode>undefined</InlineCode>, а в нестрогом {LONG_DASH} <InlineCode>window</InlineCode>:
         </p>
         <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={functionsThisExampleCode} name={EXAMPLE_NAME} />
         <p>
@@ -258,7 +264,7 @@ button.addEventListener("click", (event) => {
           <p>
             Вместо <InlineCode>undefined</InlineCode> может выводится пустая строка в браузере, так как контекст может
             ссылаться на объект <InlineCode>window</InlineCode>, у которого есть поле <InlineCode>name</InlineCode> со
-            своим дефолтным значением — пустая строка <InlineCode>""</InlineCode>.
+            своим дефолтным значением {LONG_DASH} пустая строка <InlineCode>""</InlineCode>.
           </p>
         </Note>
         <p>
@@ -277,8 +283,8 @@ button.addEventListener("click", (event) => {
       <section className='section outer'>
         <h2>Функции-конструкторы</h2>
         <p>
-          Функция-конструктор в JavaScript — это обычная функция, которая создает и настраивает новые объекты с помощью
-          ключевого слова <InlineCode>new</InlineCode>:
+          Функция-конструктор в JavaScript {LONG_DASH} это обычная функция, которая создает и настраивает новые объекты
+          с помощью ключевого слова <InlineCode>new</InlineCode>:
         </p>
         <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={functionConstructorExampleCode} name={EXAMPLE_NAME} />
         <p>
@@ -328,7 +334,8 @@ button.addEventListener("click", (event) => {
         <p>Аналогичная ситуация произойдёт если метод объекта передать куда-то как колбэк. Например так:</p>
         <CodeSnippet lang={CODE_LANG.JAVASCRIPT} code={timeoutThisExampleCode} name={EXAMPLE_NAME} />
         <p>
-          Тут прописать <InlineCode>user.sayHello()</InlineCode> уже не прокатит — функция вызовется мгновенно.
+          Тут прописать <InlineCode>user.sayHello()</InlineCode> уже не прокатит {LONG_DASH} функция вызовется
+          мгновенно.
         </p>
         <p>Что можно сделать здесь в таких ситуация?</p>
         <ol className='list ordered'>
@@ -343,22 +350,23 @@ button.addEventListener("click", (event) => {
                   <InlineCode>obj.func</InlineCode>
                 </p>
                 <p className='list__footer'>
-                  — обращение к свойству объекта, значением которого является сама функция или ссылка на неё. Сама
-                  функция при этом не вызывается
+                  {LONG_DASH} обращение к свойству объекта, значением которого является сама функция или ссылка на неё.
+                  Сама функция при этом не вызывается
                 </p>
               </li>
               <li>
                 <p className='list__title'>
                   <InlineCode>obj.func()</InlineCode>
                 </p>
-                <p className='list__footer'>— непосредственный вызов этой функции как метода объекта</p>
+                <p className='list__footer'>{LONG_DASH} непосредственный вызов этой функции как метода объекта</p>
               </li>
             </ul>
           </li>
           <li className='list__item'>
             <p className='list__title'>Использовать анонимную или стрелочную функцию</p>
             <p className='list__footer'>
-              Вызывать метод напрямую нельзя, поэтому отдаем функцию-пустышку, внутри которой вызываем метод правильно —
+              Вызывать метод напрямую нельзя, поэтому отдаем функцию-пустышку, внутри которой вызываем метод правильно{' '}
+              {LONG_DASH}
               через точку:
             </p>
             <CodeSnippet
