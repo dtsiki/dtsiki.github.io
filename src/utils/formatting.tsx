@@ -5,11 +5,15 @@ export const getGhostText = (text: ReactNode) => {
   return <span className='accented ghost spacer left extra-small'>({text})</span>;
 };
 
-const getComma = (currentIndex: number, array: string[]) => {
+const getComma = (currentIndex: number, array: ReactNode[]) => {
   return currentIndex !== array.length - 1 ? ', ' : null;
 };
 
-export const renderInlineList = (array: string[], as?: ElementType, className?: string) => {
+export const getAngleBrackets = (text: string) => {
+  return `<${text}>`;
+};
+
+export const renderInlineList = (array: ReactNode[], as?: ElementType, className?: string) => {
   const Tag = as || 'span';
 
   return array.map((item, index) => {
