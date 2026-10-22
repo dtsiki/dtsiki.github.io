@@ -54,6 +54,10 @@ export const WINDOW_REGISTRY: Record<string, TWindow> = {
         slides: HOME_SLIDES_CONFIG,
       },
     },
+    responsive: {
+      hideOnMobile: true,
+      hideOnTablet: true,
+    },
   },
   [EWindowRecord.README_TXT_FILE]: {
     id: EWindowRecord.README_TXT_FILE,

@@ -5,7 +5,7 @@ import { BinIcon, FolderIcon } from 'src/components/common/icons/ui';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
 import { BIN } from 'src/i18n';
 import type { TLanguage, TranslationObject } from '~types/language';
-import type { TWindowConfig } from '~types/window';
+import type { TWindow, TWindowConfig } from '~types/window';
 import { translateTitle } from 'src/utils/translate';
 
 export const getCustomWindowIcon = (id: string) => {

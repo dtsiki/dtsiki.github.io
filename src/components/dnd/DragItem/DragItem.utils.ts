@@ -1,7 +1,7 @@
 import { isUndefined } from 'lodash';
 import { type TDragItemPosition, TDragItemPositionUnit } from '~types/dnd';
 import { convertPixelsToPercentage } from 'src/utils';
-import type { TWindowSize } from '~hooks/useWindowSize';
+import type { TWindowSize } from '~hooks/useWindowSize/useWindowSize.types';
 
 export const POSITION_UNIT = {
   [TDragItemPositionUnit.PIXELS]: 'px',

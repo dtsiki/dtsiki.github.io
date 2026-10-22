@@ -4,7 +4,7 @@ import { convertPercentageToPixels, convertPixelsToPercentage } from 'src/utils'
 import type { IDropAreaProps } from './DropArea.types';
 import { DragItem } from '../DragItem';
 import { type TDragItemComponent, TDragItemPositionUnit, TDragItemType } from '~types/dnd';
-import { useWindowSize } from '~hooks/useWindowSize';
+import { useWindowSize } from '~hooks/useWindowSize/useWindowSize';
 
 import styles from './DropArea.module.scss';
 

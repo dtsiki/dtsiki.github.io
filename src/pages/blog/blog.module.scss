@@ -1,5 +1,6 @@
 @import './../../styles/colors';
 @import './../../styles/vars';
+@import './../../styles/breakpoints';
 
 .blog {
   font-family: Inter;
@@ -19,12 +20,20 @@
     font-size: 4rem;
     color: $color--violet;
     margin-bottom: $SPACER;
+
+    @include tablet {
+      font-size: 2rem;
+    }
   }
 
   &__subtitle {
     font-size: 2rem;
     color: $color--black;
     margin-bottom: $SPACER / 2;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__description {

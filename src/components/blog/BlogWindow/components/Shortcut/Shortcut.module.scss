@@ -23,6 +23,10 @@
     flex-direction: column;
     padding: $SPACER * 2 $SPACER;
     height: 100%;
+
+    @include mobile {
+      padding: $SPACER / 2;
+    }
   }
 
   &:hover {
@@ -56,6 +60,11 @@
         margin: 0 auto $SPACER / 2;
         width: 100px;
         height: 100px;
+
+        @include mobile {
+          width: 42px;
+          height: 42px;
+        }
       }
     }
   }
@@ -67,7 +76,10 @@
     color: $color--violet;
     font-family: Pixelify;
     font-weight: 400;
-    //text-transform: uppercase;
+
+    @include mobile {
+      font-size: 1rem;
+    }
 
     &.GRID {
       max-width: 150px;

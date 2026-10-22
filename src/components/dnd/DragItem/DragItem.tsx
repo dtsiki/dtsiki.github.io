@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useDrag } from 'react-dnd';
 import type { IDragItemProps } from './DragItem.types';
 import { getPositionStyle, getPosition } from './DragItem.utils';
-import { useWindowSize } from '~hooks/useWindowSize';
+import { useWindowSize } from '~hooks/useWindowSize/useWindowSize';
 
 import styles from './DragItem.module.scss';
 

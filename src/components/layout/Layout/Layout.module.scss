@@ -15,6 +15,10 @@
     left: 0;
     height: 40px;
     z-index: 1000;
+
+    @include mobile {
+      height: 10px;
+    }
   }
 
   &::after {
@@ -26,11 +30,19 @@
     left: 0;
     height: 40px;
     z-index: 1000;
+
+    @include mobile {
+      height: 10px;
+    }
   }
 
   &__wrapper {
     padding: $SPACER * 2 !important;
     background: $color--white-darker;
+
+    @include mobile {
+      padding: $SPACER / 2 !important;
+    }
   }
 
   &__content {

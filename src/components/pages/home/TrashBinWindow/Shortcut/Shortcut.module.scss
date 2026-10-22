@@ -39,7 +39,7 @@
 
   &__icon {
     svg {
-      color: $color--grey;
+      color: $color--violet-lighter;
     }
 
     &.LIST {
@@ -56,6 +56,11 @@
         margin: 0 auto $SPACER / 2;
         width: 100px;
         height: 100px;
+
+        @include mobile {
+          width: 42px;
+          height: 42px;
+        }
       }
     }
   }
@@ -64,10 +69,13 @@
     display: inline-block;
     font-size: 16px;
     text-align: center;
-    color: $color--black-lighter;
+    color: $color--violet;
     font-family: Pixelify;
     font-weight: 400;
-    text-transform: uppercase;
+
+    @include mobile {
+      font-size: 1rem;
+    }
 
     &.GRID {
       max-width: 150px;

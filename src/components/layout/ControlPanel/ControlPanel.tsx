@@ -13,14 +13,17 @@ import { Notifications } from '../Notifications/Notifications';
 import { EBlogRecord } from 'src/components/blog/BlogWindow/BlogWindow.utils';
 import { HomeIcon } from 'src/components/common/icons/ui';
 import { getCustomWindowIcon, getCustomWindowTitle, getWindowIcon, getWindowTitle } from './ControlPanel.utils';
+import { SignalIcon } from 'src/components/common/icons/ui/Signal';
+import { useWindowSize } from '~hooks/useWindowSize/useWindowSize';
+import { hideOnMobile, hideOnTablet } from '~components/common/Window/components/WindowRenderer/WindowRenderer.utils';
 
 import styles from './ControlPanel.module.scss';
-import { SignalIcon } from 'src/components/common/icons/ui/Signal';
 
 export const ControlPanel = () => {
   const bind = classNames.bind(styles);
   const router = useRouter();
 
+  const { isMobile, isTablet } = useWindowSize();
   const { windows, openWindow } = useWindowManager();
   const { translate, language, toggleLanguage } = useTranslate();
   const { getUnreadCount } = useNotifications();
@@ -46,26 +49,29 @@ export const ControlPanel = () => {
                 aria-label={translate(HOME)}
                 onClick={handleHome}>
                 <HomeIcon />
+                <span className={styles.control_panel__control_label}>Home</span>
               </button>
             </li>
           </ul>
           <ul className={styles.control_panel__windows}>
-            {windows?.map(({ id, isFocused, isMinimized, config }) => (
-              <li key={id} className={styles.control_panel__window}>
-                <button
-                  onClick={() => openWindow(id, false, true)}
-                  aria-label={translate(OPEN_THE_WINDOW)}
-                  className={bind([
-                    styles.control_panel__window_button,
-                    { [styles.focused]: isFocused && !isMinimized },
-                  ])}>
-                  {getCustomWindowIcon(id)}
-                  {getCustomWindowTitle(id, { language, currentTitle, translate })}
-                  {getWindowIcon(config)}
-                  {getWindowTitle(language, config)}
-                </button>
-              </li>
-            ))}
+            {windows
+              .filter((window) => !(hideOnMobile(isMobile, window) || hideOnTablet(isTablet, window)))
+              .map(({ id, isFocused, isMinimized, config }) => (
+                <li key={id} className={styles.control_panel__window}>
+                  <button
+                    onClick={() => openWindow(id, false, true)}
+                    aria-label={translate(OPEN_THE_WINDOW)}
+                    className={bind([
+                      styles.control_panel__window_button,
+                      { [styles.focused]: isFocused && !isMinimized },
+                    ])}>
+                    {getCustomWindowIcon(id)}
+                    {getCustomWindowTitle(id, { language, currentTitle, translate })}
+                    {getWindowIcon(config)}
+                    {getWindowTitle(language, config)}
+                  </button>
+                </li>
+              ))}
           </ul>
         </div>
         <div className={styles.control_panel__section}>

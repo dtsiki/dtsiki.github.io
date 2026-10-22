@@ -19,7 +19,6 @@
     box-shadow: 5px 5px 0 0 $color--grey;
 
     &.focused {
-      // border: 5px solid green;
       box-shadow: 5px 5px 0 0 $color--violet;
     }
 
@@ -141,6 +140,10 @@
     &.GRID {
       width: calc(100% / 3);
       padding-right: 10px;
+
+      @include mobile {
+        width: calc(100% / 2);
+      }
     }
 
     &.LIST {

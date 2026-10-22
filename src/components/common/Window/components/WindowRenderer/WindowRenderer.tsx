@@ -5,21 +5,21 @@ import { isBaseWindow } from '../../Window.utils';
 import { BlogWindow } from 'src/components/blog/BlogWindow';
 import { EWindowRecord } from 'src/context/WindowManager/WindowManager.utils';
 import { TrashBinWindow } from 'src/components/pages/home/TrashBinWindow/TrashBinWindow';
-import { useWindowSize } from '~hooks/useWindowSize';
-import { getWindowStyle } from './WindowRenderer.utils';
+import { useWindowSize } from '~hooks/useWindowSize/useWindowSize';
+import { getWindowStyle, hideOnMobile, hideOnTablet } from './WindowRenderer.utils';
 
 export const WindowRenderer = () => {
   const { windows } = useWindowManager();
-  const { isMobile } = useWindowSize();
+  const { windowType, isMobile, isTablet } = useWindowSize();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const sortedWindows = [...windows]
     .filter((window) => !window.isMinimized)
+    .filter((window) => !(hideOnMobile(isMobile, window) || hideOnTablet(isTablet, window)))
     .sort((a, b) => {
       if (a.isFocused !== b.isFocused) {
         return a.isFocused ? -1 : 1;
       }
-
       return 0;
     });
 
@@ -51,11 +51,11 @@ export const WindowRenderer = () => {
         pointerEvents: 'none',
         zIndex: 1000,
       }}>
-      {sortedWindows.map((window) => {
+      {sortedWindows.map((window, index) => {
         const { id, isFocused, isMinimized, config } = window;
 
         return (
-          <div key={id} data-window-id={id} style={getWindowStyle(window, windows.indexOf(window), isMobile)}>
+          <div key={id} data-window-id={id} style={getWindowStyle(window, index, windowType)}>
             {isBaseWindow(config) ? (
               <Window
                 id={id}

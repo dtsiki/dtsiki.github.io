@@ -16,5 +16,9 @@
     background-size: 40px;
     background-position: -25px -25px;
     background-color: $color--white-violet;
+
+    @include mobile {
+      background-size: 20px;
+    }
   }
 }

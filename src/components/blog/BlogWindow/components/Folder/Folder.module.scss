@@ -89,8 +89,6 @@
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
-    // margin-bottom: $SPACER;
-    // margin-right: $SPACER;
     padding: $SPACER;
   }
 
@@ -100,6 +98,10 @@
     &.GRID {
       width: calc(100% / 4);
       padding-right: 10px;
+
+      @include mobile {
+        width: calc(100% / 2);
+      }
     }
 
     &.LIST {

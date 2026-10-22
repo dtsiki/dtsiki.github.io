@@ -14,7 +14,6 @@ export const WindowManagerProvider = ({ children }: IWindowManagerProviderProps)
 
   const openWindow = (id: string, isMinimized: boolean = true, isFocused: boolean = false) => {
     const config = WINDOW_REGISTRY[id];
-    console.log('open window', config);
 
     if (!config) {
       console.warn(`Окно "${id}" не найдено в реестре`);

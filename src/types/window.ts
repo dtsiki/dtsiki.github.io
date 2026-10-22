@@ -22,12 +22,18 @@ export type TWindowState = {
   content?: TFolderItem[];
 };
 
+export type TResponsive = {
+  hideOnMobile: boolean;
+  hideOnTablet?: boolean;
+};
+
 export type TWindow = {
   id: string;
   isMinimized?: boolean;
   isFocused?: boolean;
   position?: TWindowPosition;
   size?: TWindowSize;
+  responsive?: TResponsive;
   config?: TWindowConfig;
   initialState?: TWindowState;
   state?: TWindowState;
@@ -50,4 +56,5 @@ export type TCustomWindowConfig = {
   component: ReactNode;
   position?: TWindowPosition;
   size?: TWindowSize;
+  responsive?: TResponsive;
 };
