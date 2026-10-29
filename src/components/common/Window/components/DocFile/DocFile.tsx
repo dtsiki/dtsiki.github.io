@@ -11,7 +11,7 @@ import { docFileOffset } from './DocFile.utils';
 
 import styles from './DocFile.module.scss';
 
-export const DocFile = ({ pages }: IDocFileProps) => {
+export const DocFile = ({ pages, height }: IDocFileProps) => {
   const { translate } = useTranslate();
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -20,7 +20,7 @@ export const DocFile = ({ pages }: IDocFileProps) => {
   const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(null);
 
   const windowHeight = useWindowHeight();
-  const height = windowHeight - docFileOffset;
+  const finalHeight = height ? height : windowHeight - docFileOffset;
 
   useEffect(() => {
     const container = scrollbarRef.current?.getScrollElement() || null;
@@ -73,7 +73,7 @@ export const DocFile = ({ pages }: IDocFileProps) => {
 
   return (
     <div className={styles.doc_file}>
-      <CustomScrollbar ref={scrollbarRef} fixedHeight={height}>
+      <CustomScrollbar ref={scrollbarRef} fixedHeight={finalHeight}>
         <div className={styles.doc_file__pages}>
           {pages?.map((page, index) => (
             <DocPage

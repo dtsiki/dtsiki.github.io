@@ -26,6 +26,7 @@ export interface IWindowProps {
   isModal?: boolean;
   isFocused?: boolean;
   isMinimized?: boolean;
+  isManuallyStatic?: boolean;
   children?: ReactNode;
   content?: TWindowContent;
   isRoot?: boolean;

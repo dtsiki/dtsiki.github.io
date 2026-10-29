@@ -16,7 +16,7 @@ export const UTILITY_TYPE_CONFIG = {
   [UTILITY_TYPE.RETURNTYPE]: ['T'],
   [UTILITY_TYPE.CONSTRUCTORPARAMETERS]: ['T'],
   [UTILITY_TYPE.INSTANCETYPE]: ['T'],
-  [UTILITY_TYPE.AWAITED]: ['T'],
+  [UTILITY_TYPE.AWAITED]: ['Promise'],
 };
 
 export const renderTypeName = (utilityType: TUtilityType) => {

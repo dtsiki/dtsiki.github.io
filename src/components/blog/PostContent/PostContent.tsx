@@ -14,7 +14,7 @@ import { Copyright } from '../Copyright';
 
 import styles from './PostContent.module.scss';
 
-export const PostContent = ({ postConfig, children }: IPostContentProps) => {
+export const PostContent = ({ postConfig, hideHighlight, children }: IPostContentProps) => {
   const { title, highlight, createdAt, meta, category, tags, strictLanguage, pagination } = postConfig;
 
   const bind = classNames.bind(styles);
@@ -57,7 +57,7 @@ export const PostContent = ({ postConfig, children }: IPostContentProps) => {
             <div className={styles.post_content__details}>
               <div className={styles.post_content__date}>{createdAt}</div>
             </div>
-            <p className={styles.post_content__highlight}>{highlight}</p>
+            {!hideHighlight && <p className={styles.post_content__highlight}>{highlight}</p>}
           </aside>
           <main className={styles.post_content__content}>{children}</main>
 

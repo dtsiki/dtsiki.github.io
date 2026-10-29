@@ -4,9 +4,10 @@ import { AngleBrackets } from 'src/components/blog/AngleBrackets/AngleBrackets';
 import { CodeSnippet } from 'src/components/blog/CodeSnippet/CodeSnippet';
 import { CODE_LANG } from '~components/common/Code';
 import { LONG_DASH } from 'src/constants';
-import { getGhostText, renderInlineList } from '~utils/formatting';
+import { getAngleBrackets, getGhostText, renderInlineList } from '~utils/formatting';
 import { renderType, renderTypeName } from './UtilityTypes.utils';
 import { UTILITY_TYPE } from './UtilityTypes.types';
+import { NOTE_TYPE, Note } from '~components/common/Note';
 
 export const UtilityTypes = forwardRef<HTMLDivElement>(({}, ref) => {
   const userTypeExampleCode = `type User = {
@@ -110,15 +111,14 @@ const publicUser: PublicUser = {
   name: "dtsiki",
 };`;
 
-  const recordExampleCode = `type PetInfo = {
-  age: number;
-  breed: string;
-}
+  const recordExampleCode = `type Roles = 'admin' | 'user' | 'guest';
+type Permissions = Record<Roles, string[]>;
+// { admin: string[]; user: string[]; guest: string[] }
 
-const myPets: Record<string, PetInfo> = {
-  "Kesha": { age: 5, breed: "Pembroke Welsh Corgi" },
-  "Lucky": { age: 3, breed: "Mixed Breed Cat" },
-  "Smoke": { age: 16, breed: "Mixed Breed Cat" },
+const p: Permissions = {
+  admin: ['read', 'write'],
+  user: ['read'],
+  guest: [],
 };`;
 
   const excludeExampleCode = `type All = 'a' | 'b' | 'c' | 'd';
@@ -161,15 +161,19 @@ function createUser(...args: UserParams) {
   return new User(...args);
 }`;
 
-  const awaitedExampleCode = `async function fetchUser(): Promise<{ id: number; name: string; isAwesome: boolean }> {
-  return { id: 42, name: 'dtsiki', isAwesome: true };
+  const awaitedExampleCode = `type A = Awaited<Promise<string>>;  // string
+type B = Awaited<Promise<number>>;  // number
+type C = Awaited<string>;           // string: не промис — вернёт как есть
+type D = Awaited<number>;           // number: не промис — вернёт как есть`;
+
+  const awaitedInnerPromiseExampleCode = `type E = Awaited<Promise<Promise<number>>>; // number`;
+
+  const awaitedFunctionExampleCode = `async function fetchUser() {
+  return { id: 42, name: 'dtsiki' };
 }
 
-// Обычный тип функции: () => Promise<{ id: number; name: string; isAwesome: boolean  }>
-type UserFunctionReturnType = ReturnType<typeof fetchUser>;
-
-// Распакованный тип: { id: number; name: string; isAwesome: boolean  }
-type User = Awaited<UserFunctionReturnType>;`;
+type User = Awaited<ReturnType<typeof fetchUser>>;
+// type User = { id: number; name: string; }`;
 
   const pickPlusPartialTypeExampleCode = `type User = {
   id: number;
@@ -362,7 +366,7 @@ type PartialRequiredUser = {
       <section className='section inner'>
         <h3>{renderTypeName(UTILITY_TYPE.RECORD)}</h3>
         <p>
-          {renderType(UTILITY_TYPE.RECORD)} создает новый объект, где ключи имеют тип <InlineCode>K</InlineCode>, а
+          {renderType(UTILITY_TYPE.RECORD)} создаёт новый объект, где ключи имеют тип <InlineCode>K</InlineCode>, а
           значения {LONG_DASH} тип <InlineCode>T</InlineCode>:
         </p>
         <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={recordExampleCode} />
@@ -444,15 +448,18 @@ type PartialRequiredUser = {
       <section className='section inner'>
         <h3>{renderTypeName(UTILITY_TYPE.AWAITED)}</h3>
         <p>
-          {renderType(UTILITY_TYPE.AWAITED)} {LONG_DASH} специальная утилиты для работы с промисами, которая
-          разворачивает (распаковывает) тип <InlineCode>Promise</InlineCode>, возвращая тип, который находится внутри
-          него:
+          {renderType(UTILITY_TYPE.AWAITED)} {LONG_DASH} специальный встроенный тип для работы с промисами.{' '}
+          {renderType(UTILITY_TYPE.AWAITED)} разворачивает или распаковывает промис, возвращая тип, который находится
+          внутри него:
         </p>
         <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={awaitedExampleCode} />
+        <p>{renderTypeName(UTILITY_TYPE.AWAITED)} может рекурсивно разворачивать вложенные промисы:</p>
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={awaitedInnerPromiseExampleCode} />
         <p>
           Самый частый сценарий использования {LONG_DASH} получение типа возвращаемого значения из асинхронных функций в
-          сочетании с <InlineCode>ReturnType</InlineCode>.
+          сочетании с <InlineCode>ReturnType</InlineCode>:
         </p>
+        <CodeSnippet lang={CODE_LANG.TYPESCRIPT} code={awaitedFunctionExampleCode} />
       </section>
       <section className='section inner'>
         <h3>Комбинация встроенных типов</h3>

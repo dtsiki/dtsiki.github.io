@@ -25,6 +25,7 @@ export enum EBlogPostRecord {
   PROMISES = 'PROMISES',
   PROMISES_COLLECTION = 'PROMISES_COLLECTION',
   SUMMER_READING_LIST = 'SUMMER_READING_LIST',
+  HOW_TO_FIND_A_JOB = 'HOW_TO_FIND_A_JOB',
 }
 
 export const POSTS_CONFIG_: Record<string, TPostConfig> = {
@@ -413,6 +414,19 @@ export const POSTS_CONFIG_: Record<string, TPostConfig> = {
     language: LANGUAGE.RU,
     meta: {
       description: 'Книжные итоги лета — что я читала в июне, июле и августе',
+    },
+    strictLanguage: true,
+  },
+  [EBlogPostRecord.HOW_TO_FIND_A_JOB]: {
+    id: EBlogPostRecord.HOW_TO_FIND_A_JOB,
+    title: 'Как найти работу в 2026 году',
+    highlight: 'Честный гайд от человека, который тоже ищет.',
+    link: 'how-to-find-a-job',
+    category: EPostType.THOUGHTS,
+    createdAt: '29 oct 2026',
+    language: LANGUAGE.RU,
+    meta: {
+      description: 'Честный гайд от человека, который тоже ищет',
     },
     strictLanguage: true,
   },

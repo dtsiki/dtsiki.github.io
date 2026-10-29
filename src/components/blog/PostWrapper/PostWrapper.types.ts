@@ -48,4 +48,5 @@ export interface IPostProps {
   heroConfig?: TPostHero;
   customHero?: ReactNode;
   children: ReactNode;
+  hideHighlight?: boolean;
 }

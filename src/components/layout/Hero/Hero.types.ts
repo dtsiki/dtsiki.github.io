@@ -42,6 +42,7 @@ export enum EHeroPattern {
   DOUBLE_BUBBLE = 'DOUBLE_BUBBLE',
   CONFETTI = 'CONFETTI',
   ARCS = 'ARCS',
+  FACE_GRIN_ANGLED = 'FACE_GRIN_ANGLED',
 }
 
 export interface IHeroProps {

@@ -12,7 +12,7 @@ import { CodeSnippetProvider } from 'src/context/CodeSnippetContext/CodeSnippetP
 
 import styles from './PostWrapper.module.scss';
 
-export const PostWrapper = ({ postConfig, heroConfig, children }: IPostProps) => {
+export const PostWrapper = ({ postConfig, heroConfig, hideHighlight = false, children }: IPostProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { showNotification } = useNotifications();
   const { language } = useTranslate();
@@ -44,7 +44,9 @@ export const PostWrapper = ({ postConfig, heroConfig, children }: IPostProps) =>
     <div className={styles.post_wrapper}>
       {renderHero}
       <CodeSnippetProvider>
-        <PostContent postConfig={postConfig}>{children}</PostContent>
+        <PostContent postConfig={postConfig} hideHighlight={hideHighlight}>
+          {children}
+        </PostContent>
       </CodeSnippetProvider>
     </div>
   );

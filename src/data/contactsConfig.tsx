@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { ShareIcon, GitHubIcon, PlaneMiniIcon, MailIcon } from 'src/components/common/icons/ui';
+import { GitHubIcon, PlaneMiniIcon, MailIcon } from 'src/components/common/icons/ui';
+import { HHIcon } from '~components/common/icons/HH';
+import { HabrIcon } from '~components/common/icons/Habr';
 
 export enum EContactType {
   EMAIL = 'EMAIL',
@@ -48,9 +50,16 @@ export const CONTACTS_CONFIG: TContact[] = [
     type: EContactType.SOCIAL,
     title: 'Хабр.Карьера',
     icon: {
-      //svg: <HabrIcon />,
-      svg: <ShareIcon />,
+      svg: <HabrIcon />,
     },
     link: 'https://career.habr.com/thevioletmaniac',
+  },
+  {
+    type: EContactType.SOCIAL,
+    icon: {
+      svg: <HHIcon />,
+    },
+    title: 'Резюме на hh.ru',
+    link: 'https://omsk.hh.ru/resume/867658c5ff07dcfb470039ed1f56646b6b4733',
   },
 ];

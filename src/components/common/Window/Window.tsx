@@ -20,13 +20,13 @@ export const Window = (props: IWindowProps) => {
     fileTitle,
     children,
     pattern,
-    filesCount,
     isInverted = false,
     isPopUp = false,
     bodyBackground = EWindowBodyBackground.LIGHT,
     closeAction,
     isFocused = false,
     isMinimized = false,
+    isManuallyStatic = false,
     content,
     isRoot,
   } = props;
@@ -58,7 +58,8 @@ export const Window = (props: IWindowProps) => {
     type === EWindowType.SYSTEM ||
     type === EWindowType.IMAGE ||
     type === EWindowType.VIDEO ||
-    type === EWindowType.CUSTOM;
+    type === EWindowType.CUSTOM ||
+    isManuallyStatic;
 
   const windowStyles = useMemo(() => {
     return {
@@ -75,7 +76,7 @@ export const Window = (props: IWindowProps) => {
     }
 
     if (type === EWindowType.DOC_FILE) {
-      return <DocFile pages={content?.docPages} />;
+      return <DocFile pages={content?.docPages} height={isManuallyStatic ? 600 : undefined} />;
     }
 
     if (type === EWindowType.SLIDESHOW) {

@@ -6,4 +6,5 @@ export interface IPostContentProps {
   children: ReactNode;
   nextLink?: string;
   nextLinkLabel?: string;
+  hideHighlight?: boolean;
 }
